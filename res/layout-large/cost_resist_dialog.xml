@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="438dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="930dp"
+            android:layout_height="44dp" >
+
+            <Button
+                android:id="@+id/cost_close_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="운행비용등록"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginLeft="34dp"
+                android:gravity="bottom|left" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="기본정보"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="108dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="114dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="유종"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_input1_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="L당"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_input2_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/pay_multi"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="주유량"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_input3_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:paddingRight="10dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="114dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="유종"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <EditText
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="L당"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <EditText
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/pay_equal"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="주유금액"
+                        android:textColor="#fd2727"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_input4_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:paddingRight="10dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginLeft="34dp"
+                android:gravity="bottom|left" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="세차비/주차/통행요금"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="108dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="114dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="세차비"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_cost1_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                                                android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:paddingRight="10dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/pay_plus" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="주차비"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_cost2_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:background="@drawable/input_selector"
+                        android:paddingRight="10dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/pay_plus" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="통행요금"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_cost3_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:paddingRight="10dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="114dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="유종"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <EditText
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="L당"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <EditText
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/pay_equal" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="총요금"
+                        android:textColor="#fd2727"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cost_cost4_id"
+                        android:layout_width="158dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_e"
+                        android:paddingRight="10dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp" >
+
+            <Button
+                android:id="@+id/cost_save_id"
+                android:layout_width="270dp"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn01_selector"
+                android:shadowColor="#777777"
+                android:shadowDy="-1"
+                android:shadowRadius="1"
+                android:text="저장"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

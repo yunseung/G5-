@@ -1,0 +1,35 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    -->
+    
+    <dimen name="search_btn_width_small">160dp</dimen>
+    <dimen name="search_btn_width">228dp</dimen>
+	
+    <!-- 총 가로 사이즈 -->
+    <dimen name="pop_max_width">1060dp</dimen>
+    
+    <dimen name="pop_txt_width">130dp</dimen>
+    <dimen name="pop_txt_width2">154dp</dimen>
+    <dimen name="pop_txt_width3">144dp</dimen>
+    
+    <dimen name="et_width">294dp</dimen>
+    <dimen name="et_width_full">779dp</dimen>
+    
+    <!--사이 마진 -->
+    <dimen name="cmp_margin">43dp</dimen>
+    
+	<dimen name="pop_btn_width">200dp</dimen>
+	<dimen name="pop_btn_width2">254dp</dimen>
+	<dimen name="pop_btn_width_harf">440dp</dimen>
+	<dimen name="pop_btn_width_double">540dp</dimen>
+	
+	<dimen name="pop_txt_size">18sp</dimen>
+	<dimen name="pop_txt_size2">16sp</dimen>
+	<dimen name="pop_txt_size3">24sp</dimen>
+	<dimen name="pop_txt_size4">22sp</dimen>
+	
+	<dimen name="delete_search_height">51px</dimen>
+</resources>

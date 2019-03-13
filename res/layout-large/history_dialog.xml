@@ -1,0 +1,1256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="1060dp"
+        android:layout_height="672dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+
+            <Button
+                android:id="@+id/history_dialog_close_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="이력조회"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/tab_bg" >
+
+            <RadioGroup
+                android:id="@+id/history_tab_rg_id"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="42dp"
+                    android:scaleType="matrix"
+                    android:src="@drawable/tab_partition" />
+
+                <RadioButton
+                    android:id="@+id/history_tab1_rb_id"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radio_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="정비이력"
+                    android:textColor="#cccccc"
+                    android:textSize="17sp" />
+
+                <RadioButton
+                    android:id="@+id/history_tab2_rb_id"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radio_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="타이어교체"
+                    android:textColor="#cccccc"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="matrix"
+                    android:src="@drawable/tab_partition" />
+
+                <RadioButton
+                    android:id="@+id/history_tab3_rb_id"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radio_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="이관이력"
+                    android:textColor="#cccccc"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="matrix"
+                    android:src="@drawable/tab_partition" />
+
+                <RadioButton
+                    android:id="@+id/history_tab4_rb_id"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radio_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="고객컨텍이력"
+                    android:textColor="#cccccc"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="matrix"
+                    android:src="@drawable/tab_partition" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp" >
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="80dp"
+                    android:layout_height="36dp"
+                    android:gravity="right|center_vertical"
+                    android:text="차량번호"
+                    android:textColor="#cccccc"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/history_carnum_id"
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/history_search_id"
+                    android:layout_width="150dp"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="6dp"
+                    android:background="@drawable/btn01_selector"
+                    android:shadowColor="#777777"
+                    android:shadowDy="-1"
+                    android:shadowRadius="1"
+                    android:text="조회"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#f4f1ed"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/pop_padding"
+                android:paddingRight="@dimen/pop_padding"
+                android:weightSum="2" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="고객명"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/history_name_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="10dp"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="135dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="모델명"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/history_model_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="10dp"
+                        android:textColor="#555555"
+                        android:textSize="@dimen/pop_txt_size2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#cccccc" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/history_tab1_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="456dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/left_bg"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:visibility="gone" >
+
+                            <Button
+                                android:layout_width="142dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="14dp"
+                                android:background="@drawable/dropdown_selector"
+                                android:gravity="left|center_vertical"
+                                android:text="3개월"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:layout_width="80dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="6dp"
+                                android:background="@drawable/btn01_selector"
+                                android:shadowColor="#777777"
+                                android:shadowDy="-1"
+                                android:shadowRadius="1"
+                                android:text="조회"
+                                android:textColor="#ffffff"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/imageView2"
+                            android:layout_width="258dp"
+                            android:layout_height="1dp"
+                            android:background="#cccccc"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" >
+
+                            <ListView
+                                android:id="@+id/history_maintenance_left_list_id"
+                                android:layout_width="258dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/left_list_empty"
+                                android:divider="@null" >
+                            </ListView>
+
+                            <ImageView
+                                android:id="@+id/list_nodata_id1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/nodata" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="22dp" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="접수번호"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_aufnr_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="주행거리"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_incml_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="9dp" >
+
+                                <TextView
+                                    android:layout_width="@dimen/pop_txt_width"
+                                    android:layout_height="match_parent"
+                                    android:gravity="right|center_vertical"
+                                    android:text="정비업체"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/history_lifnrnm_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="left|center_vertical"
+                                    android:paddingLeft="11dp"
+                                    android:paddingRight="11dp"
+                                    android:text=""
+                                    android:textColor="#333333"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="9dp" >
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true" >
+
+                                    <TextView
+                                        android:id="@+id/textView5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="사고: "
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_dialog_title1_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="건"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="14dp"
+                                        android:layout_marginRight="14dp"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/partition" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="일반: "
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_dialog_title2_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="건"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="14dp"
+                                        android:layout_marginRight="14dp"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/partition" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="순회: "
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_dialog_title3_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="건"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="14dp"
+                                        android:layout_marginRight="14dp"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/partition" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="긴급: "
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_dialog_title4_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="건"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="14dp"
+                                        android:layout_marginRight="14dp"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/partition" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="타이어: "
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_dialog_title5_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="건"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="13dp" >
+
+                                <ListView
+                                    android:id="@+id/history_maintenance_detail_list_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/table_bg"
+                                    android:divider="@null"
+                                    android:paddingBottom="4dp"
+                                    android:paddingTop="31dp" >
+                                </ListView>
+
+                                <ImageView
+                                    android:id="@+id/list_nodata_id2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/nodata" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/table_top"
+                                    android:gravity="center_vertical" >
+
+                                    <TextView
+                                        android:layout_width="250dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="14dp"
+                                        android:gravity="center"
+                                        android:text="자재그룹"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        android:layout_width="250dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="세부항목"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:paddingLeft="12dp"
+                                        android:paddingRight="12dp"
+                                        android:text="교체수량"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/history_tab2_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="456dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/left_bg" >
+
+                        <ListView
+                            android:id="@+id/history_tire_list_id"
+                            android:layout_width="258dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/left_list_empty"
+                            android:divider="@null" >
+                        </ListView>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#f4f1ed"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="22dp" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="81dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginTop="146dp"
+                            android:background="@drawable/table_bg" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="31dp"
+                                    android:background="@drawable/table_top"
+                                    android:gravity="center_vertical"
+                                    android:weightSum="7" >
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="앞(좌)"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="앞(우)"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="뒤(좌)"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="뒤(우)"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="뒤2(좌)"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="뒤2(우)"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="스페어"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/inventory_search_list_title_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:weightSum="7" >
+
+                                    <TextView
+                                        android:id="@+id/history_front_left_id"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:id="@+id/history_front_right_id"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:id="@+id/history_rear1_left_id"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:id="@+id/history_rear1_right_id"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:id="@+id/history_rear2_left_id"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:id="@+id/history_rear2_right_id"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="3dp"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/table_partition" />
+
+                                    <TextView
+                                        android:id="@+id/history_spare_id"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/customer_basic_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp" >
+
+                                <TextView
+                                    android:layout_width="@dimen/pop_txt_width"
+                                    android:layout_height="match_parent"
+                                    android:gravity="right|center_vertical"
+                                    android:text="타이어 사이즈"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/history_tiresize_front_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="left|center_vertical"
+                                    android:paddingLeft="11dp"
+                                    android:paddingRight="11dp"
+                                    android:text=""
+                                    android:textColor="#333333"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="9dp"
+                                android:orientation="horizontal"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="접수번호"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_tire_receipt_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="주행거리"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_tire_mileage_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="9dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="교체수량"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/history_tire_change_num_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/history_tab3_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="456dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="20dp" >
+
+                        <ListView
+                            android:id="@+id/history_dialog_transfer_list_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="536dp"
+                            android:background="@drawable/table_bg"
+                            android:divider="@null"
+                            android:listSelector="@drawable/table_list_s"
+                            android:paddingBottom="4dp"
+                            android:paddingTop="31dp" >
+                        </ListView>
+
+                        <ImageView
+                            android:id="@+id/list_nodata_id3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/nodata" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="31dp"
+                            android:background="@drawable/table_top"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:text="이관상태"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:text="이관요청자"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:text="이관요청일시"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:text="승인/반려자"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:text="승인반려일시"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/history_tab4_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="456dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp" >
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="230dp"
+                            android:layout_height="31dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="34dp"
+                            android:layout_marginTop="18dp"
+                            android:gravity="bottom"
+                            android:text="고객 컨텍이력"
+                            android:textColor="#555555"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp" >
+
+                        <ListView
+                            android:id="@+id/history_dialog_calllog_list_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="536dp"
+                            android:background="@drawable/table_bg"
+                            android:divider="@null"
+                            android:listSelector="@drawable/table_list_s"
+                            android:paddingBottom="4dp"
+                            android:paddingTop="31dp" >
+                        </ListView>
+
+                        <ImageView
+                            android:id="@+id/list_nodata_id4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/nodata" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="31dp"
+                            android:background="@drawable/table_top"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="251dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:text="날짜"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="251dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:text="시간"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="251dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:text="구분"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="251dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:text="전화번호"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#cccccc" >
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp" >
+
+            <Button
+                android:id="@+id/history_done_id"
+                android:layout_width="270dp"
+                android:layout_height="36dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/btn05_selector"
+                android:text="확인"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

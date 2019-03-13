@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="@dimen/pop_max_width"
+        android:layout_height="518dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+
+            <Button
+                android:id="@+id/address_change_close_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="순회정비 주소 변경 등록"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="bottom|left" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/blit02" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="주소 변경 대상 고객 정보"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="148dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="@dimen/pop_txt_width2"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="13dp"
+                            android:gravity="right|center_vertical"
+                            android:text="고객차량번호"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/address_change_carnum_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/input01_d"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="@dimen/pop_txt_width2"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="39dp"
+                            android:gravity="right|center_vertical"
+                            android:text="고객명"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/address_change_num_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/input01_d"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="@dimen/pop_txt_width2"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="13dp"
+                            android:gravity="right|center_vertical"
+                            android:text="운전자명"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/address_change_name1_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/input01_d"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="@dimen/pop_txt_width2"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="39dp"
+                            android:gravity="right|center_vertical"
+                            android:text="운전자연락처"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/address_change_name2_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/input01_d"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="@dimen/pop_txt_width2"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="13dp"
+                        android:gravity="right|center_vertical"
+                        android:text="변경 전 주소"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/address_change_addr1_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="bottom|left" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/blit02" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="소재지 변경 정보"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="148dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="@dimen/pop_txt_width2"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="13dp"
+                            android:gravity="right|center_vertical"
+                            android:text="운전자명"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/address_change2_name_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/input01"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="@dimen/pop_txt_width2"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="39dp"
+                            android:gravity="right|center_vertical"
+                            android:text="운전자 연락처"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/address_change2_phone_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/input01"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="@dimen/pop_txt_width2"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="13dp"
+                        android:gravity="right|center_vertical"
+                        android:text="변경 후 주소"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/address_change2_addr1_id"
+                        android:layout_width="148dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/btn_search01_selector"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/address_change2_addr2_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="@dimen/pop_txt_width2"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="13dp"
+                        android:gravity="right|center_vertical"
+                        android:text="변경 후 MOT"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/address_change2_mot1_id"
+                        android:layout_width="148dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/address_change2_mot2_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp" >
+
+            <Button
+                android:id="@+id/address_change_save_id"
+                android:layout_width="270dp"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn01_selector"
+                android:text="확인"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

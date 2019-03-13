@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg_pattern"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/login_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="44dp"
+        android:text="롯데렌탈 차량관리 모바일 시스템"
+        android:textColor="#111111"
+        android:textSize="32sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Global Top 5 From Innovation Value Engine"
+        android:textColor="#413938"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="328dp"
+        android:layout_height="41dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/login_id"
+        android:hint="@string/login_id_hint"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:paddingLeft="35dp"
+        android:paddingRight="10dp"
+        android:textColor="#333333"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_pw"
+        android:layout_width="328dp"
+        android:layout_height="41dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/login_pw"
+        android:hint="@string/login_pw_hint"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:paddingLeft="35dp"
+        android:paddingRight="10dp"
+        android:textColor="#333333"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/cb_save"
+        android:layout_width="328dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="7dp"
+        android:button="@drawable/login_cb_selector"
+        android:gravity="center_vertical"
+        android:text="아이디 (등록번호) 저장"
+        android:textColor="#555555"/>
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="로그인"
+        android:textColor="#ffffff"
+        android:textSize="22sp" />
+
+    <!-- 리어설 기간 종료 텍스트 삽입 -->
+    <!--     <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="195dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="리허설 기간이 종료되었습니다. \n12월 6일(금) ERP오픈 후 사용하실 수 있습니다."
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="32sp"  />
+    -->
+
+    <TextView
+        android:id="@+id/tv_app_version"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="23dp"
+        android:text="COPYRIGHT ⓒ 2013 LOTTE RENTAL CO.,LTD. ALL RIGHTS RESERVED. (App Ver:1.004)"
+        android:textColor="#888888"
+        android:textSize="14sp" />
+
+</LinearLayout>

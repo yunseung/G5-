@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	<!--  카메라 프리뷰 -->
+    <com.pace.license.view.CarNumberPlateSearchView
+        android:id="@+id/aabbcc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+		<!-- 인식 결과 표시 리스트 뷰 -->
+        <ListView
+            android:id="@+id/btnCamList"
+            android:layout_width="90dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:background="#ffffff"
+            android:cacheColorHint="#00000000" />
+    </RelativeLayout>
+
+</FrameLayout>

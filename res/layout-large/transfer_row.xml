@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp" >
+
+    <LinearLayout
+        android:id="@+id/ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/table_list_n"
+        android:orientation="horizontal"
+        
+         >
+
+        <FrameLayout android:layout_marginLeft="14dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50" >
+
+            <ImageView
+                android:id="@+id/iv_check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/check_off" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_carnum"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="100"
+            android:gravity="center"
+            android:text="차량번호"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+
+        <TextView android:layout_marginRight="10dp"
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="202"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="14dp"
+            android:text="고객명"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

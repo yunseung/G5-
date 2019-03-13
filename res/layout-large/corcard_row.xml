@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:paddingLeft="14dp"
+    android:paddingRight="14dp">
+
+	<ImageView
+		android:id="@+id/iv_check"
+		android:layout_width="50dp"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_gravity="center_vertical"
+		android:src="@drawable/check_off"/>
+
+	<LinearLayout
+		android:id="@+id/ll_root"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:onClick="true">
+       
+		<TextView
+			android:id="@+id/tvUSETYPENM"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvSTATNM"
+			android:layout_width="130dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="승인구분"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvORGL_PERM_DT"
+			android:layout_width="75dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="사용일자"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvBUY_PTM"
+			android:layout_width="75dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="사용시간"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvPERM_SAM"
+			android:layout_width="125dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="사용금액"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvDOCNAM"
+			android:layout_width="125dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="계정유형"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvSGTXT"
+			android:layout_width="130dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="사용목적"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvBT_NM"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="업종명"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvTRE_FRAN"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="거래처"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<!--android:id="@+id/tvSTATNM"-->
+		<TextView
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="점검구분"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<!--android:id="@+id/tvSTATNM"-->
+		<TextView
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="점검사유"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+
+		<TextView
+			android:id="@+id/tvORGL_PERM_NO"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="승인번호"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvTAXTN_TY"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="과세유형"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvFRAN_ADDR"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="주소"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvSKTEXT"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="소유자부서"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvSENAME"
+			android:layout_width="100dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="소유자"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+
+		<TextView
+			android:id="@+id/tvCHG_SALE_AMT"
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="공급가"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+
+		<TextView
+			android:id="@+id/tvCHG_STAX"
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="부가세"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvELC_BUY_DT"
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="전표일자"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvBELNR"
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="번호"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvCARDKINDNM"
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="카드구분"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<!--android:id="@+id/tvSTATNM"-->
+		<TextView
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="카드사"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<TextView
+			android:id="@+id/tvDOCSTATNM"
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="전표상태"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<!--android:id="@+id/tvSTATNM"-->
+		<TextView
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="부서"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+
+		<!--android:id="@+id/tvSTATNM"-->
+		<TextView
+			android:layout_width="200dp"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="사원"
+			android:textColor="#333333"
+			android:textSize="15sp" />
+	</LinearLayout>
+</LinearLayout>

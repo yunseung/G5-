@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ktrental.ui.CustomDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl_handle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!--
+         As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions.
+    -->
+
+    <com.ktrental.ui.ContentLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff" >
+    </com.ktrental.ui.ContentLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@drawable/menu_2depth_bg"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="14dip"
+            android:src="@drawable/menu_2depth_list_start" />
+
+        <ListView
+            android:id="@+id/lv_menu"
+            android:layout_width="190dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:listSelector="@android:color/transparent" >
+        </ListView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_2depth_list_end" />
+    </LinearLayout>
+
+</com.ktrental.ui.CustomDrawerLayout>

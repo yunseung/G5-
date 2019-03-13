@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            android:id="@+id/maintenance_return_title_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="정비부품 입고관리"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/right_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:background="@drawable/inquiry_bg" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_centerVertical="true" >
+
+                    <TextView
+                        android:layout_width="78dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:gravity="right"
+                        android:text="출고일자"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/inventory_maintenance_datepick1_id"
+                        android:layout_width="128dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                        android:text="2013.07.01"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="18dp"
+                        android:layout_height="wrap_content"
+                        android:text=" ~ "
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/inventory_maintenance_datepick2_id"
+                        android:layout_width="128dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                        android:text="2013-07-31"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="78dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="right"
+                        android:text="자재그룹"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/inventory_maintenance_group_popup_id"
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                        android:text="전체"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="78dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="right"
+                        android:text="진행상태"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/inventory_maintenance_progress_popup_id"
+                        android:layout_width="108dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                        android:text="출고완료"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/inventory_maintenance_parts_getlist_id"
+                    android:layout_width="131dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/search_btn_selector"
+                    android:shadowColor="#b36f56"
+                    android:shadowDy="-1"
+                    android:shadowRadius="-1"
+                    android:text="조회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical" >
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blit02" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="정비부품 발주내역"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="526" >
+
+                    <ListView
+                        android:id="@+id/inventory_maintenance_parts_list_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_bg"
+                        android:divider="@null"
+                        android:listSelector="@null"
+                        android:paddingBottom="4dp"
+                        android:paddingTop="31dp" >
+
+                    </ListView>
+
+                    <ImageView
+                        android:id="@+id/list_nodata_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/nodata" />
+
+                    <LinearLayout
+                        android:id="@+id/inventory_search_list_title_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:background="@drawable/table_top"
+                        android:gravity="center_vertical" >
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:gravity="center"
+                            android:text="선택"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="진행상태"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:maxLines="1"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:text="자재그룹"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="245dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:maxLines="1"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:text="부품명"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="단위"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="출고일자"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="출고수량"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="입고일자"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="입고수량"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:gravity="center"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:text="반송수량"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="171dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:maxLines="1"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:text="반송사유"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/inventory_maintenance_done_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="54"
+                    android:layout_alignParentBottom="true" >
+
+                    <Button
+                        android:id="@+id/inventory_maintenance_done_id"
+                        android:layout_width="272dp"
+                        android:layout_height="36dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/btn01_selector"
+                        android:text="입고완료"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

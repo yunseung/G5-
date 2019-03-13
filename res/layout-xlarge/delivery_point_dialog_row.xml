@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/row_back_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/table_list_selector"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="match_parent" >
+                   <CheckBox
+            android:id="@+id/row_id1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:button="@drawable/check_selector"
+            android:focusable="false"
+            android:gravity="center" />
+        </RelativeLayout>
+
+ 
+
+        <TextView
+            android:id="@+id/row_id2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="400"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/row_id3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="에어크리너류"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/row_id4"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="EA"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+         <TextView
+            android:id="@+id/row_id5"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="EA"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+          <TextView
+            android:id="@+id/row_id6"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="EA"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+          <TextView
+            android:id="@+id/row_id7"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="EA"
+            android:textColor="#555555"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

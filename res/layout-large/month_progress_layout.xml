@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_month_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="horizontal" >
+
+    <!-- 월간 정비 왼쪽 -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="511"
+        android:background="@drawable/left_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="486"
+            android:background="@drawable/cal_bg"
+            android:orientation="vertical" >
+
+            <!--
+                 <fragment android:id="@+id/fm_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="com.ktrental.fragment.CalendarFragment" />
+            -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="262"
+            android:background="@drawable/cal_view_bg"
+            android:orientation="horizontal" >
+
+            <com.ktrental.ui.Mam
+                android:id="@+id/graph_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="39dp"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="39dp"
+                android:layout_weight="184" >
+            </com.ktrental.ui.Mam>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="39dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="34dp"
+                android:layout_marginTop="39dp"
+                android:layout_weight="224"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/ll_circle_right"
+                    android:layout_weight="76"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="10" >
+                    </View>
+
+                    <TextView
+                        android:id="@+id/tv_month_complate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="28"
+                        android:drawableLeft="@drawable/circle_garph_dot01"
+                        android:gravity="center_vertical"
+                        android:text="0"
+                        android:textColor="#ff3424"
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_weight="20"
+                        android:gravity="center_vertical"
+                        android:text="처리"
+                        android:textColor="#777777"
+                        android:textSize="14dp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="4" >
+                    </View>
+
+                    <TextView
+                        android:id="@+id/tv_month_plan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="28"
+                        android:drawableLeft="@drawable/circle_garph_dot02"
+                        android:gravity="center_vertical"
+                        android:text="0"
+                        android:textColor="#333333"
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/maintenance_return_title_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_weight="20"
+                        android:gravity="center_vertical"
+                        android:text="계획"
+                        android:textColor="#777777"
+                        android:textSize="14dp" />
+
+                    <!--<View-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="0dp"-->
+                        <!--android:layout_weight="74" >-->
+                    <!--</View>-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_circle_right"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="148"
+                    android:background="@drawable/circle_graph_partition"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="13dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="48"
+                        android:gravity="center_vertical"
+                        android:text="0"
+                        android:textColor="#555555"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="28"
+                        android:gravity="center_vertical"
+                        android:text="미실시건"
+                        android:textColor="#777777"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_weight="48"
+                        android:gravity="center_vertical"
+                        android:text="0"
+                        android:textColor="#555555"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="28"
+                        android:gravity="center_vertical"
+                        android:text="장기미처리"
+                        android:textColor="#777777"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 월간 정비 오른쪽 -->
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="719" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <include layout="@layout/month_progress_header" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="656" >
+
+                <ListView
+                    android:id="@+id/lv_progress_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/iv_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/nodata"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/right_top_shadow" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/right_bottom_shadow" />
+            </FrameLayout>
+
+            <include layout="@layout/month_progress_footer" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+</LinearLayout>

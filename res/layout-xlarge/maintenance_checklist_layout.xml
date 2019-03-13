@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/common_title_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="381"
+            android:background="@drawable/left_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+                
+                 <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:text="순회차량"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_search_mtinvnr_mclf"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="7"
+                    android:background="@drawable/input01"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:textColor="#555555"
+                    android:textSize="16dp" >
+                </EditText>
+
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:text="고객명"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_search_kunnr_mclf"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="7"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:background="@drawable/input01"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:textColor="#555555"
+                    android:textSize="16dp" >
+                </EditText>
+
+            </LinearLayout>
+            
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:text="고객번호"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_search_kunnr_mclf"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="7"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#555555"
+                    android:textSize="16dp" >
+                </TextView>
+
+            </LinearLayout>
+            
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+
+                	<TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:text="완료일자"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btn_search_frdate_mclf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                        android:text="2013.07.01"
+                        android:textSize="16sp" />
+
+                    
+                    
+
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+
+                	<TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:visibility="invisible"
+                        android:text="출고일자"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=" ~ "
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="13sp" />
+
+
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+
+                	<TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:visibility="invisible"
+                        android:text="출고일자"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+
+
+                    
+                    <Button
+                        android:id="@+id/btn_search_todate_mclf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                        android:text="2013.07.01"
+                        android:textSize="16sp" />
+                    
+
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+                    
+                
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:text="고객차량"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+                    
+
+                <EditText
+                    android:id="@+id/et_search_invnr_mclf"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="7"
+                    android:background="@drawable/input01"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:textColor="#555555"
+                    android:textSize="16dp" >
+                </EditText>
+
+            </LinearLayout>
+            
+            
+            
+             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+                    
+                
+                <Button
+                    android:id="@+id/bt_search_mclf"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/search_btn_selector"
+                    android:shadowColor="#b36f56"
+                    android:shadowDy="-1"
+                    android:shadowRadius="-1"
+                    android:text="조회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            
+
+              <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="10" >
+                    
+                
+                <Button
+                    android:id="@+id/bt_search_tmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/search_btn_selector"
+                    android:shadowColor="#b36f56"
+                    android:visibility="gone"
+                    android:shadowDy="-1"
+                    android:shadowRadius="-1"
+                    android:text="조회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            
+             
+             
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="849"
+            android:orientation="vertical" >
+
+             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/notice_bg01"
+                android:gravity="center_vertical"
+                android:paddingLeft="28dp"
+                android:paddingRight="28dp"
+                android:orientation="horizontal"
+                >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blit02" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="순회정비차량점검표 리스트"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                
+             
+            <HorizontalScrollView
+                 android:id="@+id/horizontalScrollView123"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginBottom="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginRight="10dp"
+                 android:layout_marginTop="10dp" >
+                
+                 
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp" >
+
+                <ListView
+                    android:id="@+id/lv_mclf"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_bg"
+                    android:divider="@null"
+                    android:listSelector="@drawable/table_list_s"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="31dp" >
+                </ListView>
+
+                <ImageView
+                    android:id="@+id/list_nodata_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible"
+                    android:src="@drawable/nodata" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_top" >
+
+                    <TextView
+                        android:id="@+id/tv_mclf_list_1"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="54dp"
+                        android:gravity="center"
+                        android:text="정비접수번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_mclf_list_2"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="고객차량번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_mclf_list_3"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="긴급정비"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_mclf_list_4"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="실운전자"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                    
+                    
+                   <TextView
+                        android:id="@+id/tv_mclf_list_5"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="순회정비종료일"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                   
+                   <TextView
+                        android:id="@+id/tv_mclf_list_6"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="순회차량번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                   
+                   
+                   <TextView
+                        android:id="@+id/tv_mclf_list_7"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="고객명"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                   
+                   
+                   <TextView
+                        android:id="@+id/tv_mclf_list_8"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="순회주기명"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                   
+                   
+                   <TextView
+                        android:id="@+id/tv_mclf_list_9"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="처리자명"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                   
+                   
+                   <TextView
+                        android:id="@+id/tv_mclf_list_10"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="대여형태"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                   
+                   
+                   <TextView
+                        android:id="@+id/tv_mclf_list_11"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="진행상태"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                   
+                   
+                </LinearLayout>
+            </RelativeLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

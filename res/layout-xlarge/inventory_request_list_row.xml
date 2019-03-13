@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/inventory_request_list_back_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/inventory_request_list_row_id1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:src="@drawable/check_off"/>
+
+        <TextView
+            android:id="@+id/inventory_request_list_row_id2"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/inventory_request_list_row_id3"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="엔진오일"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#777777" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="BackButton" severity="warning" />
+    <issue id="EasterEgg" severity="warning" />
+    <issue id="FieldGetter" severity="warning" />
+    <issue id="HardcodedDebugMode" severity="ignore" />
+    <issue id="IconExpectedSize" severity="warning" />
+    <issue id="NewApi" severity="ignore" />
+    <issue id="NewerVersionAvailable" severity="warning" />
+    <issue id="SelectableText" severity="warning" />
+    <issue id="StopShip" severity="warning" />
+    <issue id="TypographyQuotes" severity="warning" />
+    <issue id="UnusedIds" severity="warning" />
+    <issue id="ValidFragment">
+        <ignore path="src/com/ktrental/fragment/CustomerSearchFragment.java" />
+    </issue>
+    <issue id="WrongCall" severity="ignore" />
+</lint>

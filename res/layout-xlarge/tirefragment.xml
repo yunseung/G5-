@@ -1,0 +1,1310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="타이어 신청"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/right_bg"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="258dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/left_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="16dp"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="차량번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp" >
+
+                        <TextView
+                            android:id="@+id/tire_carnum_id"
+                            android:layout_width="118dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="24dp"
+                            android:background="@drawable/input01"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/tire_search_id"
+                            android:layout_width="86dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="6dp"
+                            android:background="@drawable/search_btn_selector"
+                            android:shadowColor="#b36f56"
+                            android:shadowDy="-1"
+                            android:shadowRadius="-1"
+                            android:text="조회"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="계약자명"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tire_contractor_name1_id"
+                            android:layout_width="210dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/input01_d"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tire_contractor_name2_id"
+                            android:layout_width="86dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="6dp"
+                            android:background="@drawable/input01_d"
+                            android:gravity="left|center_vertical"
+                            android:textColor="#555555"
+                            android:textSize="16sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/search_padding"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:background="@drawable/left_list_top" >
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="24dp"
+                            android:paddingLeft="5dp"
+                            android:text="타이어정보"
+                            android:textColor="#555555" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/left_list_empty" >
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="스노우타이어"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tire_snowtire_id"
+                                android:layout_width="118dp"
+                                android:layout_height="36dp"
+                                android:background="@drawable/input01_d"
+                                android:gravity="left|center_vertical"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="일반타이어"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tire_normaltire_id"
+                                android:layout_width="118dp"
+                                android:layout_height="36dp"
+                                android:background="@drawable/input01_d"
+                                android:gravity="left|center_vertical"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+                            
+                            
+                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="유의업종"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tire_similar_id"
+                                android:layout_width="118dp"
+                                android:layout_height="36dp"
+                                android:background="@drawable/input01_d"
+                                android:gravity="left|center_vertical"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+                            
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="타이어사이즈"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:id="@+id/tire_tirecode1_id"
+                                    android:layout_width="118dp"
+                                    android:layout_height="36dp"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="left|center_vertical"
+                                    android:textColor="#555555"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/tire_tiremade1_id"
+                                    android:layout_width="86dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginLeft="6dp"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="left|center_vertical"
+                                    android:textColor="#555555"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp" >
+
+                                <TextView
+                                    android:id="@+id/tire_tirecode2_id"
+                                    android:layout_width="118dp"
+                                    android:layout_height="36dp"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="left|center_vertical"
+                                    android:textColor="#555555"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/tire_tiremade2_id"
+                                    android:layout_width="86dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginLeft="6dp"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="left|center_vertical"
+                                    android:textColor="#555555"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="스페어타이어"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tire_sparetire_id"
+                                android:layout_width="118dp"
+                                android:layout_height="36dp"
+                                android:background="@drawable/input01_d"
+                                android:gravity="left|center_vertical"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="보관장소"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tire_place_id"
+                                android:layout_width="118dp"
+                                android:layout_height="36dp"
+                                android:background="@drawable/input01_d"
+                                android:gravity="left|center_vertical"
+                                android:textColor="#555555"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/right_top_bg" >
+
+                    <Button
+                        android:id="@+id/tire_change_history_id"
+                        android:layout_width="151dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="6dp"
+                        android:background="@drawable/btn04_selector"
+                        android:text="타이어 교체 이력"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical" >
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="106dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="26dp"
+                            android:text="타이어구분"
+                            android:textSize="16sp" />
+
+                        <RadioGroup
+                            android:id="@+id/tire_rg_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/tire_rb_normal_id"
+                                android:layout_width="78dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:button="@drawable/radio_selector"
+                                android:checked="true"
+                                android:paddingLeft="6dp"
+                                android:text="일반"
+                                android:textColor="#333333"
+                                android:textSize="16sp" />
+
+                            <RadioButton
+                                android:id="@+id/tire_rb_snow_id"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:button="@drawable/radio_selector"
+                                android:paddingLeft="6dp"
+                                android:text="스노우"
+                                android:textColor="#333333"
+                                android:textSize="16sp" />
+                        </RadioGroup>
+
+                        <ImageView
+                            android:layout_width="2dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon" />
+
+                        <CheckBox
+                            android:id="@+id/tire_brandnew_id"
+                            android:layout_width="157dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="26dp"
+                            android:button="@drawable/check_selector"
+                            android:text="신규타이어여부"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <!--
+                        <CheckBox
+                            android:id="@+id/tire_emergency_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/check_selector"
+                            android:text="긴급여부"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+                        -->
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/right_top_shadow" >
+                </RelativeLayout>
+
+                <ScrollView
+                    android:id="@+id/scrollView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="0dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="54dp"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="bottom|left" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:src="@drawable/blit02" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="접수정보"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="189dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/table_bg"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" >
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="운전자명"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <EditText
+                                        android:id="@+id/tire_receiptor_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" >
+
+                                        <requestFocus />
+                                    </EditText>
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/cmp_margin"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:id="@+id/ImageView01"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="운전자 연락처"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tire_customer_num_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp" >
+
+                                    <TextView
+                                        android:layout_width="138dp"
+                                        android:layout_height="36dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="최종주행거리/일자"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/last_milease_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="right|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/cmp_margin"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:id="@+id/ImageView02"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:id="@+id/sdgsgs"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="현재 주행거리"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tire_mileage_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01"
+                                        android:gravity="right|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center_vertical" >
+
+                                    <TextView
+                                        android:layout_width="138dp"
+                                        android:layout_height="36dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="소재지주소"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/tire_address_id"
+                                        android:layout_width="@dimen/et_width_full"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp" >
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:id="@+id/ImageView03"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="고객요청"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <EditText
+                                        android:id="@+id/tire_customer_request_id"
+                                        android:layout_width="@dimen/et_width_full"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="54dp"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="bottom|left" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:src="@drawable/blit02" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="배송정보"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="271dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/table_bg"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" >
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center_vertical"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="배송구분"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <Button
+                                        android:id="@+id/tire_pm082_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/dropdown_selector"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/cmp_margin"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="출고요청일"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <Button
+                                        android:id="@+id/tire_releasedate_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/dropdown_selector"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp" >
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center_vertical"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="공급업체"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <Button
+                                        android:id="@+id/tire_provide_company_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/btn_search01_selector"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="138dp"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="43dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="공급업체연락처"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp"
+                                        android:visibility="gone" />
+
+                                    <TextView
+                                        android:id="@+id/tire_provide_company_phone_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp"
+                                        android:visibility="gone" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp" >
+
+                                    <TextView
+                                        android:layout_width="138dp"
+                                        android:layout_height="36dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="공급업체주소"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/tire_provide_company_address_id"
+                                        android:layout_width="779dp"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp" >
+
+                                    <LinearLayout
+                                        android:layout_width="138dp"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right" >
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="right|center_vertical"
+                                            android:layout_marginRight="5dp"
+                                            android:src="@drawable/text_point" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="36dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="인수자"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <Button
+                                        android:id="@+id/tire_acceptor_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/btn_search01_selector"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="138dp"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="@dimen/cmp_margin"
+                                        android:gravity="right|center_vertical"
+                                        android:text="인수자 연락처"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/tire_receiptor_phone_id"
+                                        android:layout_width="@dimen/et_width"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp" >
+
+                                    <TextView
+                                        android:layout_width="138dp"
+                                        android:layout_height="36dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="인수자주소"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <Button
+                                        android:id="@+id/tire_acceptor_zip_search_id"
+                                        android:layout_width="148dp"
+                                        android:layout_height="36dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/btn_search01_selector"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/tire_acceptor_address_id"
+                                        android:layout_width="621dp"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01_d"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp" >
+
+                                    <TextView
+                                        android:layout_width="138dp"
+                                        android:layout_height="36dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="특이사항"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:id="@+id/tire_acceptor_issue_id"
+                                        android:layout_width="@dimen/et_width_full"
+                                        android:layout_height="36dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/input01"
+                                        android:gravity="left|center_vertical"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="243dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical" >
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="54dp" >
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="10dp"
+                                        android:gravity="bottom|left" >
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:src="@drawable/blit02" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="타이어정보"
+                                            android:textColor="#555555"
+                                            android:textSize="18sp" />
+                                    </LinearLayout>
+
+                                    <CheckBox
+                                        android:id="@+id/tire_same_check_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_marginRight="16dp"
+                                        android:button="@drawable/check_selector"
+                                        android:text="앞뒤동일"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="189dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/table_bg"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical" >
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" >
+
+                                        <TextView
+                                            android:layout_width="138dp"
+                                            android:layout_height="36dp"
+                                            android:layout_marginLeft="9dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="최종/누적본"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:id="@+id/tire_cumlqty_cumtqty_id"
+                                            android:layout_width="@dimen/et_width"
+                                            android:layout_height="36dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@drawable/input01_d"
+                                            android:gravity="right|center_vertical"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp" >
+
+                                        <TextView
+                                            android:layout_width="138dp"
+                                            android:layout_height="36dp"
+                                            android:layout_marginLeft="9dp"
+                                            android:gravity="right|center_vertical"
+                                            android:text="교체일자/주행거리"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:id="@+id/tire_tchgdt_chgrun_id"
+                                            android:layout_width="@dimen/et_width"
+                                            android:layout_height="36dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@drawable/input01_d"
+                                            android:gravity="left|center_vertical"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp" >
+
+                                        <LinearLayout
+                                            android:layout_width="138dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="9dp"
+                                            android:gravity="right" >
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right|center_vertical"
+                                                android:layout_marginRight="5dp"
+                                                android:src="@drawable/text_point" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="36dp"
+                                                android:gravity="right|center_vertical"
+                                                android:text="타이어(앞)"
+                                                android:textColor="#555555"
+                                                android:textSize="16sp" />
+                                        </LinearLayout>
+
+                                        <Button
+                                            android:id="@+id/tire_search_front_id"
+                                            android:layout_width="@dimen/et_width"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@drawable/btn_search01_selector"
+                                            android:gravity="left|center_vertical"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp" >
+
+                                        <LinearLayout
+                                            android:layout_width="138dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="9dp"
+                                            android:gravity="right" >
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right|center_vertical"
+                                                android:layout_marginRight="5dp"
+                                                android:src="@drawable/text_point" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="36dp"
+                                                android:gravity="right|center_vertical"
+                                                android:text="타이어(뒤)"
+                                                android:textColor="#555555"
+                                                android:textSize="16sp" />
+                                        </LinearLayout>
+
+                                        <Button
+                                            android:id="@+id/tire_search_rear_id"
+                                            android:layout_width="@dimen/et_width"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@drawable/btn_search01_selector"
+                                            android:gravity="left|center_vertical"
+                                            android:textColor="#555555"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="243dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical" >
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="54dp" >
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="54dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:gravity="bottom|left" >
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:src="@drawable/blit02" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="타이어 선택"
+                                            android:textColor="#555555"
+                                            android:textSize="18sp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp" >
+
+                                        <TextView
+                                            android:id="@+id/tire_search_bon_id"
+                                            android:layout_width="53dp"
+                                            android:layout_height="31dp"
+                                            android:layout_marginRight="6dp"
+                                            android:background="@drawable/input01_d"
+                                            android:gravity="right|center_vertical"
+                                            android:text="본" />
+
+                                        <Button
+                                            android:id="@+id/tire_add_id"
+                                            android:layout_width="40dp"
+                                            android:layout_height="31dp"
+                                            android:background="@drawable/btn02_selector"
+                                            android:shadowColor="#777777"
+                                            android:shadowDy="-1"
+                                            android:shadowRadius="-1"
+                                            android:text="추가"
+                                            android:textColor="#ffffff" />
+
+                                        <Button
+                                            android:id="@+id/tire_delete_id"
+                                            android:layout_width="80dp"
+                                            android:layout_height="31dp"
+                                            android:layout_marginLeft="6dp"
+                                            android:background="@drawable/btn02_selector"
+                                            android:shadowColor="#777777"
+                                            android:shadowDy="-1"
+                                            android:shadowRadius="-1"
+                                            android:text="선택 삭제"
+                                            android:textColor="#ffffff" />
+                                    </LinearLayout>
+                                </RelativeLayout>
+
+                                <HorizontalScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="189dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp" >
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/table_bg" >
+
+                                        <ListView
+                                            android:id="@+id/tire_list_id"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:paddingBottom="4dp"
+                                            android:paddingTop="31dp" >
+                                        </ListView>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentTop="true"
+                                            android:background="@drawable/table_top"
+                                            android:gravity="center_vertical" >
+
+                                            <TextView
+                                                android:layout_width="50dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="14dp"
+                                                android:gravity="center"
+                                                android:text="선택"
+                                                android:textColor="#555555"
+                                                android:textSize="15sp" />
+
+                                            <TextView
+                                                android:layout_width="248dp"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="left"
+                                                android:paddingLeft="12dp"
+                                                android:paddingRight="12dp"
+                                                android:text="신청항목"
+                                                android:textColor="#555555"
+                                                android:textSize="15sp" />
+
+                                            <TextView
+                                                android:layout_width="68dp"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="편마모"
+                                                android:textColor="#555555"
+                                                android:textSize="15sp" />
+
+                                            <TextView
+                                                android:layout_width="82dp"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="사진첨부"
+                                                android:textColor="#555555"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+                                    </RelativeLayout>
+                                </HorizontalScrollView>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="54dp" >
+
+                            <Button
+                                android:id="@+id/tire_request_id"
+                                android:layout_width="272dp"
+                                android:layout_height="36dp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/btn01_selector"
+                                android:text="타이어 신청"
+                                android:textColor="#ffffff"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

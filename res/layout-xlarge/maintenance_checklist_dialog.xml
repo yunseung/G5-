@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="@dimen/pop_max_width"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/pop_padding"
+        android:layout_marginTop="@dimen/pop_padding"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+
+            <Button
+                android:id="@+id/bt_maintenance_checklist_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/title_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="순회차량정비 조회"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        
+         <LinearLayout
+                android:layout_width="900dp"
+                android:layout_height="630dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp" >
+            
+              
+               <Button
+                    android:id="@+id/bt_screencapture_checklist"
+                    android:layout_width="270dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/btn01_selector"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:text="캡쳐 후 메시지보내기"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+                
+              
+                
+                
+                <ScrollView 
+                    android:id="@+id/sv_maintenance_checklist"
+                    android:layout_width="match_parent"
+                	android:layout_height="match_parent">
+                
+                    
+                    <LinearLayout
+                        android:id="@+id/ll_maintenance_checklist" 
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <RelativeLayout 
+	                        android:id="@+id/rl_maintenance_checklist"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content">
+	                        
+	                        
+	                     	<ImageView 
+		                    	android:layout_width="match_parent"
+			                    android:layout_height="match_parent"
+			                    android:background="@drawable/maintenance_checklist"
+	                    		/>
+
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_invnr"
+	                     	    android:layout_width="120dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_alignParentTop="true"
+	                     	    android:layout_marginLeft="162dp"
+	                     	    android:layout_marginTop="115dp"
+	                     	    android:text="TextView" />
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_maktx"
+	                     	    android:layout_width="120dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_invnr"
+	                     	    android:layout_alignBottom="@+id/tv_invnr"
+	                     	    android:layout_marginLeft="148dp"
+	                     	    android:layout_toRightOf="@+id/tv_invnr"
+	                     	    android:textSize="9sp"
+	                     	    android:text="TextView" />
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_dlsm1"
+	                     	    android:layout_width="130dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_maktx"
+	                     	    android:layout_alignBottom="@+id/tv_maktx"
+	                     	    android:layout_alignParentRight="true"
+	                     	    android:layout_marginRight="35dp"
+	                     	    android:textSize="9sp"
+	                     	    android:text="TextView" />
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_incml"
+	                     	    android:layout_width="120dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_marginTop="4dp"
+	                     	    android:layout_alignLeft="@+id/tv_invnr"
+	                     	    android:layout_below="@+id/tv_invnr"
+	                     	    android:text="TextView" />
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_gstri"
+	                     	    android:layout_width="120dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_incml"
+	                     	    android:layout_alignBottom="@+id/tv_incml"
+	                     	    android:layout_alignLeft="@+id/tv_maktx"
+	                     	    android:text="TextView" />
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_sojae"
+	                     	    android:layout_width="120dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_gstri"
+	                     	    android:layout_alignBottom="@+id/tv_gstri"
+	                     	    android:layout_alignLeft="@+id/tv_dlsm1"
+	                     	    android:textSize="9sp"
+	                     	    android:text="TextView" />
+	                     	
+	                     	
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_good01"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_incml"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="65dp"
+	                     	    android:text="V" />
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg01"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good01"
+	                     	    android:layout_alignBottom="@+id/tv_good01"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good01"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty01"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg01"
+	                     	    android:layout_alignBottom="@+id/tv_excg01"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg01"
+	                     	    android:text="V" />
+	                     	
+	                     		
+	                     	
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_good02"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good01"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg02"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good02"
+	                     	    android:layout_alignBottom="@+id/tv_good02"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good02"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty02"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg02"
+	                     	    android:layout_alignBottom="@+id/tv_excg02"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg02"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good03"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good02"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg03"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good03"
+	                     	    android:layout_alignBottom="@+id/tv_good03"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good03"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty03"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg03"
+	                     	    android:layout_alignBottom="@+id/tv_excg03"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg03"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good04"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good03"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg04"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good04"
+	                     	    android:layout_alignBottom="@+id/tv_good04"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good04"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty04"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg04"
+	                     	    android:layout_alignBottom="@+id/tv_excg04"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg04"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good05"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good04"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg05"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good05"
+	                     	    android:layout_alignBottom="@+id/tv_good05"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good05"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty05"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg05"
+	                     	    android:layout_alignBottom="@+id/tv_excg05"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg05"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 브레이크 오일 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good06"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good05"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg06"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good06"
+	                     	    android:layout_alignBottom="@+id/tv_good06"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good06"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty06"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg06"
+	                     	    android:layout_alignBottom="@+id/tv_excg06"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg06"
+	                     	    android:text="V" />
+	                     	
+	                     	<!-- 전조등/안개등 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good07"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good06"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg07"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good07"
+	                     	    android:layout_alignBottom="@+id/tv_good07"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good07"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty07"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg07"
+	                     	    android:layout_alignBottom="@+id/tv_excg07"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg07"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 방향지시등/미등 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good08"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good07"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg08"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good08"
+	                     	    android:layout_alignBottom="@+id/tv_good08"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good08"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty08"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg08"
+	                     	    android:layout_alignBottom="@+id/tv_excg08"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg08"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 후진등/번호판등 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good09"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good08"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg09"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good09"
+	                     	    android:layout_alignBottom="@+id/tv_good09"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good09"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty09"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg09"
+	                     	    android:layout_alignBottom="@+id/tv_excg09"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg09"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	
+	                     	<!-- 브레이크등 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good10"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good09"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg10"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good10"
+	                     	    android:layout_alignBottom="@+id/tv_good10"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good10"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty10"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg10"
+	                     	    android:layout_alignBottom="@+id/tv_excg10"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg10"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 실내등 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good11"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good10"
+	                     	    android:layout_marginLeft="315dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg11"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good11"
+	                     	    android:layout_alignBottom="@+id/tv_good11"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good11"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty11"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg11"
+	                     	    android:layout_alignBottom="@+id/tv_excg11"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg11"
+	                     	    android:text="V" />
+
+	                     	
+	                     	
+	                     	<!-- 라이닝 점검(전/후) -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good12"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_below="@+id/tv_sojae"
+	                     	   	android:layout_toRightOf="@id/tv_outqty01"
+	                     	   	android:layout_marginLeft="285dp"
+	                     	    android:layout_marginTop="65dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg12"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good12"
+	                     	    android:layout_alignBottom="@+id/tv_good12"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good12"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty12"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg12"
+	                     	    android:layout_alignBottom="@+id/tv_excg12"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg12"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	
+	                     	<!-- 배터리 점검 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good13"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good12"
+	                     	    android:layout_marginLeft="715dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg13"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good13"
+	                     	    android:layout_alignBottom="@+id/tv_good13"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good13"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty13"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg13"
+	                     	    android:layout_alignBottom="@+id/tv_excg13"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg13"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	
+	                     	<!-- 실내크리너(향균) -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good14"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good13"
+	                     	    android:layout_marginLeft="715dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg14"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good14"
+	                     	    android:layout_alignBottom="@+id/tv_good14"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good14"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty14"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg14"
+	                     	    android:layout_alignBottom="@+id/tv_excg14"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg14"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<!-- 냉각수(부동액) -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good15"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good14"
+	                     	    android:layout_marginLeft="715dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg15"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good15"
+	                     	    android:layout_alignBottom="@+id/tv_good15"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good15"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty15"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg15"
+	                     	    android:layout_alignBottom="@+id/tv_excg15"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg15"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 워셔액 점검 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good16"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good15"
+	                     	    android:layout_marginLeft="715dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg16"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good16"
+	                     	    android:layout_alignBottom="@+id/tv_good16"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good16"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty16"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg16"
+	                     	    android:layout_alignBottom="@+id/tv_excg16"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg16"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 와이퍼(브러쉬) 점검 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good17"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good16"
+	                     	    android:layout_marginLeft="715dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg17"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good17"
+	                     	    android:layout_alignBottom="@+id/tv_good17"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good17"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty17"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg17"
+	                     	    android:layout_alignBottom="@+id/tv_excg17"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg17"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 에어컨/히터 점검 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good18"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good17"
+	                     	    android:layout_marginLeft="715dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg18"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good18"
+	                     	    android:layout_alignBottom="@+id/tv_good18"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good18"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty18"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg18"
+	                     	    android:layout_alignBottom="@+id/tv_excg18"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg18"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<!-- 타이어마모/공기압 점검 -->
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_good19"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_good18"
+	                     	    android:layout_marginLeft="715dp"
+	                     	    android:layout_marginTop="7dp"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_excg19"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_good19"
+	                     	    android:layout_alignBottom="@+id/tv_good19"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_good19"
+	                     	    android:text="V" />
+	                     	
+	                     	
+	                     	
+	                     	<TextView
+	                     	    android:id="@+id/tv_outqty19"
+	                     	    android:layout_width="15dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_excg19"
+	                     	    android:layout_alignBottom="@+id/tv_excg19"
+	                     	    android:layout_marginLeft="35dp"
+	                     	    android:layout_toRightOf="@+id/tv_excg19"
+	                     	    android:text="V" />
+
+	                     	<EditText
+	                     	    android:id="@+id/et_ccmbi"
+	                     	    android:layout_width="wrap_content"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignLeft="@+id/tv_good11"
+	                     	    android:layout_alignRight="@+id/tv_outqty19"
+	                     	    android:layout_below="@+id/tv_good11"
+	                     	    android:layout_marginTop="15dp"
+	                     	    android:enabled="false"
+	                     	    android:clickable="false"
+	                     	    android:singleLine="false"
+	                     	    android:text="" />
+
+	                     	<ImageView
+	                     	    android:id="@+id/iv_sign"
+	                     	    android:layout_width="100dp"
+	                     	    android:layout_height="100dp"
+	                     	    android:layout_alignParentLeft="true"
+	                     	    android:layout_below="@+id/tv_usrid"
+	                     	    android:layout_marginLeft="750dp"
+	                     	    android:layout_marginTop="20dp"
+	                     	     />
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_ename"
+	                     	    android:layout_width="130dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignRight="@+id/iv_sign"
+	                     	    android:layout_below="@+id/et_ccmbi"
+	                     	    android:layout_marginTop="135dp"
+	                     	    android:text="홍길동" />
+
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_alignRight="@+id/iv_sign"
+								android:layout_below="@+id/et_ccmbi"
+								android:layout_marginTop="50dp"
+								android:textColor="@color/contents_text"
+								android:textSize="17sp"
+								android:layout_marginRight="40dp"
+								android:text="순회정비 유의 사항 확인 " />
+
+
+
+							<ImageView
+								android:id="@+id/iv_confirm_check"
+								android:layout_width="wrap_content"
+								android:layout_height="50dp"
+								android:layout_alignRight="@+id/iv_sign"
+								android:layout_below="@+id/et_ccmbi"
+								android:layout_marginRight="10dp"
+								android:layout_marginTop="36dp"
+								android:src="@drawable/check_on" />
+
+
+	                     	<TextView
+	                     	    android:id="@+id/tv_usrid"
+	                     	    android:layout_width="130dp"
+	                     	    android:layout_height="wrap_content"
+	                     	    android:layout_alignBaseline="@+id/tv_ename"
+	                     	    android:layout_alignBottom="@+id/tv_ename"
+	                     	    android:layout_alignLeft="@+id/tv_excg11"
+	                     	    android:text="홍길동" />
+	                        
+	                    </RelativeLayout>
+                    
+                        
+                        
+                        
+                        
+                    </LinearLayout>
+                    
+                    
+                </ScrollView>
+                
+                
+
+         </LinearLayout>
+            
+        
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" 
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/lay_partstransfer_cars_btm"
+                android:layout_width="match_parent"
+                android:layout_height="52dp" 
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:id="@+id/partstransfer_car_search_done_id"
+                    android:layout_width="270dp"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btn01_selector"
+                    android:text="선택"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+           
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

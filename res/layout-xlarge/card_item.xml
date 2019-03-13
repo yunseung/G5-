@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_root"
+    android:layout_width="600dp"
+    android:layout_height="350dp"
+    android:background="@drawable/main_card_n" >
+
+    <LinearLayout
+        android:layout_width="466dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="69dp"
+        android:layout_marginRight="65dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp" >
+
+            <TextView
+                android:id="@+id/tv_carnum"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="12허8080"
+                android:textColor="#4a7b89"
+                android:textSize="41sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_period"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="11dp"
+                android:background="@drawable/main_card_period"
+                android:gravity="center"
+                android:text="장기"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_reoil"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="#00b3c3"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_car_name"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:gravity="center_vertical"
+            android:text="fjksafjdla"
+            android:textColor="#333333"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="홍길동"
+                android:textColor="#555555"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv_customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="우리은행"
+                android:textColor="#999999"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:text="fjksafjdla"
+            android:textColor="#555555"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_last_maintenance"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="15dp"
+            android:text="요청사항"
+            android:textColor="#555555"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_add"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#999999"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_vip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/main_card_vip" />
+
+    <LinearLayout
+        android:layout_width="56dp"
+        android:layout_height="176dp"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_card_call_selector" />
+
+        <Button
+            android:id="@+id/btn_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_card_sms_selector" />
+
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_card_map_selector" />
+        <!--
+        <Button
+            android:id="@+id/btn_arrive_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_arrive_map_selector" />
+        -->
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center" >
+
+    <RelativeLayout
+        android:layout_width="684dp"
+        android:layout_height="590dp"
+        android:focusableInTouchMode="true" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/popup_bg"
+            android:orientation="vertical"
+            android:padding="8dp" >
+
+            <include layout="@layout/common_dialog_title_layout" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="76dp"
+                android:background="@color/back_donan1"
+                android:gravity="center" >
+
+                <TextView
+                    style="@style/N_16dp_555555"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/car_number" />
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="160dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input01"
+                    android:ems="10"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:textColor="#555555"
+                    android:textSize="16dp" >
+
+                    <requestFocus />
+                </EditText>
+
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/N_16dp_555555"
+                    android:layout_width="125dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="@drawable/btn04_selector"
+                    android:text="@string/car_number1" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/N_16dp_FFFFFF"
+                    android:layout_width="150dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="@drawable/btn_ing01_selector"
+                    android:text="@string/inquire" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/line1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="26dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/N_20dp_555555"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:text="@string/title_donan2" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/table_bg"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/L_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="15dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_1"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_1"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/L_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_2"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_2"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/L_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_3"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_3"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/L_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_4"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_4"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/L_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_5"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_5"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/L_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_6"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_6"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/L_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_7"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_7"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/L_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/donan_input_heg"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/tv1_8"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="8"
+                            android:gravity="right|center_vertical"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tv2_8"
+                            style="@style/N_16dp_555555"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/input01_d"
+                            android:gravity="center_vertical"
+                            android:text="TextView" />
+                    </LinearLayout>
+                </LinearLayout>
+                
+                 <TextView
+                     style="@style/N_16dp_555555"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginLeft="13dp"
+                     android:layout_marginTop="10dp"
+                     android:text="@string/donan_msg1" />
+                 
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

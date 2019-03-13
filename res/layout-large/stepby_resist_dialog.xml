@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="1060dp"
+        android:layout_height="744dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+
+            <Button
+                android:id="@+id/stepby_close_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="경유지 등록"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/inquiry_bg"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/maintenance_date2_id"
+                    android:layout_width="130dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="38dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="경유지명"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/stepby_name_id"
+                    android:layout_width="256dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/input01"
+                    android:textSize="16sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="140dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="경유지도착일시"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/stepby_arrive_id"
+                    android:layout_width="256dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/btn_dd01_selector"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text=""
+                    android:textColor="#555555" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="38dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="경유사유"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/stepby_reason_id"
+                    android:layout_width="256dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/input01"
+                    android:hint=""
+                    android:textSize="16sp" >
+
+   
+                </EditText>
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="재출발일시"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/stepby_restart_id"
+                    android:layout_width="256dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/btn_dd01_selector"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text=""
+                    android:textColor="#555555" />
+            </LinearLayout>
+        </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/inquiry_bg"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="38dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="운전자명"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/stepby_driver_name_id"
+                    android:layout_width="256dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    
+                    android:background="@drawable/btn_dd01_selector"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text=""
+                    android:textColor="#555555" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="연락처"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+
+                
+                                <EditText
+                    android:id="@+id/stepby_driver_phone_id"
+                    android:layout_width="256dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/input_selector"
+                    android:layout_marginLeft="10dp"
+                    android:enabled="false"
+                    android:textSize="16sp" >
+                </EditText>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical" >
+
+                <Button
+                    android:id="@+id/stepby_save_id"
+                    android:layout_width="150dp"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="6dp"
+                    android:background="@drawable/btn_ing01_selector"
+                    android:gravity="center"
+                    android:shadowColor="#b36f56"
+                    android:shadowDy="-1"
+                    android:text="저장"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#cccccc" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" >
+
+            <ListView
+                android:id="@+id/stepby_listview_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/table_bg"
+                android:divider="@null"
+                android:listSelector="@drawable/table_list_s"
+                android:paddingBottom="4dp"
+                android:paddingTop="31dp" >
+            </ListView>
+
+            <ImageView
+                android:id="@+id/list_nodata_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/nodata" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:background="@drawable/table_top" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="60dp"
+                    android:gravity="center"
+                    android:text="경유지명"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="경유사유"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="경유지도착일시"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="재출발일시"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="운전자명"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="연락처"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

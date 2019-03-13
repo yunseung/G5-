@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/table_list_selector" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/inventory_maintenanceparts_order_row_id1"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:scaleType="center"
+            android:src="@drawable/check_off" />
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="2013.07.31"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id3"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="등화장치장장치"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id4"
+            android:layout_width="245dp"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="엔진오일엔진오일엔진오일엔"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id5"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="EA"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id6"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="2013.07.31"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id7"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="10"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id8"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="2013.07.31"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent" >
+        
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/input01"
+            android:gravity="center"
+            android:paddingBottom="7dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="7dp"
+            android:clickable="false"
+            android:enabled="false"
+            android:text="0"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+        
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/inventory_maintenanceparts_order_row_id10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:paddingBottom="7dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="7dp"
+                android:text="0"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/inventory_maintenanceparts_order_row_id11"
+            android:layout_width="171dp"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="제품불량"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

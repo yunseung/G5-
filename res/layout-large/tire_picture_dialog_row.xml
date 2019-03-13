@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/row_back_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/table_list_selector"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:focusable="false"
+                android:id="@+id/tire_picture_row_id1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:button="@drawable/check_selector"
+                android:gravity="right|center_vertical" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/table_partition" />
+
+
+        <TextView
+            android:id="@+id/tire_picture_row_id2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:text="타이어뒤2(좌)"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="172dp"
+            android:layout_height="match_parent" >
+
+            <RadioGroup
+                android:id="@+id/tire_picture_row_id3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/tire_picture_row_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:button="@drawable/radio_selector"
+                    android:checked="true"
+                    android:enabled="false"
+                    android:paddingStart="6dp"
+                    android:text="있음"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/tire_picture_row_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:button="@drawable/radio_d_selector"
+                    android:checked="true"
+                    android:enabled="false"
+                    android:paddingStart="6dp"
+                    android:text="없음"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/tire_picture_row_id4"
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/photo_thumbnail" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/list02_bg_n"
+        android:orientation="horizontal"
+        android:weightSum="9" >
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/check_off" />
+
+        <TextView
+            android:id="@+id/tv_item_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:layout_marginLeft="18dp"
+            android:gravity="center_vertical"
+            android:text="TextView"
+            android:textColor="#333333" />
+
+        <FrameLayout
+            android:id="@+id/fl_consumption"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.ktrental.ui.PopupWindowTextView
+                android:id="@+id/tv_item_consumption"
+                android:layout_width="40dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:background="@drawable/input01"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1"
+                android:textColor="#333333" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_item_stock"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="3dp"
+            android:text="TextView"
+            android:textColor="#333333" />
+    </LinearLayout>
+
+</LinearLayout>

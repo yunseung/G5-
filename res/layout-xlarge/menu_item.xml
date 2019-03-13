@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="50dp"
+    android:background="@drawable/menu_selector"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="fdsfdsfdsfds"
+        android:textColor="@drawable/menu_text_color_selector"
+        android:textSize="18dp" />
+
+</RelativeLayout>

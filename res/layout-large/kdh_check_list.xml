@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:focusableInTouchMode="true" >
+
+            <LinearLayout
+                android:layout_width="880dp"
+                android:layout_height="630dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/popup_bg"
+                android:orientation="vertical"
+                android:padding="8dp" >
+
+                <include layout="@layout/common_dialog_title_layout" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="76dp"
+                    android:background="@color/back_donan1"
+                    android:gravity="left|center" >
+
+                    <TextView
+                        style="@style/N_16dp_555555"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_18"
+                        android:text="@string/repeir_orderno" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="160dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="@dimen/margin_12"
+                        android:background="@drawable/input01"
+                        android:gravity="center_vertical"
+                        android:inputType="text"
+                        android:textColor="#555555"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="13dp"
+                        android:background="@drawable/table_bg"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_15"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:id="@+id/L_1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_weight="1"
+                                android:paddingLeft="10dp" >
+
+                                <TextView
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="8"
+                                    android:gravity="right|center_vertical"
+                                    android:text="@string/car_number" />
+
+                                <TextView
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_weight="2"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="center_vertical"
+                                    android:text="" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/L_2"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_marginRight="30dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp" >
+
+                                <TextView
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="8"
+                                    android:gravity="right|center_vertical"
+                                    android:text="@string/car_type_1" />
+
+                                <TextView
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_weight="2"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="center_vertical"
+                                    android:text="" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_15"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:id="@+id/L_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_weight="1"
+                                android:paddingLeft="10dp" >
+
+                                <TextView
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="8"
+                                    android:gravity="right|center_vertical"
+                                    android:text="@string/repaier_center" />
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_weight="2"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="center_vertical"
+                                    android:text="" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/L_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_marginRight="30dp"
+                                android:layout_weight="1"
+                                android:paddingLeft="10dp" >
+
+                                <TextView
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="8"
+                                    android:gravity="right|center_vertical"
+                                    android:text="@string/check_day" />
+
+                                <TextView
+                                    style="@style/N_16dp_555555"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_weight="2"
+                                    android:background="@drawable/input01_d"
+                                    android:gravity="center_vertical"
+                                    android:text="" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="13dp"
+                        android:background="@drawable/table_bg"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:id="@+id/L_check1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/N_16dp_555555"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="@dimen/margin_18"
+                                android:layout_weight="4"
+                                android:gravity="left|center_vertical"
+                                android:text="@string/car_number" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_weight="6"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp" >
+
+                                <RadioGroup
+                                    android:id="@+id/rg1"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="horizontal" >
+
+                                    <RadioButton
+                                        android:id="@+id/rd1"
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        android:id="@+id/rd2"
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        android:id="@+id/rd3"
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+                                </RadioGroup>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/line2" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/white" />
+
+                        <LinearLayout
+                            android:id="@+id/L_check2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/N_16dp_555555"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="@dimen/margin_18"
+                                android:layout_weight="4"
+                                android:gravity="left|center_vertical"
+                                android:text="@string/car_number" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_weight="6"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp" >
+
+                                <RadioGroup
+                                    android:id="@+id/rg2"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="horizontal" >
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+                                </RadioGroup>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/line2" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/white" />
+
+                        <LinearLayout
+                            android:id="@+id/L_check3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/N_16dp_555555"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="@dimen/margin_18"
+                                android:layout_weight="4"
+                                android:gravity="left|center_vertical"
+                                android:text="@string/car_number" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_weight="6"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp" >
+
+                                <RadioGroup
+                                    android:id="@+id/rg3"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="horizontal" >
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+                                </RadioGroup>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/line2" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/white" />
+
+                        <LinearLayout
+                            android:id="@+id/L_check4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/N_16dp_555555"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="@dimen/margin_18"
+                                android:layout_weight="4"
+                                android:gravity="left|center_vertical"
+                                android:text="@string/car_number" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_weight="6"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp" >
+
+                                <RadioGroup
+                                    android:id="@+id/rg4"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="horizontal" >
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+                                </RadioGroup>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/line2" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@color/white" />
+
+                        <LinearLayout
+                            android:id="@+id/L_check5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/N_16dp_555555"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="@dimen/margin_18"
+                                android:layout_weight="4"
+                                android:gravity="left|center_vertical"
+                                android:text="@string/car_number" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/donan_input_heg"
+                                android:layout_weight="6"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp" >
+
+                                <RadioGroup
+                                    android:id="@+id/rg5"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="horizontal" >
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+
+                                    <RadioButton
+                                        style="@style/N_16dp_555555"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_weight="1"
+                                        android:button="@drawable/radio_selector"
+                                        android:paddingStart="6dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp" />
+                                </RadioGroup>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/table_bg"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_15"
+                        android:layout_marginTop="@dimen/margin_15"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp" >
+
+                            <TextView
+                                style="@style/N_16dp_555555"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginRight="@dimen/margin_12"
+                                android:layout_weight="8"
+                                android:gravity="right|center_vertical"
+                                android:text="@string/etc" />
+
+                            <EditText
+                                android:id="@+id/editText2"
+                                android:layout_width="fill_parent"
+                                android:layout_height="70dp"
+                                android:layout_weight="2"
+                                android:background="@drawable/input01"
+                                android:ems="10" >
+
+                                <requestFocus />
+                            </EditText>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:gravity="center" >
+
+                    <Button
+                        android:id="@+id/btn_cancel"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn05_selector"
+                        android:text="취소"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn_save"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn01_selector"
+                        android:text="저장"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

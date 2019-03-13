@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="popup_camera_width">320dp</dimen>
+    <dimen name="popup_camera_height">320dp</dimen>
+    <dimen name="calendar_height_day">18sp</dimen>
+    <dimen name="calendar_height_other">17sp</dimen>
+    <dimen name="month_list_item">116dp</dimen>
+    <dimen name="donan_input_heg">36dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
+    <dimen name="margin_18">18dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+
+    <!-- 검색 화면 크기 -->
+    <dimen name="search_padding">16dp</dimen>
+    <dimen name="search_btn_width_small">130dp</dimen>
+    <dimen name="search_btn_width">155dp</dimen>
+
+    <!-- 팝업 총 가로 사이즈 -->
+    <dimen name="pop_max_width">1000dp</dimen>
+
+    <!-- 팝업 화면 크기 -->
+    <dimen name="pop_txt_width">100dp</dimen>
+    <dimen name="pop_txt_width2">130dp</dimen>
+    <dimen name="pop_txt_width3">110dp</dimen>
+    <dimen name="pop_txt_size">15sp</dimen>
+    <dimen name="pop_txt_size2">13sp</dimen>
+    <dimen name="pop_txt_size3">18sp</dimen>
+    <dimen name="pop_txt_size4">18sp</dimen>
+    <dimen name="pop_btn_width">150dp</dimen>
+    <dimen name="pop_btn_width2">200dp</dimen>
+    <dimen name="pop_btn_width_harf">230dp</dimen>
+    <dimen name="pop_btn_width_double">410dp</dimen>
+    <dimen name="pop_padding">20dp</dimen>
+
+    <!-- Edit Text -->
+    <dimen name="et_width">190dp</dimen>
+    <dimen name="et_width_full">520dp</dimen>
+
+    <!-- 사이 마진 -->
+    <dimen name="cmp_margin">0dp</dimen>
+
+    <!-- 지우기, 조회하기 -->
+    <dimen name="delete_search_height">40dp</dimen>
+    
+    <dimen name="popup_list_height">45dp</dimen>
+
+</resources>

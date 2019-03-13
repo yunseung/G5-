@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1060dp"
+    android:layout_height="614dp"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="1060dp"
+        android:layout_height="614dp"
+        android:focusableInTouchMode="true" >
+
+        <LinearLayout
+            android:layout_width="1060dp"
+            android:layout_height="614dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/popup_bg"
+            android:orientation="vertical"
+            android:padding="8dp" >
+
+            <include layout="@layout/common_dialog_title_layout" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/table_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="31dp"
+                    android:background="@drawable/table_top" >
+
+                    <View
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:layout_width="196dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="미전송일시"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="차량번호"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="center_vertical"
+                        android:text="고객명"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/send_result_msg4"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ListView
+                        android:id="@+id/lv_result_send"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="@null"
+                        android:listSelector="@null" >
+                    </ListView>
+
+                    <ImageView
+                        android:id="@+id/iv_empty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/nodata"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp" >
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:paddingRight="5dp" >
+
+                    <Button
+                        android:id="@+id/btn_delete"
+                        android:layout_width="230dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:background="@drawable/btn05_selector"
+                        android:gravity="center"
+                        android:shadowColor="#000000"
+                        android:shadowDy="-1"
+                        android:shadowRadius="1"
+                        android:text="선택삭제"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp" >
+
+                    <Button
+                        android:id="@+id/btn_send"
+                        android:layout_width="230dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:background="@drawable/btn01_selector"
+                        android:gravity="center"
+                        android:shadowColor="#000000"
+                        android:shadowDy="-1"
+                        android:shadowRadius="1"
+                        android:text="전체전송"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

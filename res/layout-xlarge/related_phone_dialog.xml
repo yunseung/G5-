@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="456dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="관련자 연락처"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="283dp"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:background="@drawable/popup_call_list"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="126dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:text="책임정비사"
+                        android:textColor="#777777"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/related_name1_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/related_phone1_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/related_call1_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_call_selector" />
+
+                    <ImageView
+                        android:id="@+id/related_sms1_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_sms_selector" />
+
+                </LinearLayout>
+<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical" 
+                    android:background="@drawable/popup_call_list">
+
+                    <TextView
+                        android:layout_width="126dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:text="담당 MOT"
+                        android:textColor="#777777"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" 
+                        >
+
+                        <TextView
+                            android:id="@+id/related_name2_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/related_phone2_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/related_call2_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_call_selector" />
+
+                    <ImageView
+                        android:id="@+id/related_sms2_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_sms_selector" />
+
+                </LinearLayout>
+              
+<!-- 
+				<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical" 
+                    
+                        android:background="@drawable/popup_call_list">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="126dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:text="담당 MOT 장"
+                        android:textColor="#777777"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/related_name3_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="홍길동"
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/related_phone3_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="010-5155-9000"
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/related_call3_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_call_selector" />
+
+                    <ImageView
+                        android:id="@+id/related_sms3_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_sms_selector" />
+
+                </LinearLayout>
+ -->
+ 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical" 
+                    android:background="@drawable/popup_call_list">
+
+                    <TextView
+                        android:layout_width="126dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:text="담당 영업사원"
+                        android:textColor="#777777"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/related_name4_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/related_phone4_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/related_call4_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_call_selector" />
+
+                    <ImageView
+                        android:id="@+id/related_sms4_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_sms_selector" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:background="@drawable/popup_call_list"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="126dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:text="보유지점"
+                        android:textColor="#777777"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/related_name5_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/related_phone5_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#333333"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/related_call5_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_call_selector" />
+
+                    <ImageView
+                        android:id="@+id/related_sms5_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/list_quick_btn_sms_selector" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff" >
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp" >
+
+            <Button
+                android:id="@+id/related_done_id"
+                android:layout_width="195dp"
+                android:layout_height="44dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/btn05_selector"
+                android:shadowColor="#777777"
+                android:shadowDy="-1"
+                android:shadowRadius="1"
+                android:text="닫기"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

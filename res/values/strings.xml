@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">롯데렌탈 차량관리</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_title">LOTTE Rental</string>
+    <string name="login_id_hint">WEB ID</string>
+    <string name="login_pw_hint">비밀번호</string>
+
+    <!-- 재고 조회 및 부품 신청 -->
+    <string name="string_compatible_models">호환차종</string>
+    <string name="string_part_name">부품명</string>
+    <string name="string_part_code">부품코드</string>
+    <string name="string_price">단가</string>
+    <string name="string_quantity">수량</string>
+    <string name="string_unit">단위</string>
+    <string name="string_subscription_quantity">신청수량</string>
+    
+    <string name="del">삭제</string>
+    
+    <string name="login_save_data">건이 삭제 됩니다.</string>
+    
+    <string name="title_donan">미귀/도난차량조회</string>
+    <string name="title_donan2">미귀/도난 차량 정보</string>
+    <string name="title_check_list">차량점검 리스트</string>
+    
+    <string name="car_number">차량번호</string>
+    <string name="car_number1">차량번호인식</string>
+    <string name="car_type_1">차종</string>
+    
+  
+    
+    <string name="inquire">조회</string>
+    <string name="donan_msg1">최근 3년간 미회수된 미귀/도난 차량 조회 됩니다.</string>
+    <string name="search_word_empty">검색어를 입력 해 주세요.</string>
+    <string name="searching">조회중 입니다.</string>
+    
+    <string name="measure">매니저 조치사항</string>
+    <string name="send">저장</string>
+    
+    <string name="measure_msg">입력한 내용이 없습니다.</string>
+    <string name="measure_msg2">정상적인 접수번호가 아닙니다. MOT에 문의하여 주십시오.</string>
+    
+    
+    <string name="repeir_orderno">정비접수번호</string>
+    
+    <string name="customer_info">고객안내</string>
+    <string name="info_save">안내상태 저장</string>
+    
+    
+    <string name="reg_succ">등록 되었습니다.</string>
+    <string name="reg_fail">실패하였습니다.</string>
+    <string name="repair_plan">정비계획</string>
+    
+    <string name="info_msg">고객안내상태를 선택하세요.</string>
+    <string name="info_fail">완료 안내된 건으로 조치불가는 선택 할 수 없습니다.</string>
+    <string name="info_fail_con">완료 안내된 건으로 연락불가는 선택 할 수 없습니다.</string>
+    
+    <string name="maintenance_layout_msg">정비항목이 입력되지 않었습니다. 정비항목을 입력해주세요.</string>
+    
+    <string name="callog_star">***</string>
+    <string name="repair_type">정비유형</string>
+    
+    <string name="ch_confirm">교체확인</string>
+   
+    <string name="send_result_msg4">미전송사유</string>
+    
+    <string name="repaier_center">수리업체</string>
+    <string name="check_day">검수일시</string>
+    <string name="etc">기타</string>
+    <string name="light_bulb">전구</string>
+    <string name="washer_liquid">와셔액</string>
+    <string name="washer_liquid_2">워셔액</string>
+    <string name="brush">부러쉬</string>
+
+    <string name="gasolin">가솔린오일</string>
+    <string name="diesel">디젤오일</string>
+
+    <string name="arrow_first_page"><![CDATA[<<]]></string>
+    <string name="arrow_pre_page"><![CDATA[<]]></string>
+    <string name="arrow_next_page"><![CDATA[>]]></string>
+    <string name="arrow_last_page"><![CDATA[>>]]></string>
+
+    <!-- 보험대차 SP SMS 팝업 -->
+    <string name="insure_care_number"  >정비접수번호</string>
+    <string name="insure_carnum"       >차량번호</string>
+    <string name="insure_car_kind"     >차종</string>
+    <string name="insure_accidate"     >사고일시</string>
+    <string name="insure_acci_location">요청장소</string>
+    <string name="insure_acci_content" >사고내용</string>
+    <string name="insure_acci_insure_num">보험사 접수번호</string>
+    <string name="insure_acci_repair_location">정비협력사</string>
+    <string name="insure_car_manager"  >수행자</string>
+    <string name="insure_car_manager_phone">수행자연락처</string>
+    <string name="insure_sp_name"  >보험대차</string>
+    <string name="insure_sp_phone">보험대차 연락처</string>
+    <string name="insure_customer_name">운전자명</string>
+    <string name="insure_customer_phone">운전자 연락처</string>
+    <string name="insure_etc">기타 요청사항</string>
+    
+
+</resources>

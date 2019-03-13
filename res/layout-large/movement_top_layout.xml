@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="244dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="18dp"
+        android:text="출발/도착정보"
+        android:textColor="#555555"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/table_bg"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:weightSum="3" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="이동유형"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_OTYPE"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/btn_dd01_selector"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp" >
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="정비접수번호"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_AUFNR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:enabled="false"
+                    android:gravity="left|center_vertical"
+                    android:imeOptions="actionSearch"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#555555"
+                    android:textSize="16sp" >
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="차량번호"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/btn_CarNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/btn_search01_selector"
+                    android:enabled="false"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:textColor="@android:color/primary_text_light" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="5dp"
+            android:weightSum="3" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="운전자"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_DRVNAM"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/btn_search01_selector"
+                    android:enabled="false"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp" >
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="운행단계"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_OSTEP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/btn_dd01_selector"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp" >
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="출발/도착일시"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <com.ktrental.ui.PopupWindowButton
+                    android:id="@+id/btn_DATUM"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:gravity="left|center_vertical"
+                    android:imeOptions="actionSearch"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#555555"
+                    android:textSize="@dimen/pop_txt_size2" >
+                </com.ktrental.ui.PopupWindowButton>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="5dp"
+            android:weightSum="3" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="출발/도착위치"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_VKBUR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:gravity="left|center_vertical"
+                    android:imeOptions="actionSearch"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#555555"
+                    android:textSize="16sp" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="출발/도착KM"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <com.ktrental.ui.PopupWindowButton
+                    android:id="@+id/btn_mileage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:gravity="right|center_vertical"
+                    android:imeOptions="actionSearch"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="km"
+                    android:textColor="#555555"
+                    android:textSize="16sp" >
+                </com.ktrental.ui.PopupWindowButton>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="유류량"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="3" >
+
+                    <Button
+                        android:id="@+id/btn_ZDOILTY"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/btn_dd01_selector"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="10dp" >
+                    </Button>
+
+                    <com.ktrental.ui.PopupWindowButton
+                        android:id="@+id/btn_oil_count"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/input_selector"
+                        android:gravity="right|center_vertical"
+                        android:imeOptions="actionSearch"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="L"
+                        android:textColor="#555555"
+                        android:textSize="16sp" >
+                    </com.ktrental.ui.PopupWindowButton>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="경유사유"
+                android:textColor="#555555"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_reason"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/input_selector"
+                android:gravity="left|center_vertical"
+                android:imeOptions="actionSearch"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#555555"
+                android:textSize="16sp" >
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafaf7" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="952"
+            android:orientation="vertical" >
+
+            <!-- 차량기본정보 -->
+
+            <include layout="@layout/car_basic_info_layout" />
+
+            <!-- 계약기본정보 -->
+
+            <include layout="@layout/contract_layout" />
+
+            <!-- 정비옵션정보 -->
+
+            <include layout="@layout/maintenance_option_layout" />
+
+            <!-- 최종이력정보 -->
+            <!--  -->
+
+            <include layout="@layout/last_layout" />
+
+           
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10" />
+    </LinearLayout>
+
+</FrameLayout>

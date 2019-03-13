@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:paddingTop="20dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/pop_padding"
+        android:layout_marginTop="@dimen/pop_padding"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <Button
+                android:id="@+id/account_list_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="오토케어(순회정비) 미스터리쇼핑 Check-List"
+                    android:textColor="#cc5572"
+                    android:textStyle="bold"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/textview_border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/textview_border"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="대분류"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/textview_border"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="소분류"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="580dp"
+                    android:layout_height="40dp"
+                    android:text="평가항목"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/textview_border"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/textview_border"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="배점"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <ListView
+                android:id="@+id/account_list_list"
+                android:layout_width="880dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:divider="@null"
+                android:listSelector="@drawable/table_list_s"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

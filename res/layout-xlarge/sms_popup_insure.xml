@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="600dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/popup_bg"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="8dp" >
+
+    <include layout="@layout/common_dialog_title_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_marginBottom="12dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="@string/insure_care_number"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_care_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="35488754"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_carnum"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_carnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="67호1676"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_car_kind"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_car_kind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="010-1234-5678"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_accidate"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_accidate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="2018.04.04 16:30"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_acci_location"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_acci_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="서울 양천구 목동 241-45"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_acci_content"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_acci_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="대차차량 자차 후미 추돌 삼성화재"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_acci_insure_num"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_acci_insure_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="left|center_vertical"
+                    android:hint="확인 불가 시 공란"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_acci_repair_location"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_acci_repair_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="상진정비공업사(주)"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="180dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical|left"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="수신자 선택"
+                android:textColor="#777777"
+                android:textSize="18sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp">
+
+                <RadioGroup
+                    android:id="@+id/called_row_id3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/called_row_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@drawable/radio_selector"
+                        android:checked="true"
+                        android:enabled="false"
+                        android:paddingStart="6dp"
+                        android:text="보험대차"
+                        android:textColor="#333333"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/called_row_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:button="@drawable/radio_selector"
+                        android:checked="false"
+                        android:enabled="false"
+                        android:paddingStart="6dp"
+                        android:text="수행자"
+                        android:textColor="#333333"
+                        android:textSize="16sp" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/flay_carmanager1"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_car_manager"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_car_manager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="홍길동"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/flay_carmanager2"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="@string/insure_car_manager_phone"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_car_manager_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="010-3220-0100"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/flay_sp1"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/insure_sp_name"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_sp_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="홍길동"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/flay_sp2"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="@string/insure_sp_phone"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_sp_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="010-3220-0100"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="@string/insure_customer_name"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_customer_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="김철수"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="@string/insure_customer_phone"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_customer_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="010-4498-0000"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="@string/insure_etc"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_etc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="200dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="right|center_vertical"
+                    android:text="3시 전까지 고객 배차 요청"
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="20dp">
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn01_selector"
+            android:text="전송"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn05_selector"
+            android:text="취소"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

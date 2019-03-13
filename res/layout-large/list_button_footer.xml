@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp" >
+
+    <FrameLayout
+        android:id="@+id/FrameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="72dp" 
+        android:background="@drawable/left_list_bg_n">
+
+        <Button
+            android:id="@+id/btn_buttonFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_viewmore"
+            android:textSize="17sp"
+            android:text="더보기" 
+            android:textColor="#fefefe"/>
+    </FrameLayout>
+
+</LinearLayout>

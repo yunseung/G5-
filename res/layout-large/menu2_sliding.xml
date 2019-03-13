@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ImageView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/blit02" />
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="운전자정보"
+                android:textColor="#555555"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1036dp"
+            android:layout_height="108dp"
+            android:background="@drawable/table_bg"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="운송방법"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/menu2_driver1_1"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:enabled="false" 
+                    android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="운전자"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/menu2_driver_input"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/btn_search01_selector" android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="전화번호"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/menu2_driver1_2"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:enabled="false" android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="운임지불"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/menu2_driver2_1"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:enabled="false"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp"  />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="차종"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/menu2_driver2_2"
+                    android:layout_width="540dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input_selector"
+                    android:enabled="false" 
+                    android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/blit02" />
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="출발정보"
+                android:textColor="#555555"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="237dp"
+            android:background="@drawable/table02_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="1036dp"
+                android:layout_height="189dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="출발지구분"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start1_1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp"  />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="출발지"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start1_2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp"  />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="출발지주소"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start2_1"
+                        android:layout_width="540dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp"  />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="주차장"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_start2_2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="출발/KM"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start_input1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:gravity="right|center_vertical" 
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="출발/OIL"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start3_1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_start_input2"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:text="" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start_input3"
+                        android:layout_width="62dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/input_selector"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="출발지담당자"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start4_1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="연락처"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_start4_2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="출발일시"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_start_input4"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" 
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" >
+
+                    <Button
+                        android:id="@+id/menu2_start_resist"
+                        android:layout_width="272dp"
+                        android:layout_height="36dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/btn01_selector"
+                        android:onClick="onSlideDone"
+                        android:shadowColor="#000000"
+                        android:shadowDy="1.0"
+                        android:shadowRadius="1.0"
+                        android:text="출발등록"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_start_paperess"
+                        android:layout_width="272dp"
+                        android:layout_height="36dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/btn01_selector"
+                        android:onClick="onSlideDone"
+                        android:shadowColor="#000000"
+                        android:shadowDy="1.0"
+                        android:shadowRadius="1.0"
+                        android:text="페이퍼리스"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ImageView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/blit02"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:textColor="#555555"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="1036dp"
+            android:layout_height="41dp"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/menu2_stepby_1"
+                android:layout_width="121dp"
+                android:layout_height="31dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn02_selector"
+                android:shadowColor="#777777"
+                android:shadowDy="1.0"
+                android:shadowRadius="1.0"
+                android:text="경유지등록"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/blit02" />
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="도착정보"
+                android:textColor="#555555"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="278dp"
+            android:background="@drawable/table02_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="1036dp"
+                android:layout_height="230dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착지구분"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end1_1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp"  />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착지"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end1_2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착지주소"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end2_1"
+                        android:layout_width="540dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="주차장"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_end2_2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착/KM"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end_input1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="true"
+                        android:gravity="right|center_vertical" 
+                    android:textColor="#777777"
+                    android:textSize="18sp" 
+                         />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착/OIL"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end3_1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_end_input2"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:enabled="true"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end_input3"
+                        android:layout_width="62dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="true" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="운행거리"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end4_1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+         
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="right|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착지담당자"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end4_2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp"  />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="연락처"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end4_3"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp"  />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착희망일시"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/menu2_end5_1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input_selector"
+                        android:enabled="false" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="도착일시"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_end_input4"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:enabled="true"
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" 
+                         />
+
+                    <TextView
+                        android:id="@+id/TextView02"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="운행비용"
+                        android:textColor="#555555"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_end_input5"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/btn_search01_selector"
+                        android:enabled="true" 
+                        android:gravity="left|center_vertical"
+                    android:textColor="#777777"
+                    android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" >
+
+                    <Button
+                        android:id="@+id/menu2_end_resist"
+                        android:layout_width="272dp"
+                        android:layout_height="36dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/btn01_selector"
+                        android:enabled="true"
+                        android:onClick="onSlideDone"
+                        android:shadowColor="#000000"
+                        android:shadowDy="1.0"
+                        android:shadowRadius="1.0"
+                        android:text="도착등록"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/menu2_end_paperess"
+                        android:layout_width="272dp"
+                        android:layout_height="36dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/btn01_selector"
+                        android:enabled="true"
+                        android:onClick="onSlidePaper"
+                        android:shadowColor="#000000"
+                        android:shadowDy="1.0"
+                        android:shadowRadius="1.0"
+                        android:text="페이퍼리스"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

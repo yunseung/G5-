@@ -1,0 +1,1722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            android:id="@+id/maintenance_return_title_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="고객조회"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/inventory_requestlist_layout_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/left_bg" >
+
+                <RelativeLayout
+                    android:layout_width="228dp"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="228dp"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="left|center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="차량번호"
+                                android:textColor="#555555"
+                                android:textSize="16sp" />
+
+                            <EditText
+                                android:id="@+id/customer_carnum_id"
+                                android:layout_width="180dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="24dp"
+                                android:background="@drawable/input01"
+                                android:gravity="left|center_vertical"
+                                android:imeOptions="actionSearch"
+                                android:inputType="text"
+                                android:paddingLeft="5dp"
+                                android:textColor="#555555"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="left|center_vertical"
+                                android:paddingLeft="5dp"
+                                android:text="고객명"
+                                android:textColor="#555555"
+                                android:textSize="16sp" />
+
+                            <EditText
+                                android:id="@+id/customer_name_id"
+                                android:layout_width="180dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="24dp"
+                                android:background="@drawable/input01"
+                                android:imeOptions="actionSearch"
+                                android:inputType="text"
+                                android:textColor="#555555" >
+                            </EditText>
+
+                            <Button
+                                android:id="@+id/customer_search_id"
+                                android:layout_width="151dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="12dp"
+                                android:background="@drawable/search_btn_selector"
+                                android:shadowColor="#b36f56"
+                                android:shadowDy="-1"
+                                android:shadowRadius="-1"
+                                android:text="조회"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/left_list_start" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <ListView
+                                android:id="@+id/customer_list_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/left_list_empty" >
+                            </ListView>
+
+                            <ImageView
+                                android:id="@+id/list_nodata_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/nodata" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f4f1ed" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:id="@+id/lay_customersearch_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/right_top_bg" >
+
+                        <RadioGroup
+                            android:id="@+id/customer_rg_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/customer_rb_id1"
+                                android:layout_width="142dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/customer_search_tab_selector"
+                                android:button="@null"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:text="기본정보"
+                                android:textColor="#777777"
+                                android:textSize="18sp" />
+
+                            <RadioButton
+                                android:id="@+id/customer_rb_id2"
+                                android:layout_width="142dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/customer_search_tab_selector"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="계약정보"
+                                android:textColor="#777777"
+                                android:textSize="18sp" />
+
+                            <RadioButton
+                                android:id="@+id/customer_rb_id3"
+                                android:layout_width="142dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/customer_search_tab_selector"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="정비옵션정보"
+                                android:textColor="#777777"
+                                android:textSize="18sp" />
+                        </RadioGroup>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="5dp"
+                            android:text="VOC 내역"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal" >
+
+                            <TextView
+                                android:id="@+id/tire_voc_info_id"
+                                android:layout_width="50dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="6dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@drawable/input01_d"
+                                android:gravity="left|center_vertical"
+                                android:textColor="#555555"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/btn_tire_voc_info_id"
+                                android:layout_width="120dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="6dp"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/search_btn_selector"
+                                android:shadowColor="#b36f56"
+                                android:shadowDy="-1"
+                                android:shadowRadius="-1"
+                                android:text="VOC 내역 조회"
+                                android:textColor="#ffffff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/lay_customersearch_btm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/customer_bottom_bg"
+                        android:padding="10dp" >
+
+                        <LinearLayout
+                            android:id="@+id/customersearch_bottom_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true" >
+
+                            <Button
+                                android:id="@+id/customer_maintanance_id"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn05_selector"
+                                android:text="정비등록"
+                                android:textColor="#ffffff" />
+
+                            <Button
+                                android:id="@+id/customer_history_id"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:background="@drawable/btn05_selector"
+                                android:text="정비/이력조회"
+                                android:textColor="#ffffff" />
+
+                            <Button
+                                android:id="@+id/customer_tire_change_id"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:background="@drawable/btn05_selector"
+                                android:text="타이어교체"
+                                android:textColor="#ffffff" />
+
+                            <Button
+                                android:id="@+id/customer_tire_list_id"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:background="@drawable/btn05_selector"
+                                android:text="타이어신청내역"
+                                android:textColor="#ffffff" />
+
+                            <Button
+                                android:id="@+id/customer_contacts_id"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:background="@drawable/btn05_selector"
+                                android:text="관련연락처"
+                                android:textColor="#ffffff" />
+
+                            <Button
+                                android:id="@+id/customer_transfermanage_id"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:background="@drawable/btn05_selector"
+                                android:text="이관받기"
+                                android:textColor="#ffffff" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/right_top_shadow" />
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:layout_above="@id/lay_customersearch_btm"
+                        android:layout_below="@id/lay_customersearch_top">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="600dp"
+                        android:background="#f2f2f0" >
+
+                        <LinearLayout
+                            android:id="@+id/customer_basic_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="29dp"
+                            android:layout_marginRight="29dp"
+                            android:layout_marginTop="29dp"
+                            android:orientation="vertical"
+                            android:visibility="gone" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginLeft="14dp"
+                                android:gravity="center_vertical" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/blit02" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="기본정보"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/title_line" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:orientation="horizontal" >
+
+                                <TextView
+                                    android:layout_width="@dimen/pop_txt_width3"
+                                    android:layout_height="match_parent"
+                                    android:gravity="right|center_vertical"
+                                    android:text="차종명"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:id="@+id/customer_oiltypnm_id"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="6dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="center"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_maktx_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:layout_toLeftOf="@id/customer_oiltypnm_id"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="운전자명"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_dlsm1_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="회원등급"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_vipgbn_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="휴대폰번호"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" >
+
+                                        <Button
+                                            android:id="@+id/customer_call_id1"
+                                            android:layout_width="38dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginLeft="6dp"
+                                            android:background="@drawable/customer_btn_call_selector" />
+
+                                        <Button
+                                            android:id="@+id/customer_sms_id"
+                                            android:layout_width="38dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="6dp"
+                                            android:layout_toLeftOf="@id/customer_call_id1"
+                                            android:background="@drawable/customer_btn_sms_selector" />
+
+                                        <TextView
+                                            android:id="@+id/customer_dlst1_id"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="16dp"
+                                            android:layout_toLeftOf="@id/customer_sms_id"
+                                            android:background="@drawable/customer_input_d"
+                                            android:gravity="left|center_vertical"
+                                            android:paddingLeft="11dp"
+                                            android:paddingRight="11dp"
+                                            android:text=""
+                                            android:textColor="#333333"
+                                            android:textSize="18sp" />
+                                    </RelativeLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="전화번호"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" >
+
+                                        <Button
+                                            android:id="@+id/customer_call_id2"
+                                            android:layout_width="38dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginLeft="6dp"
+                                            android:background="@drawable/customer_btn_call_selector" />
+
+                                        <TextView
+                                            android:id="@+id/customer_telf1_id"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="16dp"
+                                            android:layout_toLeftOf="@id/customer_call_id2"
+                                            android:background="@drawable/customer_input_d"
+                                            android:gravity="left|center_vertical"
+                                            android:paddingLeft="11dp"
+                                            android:paddingRight="11dp"
+                                            android:textColor="#333333"
+                                            android:textSize="18sp" />
+                                    </RelativeLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp" >
+
+                                <TextView
+                                    android:layout_width="@dimen/pop_txt_width3"
+                                    android:layout_height="match_parent"
+                                    android:gravity="right|center_vertical"
+                                    android:text="주소"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <Button
+                                        android:id="@+id/customer_edit_id"
+                                        android:layout_width="38dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="6dp"
+                                        android:background="@drawable/customer_btn_edit_selector"
+                                        android:visibility="gone" />
+
+                                    <TextView
+                                        android:id="@+id/customer_add1_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:layout_toLeftOf="@id/customer_edit_id"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginLeft="14dp"
+                                android:layout_marginTop="19dp"
+                                android:gravity="center_vertical" >
+
+                                <ImageView
+                                    android:id="@+id/ImageView01"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/blit02" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="보험정보"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/ImageView02"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/title_line" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="보험사명"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_name1_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="긴급출동횟수"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_scadynnm_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="보험가입일자"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_insad_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="보험종료일자"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_insed_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="자차보험"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_ocfcdnm_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="연령구분"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_drvacdnm_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp" >
+
+                                <TextView
+                                    android:layout_width="@dimen/pop_txt_width3"
+                                    android:layout_height="38dp"
+                                    android:gravity="right|center_vertical"
+                                    android:text="특약사항"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/customer_suinscnm_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp"
+                                    android:background="@drawable/customer_input_d"
+                                    android:gravity="left|center_vertical"
+                                    android:paddingLeft="11dp"
+                                    android:paddingRight="11dp"
+                                    android:textColor="#333333"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/customer_contract_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="29dp"
+                            android:layout_marginRight="29dp"
+                            android:layout_marginTop="29dp"
+                            android:orientation="vertical"
+                            android:visibility="visible" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="계약번호"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_vbeln_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="소유주"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_owner_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="계약구분"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_cngbn_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="영업매니저"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_saledm_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="보유지점"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_onbrnm_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="계약지점"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_cnbrnm_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp" >
+
+                                <TextView
+                                    android:layout_width="@dimen/pop_txt_width3"
+                                    android:layout_height="match_parent"
+                                    android:gravity="right|center_vertical"
+                                    android:text="순회정비담당소속"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/customer_cirdam_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="16dp"
+                                    android:background="@drawable/customer_input_d"
+                                    android:gravity="left|center_vertical"
+                                    android:paddingLeft="11dp"
+                                    android:paddingRight="11dp"
+                                    android:text=""
+                                    android:textColor="#333333"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="위탁총기간"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_wtmon_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="위탁기간"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_wtsdt_wtfdt_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="차량등록일"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_inbdt_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="LDW"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_ldwamt_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp" >
+
+                                <TextView
+                                    android:layout_width="@dimen/pop_txt_width3"
+                                    android:layout_height="match_parent"
+                                    android:gravity="right|center_vertical"
+                                    android:text="특기사항"
+                                    android:textColor="#555555"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/customer_crspec_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="16dp"
+                                    android:background="@drawable/customer_input_d"
+                                    android:gravity="left|center_vertical"
+                                    android:paddingLeft="11dp"
+                                    android:paddingRight="11dp"
+                                    android:text=""
+                                    android:textColor="#333333"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="18dp"
+                                android:paddingRight="18dp"
+                                android:background="@drawable/customer_input_d"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="38dp"
+                                    android:layout_marginTop="18dp" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="받는이"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_mamager_name"
+                                        android:layout_width="150dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+
+
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="받는이 번호"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_mamager_phonenum"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+
+                                </LinearLayout>
+
+
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="18dp">
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="영업매니저 전달사항"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <EditText
+                                            android:id="@+id/customer_manager_send"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="16dp"
+                                            android:background="@drawable/input01"
+                                            android:gravity="left|center_vertical"
+                                            android:paddingLeft="11dp"
+                                            android:paddingRight="70dp"
+                                            android:text=""
+                                            android:textColor="#333333"
+                                            android:textSize="18sp" />
+
+
+                                        <Button
+                                            android:id="@+id/bt_customer_send"
+                                            android:layout_width="38dp"
+                                            android:layout_height="38dp"
+                                            android:layout_marginLeft="6dp"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginRight="30dp"
+                                            android:background="@drawable/customer_btn_sms_selector" />
+
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/customer_option_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="19dp"
+                            android:layout_marginRight="29dp"
+                            android:layout_marginTop="29dp"
+                            android:orientation="vertical"
+                            android:visibility="visible" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="정비상품"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_sanpm_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="순회정비주기"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_cycmnt_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="일반타이어"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_tirgbn_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="대차제공서비스"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_dchagbn_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="일반정비"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_gengbn_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="검사정비"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_inpdt_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="타이어펑크"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_tirflat_id"
+                                        android:layout_width="260dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="11dp"
+                                        android:gravity="right|center_vertical"
+                                        android:text="긴급출동횟수"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_gchlqty_id"
+                                        android:layout_width="260dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="스노우타이어"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_snwtir_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/customer_snwtir_ea_id"
+                                        android:layout_width="80dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text="EA"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:layout_marginTop="18dp"
+                                android:weightSum="2" >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:layout_width="@dimen/pop_txt_width3"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right|center_vertical"
+                                        android:text="체인"
+                                        android:textColor="#555555"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/customer_chain_id"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text=""
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/TextView04"
+                                        android:layout_width="80dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="16dp"
+                                        android:background="@drawable/customer_input_d"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingLeft="11dp"
+                                        android:paddingRight="11dp"
+                                        android:text="EA"
+                                        android:textColor="#333333"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                    </ScrollView>
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

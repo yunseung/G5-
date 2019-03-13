@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99000000" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/popup_bg"
+        android:focusableInTouchMode="true"
+        android:padding="8dp" >
+
+        <include
+            android:id="@+id/layout_title"
+            layout="@layout/common_dialog_title_layout" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="482dp"
+            android:layout_below="@+id/layout_title"
+            android:background="@drawable/right_bg" >
+
+            <LinearLayout
+                android:id="@+id/ll_camera"
+                style="@style/Theme.DoNotDim"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="#ffffff"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_capture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@+id/ll_camera" >
+
+                <LinearLayout
+                    android:id="@+id/L_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_centerHorizontal="true" >
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:gravity="right|center_vertical"
+                        android:text="차량번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/et_car_num"
+                        android:layout_width="186dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="#555555"
+                        android:textSize="16sp" >
+                    </EditText>
+
+                    <Button
+                        android:id="@+id/btn_complate"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/btn01_selector"
+                        android:text="확인"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/tire_picture_flash_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/btn_re_shot"
+                    android:background="@drawable/photo_flash_selector"
+                    android:button="@null" />
+
+                <Button
+                    android:id="@+id/btn_re_shot"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="9dp"
+                    android:background="@drawable/photo_btn_selector"
+                    android:paddingLeft="38dp"
+                    android:text="재촬영" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/common_title_layout" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:background="@drawable/inquiry_bg"
+        android:orientation="vertical">
+
+
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="74dp"
+	         >
+
+	        <TextView
+	            android:id="@+id/textView1"
+	            android:layout_width="103dp"
+	            android:layout_height="match_parent"
+	            android:gravity="right|center_vertical"
+	            android:text="차량번호"
+	            android:textColor="#555555"
+	            android:textSize="16sp" />
+
+	        <Button
+	            android:id="@+id/btn_movement_carnum"
+	            android:layout_width="@dimen/pop_btn_width"
+	            android:layout_height="36dp"
+	            android:layout_gravity="left|center_vertical"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="20dp"
+	            android:background="@drawable/btn_search01_selector"
+	            android:enabled="false"
+	            android:gravity="left|center_vertical"
+	            android:paddingLeft="10dp"
+	            android:text="" >
+	        </Button>
+
+	        <TextView
+	            android:layout_width="110dp"
+	            android:layout_height="match_parent"
+	            android:gravity="right|center_vertical"
+	            android:text="정비접수번호"
+	            android:textColor="#555555"
+	            android:textSize="16sp" />
+
+	        <Button
+	            android:id="@+id/btn_movement_number"
+	            android:layout_width="@dimen/pop_btn_width"
+	            android:layout_height="36dp"
+	            android:layout_gravity="left|center_vertical"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="20dp"
+	            android:background="@drawable/btn_search01_selector"
+	            android:enabled="false"
+	            android:gravity="left|center_vertical"
+	            android:paddingLeft="10dp" >
+	        </Button>
+
+	        <TextView
+	            android:layout_width="110dp"
+	            android:layout_height="match_parent"
+	            android:gravity="right|center_vertical"
+	            android:text="운전자"
+	            android:textColor="#555555"
+	            android:textSize="16sp" />
+
+	        <EditText
+	            android:id="@+id/btn_movement_name"
+	            android:layout_width="@dimen/pop_btn_width"
+	            android:layout_height="36dp"
+	            android:layout_gravity="left|center_vertical"
+	            android:layout_marginLeft="10dp"
+	            android:background="@drawable/btn_search01_selector"
+	            android:enabled="false"
+	            android:gravity="left|center_vertical"
+	            android:paddingLeft="10dp" >
+	        </EditText>
+
+	        <RelativeLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent" >
+
+	            <Button
+	                android:id="@+id/btn_search"
+	                android:layout_width="151dp"
+	                android:layout_height="36dp"
+	                android:layout_alignParentRight="true"
+	                android:layout_centerVertical="true"
+	                android:layout_marginLeft="6dp"
+	                android:layout_marginRight="20dp"
+	                android:background="@drawable/search_btn_selector"
+	                android:gravity="center"
+	                android:shadowColor="#b36f56"
+	                android:shadowDy="-1"
+	                android:shadowRadius="1"
+	                android:text="검색"
+	                android:textColor="@drawable/search_btn_text_selector"
+	                android:textSize="16dp" />
+	        </RelativeLayout>
+	    </LinearLayout>
+
+
+	    <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="36dp"
+                  android:layout_centerVertical="true" >
+
+                  <TextView
+                      android:id="@+id/textView10"
+                      android:layout_width="78dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="25dp"
+                      android:gravity="right"
+                      android:text="조회기간"
+                      android:textAppearance="?android:attr/textAppearanceLarge"
+                      android:textColor="#555555"
+                      android:textSize="16sp" />
+
+                  <Button
+                      android:id="@+id/datepick1_bt"
+                      android:layout_width="128dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="10dp"
+                      android:background="@drawable/dropdown_selector"
+                      android:gravity="left|center_vertical"
+                      android:text="2013.07.01"
+                      android:textSize="16sp" />
+
+                  <TextView
+                      android:id="@+id/textView13"
+                      android:layout_width="18dp"
+                      android:layout_height="wrap_content"
+                      android:text=" ~ "
+                      android:textAppearance="?android:attr/textAppearanceLarge"
+                      android:textSize="13sp" />
+
+                  <Button
+                      android:id="@+id/datepick2_bt"
+                      android:layout_width="128dp"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/dropdown_selector"
+                      android:gravity="left|center_vertical"
+                      android:text="2013-07-31"
+                      android:textSize="16sp" />
+	        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafaf7"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        <RelativeLayout
+            android:id="@+id/lay_movement_btm"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btn_del"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn01_selector"
+                    android:gravity="center"
+                    android:text="@string/del"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_movement_start"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/btn01_selector"
+                    android:gravity="center"
+                    android:text="운행일지등록"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/lay_movement_btm" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/table_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="31dp"
+                    android:background="@drawable/table_top"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp" >
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="선택"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="이동유형"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="정비접수번호"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="운전자"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="운행단계"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="출발/도착일자"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="출발/도착시간"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="출발/도착위치"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="주행거리"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="게이지구분"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="유류량"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="주유량"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="주유금액"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="세차비"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="주차비"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="통행료"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="기타비용"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+
+					<TextView
+						android:layout_width="200dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="기타비용사유"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+
+					<TextView
+						android:layout_width="200dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="경유사유"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="460dp" >
+
+                    <!--
+                <ListView
+                    android:id="@+id/lv_movement"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null" >
+                </ListView>
+                    -->
+
+                    <ListView
+                        android:id="@+id/lv_movement"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_bg"
+                        android:divider="@null"
+                        android:listSelector="@null"
+                        android:paddingBottom="4dp" >
+                    </ListView>
+
+                    <ImageView
+                        android:id="@+id/iv_empty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/nodata"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+
+
+
+				<LinearLayout
+					android:id="@+id/ll_sum"
+					android:layout_width="match_parent"
+					android:layout_height="31dp"
+					android:background="@drawable/table_top"
+					android:paddingLeft="14dp"
+					android:paddingRight="14dp" >
+
+					<TextView
+						android:layout_width="50dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="130dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="75dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="75dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="125dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="125dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="130dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+
+					<TextView
+						android:id="@+id/tv_sum_OILPRI"
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="주유금액"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:id="@+id/tv_sum_WASH"
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="세차비"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:id="@+id/tv_sum_PARK"
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="주차비"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:id="@+id/tv_sum_TOLL"
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="통행료"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+					<TextView
+						android:id="@+id/tv_sum_OTRAMT"
+						android:layout_width="100dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text="기타비용"
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+
+					<TextView
+						android:layout_width="200dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+
+					<TextView
+						android:layout_width="200dp"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:text=""
+						android:textColor="#555555"
+						android:textSize="15sp" />
+
+
+				</LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
+</RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

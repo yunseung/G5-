@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="@dimen/pop_max_width"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/pop_padding"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+
+            <Button
+                android:id="@+id/dudate_dialog_close_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="정비예정일 등록"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RelativeLayout
+                android:id="@+id/lay_duedate_btm"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_alignParentBottom="true" >
+
+                <Button
+                    android:id="@+id/duedate_dialog_save_id"
+                    android:layout_width="270dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/btn01_selector"
+                    android:text="예정일저장"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/lay_duedate_btm"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/left_bg"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="420dp"
+                            android:layout_height="442dp" >
+
+                            <com.ktrental.custom.Cal_Custom
+                                android:id="@+id/duedate_dialog_cal_id"
+                                android:layout_width="412dp"
+                                android:layout_height="442dp" >
+                            </com.ktrental.custom.Cal_Custom>
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/reservation_arrow01" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="420dp"
+                            android:layout_height="match_parent" >
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="13dp"
+                                android:layout_marginLeft="14dp"
+                                android:layout_marginRight="22dp" >
+
+                                <ListView
+                                    android:id="@+id/duedate_dialog_list_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/table_bg"
+                                    android:divider="@null"
+                                    android:listSelector="@drawable/table_list_s"
+                                    android:paddingBottom="4dp"
+                                    android:paddingTop="31dp" >
+                                </ListView>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/table_top" >
+
+                                    <TextView
+                                        android:id="@+id/textView3"
+                                        android:layout_width="80dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical"
+                                        android:gravity="center"
+                                        android:text="선택"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        android:id="@+id/wergfdffasd"
+                                        android:layout_width="142dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical"
+                                        android:gravity="center"
+                                        android:text="변경대상 차량번호"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        android:id="@+id/textView4"
+                                        android:layout_width="162dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="10dp"
+                                        android:paddingRight="10dp"
+                                        android:text="고객명"
+                                        android:textColor="#555555"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+                            </RelativeLayout>
+
+                            <ImageView
+                                android:id="@+id/ImageView01"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/reservation_arrow02" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    </ScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="49dp"
+                            android:paddingBottom="5dp" >
+
+                            <TextView
+                                android:id="@+id/duedate_dialog_today_title_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="30dp"
+                                android:text="2013.09.09"
+                                android:textColor="#555555"
+                                android:textSize="18sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="30dp" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="예약대기: "
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/duedate_dialog_title1_id"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="건"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <ImageView
+                                    android:id="@+id/list_nodata_id"
+                                    android:layout_width="1dp"
+                                    android:layout_height="17dp"
+                                    android:layout_marginLeft="14dp"
+                                    android:layout_marginRight="14dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/partition" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="예약완료: "
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/duedate_dialog_title2_id"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="건"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <ImageView
+                                    android:layout_width="1dp"
+                                    android:layout_height="17dp"
+                                    android:layout_marginLeft="14dp"
+                                    android:layout_marginRight="14dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/partition" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="추가예약: "
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/duedate_dialog_title3_id"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="건"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="13dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp" >
+
+                            <ListView
+                                android:id="@+id/duedate_dialog_right_list_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/table_bg"
+                                android:divider="@null"
+                                android:listSelector="@drawable/table_list_s"
+                                android:paddingBottom="4dp"
+                                android:paddingTop="31dp" >
+                            </ListView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/table_top" >
+
+                                <TextView
+                                    android:layout_width="110dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="차량번호"
+                                    android:textColor="#555555"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="left|center_vertical"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp"
+                                    android:text="고객명/주소"
+                                    android:textColor="#555555"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="1154dp"
+                    android:layout_height="1dp"
+                    android:background="#cccccc" >
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/pop_padding"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="672dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+
+            <Button
+                android:id="@+id/history_dialog_close_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/popup_btn_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="접수/조치내용 미리보기"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/tab_bg" >
+
+            <RadioGroup
+                android:id="@+id/history_tab_rg_id"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/list_nodata_id"
+                    android:layout_width="2dp"
+                    android:layout_height="42dp"
+                    android:scaleType="matrix"
+                    android:src="@drawable/tab_partition" />
+
+                <RadioButton
+                    android:id="@+id/history_tab1_rb_id"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radio_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="1차조치정보"
+                    android:textColor="#cccccc"
+                    android:textSize="17sp" />
+
+                <RadioButton
+                    android:id="@+id/history_tab2_rb_id"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radio_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="2차조치정보"
+                    android:textColor="#cccccc"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/list_nodata_id1"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="matrix"
+                    android:src="@drawable/tab_partition" />
+
+                <RadioButton
+                    android:id="@+id/history_tab3_rb_id"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radio_tab_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="3차조치정보"
+                    android:textColor="#cccccc"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/list_nodata_id2"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="matrix"
+                    android:src="@drawable/tab_partition" />
+            </RadioGroup>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#f4f1ed"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="130dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="접수/조치내용"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#cccccc" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/history_tab1_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:visibility="visible" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="제목"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_title1"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="접수내용"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_content1"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="접수자 의견"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_opinion1"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="발생원인"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_cause1"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="조치내용"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_measure1"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="조치결과 및 지점의견"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_result1"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="24시간 결과사유"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_why1"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/history_tab2_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:visibility="gone" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="제목"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_title2"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="접수내용"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_content2"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="접수자 의견"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_opinion2"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="발생원인"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_cause2"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="조치내용"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_measure2"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="조치결과 및 지점의견"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_result2"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="24시간 결과사유"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_why2"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:id="@+id/scrollView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/history_tab3_layout_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:visibility="visible" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="제목"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_title3"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="접수내용"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_content3"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="접수자 의견"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_opinion3"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="발생원인"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_cause3"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="조치내용"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_measure3"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="조치결과 및 지점의견"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_result3"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:text="24시간 결과사유"
+                            android:textColor="#555555"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/id_voc_detail_why3"
+                            style="@style/VOC_DETAIL_TEXT" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp" >
+
+            <Button
+                android:id="@+id/history_done_id"
+                android:layout_width="270dp"
+                android:layout_height="45dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/btn05_selector"
+                android:text="확인"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

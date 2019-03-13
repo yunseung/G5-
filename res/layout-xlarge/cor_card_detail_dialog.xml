@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="950dp"
+        android:layout_height="680dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_bg"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/popup_blit" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="법인카드 상세내역"
+                    android:textColor="#555555"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginLeft="34dp"
+                android:gravity="bottom|left">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="ㅁ 법인카드 상세내역 입력"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingRight="16dp">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="right|center_vertical"
+                    android:text="계정유형/명"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_account_type"
+                    android:layout_width="80dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input01_d"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_account_search"
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/btn_search01_selector"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_account_name"
+                    android:layout_width="250dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input01_d"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="900dp"
+                android:layout_height="180dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingRight="16dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="전표번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_regnum"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="계정유형/명"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <!--android:id="@+id/tv_account_type"-->
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <!--android:id="@+id/tv_account_name"-->
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="부가세유형"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_surtax_type"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="승인번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_success_num"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="경비작성일자"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_write_date"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="사용일자"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_use_date"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="카드번호"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_card_num"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="운용예산"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_operate_budget"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="사용금액"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_use_price"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="공급가"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_supply_price"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="부가세"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_surtax"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="가용예산"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_available_budget"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="지급희망일자"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_wanna_date"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="봉사료"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_service_price"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/check_selector"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="반영여부"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="결의실적"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_resolution"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"></LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginLeft="34dp"
+                android:gravity="bottom|left">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="상대처정보"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="900dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="36dp"
+                    android:gravity="right|center_vertical"
+                    android:text="거래처"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_deal_company"
+                    android:layout_width="140dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input01_d"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="right|center_vertical"
+                    android:text="사업자번호"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_deal_company_num"
+                    android:layout_width="90dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input01_d"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="right|center_vertical"
+                    android:text="사업자구분"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_deal_company_gubun"
+                    android:layout_width="90dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/input01_d"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#555555"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"></LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginLeft="34dp"
+                android:gravity="bottom|left">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="실사용자정보"
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="800dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/table_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingRight="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="실사용부서"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_real_use_dept1"
+                        android:layout_width="140dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_real_use_dept2"
+                        android:layout_width="140dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="실사용자"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_real_user1"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_real_user2"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="프로젝트오더"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_project_order"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="주관부서"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <EditText
+                        android:id="@+id/tv_dept"
+                        android:layout_width="290dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_e_selector2"
+                        android:gravity="left|center_vertical"
+                        android:inputType="text"
+                        android:imeOptions="actionSearch"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="참가인원"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/tv_users"
+                        android:layout_width="190dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_e_selector2"
+                        android:imeOptions="actionSearch"
+                        android:gravity="left|center_vertical"
+                        android:inputType="number"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="회의장소"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_place"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_d"
+                        android:gravity="left|center_vertical"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:text="사용목적"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/tv_purpose"
+                        android:layout_width="590dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/input01_e_selector2"
+                        android:gravity="left|center_vertical"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right|center_vertical"
+                        android:text="첨부파일"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="50dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_guide1"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#cc5702"
+                        android:textSize="16sp"
+                        android:layout_marginRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_guide2"
+                        android:layout_width="90dp"
+                        android:layout_height="36dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="52dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:background="@drawable/btn01_selector"
+                android:shadowColor="#777777"
+                android:shadowDy="-1"
+                android:shadowRadius="1"
+                android:text="등록취소"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_clean"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/btn02_selector"
+                android:shadowColor="#777777"
+                android:shadowDy="-1"
+                android:shadowRadius="1"
+                android:text="초기화"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/btn01_selector"
+                android:shadowColor="#777777"
+                android:shadowDy="-1"
+                android:shadowRadius="1"
+                android:text="저장"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/btn01_selector"
+                android:shadowColor="#777777"
+                android:shadowDy="-1"
+                android:shadowRadius="1"
+                android:text="닫기"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

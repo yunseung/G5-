@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="384dp"
+    android:layout_height="414dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/popup_calendar_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="378dp"
+        android:layout_height="58dp" >
+
+        <TextView
+            android:id="@+id/today"
+            android:layout_width="112dp"
+            android:layout_height="34dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:gravity="left|center_vertical"
+            android:text="2013.09"
+            android:textColor="#555555"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cal_back_selector" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/cal_next_selector" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TableLayout
+        android:id="@+id/week"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#dddddd"
+        android:gravity="center_vertical"
+        android:shrinkColumns="true"
+        android:stretchColumns="true" >
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="SUN"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="MON"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="TUE"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="WED"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="THU"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="FRI"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="SAT"
+                android:textColor="#333333" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFFFF" />
+
+</LinearLayout>

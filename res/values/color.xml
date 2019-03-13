@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="list_divider">#ff000000</color>
+    <color name="list_select">#ff404040</color>
+    <color name="list_default">#ff0000</color>
+    <color name="cal_weekday">#333333</color>
+    <color name="cal_saturday">#1d84a5</color>
+    <color name="cal_sunday">#fd2727</color>
+    <color name="cal_othermonth">#cccccc</color>
+    <color name="item_stock_empty">#fd2727</color>
+    
+    
+    <color name="back_donan1">#f6f2e6</color>
+    
+    <color name="line1">#cccccc</color>
+    <color name="line2">#d2d2d2</color>
+    <color name="white">#FFFFFF</color>
+    
+    
+
+</resources>

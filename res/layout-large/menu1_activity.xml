@@ -1,0 +1,768 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="true" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/menu_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onMenu1"
+                android:src="@drawable/menu01_selector" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onMenu2"
+                android:src="@drawable/menu02_selector" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onMenu3"
+                android:src="@drawable/menu03_selector" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onMenu4"
+                android:src="@drawable/menu04_selector" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onMenu7"
+                android:src="@drawable/menu07_selector" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onMenu5"
+                android:src="@drawable/menu05_selector" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onMenu8"
+                android:src="@drawable/etc_selector" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="18dp"
+                android:background="#2e2928" />
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onFinish"
+                android:src="@drawable/menu06_selector" />
+            
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:onClick="onAutoCare"
+                android:src="@drawable/lotte_selector" />
+            
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/menu_layout_id"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="440dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/left_bg"
+                android:orientation="vertical"
+                android:paddingBottom="7dp"
+                android:paddingTop="7dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="181"
+                    android:background="@drawable/main_bae_bg"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="110dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="38dp"
+                        android:layout_marginTop="7dp"
+                        android:gravity="left|center_vertical"
+                        android:text="당일현황"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp" >
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line1_block1_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_or01_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="접수"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line1_block1_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:shadowColor="#c88267"
+                                android:shadowDy="1"
+                                android:shadowRadius="1"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line1_block2_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_or02_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="미처리"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line1_block2_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:shadowColor="#c88267"
+                                android:shadowDy="1"
+                                android:shadowRadius="1"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line1_block3_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_or02_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="완료"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line1_block3_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:shadowColor="#c88267"
+                                android:shadowDy="1"
+                                android:shadowRadius="1"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line1_block4_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_or03_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="취소"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line1_block4_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:shadowColor="#c88267"
+                                android:shadowDy="1"
+                                android:shadowRadius="1"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="291"
+                    android:background="@drawable/main_bae_bg"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="38dp"
+                        android:layout_marginTop="7dp"
+                        android:gravity="left|center_vertical"
+                        android:text="당월현황"
+                        android:textColor="#555555"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp" >
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line2_block1_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_gr01_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="접수"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line2_block1_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line2_block2_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_gr02_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="미처리"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line2_block2_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line2_block3_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_gr02_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="완료"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line2_block3_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/menu1_line2_block4_click_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_gr03_selector"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="취소"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line2_block4_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="10dp" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_bl01"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="대차완료"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line3_block1_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_bl02"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="대차중"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line3_block2_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_bl02"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="대차대기"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line3_block3_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:background="@drawable/main_bae_bl03"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="92dp"
+                                android:layout_height="20dp"
+                                android:gravity="center_vertical"
+                                android:text="운행내역"
+                                android:textColor="#ffffff"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/menu1_line3_block4_id"
+                                android:layout_width="86dp"
+                                android:layout_height="40dp"
+                                android:gravity="right|center_vertical"
+                                android:text="00"
+                                android:textColor="#ffffff"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="266"
+                    android:background="@drawable/main_bae_bg"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="511dp"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:layout_width="110dp"
+                            android:layout_height="37dp"
+                            android:layout_marginLeft="38dp"
+                            android:layout_marginTop="7dp"
+                            android:gravity="left|center_vertical"
+                            android:text="공지사항"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="29dp"
+                           	android:visibility="gone"
+                            android:src="@drawable/main_bae_notice_btn_selector" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="450dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        >
+                        
+                        
+                        <FrameLayout
+			                android:layout_width="match_parent"
+			                android:layout_height="match_parent"
+			                 >
+			
+			                <ListView
+			                    android:id="@+id/lv_notice"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="match_parent"
+			                    android:divider="@null"
+			                    android:listSelector="#00000000" >
+			                </ListView>
+            </FrameLayout>
+            
+                        
+                        
+                        
+                        
+                    </RelativeLayout>
+
+                    
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_title_bg" >
+
+                    <Button
+                        android:id="@+id/btnReflesh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/main_btn_refresh_selector" />
+
+                    <TextView
+                        android:id="@+id/maintenance_return_title_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="당일접수현황"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/menu_pm114"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/btnReflesh"
+                        android:background="@drawable/dropdown_selector_9"
+                        android:text="대기" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                            android:layout_weight="653" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <ListView
+                                android:id="@+id/menu1_list_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:divider="@null"
+                                android:listSelector="@null"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="43dp" >
+                            </ListView>
+
+                            <ImageView
+                                android:id="@+id/list_nodata_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/nodata" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+
+                                <LinearLayout
+                                    android:id="@+id/inventory_search_list_title_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="10"
+                                    android:background="@drawable/right_top_bg"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp" >
+
+                                    <TextView
+                                        android:layout_width="70dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="순번"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="120dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="정비접수번호"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="140dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="@string/repair_type"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="120dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="차량번호"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                    <!-- KangHyunJin Add(20151208) -->
+
+                                    <TextView
+                                        android:layout_width="120dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="VOC내역"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="110dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:paddingLeft="20dp"
+                                        android:text="@string/customer_info"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                    
+                                    <TextView
+                                        android:layout_width="150dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="VIP"
+                                        android:textColor="#555555"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3dp"
+                                    android:background="@drawable/right_top_shadow" >
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </HorizontalScrollView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:background="@drawable/right_bottom_shadow" >
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/inventory_maintenance_done_layout_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="46"
+                        android:background="@drawable/right_bottom_bg"
+                        android:gravity="center"
+                        android:paddingLeft="70dp"
+                        android:paddingRight="70dp"
+                        android:weightSum="2" >
+
+                        <Button
+                            android:id="@+id/menu1_done_id"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn01_selector"
+                            android:text="접수 내역 확인"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/menu1_voc_info_id"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn01_selector"
+                            android:text="VOC 내역 조회"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--
+        <FrameLayout 
+            android:id="@+id/lay_full_popup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        -->
+    </RelativeLayout>
+
+</LinearLayout>
