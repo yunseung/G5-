@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -25,6 +26,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.ktrental.R;
 import com.ktrental.adapter.MonthProgressAdapter;
 import com.ktrental.calendar.CalendarController;
@@ -53,12 +62,14 @@ import com.ktrental.util.OnChangeFragmentListener;
 import com.ktrental.util.OnEventOkListener;
 import com.ktrental.util.kog;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * 
@@ -98,7 +109,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 	private Button BtnNotImplemented; // 미실시사유등록 버튼
 	private Button BtnMonthVocInfo; // VOC 내역 조회
 
-	private Mam mWorkProgress;
+//	private Mam mWorkProgress;
 
 	private String[] month_colums = { DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX,
 			DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR,
@@ -147,6 +158,9 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 	private ArrayList<RepairDayInfoModel> mDayList = new ArrayList<RepairDayInfoModel>();
 
 	private boolean isShowVocView;
+
+    private BarChart mBarChart = null;
+
 
 	// public MonthProgressFragment(String className,
 	// OnChangeFragmentListener changeFragmentListener) {
@@ -231,7 +245,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 	}
 
 	private void initViewSetting(View root) {
-
+        mBarChart = (BarChart)root.findViewById(R.id.chart);
 		// mHeaderView = inflater.inflate(R.layout.month_progress_header, null);
 
 		mLvProgressStatus = (ListView) root.findViewById(R.id.lv_progress_status);
@@ -295,7 +309,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
 		root.findViewById(R.id.btn_notimplemented).setOnClickListener(this);
 
-		mWorkProgress = (Mam) root.findViewById(R.id.graph_id);
+//		mWorkProgress = (Mam) root.findViewById(R.id.graph_id);
 		mBtnInfo = (Button) root.findViewById(R.id.btn_carnum);
 		mBtnInfo.setOnClickListener(this);
 
@@ -373,6 +387,57 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 		BtnDate = (Button) root.findViewById(R.id.btn_date); // 예정일변경 버튼
 		BtnDate.setOnClickListener(this);
 		mEmptyView = (ImageView) root.findViewById(R.id.iv_empty);
+
+
+
+
+        List<BarEntry> entries1 = new ArrayList<>();
+        entries1.add(new BarEntry(1, 50));
+        List<BarEntry> entries2 = new ArrayList<>();
+        entries2.add(new BarEntry(2, 100));
+        List<BarEntry> entries3 = new ArrayList<>();
+        entries3.add(new BarEntry(3, 39));
+        List<BarEntry> entries4 = new ArrayList<>();
+        entries4.add(new BarEntry(4, 80));
+
+        List<IBarDataSet> bars = new ArrayList<>();
+
+        BarDataSet barDataSet1 = new BarDataSet(entries1, "first");
+        barDataSet1.setColor(0XFF5BB6F1);
+        BarDataSet barDataSet2 = new BarDataSet(entries2, "second");
+        barDataSet2.setColor(0XFF44C0AB);
+        BarDataSet barDataSet3 = new BarDataSet(entries3, "third");
+        barDataSet3.setColor(0XFFF8D052);
+        BarDataSet barDataSet4 = new BarDataSet(entries4, "fourth");
+        barDataSet4.setColor(0XFF7B8289);
+
+        bars.add(barDataSet1);
+        bars.add(barDataSet2);
+        bars.add(barDataSet3);
+        bars.add(barDataSet4);
+
+        BarData barData = new BarData(bars);
+//		barData.setDrawValues(false);
+        barData.setValueFormatter(new MyValueFormatter());
+
+        mBarChart.setData(barData);
+
+
+        mBarChart.getDescription().setEnabled(false);
+        mBarChart.getLegend().setEnabled(false);
+        mBarChart.setFitBars(false);
+        mBarChart.animateXY(1000,10000);
+        mBarChart.getXAxis().setDrawGridLines(false);
+        mBarChart.getXAxis().setDrawAxisLine(false);
+        mBarChart.getXAxis().setDrawLabels(false);
+        mBarChart.getAxisRight().setDrawGridLines(false);
+        mBarChart.getAxisLeft().setDrawGridLines(false);
+        mBarChart.getAxisRight().setEnabled(false);
+        mBarChart.getAxisLeft().setEnabled(false);
+        mBarChart.setExtraOffsets(-10, -100, -100, -10);
+        mBarChart.setScaleEnabled(false);
+        mBarChart.setClickable(false);
+        mBarChart.invalidate();
 
 	}
 
@@ -1347,10 +1412,26 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 		try {
 			int degree = 100 * complate / plan;
 
-			mWorkProgress.setDegree(degree);
+//			mWorkProgress.setDegree(degree);
 		} catch (ArithmeticException e) {
 			// TODO: handle exception
 		}
 
 	}
+
+
+    private class MyValueFormatter implements IValueFormatter {
+
+        private DecimalFormat mFormat;
+
+        public MyValueFormatter() {
+            mFormat = new DecimalFormat("###");
+        }
+
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            // write your logic here
+            return mFormat.format(value) + "%";
+        }
+    }
 }

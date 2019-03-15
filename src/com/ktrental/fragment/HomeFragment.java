@@ -206,10 +206,10 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
         mLlMonthPercent.setOnClickListener(this);
         mTvDegree = (TextView) mRootView.findViewById(R.id.tv_percent);
 
-        mBtnSend = (Button) mRootView.findViewById(R.id.btn_send_result);
-        mBtnSend.setOnClickListener(this);
-        // Jonathan 15.02.11 미전송건 안한다고 해서 gone으로 해놓는다.
-        mBtnSend.setVisibility(View.GONE);
+//        mBtnSend = (Button) mRootView.findViewById(R.id.btn_send_result);
+//        mBtnSend.setOnClickListener(this);
+//        // Jonathan 15.02.11 미전송건 안한다고 해서 gone으로 해놓는다.
+//        mBtnSend.setVisibility(View.GONE);
         mLvNotice = (ListView) mRootView.findViewById(R.id.lv_notice);
         mHomeNoticeAdapter = new HomeNoticeAdapter(mContext);
         mLvNotice.setAdapter(mHomeNoticeAdapter);

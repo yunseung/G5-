@@ -282,6 +282,7 @@ public class DbAsyncTask extends AsyncTask<Integer// excute()실행시 넘겨줄
                 kog.e("Jonathan", "checking Complete mFunName == " + mFunName);
                 kog.e("Jonathan", "checking Complete result == " + result);
                 kog.e("Jonathan", "checking Complete mCursor == " + mCursor);
+                // 이게 무슨 소스냐 도대체.. 모든 케이스에 같은 함수 호출이라니.. 어쩌라는거임
                 if(mCursor != null && !mCursor.isClosed() && mCursor.getCount() > 0){
                     try {
                         if(mCursor.moveToFirst()){

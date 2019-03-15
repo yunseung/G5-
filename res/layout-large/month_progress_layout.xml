@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <!-- 월간 정비 왼쪽 -->
 
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_weight="511"
         android:background="@drawable/left_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/ll_calendar"
@@ -21,7 +21,7 @@
             android:layout_height="0dp"
             android:layout_weight="486"
             android:background="@drawable/cal_bg"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <!--
                  <fragment android:id="@+id/fm_calendar"
@@ -36,151 +36,255 @@
             android:layout_height="0dp"
             android:layout_weight="262"
             android:background="@drawable/cal_view_bg"
-            android:orientation="horizontal" >
-
-            <com.ktrental.ui.Mam
-                android:id="@+id/graph_id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="39dp"
-                android:layout_marginLeft="42dp"
-                android:layout_marginTop="39dp"
-                android:layout_weight="184" >
-            </com.ktrental.ui.Mam>
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="39dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="34dp"
-                android:layout_marginTop="39dp"
-                android:layout_weight="224"
-                android:orientation="horizontal" >
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/chart"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="39dp"
+                    android:layout_marginBottom="39dp"
+                    android:layout_weight="184" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="15dp"
-                    android:layout_toLeftOf="@+id/ll_circle_right"
-                    android:layout_weight="76"
-                    android:orientation="vertical" >
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="34dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="224"
+                    android:orientation="vertical">
 
-                    <View
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="10" >
-                    </View>
+                        android:layout_weight="29"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tv_month_complate"
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="22" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="고급형"
+                            android:textSize="10dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="IoT"
+                            android:textSize="10dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="ODM"
+                            android:textSize="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="28"
-                        android:drawableLeft="@drawable/circle_garph_dot01"
-                        android:gravity="center_vertical"
-                        android:text="0"
-                        android:textColor="#ff3424"
-                        android:textSize="24dp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="-5dp"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="22" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_weight="26"
+                            android:background="#5bb6f1"
+                            android:gravity="center" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_weight="26"
+                            android:background="#44c9ab"
+                            android:gravity="center" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_weight="26"
+                            android:background="#f8d052"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_weight="20"
-                        android:gravity="center_vertical"
-                        android:text="처리"
-                        android:textColor="#777777"
-                        android:textSize="14dp" />
+                        android:layout_weight="29"
+                        android:orientation="horizontal">
 
-                    <View
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="22"
+                            android:gravity="center"
+                            android:text="처리"
+                            android:textSize="8dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_month_complate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="203"
+                            android:textColor="#de353e"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_month_complate2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="203"
+                            android:textColor="#de353e"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_month_complate3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="203"
+                            android:textColor="#de353e"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="4" >
-                    </View>
+                        android:layout_weight="29"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tv_month_plan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="28"
-                        android:drawableLeft="@drawable/circle_garph_dot02"
-                        android:gravity="center_vertical"
-                        android:text="0"
-                        android:textColor="#333333"
-                        android:textSize="24dp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="22"
+                            android:gravity="center"
+                            android:text="계획"
+                            android:textSize="8dp"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/maintenance_return_title_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_weight="20"
-                        android:gravity="center_vertical"
-                        android:text="계획"
-                        android:textColor="#777777"
-                        android:textSize="14dp" />
+                        <TextView
+                            android:id="@+id/tv_month_plan"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="213"
+                            android:textColor="#555555"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
 
-                    <!--<View-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="0dp"-->
-                        <!--android:layout_weight="74" >-->
-                    <!--</View>-->
+                        <TextView
+                            android:id="@+id/tv_month_plan2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="213"
+                            android:textColor="#555555"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_month_plan3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:gravity="center"
+                            android:text="213"
+                            android:textColor="#555555"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
+            </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/ll_circle_right"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_weight="148"
-                    android:background="@drawable/circle_graph_partition"
-                    android:orientation="vertical"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="13dp"
-                    android:paddingTop="5dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="30dp">
 
-                    <TextView
-                        android:id="@+id/tv_"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="48"
-                        android:gravity="center_vertical"
-                        android:text="0"
-                        android:textColor="#555555"
-                        android:textSize="28sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="미실시"
+                    android:textSize="8dp"
+                    android:textStyle="bold"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="28"
-                        android:gravity="center_vertical"
-                        android:text="미실시건"
-                        android:textColor="#777777"
-                        android:textSize="10sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="162"
+                    android:textColor="#555555"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="21dp"
-                        android:layout_weight="48"
-                        android:gravity="center_vertical"
-                        android:text="0"
-                        android:textColor="#555555"
-                        android:textSize="28sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="장기미처리"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="8dp"
+                    android:textStyle="bold"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="28"
-                        android:gravity="center_vertical"
-                        android:text="장기미처리"
-                        android:textColor="#777777"
-                        android:textSize="10sp" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textColor="#555555"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -190,19 +294,19 @@
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="719" >
+        android:layout_weight="719">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <include layout="@layout/month_progress_header" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="656" >
+                android:layout_weight="656">
 
                 <ListView
                     android:id="@+id/lv_progress_status"

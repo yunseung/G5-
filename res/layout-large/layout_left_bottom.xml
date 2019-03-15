@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="6dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/main_view_bg"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="17"
+            android:background="@drawable/main_view_today_top"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="금일"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="고급형"
+                android:textSize="9dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="IoT"
+                android:textSize="9dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="ODM"
+                android:textSize="9dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_today_plan"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="3dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="처리"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_plan_left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="368"
+                android:textColor="#323232"
+                android:textSize="10.5dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_today_plan_left2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="368"
+                android:textColor="#323232"
+                android:textSize="10.5dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_today_plan_left3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="368"
+                android:textColor="#323232"
+                android:textSize="10.5dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="계획"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_plan_right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="317"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_plan_right2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="317"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_plan_right3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="317"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_today_order"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="예약"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_order"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_order2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_order3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_today_order_waitting"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="예약대기"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_order_waitting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_order_waitting2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_order_waitting3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_today_possetion"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="미실시"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_possetion"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="29"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_possetion2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="29"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_today_possetion3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="29"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="9dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="긴급"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="1dp"
+        android:background="@drawable/main_view_bg"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="17"
+            android:background="@drawable/main_view_month_top"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="당월"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="고급형"
+                android:textSize="9dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="IoT"
+                android:textSize="9dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="ODM"
+                android:textSize="9dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_month_plan"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="처리"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_month_plan_left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="368"
+                android:textColor="#323232"
+                android:textSize="10.5dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_month_plan_left2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="368"
+                android:textColor="#323232"
+                android:textSize="10.5dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_month_plan_left3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="368"
+                android:textColor="#323232"
+                android:textSize="10.5dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="16"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="계획"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_month_plan_right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="317"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_month_plan_right2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="317"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_month_plan_right3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="317"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_month_percent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="16"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="처리율"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_percent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_percent2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_percent3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="16"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="미실시"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="9dp"
+            android:layout_weight="16"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="이관(수신)"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="29"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="29"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="29"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -114,7 +114,6 @@ public class SqlLiteAdapter {
 	}
 
 	public void closeDB() {
-
 		if (m_db != null) {
 			m_db.close();
 			m_db = null;

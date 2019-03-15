@@ -33,7 +33,7 @@
             android:layout_height="0dp"
             android:layout_weight="3" >
 
-            <include layout="@layout/home_left_bottom" />
+            <include layout="@layout/layout_left_bottom" />
         </LinearLayout>
     </LinearLayout>
 
