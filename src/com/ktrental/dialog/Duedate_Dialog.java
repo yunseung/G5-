@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
@@ -18,6 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ktrental.R;
+import com.ktrental.activity.LoginActivity;
 import com.ktrental.adapter.Duedate_Dialog_Left_Adapter;
 import com.ktrental.adapter.Duedate_Dialog_Right_Adapter;
 import com.ktrental.cm.connect.ConnectController;
@@ -31,6 +33,7 @@ import com.ktrental.custom.DayInfo;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.TableModel;
 import com.ktrental.popup.EventPopupC;
+import com.ktrental.popup.IoTCancelPopup;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -146,6 +149,7 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 	}
 
 	public void setCalCheck(int position, final ArrayList<DayInfo> mDayList) {
+		//TODO 여기서 time picker popup 띄움.. ==> 저장 눌렀을 때 보내던 페이로드에 시간 및 상세요청사항까지 더해서 보내면 됨.
 		cal_custom.SELECTED = position;
 		if (mDayList == null)
 			return;
@@ -159,8 +163,7 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 			dayday = di.getDay();
 		}
 		SELECTED_DAY = di.getYear() + di.getMonth() + dayday;
-		tv_today_title.setText(di.getYear() + "." + di.getMonth() + "."
-				+ di.getDay());
+		tv_today_title.setText(di.getYear() + "." + di.getMonth() + "." + di.getDay());
 		cal_custom.initView();
 		ArrayList<HashMap<String, String>> day_arr = getDayList(SELECTED_DAY);
 		for (int i = 0; i < day_arr.size(); i++) {
@@ -325,7 +328,9 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.dudate_dialog_close_id: // 닫기
-			dismiss();
+//			dismiss();
+			IoTCancelPopup popup = new IoTCancelPopup(mContext);
+			popup.show();
 			break;
 		case R.id.duedate_dialog_save_id:// 저장하기
 			String str = bt_save.getText().toString();

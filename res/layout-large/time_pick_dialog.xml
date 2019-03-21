@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="311dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="7dp" >
+
+    <LinearLayout
+        android:layout_width="283dp"
+        android:layout_height="321dp"
+        android:background="@drawable/popup_calculator_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <FrameLayout
+                android:id="@+id/fl_inventory_input_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/popup_calculator_time"
+                android:gravity="right|center_vertical" >
+
+                <TextView
+                    android:id="@+id/tv_inventory_input_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/popup_calculator_focus"
+                    android:gravity="center"
+                    android:maxLength="2"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:shadowColor="#9e9e9e"
+                    android:shadowDy="-2"
+                    android:text="00"
+                    android:textColor="#333333"
+                    android:textSize="30sp" >
+                </TextView>
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/popup_calculator_colon" />
+
+            <FrameLayout
+                android:id="@+id/fl_inventory_input_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/popup_calculator_time"
+                android:gravity="right|center_vertical" >
+
+                <TextView
+                    android:id="@+id/tv_inventory_input_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLength="2"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:shadowColor="#9e9e9e"
+                    android:shadowDy="-2"
+                    android:text="00"
+                    android:textColor="#333333"
+                    android:textSize="30sp" >
+                </TextView>
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/inventory_bt_num_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/popup_caculator_btn_07_selector" />
+
+            <Button
+                android:id="@+id/inventory_bt_num_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/popup_caculator_btn_08_selector" />
+
+            <Button
+                android:id="@+id/inventory_bt_num_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/popup_caculator_btn_09_selector" />
+
+            <Button
+                android:id="@+id/inventory_bt_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/popup_caculator_btn_del_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/inventory_bt_num_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/popup_caculator_btn_04_selector" />
+
+            <Button
+                android:id="@+id/inventory_bt_num_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/popup_caculator_btn_05_selector" />
+
+            <Button
+                android:id="@+id/inventory_bt_num_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/popup_caculator_btn_06_selector" />
+
+            <Button
+                android:id="@+id/inventory_bt_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/popup_caculator_btn_clear_selector" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/inventory_bt_num_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/popup_caculator_btn_01_selector" />
+
+                <Button
+                    android:id="@+id/inventory_bt_num_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:background="@drawable/popup_caculator_btn_02_selector" />
+
+                <Button
+                    android:id="@+id/inventory_bt_num_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:background="@drawable/popup_caculator_btn_03_selector" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/inventory_bt_num_0"
+                android:layout_width="212dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_bottom"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/popup_caculator_btn_00_selector" />
+
+            <Button
+                android:id="@+id/inventory_bt_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_toRightOf="@+id/ll_bottom"
+                android:background="@drawable/popup_caculator_btn_ok_selector" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/detail_text"
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="20dp"
+        android:inputType="none"
+        android:hint="상세요청사항을 입력해주세요."/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="88dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn01_selector"
+            android:textColor="#ffffff"
+            android:text="취소"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="88dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn01_selector"
+            android:textColor="#ffffff"
+            android:text="확인"/>
+
+    </LinearLayout>
+
+</LinearLayout>
