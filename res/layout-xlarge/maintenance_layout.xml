@@ -444,9 +444,10 @@
                     android:layout_weight="36" >
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
+                        android:gravity="center"
                         android:orientation="horizontal" >
 
                         <Button
@@ -477,7 +478,7 @@
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp"
                             android:background="@drawable/btn05_selector"
-                            android:text="미실시사유등록"
+                            android:text="미실시등록"
                             android:textColor="#ffffff"
                             android:textSize="18dp" />
                         
@@ -488,7 +489,18 @@
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp"
                             android:background="@drawable/btn05_selector"
-                            android:text="VOC 내역 조회"
+                            android:text="VOC"
+                            android:textColor="#ffffff"
+                            android:textSize="18dp" />
+
+                        <Button
+                            android:id="@+id/btn_cancel_iot"
+                            android:layout_width="135dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:background="@drawable/btn05_selector"
+                            android:text="IoT정비취소"
                             android:textColor="#ffffff"
                             android:textSize="18dp" />
                     </LinearLayout>
