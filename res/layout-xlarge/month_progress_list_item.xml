@@ -93,6 +93,26 @@
                     android:textColor="#ffffff"
                     android:textSize="20dp" />
 
+                <Button
+                    android:id="@+id/btn_trouble_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_new_sm"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="고장코드이력"/>
+
+                <Button
+                    android:id="@+id/btn_req_iot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_new_sm"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="고장코드이력"/>
+
             </LinearLayout>
 
             <TextView

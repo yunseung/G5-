@@ -41,6 +41,8 @@ import com.ktrental.cm.db.DbAsyncTask.DbAsyncResLintener;
 import com.ktrental.cm.db.SqlLiteAdapter;
 import com.ktrental.common.DEFINE;
 import com.ktrental.common.KtRentalApplication;
+import com.ktrental.dialog.IoTRequestItemDialog;
+import com.ktrental.dialog.TimePickDialog;
 import com.ktrental.model.DbQueryModel;
 import com.ktrental.model.LoginModel;
 import com.ktrental.model.O_ITAB1;
@@ -49,8 +51,8 @@ import com.ktrental.model.TableModel;
 import com.ktrental.popup.EventPopup2;
 import com.ktrental.popup.EventPopupC;
 import com.ktrental.popup.EventPopupCC;
-import com.ktrental.popup.IoTCancelPopup;
 import com.ktrental.popup.ProgressPopup;
+import com.ktrental.popup.TimePopup;
 import com.ktrental.product.Menu1_Activity;
 import com.ktrental.util.CommonUtil;
 import com.ktrental.util.LogUtil;
@@ -474,7 +476,16 @@ public class LoginActivity extends Activity implements OnClickListener, OnChecke
         {
             // 로그인 클릭 이벤
             case R.id.bt_login:
-                clickLogin();
+//                clickLogin();
+//                IoTCancelPopup popup = new IoTCancelPopup(LoginActivity.this);
+//                popup.show();
+
+//                TimePickDialog popup = new TimePickDialog(LoginActivity.this);
+//                popup.show();
+
+                IoTRequestItemDialog popup = new IoTRequestItemDialog(LoginActivity.this);
+                popup.show();
+
                 break;
             default:
                 break;
