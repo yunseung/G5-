@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -104,18 +105,18 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 			DEFINE.AUFNR, DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30,
 			DEFINE.MDLCD, DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX};
 
-	private String[] maintenace_plan_colums = { DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.CEMER };
+	private String[] maintenace_plan_colums = { DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.CEMER, DEFINE.GUBUN };
 
 	private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
 
 	private String mCurrentDay = "";
 
-	private TextView mTvComplate;
-	private TextView mTvPlan;
+	private TextView mTvComplate, mTvComplate2, mTvComplate3;
+	private TextView mTvPlan, mTvPlan2, mTvPlan3;
 
 	private ArrayList<RepairPlanModel> mRepairPlanModelArray = new ArrayList<RepairPlanModel>();
-	private int mComplateVal = 0;
-	private int mPlanVal = 0;
+	private int mComplateVal, mComplateVal2, mComplateVal3 = 0;
+	private int mPlanVal, mPlanVal2, mPlanVal3 = 0;
 
 	private Maintenance_Date_Adapter maintenance_Date_Adapter;
 
@@ -162,6 +163,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
+		Log.e("MaintenanceStatus", "onCreate()++");
 		initCalendar();
 
 	}
@@ -248,7 +250,11 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 		mTvRightTitle = (TextView) root.findViewById(R.id.tv_righttitle);
 
 		mTvComplate = (TextView) root.findViewById(R.id.tv_complate);
+		mTvComplate2 = (TextView) root.findViewById(R.id.tv_complate2);
+		mTvComplate3 = (TextView) root.findViewById(R.id.tv_complate3);
 		mTvPlan = (TextView) root.findViewById(R.id.tv_plan);
+		mTvPlan2 = (TextView) root.findViewById(R.id.tv_plan2);
+		mTvPlan3 = (TextView) root.findViewById(R.id.tv_plan3);
 
 		// queryMaintenacePlan();
 
@@ -314,6 +320,8 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 				btn_filiter1.setText("전체");
 			}
 			mPlanVal = 0;
+			mPlanVal2 = 0;
+			mPlanVal3 = 0;
 
 		}
 		super.onHiddenChanged(hidden);
@@ -682,6 +690,8 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 				int backWorkDay = -1;
 				int backIndex = 0;
 				mComplateVal = 0;
+				mComplateVal2 = 0;
+				mComplateVal3 = 0;
 
 				// myung 20131206 ADD 전체 계획을 다른 날로 이관 시 계획이 0으로 안바뀜
 				for (int i = 0; i < mDayList.size(); i++) {
@@ -696,8 +706,17 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
 					String cemer = cursor.getString(2);
 
+					String gubun = cursor.getString(3);
+
 					if ("E0004".equals(work)) {
-						mComplateVal++;
+						if (gubun.trim().isEmpty()) {
+							mComplateVal++;
+						} else if (gubun.trim().equals("A")) {
+							mComplateVal2++;
+						} else if (gubun.trim().equals("O")) {
+							mComplateVal3++;
+						}
+
 					}
 
 					if (backWorkDay < workDay) {
@@ -742,7 +761,14 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
 					if (cemer != null) {
 						if (cemer.equals(" "))
-							mPlanVal++;
+							if (gubun.trim().isEmpty()) {
+								mPlanVal++;
+							} else if (gubun.trim().equals("A")) {
+								mPlanVal2++;
+							} else if (gubun.trim().equals("O")) {
+								mPlanVal3++;
+							}
+
 					}
 
 					// for(int i=0; i< mDayList.size(); i++){
@@ -863,7 +889,11 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 	private void setPlanTitle() {
 
 		mTvPlan.setText("" + mPlanVal);
+		mTvPlan2.setText("" + mPlanVal2);
+		mTvPlan3.setText("" + mPlanVal3);
 		mTvComplate.setText("" + mComplateVal);
+		mTvComplate2.setText("" + mComplateVal2);
+		mTvComplate3.setText("" + mComplateVal3);
 	}
 
 	@Override
@@ -876,6 +906,8 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 	protected void queryMaintenace(String currentDay) {
 		// CommonUtil.showCallStack();
 		showProgress("순회 정비계획을 조회 중입니다.");
+
+		Log.e("HomeFragment", "순회 윤승3");
 
 		String[] _whereArgs = { currentDay };
 		String[] _whereCause = { "GSTRS" };
