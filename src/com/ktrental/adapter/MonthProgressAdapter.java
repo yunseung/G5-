@@ -1,22 +1,21 @@
 package com.ktrental.adapter;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ktrental.R;
-import com.ktrental.adapter.MaintenanceAdapter.NameAscCompare;
 import com.ktrental.model.BaseMaintenanceModel;
-import com.ktrental.model.MaintenanceModel;
 import com.ktrental.model.MonthProgressModel;
 import com.ktrental.util.kog;
 import com.ktrental.viewholder.MonthProgressViewHolder;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MonthProgressAdapter extends BaseMaintenceAdapter {
 	private String mProgressType = "전체";
@@ -38,7 +37,11 @@ public class MonthProgressAdapter extends BaseMaintenceAdapter {
 
 		MonthProgressModel model = (MonthProgressModel) getItem(position);
 		if (model != null) {
-			viewHolder.tvDay.setText(insertDot(model.getDay()));
+			if (model.getAUFNR().isEmpty()) {
+				viewHolder.tvDay.setText(insertDot(model.getDay()) + " " + model.getAPM());
+			} else {
+				viewHolder.tvDay.setText(insertDot(model.getDay()) + " " + model.getTime());
+			}
 
 			// viewHolder.tvBooking.setText(RepairPlanModel
 			// .getProgressStatus(model.getProgress_status()));

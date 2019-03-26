@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="116dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/list01_bg_n"
     android:orientation="horizontal">
 
     <LinearLayout
         android:id="@+id/item_back"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -38,11 +38,18 @@
                     android:textColor="#4a7b89"
                     android:textSize="22dp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tv_carnum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:text="52허 8080"
                     android:textColor="#ff7447"
                     android:textSize="22dp" />
@@ -74,9 +81,12 @@
 
                 <TextView
                     android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="홍길동"
+                    android:ellipsize="end"
+                    android:layout_weight="1"
+                    android:lines="1"
                     android:textColor="#333333"
                     android:textSize="20dp" />
 
@@ -84,14 +94,14 @@
                 <TextView
                     android:id="@+id/tv_delay"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
                     android:background="#000000"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
                     android:text="지연일수 : "
                     android:textColor="#ffffff"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
 
                 <Button
                     android:id="@+id/btn_trouble_history"
@@ -100,7 +110,8 @@
                     android:background="@drawable/btn_new_sm"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
                     android:text="고장코드이력"/>
 
                 <Button
@@ -110,8 +121,9 @@
                     android:background="@drawable/btn_new_sm"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
+                    android:layout_weight="1"
                     android:layout_marginLeft="10dp"
-                    android:text="고장코드이력"/>
+                    android:text="IOT요청항목"/>
 
             </LinearLayout>
 

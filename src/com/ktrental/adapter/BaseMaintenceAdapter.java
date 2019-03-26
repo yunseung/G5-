@@ -130,14 +130,35 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             viewHolder.tvCarname.setText(model.getCarname());
             viewHolder.tvAgreement.setText(RepairPlanModel.getProgressStatus(model.getProgress_status()));
 
-            // 2017-06-02. hjt 지연일수 추가
-            // 2017-06-08. 지연일수 0이면 안보이도록
-            if(model != null) {
-                if(model.getDelay() != null && !model.getDelay().equals("0")) {
-                    viewHolder.tvDelay.setText("지연일수 : " + model.getDelay());
-                    viewHolder.tvDelay.setVisibility(View.VISIBLE);
-                } else {
-                    viewHolder.tvDelay.setVisibility(View.GONE);
+
+            // IOT ODM 고급형에 따른 UI 변경
+            if (model.getGUBUN().trim().isEmpty()) {
+                viewHolder.tvGubun.setVisibility(View.INVISIBLE);
+                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setVisibility(View.INVISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+            } else if (model.getGUBUN().equals("A")) {
+                viewHolder.tvGubun.setVisibility(View.VISIBLE);
+                viewHolder.tvGubun.setText("IoT");
+                viewHolder.tvDelay.setVisibility(View.INVISIBLE);
+                viewHolder.btnReqIot.setVisibility(View.VISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
+            } else if (model.getGUBUN().equals("O")) {
+                viewHolder.tvGubun.setVisibility(View.VISIBLE);
+                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setVisibility(View.VISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+                viewHolder.tvGubun.setText("ODM");
+
+                // 2017-06-02. hjt 지연일수 추가
+                // 2017-06-08. 지연일수 0이면 안보이도록
+                if(model != null) {
+                    if(model.getDelay() != null && !model.getDelay().equals("0")) {
+                        viewHolder.tvDelay.setText("지연일수 : " + model.getDelay());
+                        viewHolder.tvDelay.setVisibility(View.VISIBLE);
+                    } else {
+                        viewHolder.tvDelay.setVisibility(View.GONE);
+                    }
                 }
             }
 
@@ -238,6 +259,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             viewHolder.btnMap.setTag(position);
             viewHolder.tvVocNum.setTag(position);
             viewHolder.tvODC.setTag(position);
+            viewHolder.tvGubun.setTag(position);
         }
 
     }
@@ -272,12 +294,18 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         viewHolder.tvVocNum = (TextView) rootView.findViewById(R.id.tv_voc_info);
 
         viewHolder.tvODC = (TextView) rootView.findViewById(R.id.tv_odc_info);
-        
+
+        viewHolder.tvGubun = (TextView) rootView.findViewById(R.id.gubun);
+        viewHolder.btnTroubleHistory = (Button) rootView.findViewById(R.id.btn_trouble_history);
+        viewHolder.btnReqIot = (Button) rootView.findViewById(R.id.btn_req_iot);
+
         rootView.findViewById(R.id.btn_find).setOnClickListener(this);
         rootView.findViewById(R.id.btn_call).setOnClickListener(this);
         rootView.findViewById(R.id.btn_sms).setOnClickListener(this);
         rootView.findViewById(R.id.btn_map).setOnClickListener(this);
         rootView.findViewById(R.id.btn_edit).setOnClickListener(this);
+        rootView.findViewById(R.id.btn_req_iot).setOnClickListener(this);
+        rootView.findViewById(R.id.btn_trouble_history).setOnClickListener(this);
 
         viewHolder.ivCheck.setOnClickListener(this);
         viewHolder.llRoot.setOnClickListener(this);

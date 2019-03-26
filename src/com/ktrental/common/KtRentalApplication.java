@@ -45,12 +45,12 @@ public class KtRentalApplication extends Application implements
 			DEFINE.DRV_MOB, DEFINE.MOB_NUMBER2, DEFINE.USERID };
 
 	private String[] maintenace_plan_colums = { DEFINE.CCMSTS, DEFINE.GSTRS,
-			DEFINE.CEMER };
+			DEFINE.CEMER, DEFINE.GUBUN };
 
 	private ArrayList<RepairPlanModel> mRepairPlanModelArray = new ArrayList<RepairPlanModel>();
-	private int mComplateVal = 0;
+	private int mComplateVal, mComplateVal2, mComplateVal3 = 0;
 
-	private int mPlanVal = 0;
+	private int mPlanVal, mPlanVal2, mPlanVal3 = 0;
 
 	private ArrayList<RepairDayInfoModel> mDayList;
 
@@ -199,7 +199,11 @@ public class KtRentalApplication extends Application implements
 			cursor.moveToFirst();
 			mRepairPlanModelArray.clear();
 			mComplateVal = 0;
+			mComplateVal2 = 0;
+			mComplateVal3 = 0;
 			mPlanVal = 0;
+			mPlanVal2 = 0;
+			mPlanVal3 = 0;
 
 			RepairPlanModel repairPlanModel = new RepairPlanModel();
 
@@ -212,9 +216,16 @@ public class KtRentalApplication extends Application implements
 
 				int workDay = Integer.valueOf(cursor.getString(1));
 				String cemer = cursor.getString(2);
+				String gubun = cursor.getString(3);
 
 				if (E0004.equals(work)) {
-					mComplateVal++;
+					if (gubun.trim().isEmpty()) {
+						mComplateVal++;
+					} else if (gubun.trim().equals("A")) {
+						mComplateVal2++;
+					} else if (gubun.trim().equals("O")) {
+						mComplateVal3++;
+					}
 				}
 
 				if (backWorkDay < workDay) {
@@ -262,7 +273,13 @@ public class KtRentalApplication extends Application implements
 
 				if (cemer != null) {
 					if (cemer.equals(" "))
-						mPlanVal++;
+						if (gubun.trim().isEmpty()) {
+							mPlanVal++;
+						} else if (gubun.trim().equals("A")) {
+							mPlanVal2++;
+						} else if (gubun.trim().equals("O")) {
+							mPlanVal3++;
+						}
 				}
 				cursor.moveToNext();
 
@@ -289,6 +306,14 @@ public class KtRentalApplication extends Application implements
 		return mComplateVal;
 	}
 
+	public int getComplateVal2() {
+		return mComplateVal2;
+	}
+
+	public int getComplateVal3() {
+		return mComplateVal3;
+	}
+
 	public void setComplateVal(int ComplateVal) {
 		this.mComplateVal = ComplateVal;
 	}
@@ -296,6 +321,15 @@ public class KtRentalApplication extends Application implements
 	public int getPlanVal() {
 		return mPlanVal;
 	}
+
+	public int getPlanVal2() {
+		return mPlanVal2;
+	}
+
+	public int getPlanVal3() {
+		return mPlanVal3;
+	}
+
 
 	public void setPlanVal(int PlanVal) {
 		this.mPlanVal = PlanVal;

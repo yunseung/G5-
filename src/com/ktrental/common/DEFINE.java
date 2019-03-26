@@ -121,6 +121,7 @@ public class DEFINE {
 	final public static String POST_CODE = "POST_CODE";
 	final public static String CITY = "CITY";
 	final public static String STREET = "STREET";
+	final public static String ABC = "ABC";
 	
 
 	// 인코딩되어야 되는 값들.
@@ -179,6 +180,7 @@ public class DEFINE {
 	public final static String EQUNR = "EQUNR";
 	public final static String CTRTY = "CTRTY";
 	public final static String CEMER = "CEMER";
+	public final static String GUBUN = "GUBUN";
 	public final static String CHNGBN = "CHNGBN";
 	public final static String OWNER = "OWNER";
 	public final static String NIELS_NM = "NIELS_NM";
@@ -191,6 +193,8 @@ public class DEFINE {
 
 
 	public final static String DELAY = "DELAY";
+
+	public final static String APM = "APM";
 
 	public static String SESSION = "";
 	

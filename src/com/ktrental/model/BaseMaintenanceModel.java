@@ -43,6 +43,8 @@ public class BaseMaintenanceModel
 
     //2017-11-28. hjt CYCMN_TX 추가
     private String CYCMN_TX = "";
+
+    private String APM = "";
     public BaseMaintenanceModel(String aUFNR)
     {
         super();
@@ -61,7 +63,7 @@ public class BaseMaintenanceModel
 
     public BaseMaintenanceModel(String customer_name, String driver_name, String _carNum, String _address, String _tel, String _time,
             String _carname, String _progress_status, String _day, String AUFNR, String _EQUNR, String _CTRTY, String postCode, String city,
-            String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx)
+            String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx, String apm)
     {
 
         CUSTOMER_NAME = customer_name;
@@ -98,6 +100,8 @@ public class BaseMaintenanceModel
         CYCMN_TX = cycmn_tx;
 //        kog.e("Jonathan", "Hello Jonathan1 :: " + VOCNUM);
 //        LogUtil.d("hjt", "hjt delay = " + delay);
+
+        APM = apm;
     }
 
     public String getMDLCD()
@@ -345,4 +349,11 @@ public class BaseMaintenanceModel
 
     public String getCYCMN_TX() { return CYCMN_TX; }
 
+    public String getAPM() {
+        return APM;
+    }
+
+    public void setAPM(String APM) {
+        this.APM = APM;
+    }
 }

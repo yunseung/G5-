@@ -56,12 +56,14 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:paddingTop="5dp"
+            android:background="#f4f1ec"
             android:paddingBottom="5dp">
 
             <EditText
                 android:id="@+id/et_car_kind"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
+                android:background="@drawable/input"
                 android:layout_centerInParent="true" />
 
             <TextView
@@ -78,10 +80,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"
-            android:paddingLeft="13dp"
-            android:paddingRight="13dp"
+            android:background="#fafbf6"
+            android:paddingLeft="26dp"
+            android:paddingRight="26dp"
             android:orientation="vertical">
 
             <TextView
@@ -94,6 +95,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
+                android:background="@drawable/popup_tb_tit"
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -150,6 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_gravity="center_vertical"
+                android:background="@drawable/popup_tb_bt"
                 android:orientation="horizontal">
 
                 <TextView

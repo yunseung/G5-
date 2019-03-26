@@ -169,6 +169,8 @@ public class CarInfoModel extends BaseMaintenanceModel {
 
 	private String TIRE_SIZE = "";
 
+	private String apm = "";
+
 	public CarInfoModel(String customer_name, String driver_name, String _carNum, String _address,
 			String _tel, String _time, String _carname,
 			String _progress_status, String _day, String customerName,
@@ -188,7 +190,7 @@ public class CarInfoModel extends BaseMaintenanceModel {
 			String drv_mob, String drv_tel, String gueen2 , String txt30, String vocNum, String kunnr, String delay) {
 		super(customer_name ,driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null);
+				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null);
 		LogUtil.d("hjt", "hjt delay = " + delay);
 
 		this.customerName = customerName;

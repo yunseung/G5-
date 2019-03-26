@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="38dp"
-    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:layout_marginTop="4dp">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="25"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <!--
@@ -94,7 +90,7 @@
                 android:visibility="gone"/>
 
             <TextView
-                android:id="@+id/tv_iot_info"
+                android:id="@+id/gubun"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="24dp"
@@ -130,27 +126,38 @@
 
     <LinearLayout
         android:id="@+id/relativeLayout1"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
         android:layout_height="38dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/list_quick_btn_bg" >
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btn_req1"
+            android:layout_width="50dp"
+            android:layout_height="38dp"
+            android:background="@drawable/list_quick_btn_request_selector" />
+        <Button
+            android:id="@+id/btn_req2"
+            android:layout_width="50dp"
+            android:layout_height="38dp"
+            android:background="@drawable/list_quick_btn_it_request_selector" />
 	    <Button
 	        android:id="@+id/btn_find"
 	        android:layout_width="50dp"
 	        android:layout_height="38dp"
-            android:layout_weight="1"
 	        android:background="@drawable/list_quick_btn_find_selector" />
         <Button
             android:id="@+id/btn_call"
             android:layout_width="50dp"
-            android:layout_weight="1"
             android:layout_height="38dp"
             android:background="@drawable/call_btn_selector" />
 
         <Button
             android:id="@+id/btn_sms"
             android:layout_width="50dp"
-            android:layout_weight="1"
             android:layout_height="38dp"
             android:background="@drawable/sms_btn_selector" />
 
@@ -158,14 +165,12 @@
             android:id="@+id/btn_map"
             android:layout_width="50dp"
             android:layout_height="38dp"
-            android:layout_weight="1"
             android:background="@drawable/map_btn_selector" />
 
         <Button
             android:id="@+id/btn_edit"
             android:layout_width="50dp"
             android:layout_height="38dp"
-            android:layout_weight="1"
             android:layout_marginRight="7dp"
             android:background="@drawable/edit_btn_selector" />
     </LinearLayout>

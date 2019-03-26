@@ -29,7 +29,7 @@ public class HomeMaintenanceModel extends BaseMaintenanceModel {
 			String _reoil,String _cermr, String _ccmrq, String green2, String txt30, String _mdlcd, String _vocNum, String _kunnr, String delay) {
 		super(customer_name, driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, drv_mob, green2, txt30, _mdlcd, _vocNum, _kunnr, delay, null);
+				street, drv_mob, green2, txt30, _mdlcd, _vocNum, _kunnr, delay, null, null);
 		
 		status = _status;
 		this.NIELS_NM = NIELS_NM;

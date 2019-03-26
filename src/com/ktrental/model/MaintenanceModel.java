@@ -13,7 +13,7 @@ public class MaintenanceModel extends BaseMaintenanceModel {
 			String drv_mob, String _cermr, String _gueen2, String _txt30, String _mdlcd, String _vocID, String _kunnr, String delay, String CYCMN_TX) {
 		super(customer_name, driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, drv_mob, _gueen2, _txt30, _mdlcd , _vocID, _kunnr, delay, CYCMN_TX);
+				street, drv_mob, _gueen2, _txt30, _mdlcd , _vocID, _kunnr, delay, CYCMN_TX, null);
 
 		status = _status;
 		cermr = _cermr;

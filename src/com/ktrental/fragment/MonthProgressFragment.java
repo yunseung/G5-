@@ -100,8 +100,8 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 	private Button mBtnInfo;
 
 	private Button mBtnSearch;
-	private TextView mTvPlan;
-	private TextView mTvComplate;
+	private TextView mTvPlan, mTvPlan2, mTvPlan3;
+	private TextView mTvComplate, mTvComplate2, mTvComplate3;
 	private Button mBtnDelText;
 
 	private Button BtnDate; // 예정일변경 버튼
@@ -114,7 +114,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 	private String[] month_colums = { DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX,
 			DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR,
 			DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30, DEFINE.MDLCD,
-			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX};
+			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM};
 
 	private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
 
@@ -306,6 +306,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
 		mTvComplate = (TextView) root.findViewById(R.id.tv_month_complate);
 		mTvPlan = (TextView) root.findViewById(R.id.tv_month_plan);
+		mTvComplate2 = (TextView) root.findViewById(R.id.tv_month_complate2);
+		mTvPlan2 = (TextView) root.findViewById(R.id.tv_month_plan2);
+		mTvComplate3 = (TextView) root.findViewById(R.id.tv_month_complate3);
+		mTvPlan3 = (TextView) root.findViewById(R.id.tv_month_plan3);
 
 		root.findViewById(R.id.btn_notimplemented).setOnClickListener(this);
 
@@ -388,57 +392,56 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 		BtnDate.setOnClickListener(this);
 		mEmptyView = (ImageView) root.findViewById(R.id.iv_empty);
 
+	}
 
+	private void drawBarGraph(int va1, int val2, int val3, int val4) {
+		List<BarEntry> entries1 = new ArrayList<>();
+		entries1.add(new BarEntry(1, va1));
+		List<BarEntry> entries2 = new ArrayList<>();
+		entries2.add(new BarEntry(2, val2));
+		List<BarEntry> entries3 = new ArrayList<>();
+		entries3.add(new BarEntry(3, val3));
+		List<BarEntry> entries4 = new ArrayList<>();
+		entries4.add(new BarEntry(4, val4));
 
+		List<IBarDataSet> bars = new ArrayList<>();
 
-        List<BarEntry> entries1 = new ArrayList<>();
-        entries1.add(new BarEntry(1, 50));
-        List<BarEntry> entries2 = new ArrayList<>();
-        entries2.add(new BarEntry(2, 100));
-        List<BarEntry> entries3 = new ArrayList<>();
-        entries3.add(new BarEntry(3, 39));
-        List<BarEntry> entries4 = new ArrayList<>();
-        entries4.add(new BarEntry(4, 80));
+		BarDataSet barDataSet1 = new BarDataSet(entries1, "first");
+		barDataSet1.setColor(0XFF5BB6F1);
+		BarDataSet barDataSet2 = new BarDataSet(entries2, "second");
+		barDataSet2.setColor(0XFF44C0AB);
+		BarDataSet barDataSet3 = new BarDataSet(entries3, "third");
+		barDataSet3.setColor(0XFFF8D052);
+		BarDataSet barDataSet4 = new BarDataSet(entries4, "fourth");
+		barDataSet4.setColor(0XFF7B8289);
 
-        List<IBarDataSet> bars = new ArrayList<>();
+		bars.add(barDataSet1);
+		bars.add(barDataSet2);
+		bars.add(barDataSet3);
+		bars.add(barDataSet4);
 
-        BarDataSet barDataSet1 = new BarDataSet(entries1, "first");
-        barDataSet1.setColor(0XFF5BB6F1);
-        BarDataSet barDataSet2 = new BarDataSet(entries2, "second");
-        barDataSet2.setColor(0XFF44C0AB);
-        BarDataSet barDataSet3 = new BarDataSet(entries3, "third");
-        barDataSet3.setColor(0XFFF8D052);
-        BarDataSet barDataSet4 = new BarDataSet(entries4, "fourth");
-        barDataSet4.setColor(0XFF7B8289);
-
-        bars.add(barDataSet1);
-        bars.add(barDataSet2);
-        bars.add(barDataSet3);
-        bars.add(barDataSet4);
-
-        BarData barData = new BarData(bars);
+		BarData barData = new BarData(bars);
 //		barData.setDrawValues(false);
-        barData.setValueFormatter(new MyValueFormatter());
+		barData.setValueFormatter(new MyValueFormatter());
 
-        mBarChart.setData(barData);
+		mBarChart.setData(barData);
 
 
-        mBarChart.getDescription().setEnabled(false);
-        mBarChart.getLegend().setEnabled(false);
-        mBarChart.setFitBars(false);
-        mBarChart.animateXY(1000,10000);
-        mBarChart.getXAxis().setDrawGridLines(false);
-        mBarChart.getXAxis().setDrawAxisLine(false);
-        mBarChart.getXAxis().setDrawLabels(false);
-        mBarChart.getAxisRight().setDrawGridLines(false);
-        mBarChart.getAxisLeft().setDrawGridLines(false);
-        mBarChart.getAxisRight().setEnabled(false);
-        mBarChart.getAxisLeft().setEnabled(false);
-        mBarChart.setExtraOffsets(-10, -100, -100, -10);
-        mBarChart.setScaleEnabled(false);
-        mBarChart.setClickable(false);
-        mBarChart.invalidate();
-
+		mBarChart.getDescription().setEnabled(false);
+		mBarChart.getLegend().setEnabled(false);
+		mBarChart.setFitBars(false);
+		mBarChart.animateXY(1000,10000);
+		mBarChart.getXAxis().setDrawGridLines(false);
+		mBarChart.getXAxis().setDrawAxisLine(false);
+		mBarChart.getXAxis().setDrawLabels(false);
+		mBarChart.getAxisRight().setDrawGridLines(false);
+		mBarChart.getAxisLeft().setDrawGridLines(false);
+		mBarChart.getAxisRight().setEnabled(false);
+		mBarChart.getAxisLeft().setEnabled(false);
+		mBarChart.setExtraOffsets(-10, -100, -100, -10);
+		mBarChart.setScaleEnabled(false);
+		mBarChart.setClickable(false);
+		mBarChart.invalidate();
 	}
 
 	private void setMonthTitle() {
@@ -600,6 +603,8 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 								}
 								String CYCMN_TX = cursor.getString(cursor.getColumnIndex(month_colums[22]));
 
+								String apm = cursor.getString(cursor.getColumnIndex(month_colums[23]));
+
 //							LogUtil.d("hjt", "hjt delay = " + delay);
 //
 //							kog.e("Jonathan", "Hello Jonathan MonthProgressFragment:: " + vocNum);
@@ -640,7 +645,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 										decrypt(month_colums[11], aufnr), decrypt(month_colums[12], equnr),
 										decrypt(month_colums[13], ctrty), postCode, city, street,
 										decrypt(month_colums[14], drv_mob), decrypt(month_colums[15], cermr), gueen2, txt30,
-										mdlcd, vocNum, kunnr, delay, CYCMN_TX);
+										mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm);
 
 								// MaintenanceModel md = new MaintenanceModel(time,
 								// name, invnr,
@@ -1404,7 +1409,17 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 		setMonthTitle();
 
 		mTvComplate.setText(getComplate());
+		mTvComplate2.setText(getComplate2());
+		mTvComplate3.setText(getComplate3());
 		mTvPlan.setText(getPlan());
+		mTvPlan2.setText(getPlan2());
+		mTvPlan3.setText(getPlan3());
+
+		int val1 = Integer.parseInt(getPlan()) == 0 ? 0 : Integer.parseInt(getComplate())/Integer.parseInt(getPlan());
+		int val2 = Integer.parseInt(getPlan2()) == 0 ? 0 : Integer.parseInt(getComplate2())/Integer.parseInt(getPlan2());
+		int val3 = Integer.parseInt(getPlan3()) == 0 ? 0 : Integer.parseInt(getComplate3())/Integer.parseInt(getPlan3());
+
+		drawBarGraph(val1, val2, val3, 0);
 
 		int complate = Integer.valueOf(getComplate());
 		int plan = Integer.valueOf(getPlan());

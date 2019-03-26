@@ -16,111 +16,145 @@ import java.util.Observer;
 /**
  * 일정관련된 화면들이 상속받는다. </br>일일 단위 순회정비 대상차량을 관리하는 화면. </br> BaseResultFragment를
  * 상속받음.
- * 
+ *
  * @author hongsungil
  */
 public abstract class BaseRepairFragment extends BaseResultFragment implements
-		Observer, OnSelectedItem, OnClickRootView {
+        Observer, OnSelectedItem, OnClickRootView {
 
-	protected abstract void updateRepairPlan();
+    protected abstract void updateRepairPlan();
 
-	protected abstract void initSelectedMaintenanceArray(String currentDay);
+    protected abstract void initSelectedMaintenanceArray(String currentDay);
 
-	protected abstract void queryMaintenace(String currentDay);
+    protected abstract void queryMaintenace(String currentDay);
 
-	protected abstract void initScroll();
+    protected abstract void initScroll();
 
-	private boolean isRepairFlag = false;
+    private boolean isRepairFlag = false;
 
-	private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
+    private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
 
-	private String mCurrentDay = "";
+    private String mCurrentDay = "";
 
-	public BaseRepairFragment() {
-		super();
-	}
+    public BaseRepairFragment() {
+        super();
+    }
 
-	public BaseRepairFragment(String className,
-			OnChangeFragmentListener changeFragmentListener) {
-		super(className, changeFragmentListener);
-		KtRentalApplication.addRepairPlanObserver(this);
-	}
+    public BaseRepairFragment(String className,
+                              OnChangeFragmentListener changeFragmentListener) {
+        super(className, changeFragmentListener);
+        KtRentalApplication.addRepairPlanObserver(this);
+    }
 
-	public void addRepairPlanObserver() {
-		KtRentalApplication.addRepairPlanObserver(this);
-	}
+    public void addRepairPlanObserver() {
+        KtRentalApplication.addRepairPlanObserver(this);
+    }
 
-	@Override
-	public void update(Observable observable, Object data) {
-		// 순회 정비 계획 변경.
-		if (observable instanceof RepairPlanObserver) {
-			if (!this.isHidden()) {
-				// 상속받은 클래스에 순회정비 계획이 바뀐것을 알려준다.
-				updateRepairPlan();
-				//2014-01-19 KDH 아놔여기서 다 업데이트떄리네-_-결론은..디비까지함댕겨와야하네..환장하긋네..한큐에좀하지..이걸다쓰겠다고
-				//겁나쪼개놨어 ㅡ,.ㅡ;
-			}
+    @Override
+    public void update(Observable observable, Object data) {
+        // 순회 정비 계획 변경.
+        if (observable instanceof RepairPlanObserver) {
+            if (!this.isHidden()) {
+                // 상속받은 클래스에 순회정비 계획이 바뀐것을 알려준다.
+                updateRepairPlan();
+                //2014-01-19 KDH 아놔여기서 다 업데이트떄리네-_-결론은..디비까지함댕겨와야하네..환장하긋네..한큐에좀하지..이걸다쓰겠다고
+                //겁나쪼개놨어 ㅡ,.ㅡ;
+            }
 
-			isRepairFlag = true;
-		}
-	}
+            isRepairFlag = true;
+        }
+    }
 
-	@Override
-	public void onHiddenChanged(boolean hidden) {
-		// TODO Auto-generated method stub
-		super.onHiddenChanged(hidden);
-		if (!hidden) {
-			// if (isRepairFlag) {
-			updateRepairPlan();
-			isRepairFlag = false;
-			// }
-		}
-	}
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        // TODO Auto-generated method stub
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            // if (isRepairFlag) {
+            updateRepairPlan();
+            isRepairFlag = false;
+            // }
+        }
+    }
 
-	protected String getPlan() {
-		String rePlan = "";
+    protected String getPlan() {
+        String rePlan = "";
 
-		rePlan = String.valueOf(KtRentalApplication.getInstance().getPlanVal());
+        rePlan = String.valueOf(KtRentalApplication.getInstance().getPlanVal());
 
-		return rePlan;
-	}
+        return rePlan;
+    }
 
-	protected String getComplate() {
-		String reComplate = "";
+    protected String getPlan2() {
+        String rePlan = "";
 
-		reComplate = String.valueOf(KtRentalApplication.getInstance()
-				.getComplateVal());
-		
-		return reComplate;
-	}
+        rePlan = String.valueOf(KtRentalApplication.getInstance().getPlanVal2());
 
-	@Override
-	public void OnSeletedItem(Object item) {
-		// TODO Auto-generated method stub
-		String currentDay = ((DayInfoModel) item).getCurrentDay();
+        return rePlan;
+    }
 
-		showProgress();
+    protected String getPlan3() {
+        String rePlan = "";
 
-		// if (mCurrentDay != null) {
-		// DbAsyncTask dbAsyncTask = mAsyncMap.get(mCurrentDay);
-		// if (dbAsyncTask != null) {
-		// mAsyncMap.remove(mCurrentDay);
-		// dbAsyncTask.cancel(true);
-		// hideProgress();
-		// return;
-		// }
-		// }
-		initSelectedMaintenanceArray(currentDay);
-		queryMaintenace(currentDay);
-		mCurrentDay = currentDay;
+        rePlan = String.valueOf(KtRentalApplication.getInstance().getPlanVal3());
 
-	}
+        return rePlan;
+    }
 
-	@Override
-	public void onClickRoot(final BaseMaintenanceModel model) {
+    protected String getComplate() {
+        String reComplate = "";
 
-		showResultFragment(model);
+        reComplate = String.valueOf(KtRentalApplication.getInstance()
+                .getComplateVal());
 
-	}
+        return reComplate;
+    }
+
+    protected String getComplate2() {
+        String reComplate = "";
+
+        reComplate = String.valueOf(KtRentalApplication.getInstance()
+                .getComplateVal2());
+
+        return reComplate;
+    }
+
+    protected String getComplate3() {
+        String reComplate = "";
+
+        reComplate = String.valueOf(KtRentalApplication.getInstance()
+                .getComplateVal3());
+
+        return reComplate;
+    }
+
+    @Override
+    public void OnSeletedItem(Object item) {
+        // TODO Auto-generated method stub
+        String currentDay = ((DayInfoModel) item).getCurrentDay();
+
+        showProgress();
+
+        // if (mCurrentDay != null) {
+        // DbAsyncTask dbAsyncTask = mAsyncMap.get(mCurrentDay);
+        // if (dbAsyncTask != null) {
+        // mAsyncMap.remove(mCurrentDay);
+        // dbAsyncTask.cancel(true);
+        // hideProgress();
+        // return;
+        // }
+        // }
+        initSelectedMaintenanceArray(currentDay);
+        queryMaintenace(currentDay);
+        mCurrentDay = currentDay;
+
+    }
+
+    @Override
+    public void onClickRoot(final BaseMaintenanceModel model) {
+
+        showResultFragment(model);
+
+    }
 
 }

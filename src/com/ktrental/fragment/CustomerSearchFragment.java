@@ -1316,12 +1316,14 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 			e.printStackTrace();
 		}
 
+		String apm = o_struct1.get("APM");
+
 		kog.e("Jonathan", "Hello Jonathan2 :: " + VOCNUM);
 
 		BaseMaintenanceModel model = new BaseMaintenanceModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, _EQUNR, _CTRTY, postCode, city,
-				street, _drv_mob, gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, null);
+				street, _drv_mob, gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, null, apm);
 
 		return model;
 	}
@@ -1689,6 +1691,8 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 
 		String DELAY = o_struct1.get("DELAY"); // hjt 지연일수 추가
 
+		String apm = o_struct1.get("APM");
+
 		Set<String> set1 = o_struct1.keySet();
 		Set<String> set2 = o_struct2.keySet();
 		Set<String> set3 = o_struct3.keySet();
@@ -1728,7 +1732,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 		BaseMaintenanceModel model = new BaseMaintenanceModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, _EQUNR, _CTRTY, postCode, city,
-				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null);
+				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null, apm);
 
 		CarInfoModel carInfoModel = new CarInfoModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
