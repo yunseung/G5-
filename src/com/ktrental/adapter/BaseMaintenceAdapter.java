@@ -32,7 +32,9 @@ import com.ktrental.dialog.IoTRequestItemDialog;
 import com.ktrental.dialog.TroubleHistoryItemDialog;
 import com.ktrental.fragment.BaseRepairFragment;
 import com.ktrental.model.BaseMaintenanceModel;
+import com.ktrental.model.HomeMaintenanceModel;
 import com.ktrental.model.LoginModel;
+import com.ktrental.model.MonthProgressModel;
 import com.ktrental.model.RepairPlanModel;
 import com.ktrental.model.TableModel;
 import com.ktrental.popup.CallSendPopup;
@@ -136,7 +138,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             // IOT ODM 고급형에 따른 UI 변경
             if (model.getGUBUN().trim().isEmpty()) {
                 viewHolder.tvGubun.setVisibility(View.INVISIBLE);
-                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+//                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.INVISIBLE);
 //                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
             } else if (model.getGUBUN().equals("A")) {
@@ -147,7 +149,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
             } else if (model.getGUBUN().equals("O")) {
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
-                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+//                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.VISIBLE);
 //                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
                 viewHolder.tvGubun.setText("ODM");
@@ -263,6 +265,8 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             viewHolder.tvODC.setTag(position);
             viewHolder.btnTroubleHistory.setTag(position);
             viewHolder.btnReqIot.setTag(position);
+            viewHolder.btnReq1.setTag(position);
+            viewHolder.btnReq2.setTag(position);
         }
 
     }
@@ -293,7 +297,9 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         viewHolder.btnSms = (Button) rootView.findViewById(R.id.btn_sms);
         viewHolder.btnEdit = (Button) rootView.findViewById(R.id.btn_edit);
         viewHolder.btnMap = (Button) rootView.findViewById(R.id.btn_map);
-        
+        viewHolder.btnReq1 = (Button) rootView.findViewById(R.id.btn_req1);
+        viewHolder.btnReq2 = (Button) rootView.findViewById(R.id.btn_req2);
+
         viewHolder.tvVocNum = (TextView) rootView.findViewById(R.id.tv_voc_info);
 
         viewHolder.tvODC = (TextView) rootView.findViewById(R.id.tv_odc_info);
@@ -309,6 +315,8 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         rootView.findViewById(R.id.btn_edit).setOnClickListener(this);
         rootView.findViewById(R.id.btn_req_iot).setOnClickListener(this);
         rootView.findViewById(R.id.btn_trouble_history).setOnClickListener(this);
+        rootView.findViewById(R.id.btn_req1).setOnClickListener(this);
+        rootView.findViewById(R.id.btn_req2).setOnClickListener(this);
 
         viewHolder.ivCheck.setOnClickListener(this);
         viewHolder.llRoot.setOnClickListener(this);
@@ -364,6 +372,12 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 break;
             case R.id.btn_req_iot:
                 clickReqIot(v);
+                break;
+            case R.id.btn_req1:
+                clickReq1(v);
+                break;
+            case R.id.btn_req2:
+                clickReq2(v);
                 break;
             default:
                 break;
@@ -555,6 +569,16 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         BaseMaintenanceModel model = getItem((Integer)v.getTag());
         IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
         dialog.show();
+    }
+
+    private void clickReq1(View v) {
+        MonthProgressModel model = (MonthProgressModel)getItem((Integer)v.getTag());
+        Log.e("yunseung22", model.getCcmrq());
+        Log.e("yunseung22", model.getCermr());
+    }
+
+    private void clickReq2(View v) {
+
     }
 
 

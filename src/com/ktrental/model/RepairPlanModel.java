@@ -1,5 +1,7 @@
 package com.ktrental.model;
 
+import android.util.Log;
+
 public class RepairPlanModel {
 	public final static String ALL = "ALL_REPAIR"; // 예약대기
 	public final static String E0001 = "E0001"; // 예약대기
@@ -16,14 +18,14 @@ public class RepairPlanModel {
 
 	private String[] workArr = { E0001, E0002, E0003, E0004, E0005 };
 
-	private int subscription = 0;
-	private int subscriptionWaitting = 0;
-	private int transfer = 0;
-	private int complate = 0;
-	private int plan = 0;
-	private int possetion = 0;
+	private int subscription, subscription2, subscription3 = 0;
+	private int subscriptionWaitting, subscriptionWaitting2, subscriptionWaitting3 = 0;
+	private int transfer, transfer2, transfer3 = 0;
+	private int complate, complate2, complate3 = 0;
+	private int plan, plan2, plan3 = 0;
+	private int possetion, possetion2, possetion3 = 0;
 	private int progress_s = 0;
-	private int emergency = 0;
+	private int emergency, emergency2, emergency3 = 0;
 
 	public int getEmergency() {
 		return emergency;
@@ -38,35 +40,102 @@ public class RepairPlanModel {
 		// plan = subscription + subscriptionWaitting + transfer + complate;
 	}
 
-	public void addWork(String workName, boolean planFlag) {
+	public void addWork(String workName, boolean planFlag, String gubun) {
 		for (int i = 0; i < workArr.length; i++) {
 			if (workArr[i].equals(workName)) {
 				if (i == 0) {
-					subscriptionWaitting++;
+					if (gubun.trim().isEmpty()) {
+						subscriptionWaitting++;
 
-					plan++;
+						plan++;
+
+						Log.e("yunseung222", "subscriptionWaiting : " + subscriptionWaitting);
+						Log.e("yunseung222", "plan : " + plan);
+					} else if (gubun.trim().equals("A")) {
+						subscriptionWaitting2++;
+
+						plan2++;
+
+						Log.e("yunseung222", "subscriptionWaiting2 : " + subscriptionWaitting2);
+						Log.e("yunseung222", "plan2 : " + plan2);
+					} else if (gubun.trim().equals("O")) {
+						subscriptionWaitting3++;
+
+						plan3++;
+						Log.e("yunseung222", "subscriptionWaiting3 : " + subscriptionWaitting3);
+						Log.e("yunseung222", "plan3 : " + plan3);
+					}
+
 
 					break;
 				} else if (i == 1) {
-					subscription++;
-					plan++;
+					if (gubun.trim().isEmpty()) {
+						subscription++;
+						plan++;
+					} else if (gubun.trim().equals("A")) {
+						subscription2++;
+						plan2++;
+					} else if (gubun.trim().equals("O")) {
+						subscription3++;
+						plan3++;
+					}
+
 					break;
 				} else if (i == 2) {
-					transfer++;
-					plan++;
+					if (gubun.trim().isEmpty()) {
+						transfer++;
+						plan++;
+					} else if (gubun.trim().equals("A")) {
+						transfer2++;
+						plan2++;
+					} else if (gubun.trim().equals("O")) {
+						transfer3++;
+						plan3++;
+					}
+
 					break;
 				} else if (i == 3) {
+					if (gubun.trim().isEmpty()) {
+						complate++;
+					} else if (gubun.trim().equals("A")) {
+						complate2++;
+					} else if (gubun.trim().equals("O")) {
+						complate3++;
+					}
 
-					complate++;
 
-					if (planFlag)
-						emergency++;
-					else
-						plan++;
+					if (planFlag) {
+						if (gubun.trim().isEmpty()) {
+							emergency++;
+						} else if (gubun.trim().equals("A")) {
+							emergency2++;
+						} else if (gubun.trim().equals("O")) {
+							emergency3++;
+						}
+
+					} else {
+						if (gubun.trim().isEmpty()) {
+							plan++;
+						} else if (gubun.trim().equals("A")) {
+							plan2++;
+						} else if (gubun.trim().equals("O")) {
+							plan3++;
+						}
+					}
+
 					break;
 				} else if (i == 4) {
-					possetion++;
-					plan++;
+					if (gubun.trim().isEmpty()) {
+						possetion++;
+						plan++;
+					} else if (gubun.trim().equals("A")) {
+						possetion2++;
+						plan2++;
+					} else if (gubun.trim().equals("O")) {
+						possetion3++;
+						plan3++;
+					}
+
 					break;
 				}
 			}
@@ -119,6 +188,62 @@ public class RepairPlanModel {
 
 	public void setPossetion(int possetion) {
 		this.possetion = possetion;
+	}
+
+	public int getSubscription2() {
+		return subscription2;
+	}
+
+	public int getSubscription3() {
+		return subscription3;
+	}
+
+	public int getSubscriptionWaitting2() {
+		return subscriptionWaitting2;
+	}
+
+	public int getSubscriptionWaitting3() {
+		return subscriptionWaitting3;
+	}
+
+	public int getTransfer2() {
+		return transfer2;
+	}
+
+	public int getTransfer3() {
+		return transfer3;
+	}
+
+	public int getComplate2() {
+		return complate2;
+	}
+
+	public int getComplate3() {
+		return complate3;
+	}
+
+	public int getPlan2() {
+		return plan2;
+	}
+
+	public int getPlan3() {
+		return plan3;
+	}
+
+	public int getPossetion2() {
+		return possetion2;
+	}
+
+	public int getPossetion3() {
+		return possetion3;
+	}
+
+	public int getEmergency2() {
+		return emergency2;
+	}
+
+	public int getEmergency3() {
+		return emergency3;
 	}
 
 	public static String getProgressStatus(String aProgressStatus) {

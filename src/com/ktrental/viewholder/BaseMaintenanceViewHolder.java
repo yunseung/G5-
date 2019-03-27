@@ -30,5 +30,7 @@ public class BaseMaintenanceViewHolder {
 	public TextView tvGubun;
 	public Button btnTroubleHistory;
 	public Button btnReqIot;
+	public Button btnReq1;
+	public Button btnReq2;
 
 }

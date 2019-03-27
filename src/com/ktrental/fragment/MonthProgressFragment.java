@@ -114,7 +114,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 	private String[] month_colums = { DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX,
 			DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR,
 			DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30, DEFINE.MDLCD,
-			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO};
+			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO, DEFINE.CCMRQ};
 
 	private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
 
@@ -607,6 +607,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 								String vbeln = cursor.getString(cursor.getColumnIndex(month_colums[24]));
 								String gubun = cursor.getString(cursor.getColumnIndex(month_colums[25]));
 								String reqno = cursor.getString(cursor.getColumnIndex(month_colums[26]));
+								String ccmrq = cursor.getString(cursor.getColumnIndex(month_colums[27]));
 
 //							LogUtil.d("hjt", "hjt delay = " + delay);
 //
@@ -648,7 +649,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 										decrypt(month_colums[11], aufnr), decrypt(month_colums[12], equnr),
 										decrypt(month_colums[13], ctrty), postCode, city, street,
 										decrypt(month_colums[14], drv_mob), decrypt(month_colums[15], cermr), gueen2, txt30,
-										mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm, vbeln, gubun, reqno);
+										mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm, vbeln, gubun, reqno, ccmrq);
 
 								// MaintenanceModel md = new MaintenanceModel(time,
 								// name, invnr,
@@ -715,7 +716,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
 				int workDay = Integer.valueOf(cursor.getString(1));
 				String cemer = cursor.getString(2);
-
+				String gubun = cursor.getString(cursor.getColumnIndex(month_colums[25]));
 				if ("E0004".equals(work)) {
 					mComplateVal++;
 				}
@@ -727,7 +728,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 						if (cemer.equals(" "))
 							planFlag = false;
 
-					repairPlanModel.addWork(work, planFlag);
+					repairPlanModel.addWork(work, planFlag, gubun);
 					mRepairPlanModelArray.add(repairPlanModel);
 
 					for (int i = backIndex; i < mDayList.size(); i++) {
@@ -751,7 +752,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 					if (cemer != null)
 						if (cemer.equals(" "))
 							planFlag = false;
-					repairPlanModel.addWork(work, planFlag);
+					repairPlanModel.addWork(work, planFlag, gubun);
 					mRepairPlanModelArray.set(mRepairPlanModelArray.size() - 1, repairPlanModel);
 
 					//

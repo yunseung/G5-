@@ -70,14 +70,15 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
 
     private HomeCardFragment             mHomeCardFragment;
 
-    private TextView                     mTvTodayPlanLeft;
-    private TextView                     mTvTodayPlanRight;
-    private TextView                     mTvTodayOrder;
-    private TextView                     mTvTodayOrderWait;
-    private TextView                     mTvTodayPossetion;
-    private TextView                     mTvMontyPlanLeft;
-    private TextView                     mTvMontyPlanRight;
-    private TextView                     mTvDegree;
+    private TextView                     mTvTodayPlanLeft, mTvTodayPlanLeft2, mTvTodayPlanLeft3;
+    private TextView                     mTvTodayPlanRight, mTvTodayPlanRight2, mTvTodayPlanRight3;
+    private TextView                     mTvTodayOrder, mTvTodayOrder2, mTvTodayOrder3;
+    private TextView                     mTvTodayOrderWait, mTvTodayOrderWait2, mTvTodayOrderWait3;
+    private TextView                     mTvTodayPossetion, mTvTodayPossetion2, mTvTodayPossetion3;
+    private TextView                     mTvTodayEmergency, mTvTodayEmergency2, mTvTodayEmergency3;
+    private TextView                     mTvMontyPlanLeft, mTvMontyPlanLeft2, mTvMontyPlanLeft3;
+    private TextView                     mTvMontyPlanRight, mTvMontyPlanRight2, mTvMontyPlanRight3;
+    private TextView                     mTvDegree, mTvDegree2, mTvDegree3;
     private Button                       mBtnSend;
     private LinearLayout                 mLlTodayPlan;
     private LinearLayout                 mLlTodayOrder;
@@ -185,26 +186,45 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
         mCalendarFragment.setOnCalendarListener(this);
 
         mTvTodayPlanLeft = (TextView) mRootView.findViewById(R.id.tv_today_plan_left);
+        mTvTodayPlanLeft2 = (TextView) mRootView.findViewById(R.id.tv_today_plan_left2);
+        mTvTodayPlanLeft3 = (TextView) mRootView.findViewById(R.id.tv_today_plan_left3);
         mTvTodayPlanRight = (TextView) mRootView.findViewById(R.id.tv_today_plan_right);
+        mTvTodayPlanRight2 = (TextView) mRootView.findViewById(R.id.tv_today_plan_right2);
+        mTvTodayPlanRight3 = (TextView) mRootView.findViewById(R.id.tv_today_plan_right3);
         mLlTodayPlan = (LinearLayout) mRootView.findViewById(R.id.ll_today_plan);
         mLlTodayPlan.setOnClickListener(this);
         mTvTodayOrder = (TextView) mRootView.findViewById(R.id.tv_today_order);
+        mTvTodayOrder2 = (TextView) mRootView.findViewById(R.id.tv_today_order2);
+        mTvTodayOrder3 = (TextView) mRootView.findViewById(R.id.tv_today_order3);
         mLlTodayOrder = (LinearLayout) mRootView.findViewById(R.id.ll_today_order);
         mLlTodayOrder.setOnClickListener(this);
         mTvTodayOrderWait = (TextView) mRootView.findViewById(R.id.tv_today_order_waitting);
+        mTvTodayOrderWait2 = (TextView) mRootView.findViewById(R.id.tv_today_order_waitting2);
+        mTvTodayOrderWait3 = (TextView) mRootView.findViewById(R.id.tv_today_order_waitting3);
         mLlTodayOrderWait = (LinearLayout) mRootView.findViewById(R.id.ll_today_order_waitting);
         mLlTodayOrderWait.setOnClickListener(this);
         mTvTodayPossetion = (TextView) mRootView.findViewById(R.id.tv_today_possetion);
+        mTvTodayPossetion2 = (TextView) mRootView.findViewById(R.id.tv_today_possetion2);
+        mTvTodayPossetion3 = (TextView) mRootView.findViewById(R.id.tv_today_possetion3);
         mLlTodayPossetion = (LinearLayout) mRootView.findViewById(R.id.ll_today_possetion);
         mLlTodayPossetion.setOnClickListener(this);
+        mTvTodayEmergency = (TextView) mRootView.findViewById(R.id.tv_today_emergency);
+        mTvTodayEmergency2 = (TextView) mRootView.findViewById(R.id.tv_today_emergency2);
+        mTvTodayEmergency3 = (TextView) mRootView.findViewById(R.id.tv_today_emergency3);
 
         mTvMontyPlanLeft = (TextView) mRootView.findViewById(R.id.tv_month_plan_left);
+        mTvMontyPlanLeft2 = (TextView) mRootView.findViewById(R.id.tv_month_plan_left2);
+        mTvMontyPlanLeft3 = (TextView) mRootView.findViewById(R.id.tv_month_plan_left3);
         mTvMontyPlanRight = (TextView) mRootView.findViewById(R.id.tv_month_plan_right);
+        mTvMontyPlanRight2 = (TextView) mRootView.findViewById(R.id.tv_month_plan_right2);
+        mTvMontyPlanRight3 = (TextView) mRootView.findViewById(R.id.tv_month_plan_right3);
         mLlMonthPlan = (LinearLayout) mRootView.findViewById(R.id.ll_month_plan);
         mLlMonthPlan.setOnClickListener(this);
         mLlMonthPercent = (LinearLayout) mRootView.findViewById(R.id.ll_month_percent);
         mLlMonthPercent.setOnClickListener(this);
         mTvDegree = (TextView) mRootView.findViewById(R.id.tv_percent);
+        mTvDegree2 = (TextView) mRootView.findViewById(R.id.tv_percent2);
+        mTvDegree3 = (TextView) mRootView.findViewById(R.id.tv_percent3);
 
 //        mBtnSend = (Button) mRootView.findViewById(R.id.btn_send_result);
 //        mBtnSend.setOnClickListener(this);
@@ -459,7 +479,11 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
         if (mTvMontyPlanLeft != null && mTvMontyPlanRight != null)
         {
             mTvMontyPlanLeft.setText(complate);
-            mTvMontyPlanRight.setText("/" + plan);
+            mTvMontyPlanLeft2.setText(getComplate2());
+            mTvMontyPlanLeft3.setText(getComplate3());
+            mTvMontyPlanRight.setText(plan);
+            mTvMontyPlanRight2.setText(getPlan2());
+            mTvMontyPlanRight3.setText(getPlan3());
 
         }
         initDegree();
@@ -474,7 +498,11 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
 
                     mComplate = planModel.getComplate();
                     mTvTodayPlanLeft.setText("" + mComplate);
-                    mTvTodayPlanRight.setText("/" + planModel.getPlan());
+                    mTvTodayPlanLeft2.setText("" + planModel.getComplate2());
+                    mTvTodayPlanLeft3.setText("" + planModel.getComplate3());
+                    mTvTodayPlanRight.setText("" + planModel.getPlan());
+                    mTvTodayPlanRight2.setText("" + planModel.getPlan2());
+                    mTvTodayPlanRight3.setText("" + planModel.getPlan3());
                     break;
                 }
             }
@@ -489,9 +517,17 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
     {
 
         int order = 0;
+        int order2 = 0;
+        int order3 = 0;
         int orderWait = 0;
+        int orderWait2 = 0;
+        int orderWait3 = 0;
         int possetion = 0;
+        int possetion2 = 0;
+        int possetion3 = 0;
         int emergency = 0;
+        int emergency2 = 0;
+        int emergency3 = 0;
 
         for (RepairDayInfoModel repairDayInfoModel : repairDayInfoModels)
         {
@@ -501,17 +537,34 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
                 if (planModel != null)
                 {
                     order = order + repairDayInfoModel.getRepairPlanModel().getSubscription();
+                    order2 = order2 + repairDayInfoModel.getRepairPlanModel().getSubscription2();
+                    order3 = order3 + repairDayInfoModel.getRepairPlanModel().getSubscription3();
                     orderWait = orderWait + repairDayInfoModel.getRepairPlanModel().getSubscriptionWaitting();
+                    orderWait2 = orderWait2 + repairDayInfoModel.getRepairPlanModel().getSubscriptionWaitting2();
+                    orderWait3 = orderWait3 + repairDayInfoModel.getRepairPlanModel().getSubscriptionWaitting3();
                     possetion = possetion + repairDayInfoModel.getRepairPlanModel().getPossetion();
+                    possetion2 = possetion2 + repairDayInfoModel.getRepairPlanModel().getPossetion2();
+                    possetion3 = possetion3 + repairDayInfoModel.getRepairPlanModel().getPossetion3();
                     emergency = emergency + repairDayInfoModel.getRepairPlanModel().getEmergency();
+                    emergency2 = emergency2 + repairDayInfoModel.getRepairPlanModel().getEmergency2();
+                    emergency3 = emergency3 + repairDayInfoModel.getRepairPlanModel().getEmergency3();
                     break;
                 }
             }
         }
 
         mTvTodayOrder.setText("" + order);
+        mTvTodayOrder2.setText("" + order2);
+        mTvTodayOrder3.setText("" + order3);
         mTvTodayOrderWait.setText("" + orderWait);
-        mTvTodayPossetion.setText("" + possetion + "/" + emergency);
+        mTvTodayOrderWait2.setText("" + orderWait2);
+        mTvTodayOrderWait3.setText("" + orderWait3);
+        mTvTodayPossetion.setText("" + possetion);
+        mTvTodayPossetion2.setText("" + possetion2);
+        mTvTodayPossetion3.setText("" + possetion3);
+        mTvTodayEmergency.setText("" + emergency);
+        mTvTodayEmergency2.setText("" + emergency2);
+        mTvTodayEmergency3.setText("" + emergency3);
 
         kog.e("KDH", "여기가 로그인 이후 화면이다. 결론은 이번달에 미처리 건에 대해서는 여기서 체크해야됨.");
 
@@ -783,12 +836,20 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
         try
         {
             int complate = Integer.valueOf(getComplate());
+            int complate2 = Integer.valueOf(getComplate2());
+            int complate3 = Integer.valueOf(getComplate3());
             int plan = Integer.valueOf(getPlan());
+            int plan2 = Integer.valueOf(getPlan2());
+            int plan3 = Integer.valueOf(getPlan3());
 
             int degree = 100 * complate / plan;
+            int degree2 = 100 * complate2 / plan2;
+            int degree3 = 100 * complate3 / plan3;
 
             if (mTvDegree != null)
                 mTvDegree.setText("" + degree + " %");
+                mTvDegree2.setText("" + degree2 + " %");
+                mTvDegree3.setText("" + degree3 + " %");
         }
         catch (ArithmeticException e)
         {

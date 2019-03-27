@@ -29,6 +29,7 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
     private Context mContext;
 
     private View mRootView;
+    private TextView mTvTotalPrice;
     private ListView mListView;
 
     private ConnectController mCc;
@@ -76,6 +77,7 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
         setContentView(R.layout.iot_request_item_dialog);
 
         mRootView = findViewById(R.id.rl_root_view);
+        mTvTotalPrice = (TextView)findViewById(R.id.total_price);
 
         mRootView.findViewById(R.id.iv_exit).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,16 +113,24 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
     @Override
     public void connectResponse(String FuntionName, String resultText, String MTYPE, int resulCode, TableModel tableModel) {
         hideProgress();
-        Log.e("yunseung", FuntionName);
-        Log.e("yunseung", resultText);
-        Log.e("yunseung", MTYPE);
-        Log.e("yunseung", resulCode + "");
-        Log.e("yunseung", FuntionName);
 
-        ArrayList<HashMap<String, String>> array_hash = new ArrayList<>();
-        array_hash = tableModel.getTableArray();
+        if (tableModel.getTableArray().size() > 0) {
+            Log.e("yunseung", FuntionName);
+            Log.e("yunseung", resultText);
+            Log.e("yunseung", MTYPE);
+            Log.e("yunseung", resulCode + "");
+            Log.e("yunseung", FuntionName);
 
-        mListView.setAdapter(new ListAdapter(array_hash));
+            ArrayList<HashMap<String, String>> array_hash = new ArrayList<>();
+            array_hash = tableModel.getTableArray();
+
+            // 마지막 row 의 DMBTR 이 총 가격
+            mTvTotalPrice.setText(array_hash.get(array_hash.size() - 1).get("DMBTR"));
+
+            mListView.setAdapter(new ListAdapter(array_hash));
+        } else {
+            // ?????????????????????????????????????????? 어쩔까
+        }
     }
 
     @Override
