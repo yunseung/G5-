@@ -28,6 +28,7 @@ import com.ktrental.common.DEFINE;
 import com.ktrental.common.KtRentalApplication;
 import com.ktrental.dialog.Address_Change_Dialog;
 import com.ktrental.dialog.History_Dialog;
+import com.ktrental.dialog.TroubleHistoryItemDialog;
 import com.ktrental.fragment.BaseRepairFragment;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.LoginModel;
@@ -136,7 +137,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.tvGubun.setVisibility(View.INVISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.INVISIBLE);
-                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+//                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
             } else if (model.getGUBUN().equals("A")) {
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
                 viewHolder.tvGubun.setText("IoT");
@@ -147,7 +148,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.VISIBLE);
-                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+//                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
                 viewHolder.tvGubun.setText("ODM");
 
                 // 2017-06-02. hjt 지연일수 추가
@@ -259,7 +260,8 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             viewHolder.btnMap.setTag(position);
             viewHolder.tvVocNum.setTag(position);
             viewHolder.tvODC.setTag(position);
-            viewHolder.tvGubun.setTag(position);
+            viewHolder.btnTroubleHistory.setTag(position);
+            viewHolder.btnReqIot.setTag(position);
         }
 
     }
@@ -355,6 +357,12 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 break;
             case R.id.btn_map:
                 clickMap(v);
+                break;
+            case R.id.btn_trouble_history:
+                BaseMaintenanceModel model = getItem((Integer)v.getTag());
+                TroubleHistoryItemDialog dialog = new TroubleHistoryItemDialog(mContext, model.getVBELN());
+                dialog.show();
+                //TODO 여기서 팝업을 띄우면서 파라미터로 vbeln을 준다... 개굳....
                 break;
             default:
                 break;

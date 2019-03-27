@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -1318,12 +1319,16 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 
 		String apm = o_struct1.get("APM");
 
+		String vbeln = o_struct1.get("VBELN");
+
+		String gubun = o_struct1.get("GUBUN");
+
 		kog.e("Jonathan", "Hello Jonathan2 :: " + VOCNUM);
 
 		BaseMaintenanceModel model = new BaseMaintenanceModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, _EQUNR, _CTRTY, postCode, city,
-				street, _drv_mob, gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, null, apm);
+				street, _drv_mob, gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, null, apm, vbeln, gubun);
 
 		return model;
 	}
@@ -1564,6 +1569,12 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 			String kunnr = cursor.getString(cursor
 					.getColumnIndex(maintenace_colums[21]));
 
+			String CYCMN_TX = cursor.getString(cursor.getColumnIndex(maintenace_colums[22]));
+
+			String apm = cursor.getString(cursor.getColumnIndex(maintenace_colums[23]));
+			String vbeln = cursor.getString(cursor.getColumnIndex(maintenace_colums[24]));
+			String gubun = cursor.getString(cursor.getColumnIndex(maintenace_colums[25]));
+
 			if (time != null) {
 				if (time.length() > 4) {
 					time = time.substring(0, 4);
@@ -1591,7 +1602,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 							maintenace_colums[14], ctrty), postCode, city,
 					street, decrypt(maintenace_colums[15], drv_mob), decrypt(
 							maintenace_colums[15], cermr), gueen2, txt30,
-					MDLCD, VOCNUM, kunnr, maintenace_colums[22], null);
+					MDLCD, VOCNUM, kunnr, maintenace_colums[22], CYCMN_TX, apm, vbeln, gubun);
 
 			System.out.println("요기는 모니 -__.... " + "CustomerSearch");
 
@@ -1692,6 +1703,8 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 		String DELAY = o_struct1.get("DELAY"); // hjt 지연일수 추가
 
 		String apm = o_struct1.get("APM");
+		String vbeln = o_struct1.get("VBELN");
+		String gubun = o_struct1.get("GUBUN");
 
 		Set<String> set1 = o_struct1.keySet();
 		Set<String> set2 = o_struct2.keySet();
@@ -1732,7 +1745,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 		BaseMaintenanceModel model = new BaseMaintenanceModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, _EQUNR, _CTRTY, postCode, city,
-				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null, apm);
+				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null, apm, vbeln, gubun);
 
 		CarInfoModel carInfoModel = new CarInfoModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
@@ -1745,7 +1758,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 				tireFunk, emergencyResponseCount, snowTire, mdlcd, oilType,
 				AUFNR, _trustTerm2, _OILTYPNM, _EQUNR, "", _CEMER, CHNGBN,
 				OWNER, postCode, city, street, _drv_mob, _drv_tel, GUEEN2,
-				TXT30, VOCNUM, kunnr, DELAY);
+				TXT30, VOCNUM, kunnr, DELAY, vbeln, gubun);
 
 		carInfoModel.setGUBUN(GUBUN);
 		showResultFragment(model, carInfoModel);
@@ -1756,7 +1769,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 			DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL,
 			DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR, DEFINE.EQUNR,
 			DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2,
-			DEFINE.TXT30, DEFINE.MDLCD, DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX};
+			DEFINE.TXT30, DEFINE.MDLCD, DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN};
 
 	private void queryMaintenace(String DriverName, String CarNum) {
 		// CommonUtil.showCallStack();

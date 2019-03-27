@@ -114,7 +114,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 	private String[] month_colums = { DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX,
 			DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR,
 			DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30, DEFINE.MDLCD,
-			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM};
+			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN};
 
 	private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
 
@@ -604,6 +604,8 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 								String CYCMN_TX = cursor.getString(cursor.getColumnIndex(month_colums[22]));
 
 								String apm = cursor.getString(cursor.getColumnIndex(month_colums[23]));
+								String vbeln = cursor.getString(cursor.getColumnIndex(month_colums[24]));
+								String gubun = cursor.getString(cursor.getColumnIndex(month_colums[25]));
 
 //							LogUtil.d("hjt", "hjt delay = " + delay);
 //
@@ -645,7 +647,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 										decrypt(month_colums[11], aufnr), decrypt(month_colums[12], equnr),
 										decrypt(month_colums[13], ctrty), postCode, city, street,
 										decrypt(month_colums[14], drv_mob), decrypt(month_colums[15], cermr), gueen2, txt30,
-										mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm);
+										mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm, vbeln, gubun);
 
 								// MaintenanceModel md = new MaintenanceModel(time,
 								// name, invnr,

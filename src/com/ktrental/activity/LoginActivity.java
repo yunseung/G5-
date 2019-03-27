@@ -43,6 +43,7 @@ import com.ktrental.common.DEFINE;
 import com.ktrental.common.KtRentalApplication;
 import com.ktrental.dialog.IoTRequestItemDialog;
 import com.ktrental.dialog.TimePickDialog;
+import com.ktrental.dialog.TroubleHistoryItemDialog;
 import com.ktrental.model.DbQueryModel;
 import com.ktrental.model.LoginModel;
 import com.ktrental.model.O_ITAB1;
@@ -476,15 +477,18 @@ public class LoginActivity extends Activity implements OnClickListener, OnChecke
         {
             // 로그인 클릭 이벤
             case R.id.bt_login:
-//                clickLogin();
+                clickLogin();
 //                IoTCancelPopup popup = new IoTCancelPopup(LoginActivity.this);
 //                popup.show();
 
 //                TimePickDialog popup = new TimePickDialog(LoginActivity.this);
 //                popup.show();
 
-                IoTRequestItemDialog popup = new IoTRequestItemDialog(LoginActivity.this);
-                popup.show();
+//                IoTRequestItemDialog popup = new IoTRequestItemDialog(LoginActivity.this);
+//                popup.show();
+
+//                TroubleHistoryItemDialog popup = new TroubleHistoryItemDialog(LoginActivity.this);
+//                popup.show();
 
                 break;
             default:

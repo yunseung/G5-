@@ -1,5 +1,7 @@
 package com.ktrental.model;
 
+import android.util.Log;
+
 public class MaintenanceModel extends BaseMaintenanceModel {
 
 	private String status;
@@ -10,10 +12,10 @@ public class MaintenanceModel extends BaseMaintenanceModel {
 			String _address, String _carname, String _status, String _tel,
 			String _progress_status, String _day, String AUFNR, String EQUNR,
 			String CTRTY, String postCode, String city, String street,
-			String drv_mob, String _cermr, String _gueen2, String _txt30, String _mdlcd, String _vocID, String _kunnr, String delay, String CYCMN_TX) {
+			String drv_mob, String _cermr, String _gueen2, String _txt30, String _mdlcd, String _vocID, String _kunnr, String delay, String CYCMN_TX, String apm, String vbeln, String gubun) {
 		super(customer_name, driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, drv_mob, _gueen2, _txt30, _mdlcd , _vocID, _kunnr, delay, CYCMN_TX, null);
+				street, drv_mob, _gueen2, _txt30, _mdlcd , _vocID, _kunnr, delay, CYCMN_TX, apm, vbeln, gubun);
 
 		status = _status;
 		cermr = _cermr;

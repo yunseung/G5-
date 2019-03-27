@@ -80,7 +80,7 @@ public class MaintenanceResultInfoFragment extends BaseFragment
 			DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.MDLCD, // 34
 			DEFINE.OILTYP, DEFINE.AUFNR, DEFINE.GSTRS, DEFINE.OILTYPNM, DEFINE.EQUNR, DEFINE.CTRTY, // 40
 			DEFINE.CEMER, DEFINE.CHNGBN, DEFINE.OWNER, DEFINE.CCMSTS, DEFINE.DRV_TEL, DEFINE.DRV_MOB, // 46
-			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY};
+			DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.GUBUN};
 
 	private TextView mTvCarName, mTvDriverName, mTvAddress, mTvDriverContact, mTvCustomerName, mTvRepresentativeName,
 			mTvTourCarnum, mTvTireFront, mTvTireRear, mTvLastMileage, mTvContractNum, mTvContractCategory,
@@ -603,7 +603,7 @@ public class MaintenanceResultInfoFragment extends BaseFragment
 					array.get(26), array.get(27), array.get(28), array.get(29), array.get(30), array.get(34),
 					array.get(35), array.get(36), array.get(19), array.get(38), array.get(39), array.get(40),
 					array.get(41), array.get(42), array.get(43), array.get(31), array.get(32), array.get(33),
-					array.get(45), array.get(46), "", "", array.get(47), array.get(48), delay);
+					array.get(45), array.get(46), "", "", array.get(47), array.get(48), delay, array.get(9), array.get(50));
 			mCarInfoModel.setGUBUN(mGubun);
 			mCarInfoModel.setImageName(mCarInfoModel.getAUFNR() + mImageName);
 			cursor.moveToNext();

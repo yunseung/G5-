@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.database.sqlite.SQLiteException;
+import android.util.Log;
 
 import com.ktrental.cm.connect.ConnectController;
 import com.ktrental.cm.util.PrintLog;
@@ -23,967 +24,974 @@ import java.util.Set;
 
 public class SqlLiteAdapter {
 
-	String TAG = "SqlLiteAdapter";
+    String TAG = "SqlLiteAdapter";
 
-	SQLiteDatabase m_db = null;
+    SQLiteDatabase m_db = null;
 
-	String m_strColumnType = "text";
+    String m_strColumnType = "text";
 
-	private String mDBPath;
+    private String mDBPath;
 
-	private static SqlLiteAdapter mSqlLiteAdapter;
+    private static SqlLiteAdapter mSqlLiteAdapter;
 
-	// private String m_strTableName = "";
+    // private String m_strTableName = "";
 
-	private DbProgressInterface mDbProgressInterface;
+    private DbProgressInterface mDbProgressInterface;
 
-	private final static String CUD_KEY = "CUD";
-	private final static String CUD_CREATE = "C";
-	private final static String CUD_UPDATE = "U";
-	private final static String CUD_DELETE = "D";
+    private final static String CUD_KEY = "CUD";
+    private final static String CUD_CREATE = "C";
+    private final static String CUD_UPDATE = "U";
+    private final static String CUD_DELETE = "D";
 
-	private final static String REFAIR_ZSEQ = "ZSEQ";
-	private final static String REFAIR_PERNR = "MPERNR";
-	private final static String REFAIR_EQUNR = "EQUNR";
-	private final static String REFAIR_CEMER = "CEMER";
-	private final static String REFAIR_BSYM = "BSYM";
+    private final static String REFAIR_ZSEQ = "ZSEQ";
+    private final static String REFAIR_PERNR = "MPERNR";
+    private final static String REFAIR_EQUNR = "EQUNR";
+    private final static String REFAIR_CEMER = "CEMER";
+    private final static String REFAIR_BSYM = "BSYM";
 
-	private final static String CAMASTER_INVNR = "INVNR";
+    private final static String CAMASTER_INVNR = "INVNR";
 
-	private final static String LOGIN_BUKRS = "BUKRS";
+    private final static String LOGIN_BUKRS = "BUKRS";
 
-	private final static String[] REFAIR_KEY_COLUMNAMES = { REFAIR_ZSEQ,
-			REFAIR_PERNR, REFAIR_EQUNR, REFAIR_CEMER, REFAIR_BSYM };
+    private final static String[] REFAIR_KEY_COLUMNAMES = {REFAIR_ZSEQ,
+            REFAIR_PERNR, REFAIR_EQUNR, REFAIR_CEMER, REFAIR_BSYM};
 
-	private final static String[] CAR_MASTER_KEY_COLUMNAMES = { CAMASTER_INVNR };
+    private final static String[] CAR_MASTER_KEY_COLUMNAMES = {CAMASTER_INVNR};
 
-	private final static String[] LOGIN_KEY_COLUMNAMES = { "LOGID" };
+    private final static String[] LOGIN_KEY_COLUMNAMES = {"LOGID"};
 
-	private final static String[] STOCK_KEY_COLUMNAMES = { "MATNR" };
-	private final static String[] SEND_BASE_KEY_COLUMNAMES = { DEFINE.DRIVN };
-	private final static String[] SEND_STOCK_KEY_COLUMNAMES = { DEFINE.DRIVN };
-	private final static String[] SEND_IMAGE_KEY_COLUMNAMES = { DEFINE.DRIVN };
-	private final static String[] ADDRESS_KEY_COLUMNAMES = { "ZSEQ" };
-	private final static String[] CHECK_TABLES = { DEFINE.O_ITAB1_TABLE_NAME,
-			DEFINE.REPAIR_TABLE_NAME, DEFINE.CAR_MASTER_TABLE_NAME,
-			DEFINE.LOGIN_TABLE_NAME, DEFINE.STOCK_TABLE_NAME,
-			DEFINE.PARTSMASTER_TABLE_NAME };
+    private final static String[] STOCK_KEY_COLUMNAMES = {"MATNR"};
+    private final static String[] SEND_BASE_KEY_COLUMNAMES = {DEFINE.DRIVN};
+    private final static String[] SEND_STOCK_KEY_COLUMNAMES = {DEFINE.DRIVN};
+    private final static String[] SEND_IMAGE_KEY_COLUMNAMES = {DEFINE.DRIVN};
+    private final static String[] ADDRESS_KEY_COLUMNAMES = {"ZSEQ"};
+    private final static String[] CHECK_TABLES = {DEFINE.O_ITAB1_TABLE_NAME,
+            DEFINE.REPAIR_TABLE_NAME, DEFINE.CAR_MASTER_TABLE_NAME,
+            DEFINE.LOGIN_TABLE_NAME, DEFINE.STOCK_TABLE_NAME,
+            DEFINE.PARTSMASTER_TABLE_NAME};
 
-	private Context mContext;
+    private Context mContext;
 
-	public void setDbProgressInterface(DbProgressInterface dbProgressInterface) {
-		mDbProgressInterface = dbProgressInterface;
-	}
+    public void setDbProgressInterface(DbProgressInterface dbProgressInterface) {
+        mDbProgressInterface = dbProgressInterface;
+    }
 
-	public interface DbProgressInterface {
-		public void onPublishUdapte(String type, int progressCount);
+    public interface DbProgressInterface {
+        public void onPublishUdapte(String type, int progressCount);
 
-	}
+    }
 
-	public SqlLiteAdapter(Context _context, String path) {
-		mDBPath = path;
-		mSqlLiteAdapter = this;
-		mContext = _context;
+    public SqlLiteAdapter(Context _context, String path) {
+        mDBPath = path;
+        mSqlLiteAdapter = this;
+        mContext = _context;
 
-		initData(_context);
-	}
+        initData(_context);
+    }
 
-	public static SqlLiteAdapter getInstance() {
+    public static SqlLiteAdapter getInstance() {
 
-		// if(mSqlLiteAdapter==null)
-		// mSqlLiteAdapter = new SqlLiteAdapter(_context, path)
+        // if(mSqlLiteAdapter==null)
+        // mSqlLiteAdapter = new SqlLiteAdapter(_context, path)
 
-		return mSqlLiteAdapter;
-	}
+        return mSqlLiteAdapter;
+    }
 
-	private void initData(Context context) {
-		// m_db = SQLiteDatabase.openDatabase(mDBPath + "/"
-		// + DEFINE.SQLLITE_DB_NAME, null,
-		// SQLiteDatabase.CREATE_IF_NECESSARY);
+    private void initData(Context context) {
+        // m_db = SQLiteDatabase.openDatabase(mDBPath + "/"
+        // + DEFINE.SQLLITE_DB_NAME, null,
+        // SQLiteDatabase.CREATE_IF_NECESSARY);
 
-		try {
-			m_db = context.openOrCreateDatabase(mDBPath + "/"
-					+ DEFINE.SQLLITE_DB_NAME,
-					SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        try {
+            m_db = context.openOrCreateDatabase(mDBPath + "/"
+                            + DEFINE.SQLLITE_DB_NAME,
+                    SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-		} catch (SQLiteDatabaseLockedException e) {
-			// TODO: handle exception
+        } catch (SQLiteDatabaseLockedException e) {
+            // TODO: handle exception
 //			PrintLog.Print("HONG", " initData Exception " + e.getMessage());
-		}
+        }
 
-	}
+    }
 
-	public void closeDB() {
-		if (m_db != null) {
-			m_db.close();
-			m_db = null;
-		}
-	}
+    public void closeDB() {
+        if (m_db != null) {
+            m_db.close();
+            m_db = null;
+        }
+    }
 
-	public boolean createTable(String strTable, ArrayList<String> aColumn) {
-		String strQuery = "";
-		int nCnt = 0;
-		boolean bRes = false;
+    public boolean createTable(String strTable, ArrayList<String> aColumn) {
+        String strQuery = "";
+        int nCnt = 0;
+        boolean bRes = false;
 
-		nCnt = aColumn.size();
+        nCnt = aColumn.size();
 
-		if (nCnt <= 0) {
-			System.out.println("DB = " + aColumn.get(nCnt));
-			return bRes;
-		}
+        if (nCnt <= 0) {
+            System.out.println("DB = " + aColumn.get(nCnt));
+            return bRes;
+        }
 
-		strQuery = makeCreateTableQuery(strTable, aColumn);
-		
-		System.out.println("Query = " + strQuery);
-		
-		bRes = executeQuery(strQuery);
+        strQuery = makeCreateTableQuery(strTable, aColumn);
 
-		return bRes;
-	}
+        System.out.println("Query = " + strQuery);
 
-	public boolean dropTable(String strTable) {
-		String strQuery = "";
-		boolean bRes = false;
+        bRes = executeQuery(strQuery);
 
-		strQuery = makeDropQuery(strTable);
+        return bRes;
+    }
 
-		bRes = executeQuery(strQuery);
+    public boolean dropTable(String strTable) {
+        String strQuery = "";
+        boolean bRes = false;
 
-		return bRes;
-	}
+        strQuery = makeDropQuery(strTable);
 
-	public boolean insertTable(String strTable,
-			ArrayList<HashMap<String, String>> aInsertData) {
-		String strQuery = "";
-		boolean bRes = false;
+        bRes = executeQuery(strQuery);
 
-		ArrayList<String> strQueryArr = makeInsertQuery(strTable, aInsertData);
+        return bRes;
+    }
 
-		bRes = executeQuery(strQueryArr);
+    public boolean insertTable(String strTable,
+                               ArrayList<HashMap<String, String>> aInsertData) {
+        String strQuery = "";
+        boolean bRes = false;
 
-		return bRes;
-	}
+        ArrayList<String> strQueryArr = makeInsertQuery(strTable, aInsertData);
 
-	public boolean insertTableContentValues(String strTable,
-			ArrayList<HashMap<String, String>> aInsertData) {
-		boolean bRes = false;
+        bRes = executeQuery(strQueryArr);
 
-		ArrayList<ContentValues> strQueryArr = makeQuery(strTable, aInsertData);
+        return bRes;
+    }
 
-		bRes = doTransaction(strQueryArr, strTable);
+    public boolean insertTableContentValues(String strTable,
+                                            ArrayList<HashMap<String, String>> aInsertData) {
+        boolean bRes = false;
 
-		return bRes;
-	}
+        ArrayList<ContentValues> strQueryArr = makeQuery(strTable, aInsertData);
 
-	public boolean selectData() {
-		String strQuery = "";
-		boolean bRes = false;
+        bRes = doTransaction(strQueryArr, strTable);
 
-		return bRes;
-	}
+        return bRes;
+    }
 
-	public boolean updateData() {
-		String strQuery = "";
-		boolean bRes = false;
+    public boolean selectData() {
+        String strQuery = "";
+        boolean bRes = false;
 
-		return bRes;
-	}
+        return bRes;
+    }
 
-	public boolean deleteData() {
-		String strQuery = "";
-		boolean bRes = false;
+    public boolean updateData() {
+        String strQuery = "";
+        boolean bRes = false;
 
-		return bRes;
-	}
+        return bRes;
+    }
 
-	public boolean executeQuery(String strQuery) {
-		boolean bRes = false;
+    public boolean deleteData() {
+        String strQuery = "";
+        boolean bRes = false;
 
-		System.out.println("excuteQuery = " + strQuery);
-		
-		if (strQuery.length() < 0 || strQuery.equals("")) {
-			
-			return bRes;
-		}
+        return bRes;
+    }
 
-		ArrayList<String> aValue = new ArrayList<String>();
-		
-		
-		
-		aValue.add(strQuery);
+    public boolean executeQuery(String strQuery) {
+        boolean bRes = false;
 
-		bRes = doTransaction(aValue);
+        System.out.println("excuteQuery = " + strQuery);
 
-		return bRes;
-	}
+        if (strQuery.length() < 0 || strQuery.equals("")) {
 
-	public boolean executeQuery(ArrayList<String> aValue) {
-		boolean bRes = false;
+            return bRes;
+        }
 
-		System.out.println("excuteQuery2 = " + aValue);
-		
-		int nCnt = aValue.size();
+        ArrayList<String> aValue = new ArrayList<String>();
 
-		if (nCnt <= 0) {
-			PrintLog.Print("", "Query Data ����.");
-			return bRes;
-		}
 
-		bRes = doTransaction(aValue);
+        aValue.add(strQuery);
 
-		return bRes;
-	}
+        bRes = doTransaction(aValue);
 
-	@SuppressWarnings("finally")
-	private boolean doTransaction(ArrayList<String> aValue) {
-		boolean bRes = false;
+        return bRes;
+    }
 
-		if (m_db == null) {
-			PrintLog.Print("", "DB OPEN ����.");
-			return bRes;
-		}
+    public boolean executeQuery(ArrayList<String> aValue) {
+        boolean bRes = false;
 
-		m_db.beginTransaction();
+        System.out.println("excuteQuery2 = " + aValue);
 
-		try {
-			for (int i = 0; i < aValue.size(); i++) {
-				String strQuery = aValue.get(i);
-				try {
-					m_db.execSQL(strQuery);
-				} catch (SQLiteException e) {
-					// TODO: handle exception
-				}
+        int nCnt = aValue.size();
 
-			}
+        if (nCnt <= 0) {
+            PrintLog.Print("", "Query Data ����.");
+            return bRes;
+        }
 
-			m_db.setTransactionSuccessful();
-			bRes = true;
-		} catch (Exception e) {
-			e.printStackTrace();
+        bRes = doTransaction(aValue);
 
-			PrintLog.Print("", e.getMessage());
+        return bRes;
+    }
 
-			bRes = false;
-		} finally {
-			m_db.endTransaction();
-			return bRes;
-		}
-	}
+    @SuppressWarnings("finally")
+    private boolean doTransaction(ArrayList<String> aValue) {
+        boolean bRes = false;
 
-	private Cursor doRowQuery(String strQuery) {
-		Cursor cur = null;
+        if (m_db == null) {
+            PrintLog.Print("", "DB OPEN ����.");
+            return bRes;
+        }
 
-		cur = m_db.rawQuery(strQuery, null);
+        m_db.beginTransaction();
 
-		return cur;
-	}
+        try {
+            for (int i = 0; i < aValue.size(); i++) {
+                String strQuery = aValue.get(i);
+                try {
+                    m_db.execSQL(strQuery);
+                } catch (SQLiteException e) {
+                    // TODO: handle exception
+                }
 
-	private String makeCreateTableQuery(String strTable,
-			ArrayList<String> aColumn) {
-		String strQuery = "";
-		String strColumn = "";
+            }
 
-		int nCnt = aColumn.size();
+            m_db.setTransactionSuccessful();
+            bRes = true;
+        } catch (Exception e) {
+            e.printStackTrace();
 
-		if (nCnt <= 0) {
-			PrintLog.Print("", "Query Data ����.");
-			return strQuery;
-		}
+            PrintLog.Print("", e.getMessage());
 
-		strQuery = "Create table IF NOT EXISTS " + strTable;
-		strQuery += "(";
+            bRes = false;
+        } finally {
+            m_db.endTransaction();
+            return bRes;
+        }
+    }
 
-		for (int i = 0; i < aColumn.size(); i++) {
-			strColumn += aColumn.get(i) + " " + m_strColumnType;
+    private Cursor doRowQuery(String strQuery) {
+        Cursor cur = null;
 
-			if (i < nCnt - 1) {
-				strColumn += ",";
-			}
-		}
+        cur = m_db.rawQuery(strQuery, null);
 
-		strQuery += strColumn + ")";
+        return cur;
+    }
 
-		PrintLog.Print("", strQuery);
+    private String makeCreateTableQuery(String strTable,
+                                        ArrayList<String> aColumn) {
+        String strQuery = "";
+        String strColumn = "";
 
-		return strQuery;
-	}
+        int nCnt = aColumn.size();
 
-	private String makeDropQuery(String strTable) {
-		String strQuery = "";
+        if (nCnt <= 0) {
+            PrintLog.Print("", "Query Data ����.");
+            return strQuery;
+        }
 
-		strQuery = "drop table " + strTable;
+        strQuery = "Create table IF NOT EXISTS " + strTable;
+        strQuery += "(";
 
-		return strQuery;
-	}
+        for (int i = 0; i < aColumn.size(); i++) {
+            strColumn += aColumn.get(i) + " " + m_strColumnType;
 
-	//
-	// private String getCUD(HashMap<String, String> aData, String tableName) {
-	// String strQuery = "";
-	//
-	// String cud = aData.get(CUD_KEY);
-	//
-	// if (cud.equals(CUD_CREATE)) {
-	// strQuery = "Insert Into " + tableName + "(";
-	//
-	// } else if (cud.equals(CUD_UPDATE)) {
-	// strQuery = "Insert Into " + tableName + "(";
-	// } else if (cud.equals(CUD_DELETE)) {
-	//
-	// }
-	//
-	// return strQuery;
-	// }
+            if (i < nCnt - 1) {
+                strColumn += ",";
+            }
+        }
 
-	private ArrayList<String> makeInsertQuery(String strTable,
-			ArrayList<HashMap<String, String>> aData) {
-		String strQuery = "";
+        strQuery += strColumn + ")";
 
-		ArrayList<String> aRes = new ArrayList<String>();
+        PrintLog.Print("", strQuery);
 
-		int nCnt = aData.size();
+        return strQuery;
+    }
 
-		if (nCnt <= 0) {
-			PrintLog.Print("", "Query Data ����.");
-			return aRes;
-		}
+    private String makeDropQuery(String strTable) {
+        String strQuery = "";
 
-		for (int i = 0; i < nCnt; i++) {
-			int nMapSize = 0;
-			int nMapCount = 0;
+        strQuery = "drop table " + strTable;
 
-			HashMap<String, String> aMap = new HashMap<String, String>();
+        return strQuery;
+    }
 
-			aMap = aData.get(i);
-			nMapSize = aMap.size();
+    //
+    // private String getCUD(HashMap<String, String> aData, String tableName) {
+    // String strQuery = "";
+    //
+    // String cud = aData.get(CUD_KEY);
+    //
+    // if (cud.equals(CUD_CREATE)) {
+    // strQuery = "Insert Into " + tableName + "(";
+    //
+    // } else if (cud.equals(CUD_UPDATE)) {
+    // strQuery = "Insert Into " + tableName + "(";
+    // } else if (cud.equals(CUD_DELETE)) {
+    //
+    // }
+    //
+    // return strQuery;
+    // }
 
-			strQuery = "Insert Into " + strTable + "(";
-			// strQuery= makeQuery(aMap,strTable);
+    private ArrayList<String> makeInsertQuery(String strTable,
+                                              ArrayList<HashMap<String, String>> aData) {
+        String strQuery = "";
 
-			String strKeys = "";
-			String strValues = "";
+        ArrayList<String> aRes = new ArrayList<String>();
 
-			Iterator<String> itMap = aMap.keySet().iterator();
+        int nCnt = aData.size();
 
-			while (itMap.hasNext()) {
-				String strTmpKey = "";
-				String strTmpValues = "";
+        if (nCnt <= 0) {
+            PrintLog.Print("", "Query Data ����.");
+            return aRes;
+        }
 
-				strTmpKey = itMap.next();
-				strTmpValues = "'" + aMap.get(strTmpKey) + "'";
+        for (int i = 0; i < nCnt; i++) {
+            int nMapSize = 0;
+            int nMapCount = 0;
 
-				PrintLog.Print("", strTmpKey + "::" + strTmpValues);
+            HashMap<String, String> aMap = new HashMap<String, String>();
 
-				strKeys += strTmpKey;
-				strValues += strTmpValues;
+            aMap = aData.get(i);
+            nMapSize = aMap.size();
 
-				nMapCount++;
+            strQuery = "Insert Into " + strTable + "(";
+            // strQuery= makeQuery(aMap,strTable);
 
-				if (nMapCount < nMapSize) {
-					strKeys += ",";
-					strValues += ",";
-				}
-			}
+            String strKeys = "";
+            String strValues = "";
 
-			strQuery += strKeys + ") values(" + strValues + ")";
+            Iterator<String> itMap = aMap.keySet().iterator();
 
-			PrintLog.Print("", strQuery);
+            while (itMap.hasNext()) {
+                String strTmpKey = "";
+                String strTmpValues = "";
 
-			aRes.add(strQuery);
-		}
+                strTmpKey = itMap.next();
+                strTmpValues = "'" + aMap.get(strTmpKey) + "'";
 
-		return aRes;
-	}
+                PrintLog.Print("", strTmpKey + "::" + strTmpValues);
 
-	private ArrayList<ContentValues> makeQuery(String strTable,
-			ArrayList<HashMap<String, String>> aData) {
-		String strQuery = "";
+                strKeys += strTmpKey;
+                strValues += strTmpValues;
 
-		ArrayList<ContentValues> aRes = new ArrayList<ContentValues>();
+                nMapCount++;
 
-		int nCnt = aData.size();
+                if (nMapCount < nMapSize) {
+                    strKeys += ",";
+                    strValues += ",";
+                }
+            }
 
-		if (nCnt <= 0) {
-			PrintLog.Print("", "Query Data ����.");
-			return aRes;
-		}
+            strQuery += strKeys + ") values(" + strValues + ")";
 
-		for (int i = 0; i < nCnt; i++) {
+            PrintLog.Print("", strQuery);
 
-			HashMap<String, String> aMap = new HashMap<String, String>();
+            aRes.add(strQuery);
+        }
 
-			aMap = aData.get(i);
+        return aRes;
+    }
 
-			Iterator<String> itMap = aMap.keySet().iterator();
+    private ArrayList<ContentValues> makeQuery(String strTable,
+                                               ArrayList<HashMap<String, String>> aData) {
+        String strQuery = "";
 
-			ContentValues contentValues = new ContentValues();
+        ArrayList<ContentValues> aRes = new ArrayList<ContentValues>();
 
-			while (itMap.hasNext()) {
-				String strTmpKey = "";
-				String strTmpValues = "";
+        int nCnt = aData.size();
 
-				strTmpKey = itMap.next();
-				strTmpValues = aMap.get(strTmpKey);
+        if (nCnt <= 0) {
+            PrintLog.Print("", "Query Data ����.");
+            return aRes;
+        }
 
-				contentValues.put(strTmpKey, strTmpValues);
+        // 윤승이 로그
+        for (HashMap<String, String> aa : aData) {
+            Log.e("yunseung11", "valuese : " + aa.values());
+        }
 
-			}
+        for (int i = 0; i < nCnt; i++) {
 
-			aRes.add(contentValues);
-		}
+            HashMap<String, String> aMap = new HashMap<String, String>();
 
-		return aRes;
-	}
+            aMap = aData.get(i);
 
-	private String makeSelectQuery(String strTable,
-			ArrayList<HashMap<String, String>> aData) {
-		String strQuery = "";
+            Iterator<String> itMap = aMap.keySet().iterator();
 
-		ArrayList<String> aRes = new ArrayList<String>();
+            ContentValues contentValues = new ContentValues();
 
-		int nCnt = aData.size();
+            while (itMap.hasNext()) {
+                String strTmpKey = "";
+                String strTmpValues = "";
 
-		if (nCnt <= 0) {
-			PrintLog.Print("", "Query Data ����.");
-			return strQuery;
-		}
+                strTmpKey = itMap.next();
+                strTmpValues = aMap.get(strTmpKey);
 
-		for (int i = 0; i < nCnt; i++) {
-			int nMapSize = 0;
-			int nMapCount = 0;
+                contentValues.put(strTmpKey, strTmpValues);
 
-			HashMap<String, String> aMap = new HashMap<String, String>();
+            }
 
-			aMap = aData.get(i);
-			nMapSize = aMap.size();
+            aRes.add(contentValues);
+        }
 
-			strQuery = "Insert Into " + strTable + "(";
+        return aRes;
+    }
 
-			String strKeys = "";
-			String strValues = "";
+    private String makeSelectQuery(String strTable,
+                                   ArrayList<HashMap<String, String>> aData) {
+        String strQuery = "";
 
-			Iterator<String> itMap = aMap.keySet().iterator();
+        ArrayList<String> aRes = new ArrayList<String>();
 
-			while (itMap.hasNext()) {
-				String strTmpKey = "";
-				String strTmpValues = "";
+        int nCnt = aData.size();
 
-				strTmpKey = itMap.next();
-				strTmpValues = aMap.get(strTmpKey);
+        if (nCnt <= 0) {
+            PrintLog.Print("", "Query Data ����.");
+            return strQuery;
+        }
 
-				PrintLog.Print("", strTmpKey + "::" + strTmpValues);
+        for (int i = 0; i < nCnt; i++) {
+            int nMapSize = 0;
+            int nMapCount = 0;
 
-				strKeys += strTmpKey;
-				strValues += strTmpValues;
+            HashMap<String, String> aMap = new HashMap<String, String>();
 
-				nMapCount++;
+            aMap = aData.get(i);
+            nMapSize = aMap.size();
 
-				if (nMapCount < nMapSize) {
-					strKeys += ",";
-					strValues += ",";
-				}
-			}
+            strQuery = "Insert Into " + strTable + "(";
 
-			strQuery += strKeys + ") VALUES(" + strValues + ")";
+            String strKeys = "";
+            String strValues = "";
 
-			PrintLog.Print("", strQuery);
+            Iterator<String> itMap = aMap.keySet().iterator();
 
-			aRes.add(strQuery);
-		}
+            while (itMap.hasNext()) {
+                String strTmpKey = "";
+                String strTmpValues = "";
 
-		return strQuery;
-	}
+                strTmpKey = itMap.next();
+                strTmpValues = aMap.get(strTmpKey);
 
-	private String makeUpdateQuery(String strTable,
-			ArrayList<HashMap<String, String>> aData) {
-		String strQuery = "";
+                PrintLog.Print("", strTmpKey + "::" + strTmpValues);
 
-		return strQuery;
-	}
+                strKeys += strTmpKey;
+                strValues += strTmpValues;
 
-	private String makeDeleteQuery() {
-		String strQuery = "";
+                nMapCount++;
 
-		return strQuery;
-	}
+                if (nMapCount < nMapSize) {
+                    strKeys += ",";
+                    strValues += ",";
+                }
+            }
 
-	public HashMap<Integer, Serializable> selectAllTableQuery(String tableName,
-			DbProgressInterface dbProgressInterface, String downloadPath) {
-		mDbProgressInterface = dbProgressInterface;
+            strQuery += strKeys + ") VALUES(" + strValues + ")";
 
-		HashMap<Integer, Serializable> map = null;
+            PrintLog.Print("", strQuery);
 
-		SQLiteDatabase db = SQLiteDatabase.openDatabase(downloadPath, null,
-				SQLiteDatabase.CONFLICT_NONE);
+            aRes.add(strQuery);
+        }
 
-		Cursor cursor = db.query(tableName, null, null, null, null, null, null);
-		
-		kog.e("Jonathan", "sqlite ???");
+        return strQuery;
+    }
 
-		if (tableName.equals("COMMON"))
-			tableName = O_ITAB1.TABLENAME;
+    private String makeUpdateQuery(String strTable,
+                                   ArrayList<HashMap<String, String>> aData) {
+        String strQuery = "";
 
-		if (isTable(tableName))
-			m_db.delete(tableName, null, null);
-		else
-			createTable(tableName, cursor);
+        return strQuery;
+    }
 
-		map = getCursorData(cursor, tableName);
+    private String makeDeleteQuery() {
+        String strQuery = "";
+
+        return strQuery;
+    }
+
+    public HashMap<Integer, Serializable> selectAllTableQuery(String tableName,
+                                                              DbProgressInterface dbProgressInterface, String downloadPath) {
+        mDbProgressInterface = dbProgressInterface;
+
+        HashMap<Integer, Serializable> map = null;
+
+        SQLiteDatabase db = SQLiteDatabase.openDatabase(downloadPath, null,
+                SQLiteDatabase.CONFLICT_NONE);
+
+        Cursor cursor = db.query(tableName, null, null, null, null, null, null);
+
+        kog.e("Jonathan", "sqlite ???");
+
+        if (tableName.equals("COMMON"))
+            tableName = O_ITAB1.TABLENAME;
+
+        if (isTable(tableName))
+            m_db.delete(tableName, null, null);
+        else
+            createTable(tableName, cursor);
+
+        map = getCursorData(cursor, tableName);
 
 //		db.close(); //2018-11-02 db close 는 하지 않는다. 워낙 많은 곳에서 사용하는 중에 닫아버려 문제됨.
 
-		return map;
-	}
+        return map;
+    }
 
-	public ArrayList<String> getTableNames(String downloadPath) {
-		ArrayList<String> reTables = new ArrayList<String>();
+    public ArrayList<String> getTableNames(String downloadPath) {
+        ArrayList<String> reTables = new ArrayList<String>();
 
-		SQLiteDatabase db = SQLiteDatabase.openDatabase(downloadPath, null,
-				SQLiteDatabase.CONFLICT_NONE);
+        SQLiteDatabase db = SQLiteDatabase.openDatabase(downloadPath, null,
+                SQLiteDatabase.CONFLICT_NONE);
 
-		Cursor c = db.rawQuery("SELECT name FROM sqlite_master", null);
+        Cursor c = db.rawQuery("SELECT name FROM sqlite_master", null);
 
-		if (c.moveToFirst()) {
-			for (;;) {
-				reTables.add(c.getString(0));
-				if (!c.moveToNext())
-					break;
-			}
-		}
-		c.close();
+        if (c.moveToFirst()) {
+            for (; ; ) {
+                reTables.add(c.getString(0));
+                if (!c.moveToNext())
+                    break;
+            }
+        }
+        c.close();
 //		db.close(); //2018-11-02 db close 는 하지 않는다. 워낙 많은 곳에서 사용하는 중에 닫아버려 문제됨.
-		return reTables;
-	}
+        return reTables;
+    }
 
-	private void createTable(String tableName, Cursor cursor) {
+    private void createTable(String tableName, Cursor cursor) {
 
-		int columnCnt = cursor.getColumnCount();
+        int columnCnt = cursor.getColumnCount();
 
-		ArrayList<String> arr = new ArrayList<String>();
-		for (int i = 0; i < columnCnt; i++) {
-			arr.add(cursor.getColumnName(i));
-		}
+        ArrayList<String> arr = new ArrayList<String>();
+        for (int i = 0; i < columnCnt; i++) {
+            arr.add(cursor.getColumnName(i));
+        }
 
-		String query = makeCreateTableQuery(tableName, arr);
-		executeQuery(query);
-	}
+        String query = makeCreateTableQuery(tableName, arr);
+        executeQuery(query);
+    }
 
-	private boolean isTable(String tableName) {
+    private boolean isTable(String tableName) {
 
-		boolean isTableFlag = false;
+        boolean isTableFlag = false;
 
-		Cursor c = m_db.rawQuery("SELECT name FROM sqlite_master", null);
+        Cursor c = m_db.rawQuery("SELECT name FROM sqlite_master", null);
 
-		// if (c != null) {
-		// if (c.getCount() > 0)
-		// isTableFlag = true;
-		// }
+        // if (c != null) {
+        // if (c.getCount() > 0)
+        // isTableFlag = true;
+        // }
 
-		if (c.moveToFirst()) {
-			for (;;) {
-				// Log.e(TAG, "table name : " + c.getString(0));
-				if (tableName.equals(c.getString(0))) {
-					isTableFlag = true;
-					break;
-				}
-				if (!c.moveToNext())
-					break;
-			}
-		}
+        if (c.moveToFirst()) {
+            for (; ; ) {
+                // Log.e(TAG, "table name : " + c.getString(0));
+                if (tableName.equals(c.getString(0))) {
+                    isTableFlag = true;
+                    break;
+                }
+                if (!c.moveToNext())
+                    break;
+            }
+        }
 
-		return isTableFlag;
-	}
+        return isTableFlag;
+    }
 
-	private HashMap<Integer, Serializable> getCursorData(Cursor cursor,
-			String tableName) {
+    private HashMap<Integer, Serializable> getCursorData(Cursor cursor,
+                                                         String tableName) {
 
-		HashMap<Integer, Serializable> map = new HashMap<Integer, Serializable>();
+        HashMap<Integer, Serializable> map = new HashMap<Integer, Serializable>();
 
-		cursor.moveToFirst();
+        cursor.moveToFirst();
 
-		int columnCnt = cursor.getColumnCount();
-		int count = 0;
+        int columnCnt = cursor.getColumnCount();
+        int count = 0;
 
-		mDbProgressInterface.onPublishUdapte("max", cursor.getCount());
-		m_db.beginTransaction();
+        mDbProgressInterface.onPublishUdapte("max", cursor.getCount());
+        m_db.beginTransaction();
 
-		while (!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
 
-			ArrayList<String> arr = new ArrayList<String>();
-			ContentValues contentValues = new ContentValues();
-			for (int i = 0; i < columnCnt; i++) {
-				contentValues.put(cursor.getColumnName(i), cursor.getString(i));
-				arr.add(cursor.getString(i));
-			}
+            ArrayList<String> arr = new ArrayList<String>();
+            ContentValues contentValues = new ContentValues();
+            for (int i = 0; i < columnCnt; i++) {
+                contentValues.put(cursor.getColumnName(i), cursor.getString(i));
+                arr.add(cursor.getString(i));
+            }
 
-			m_db.insert(tableName, null, contentValues);
-			if (mDbProgressInterface != null)
-				mDbProgressInterface.onPublishUdapte("progress", count);
+            m_db.insert(tableName, null, contentValues);
+            if (mDbProgressInterface != null)
+                mDbProgressInterface.onPublishUdapte("progress", count);
 
-			count++;
-			cursor.moveToNext();
+            count++;
+            cursor.moveToNext();
 
-		}
+        }
 
-		m_db.setTransactionSuccessful();
+        m_db.setTransactionSuccessful();
 
-		m_db.endTransaction();
-		cursor.close();
+        m_db.endTransaction();
+        cursor.close();
 
-		return map;
-	}
+        return map;
+    }
 
-	private O_ITAB1 getO_ITAB1(ArrayList<String> arr) {
+    private O_ITAB1 getO_ITAB1(ArrayList<String> arr) {
 
-		O_ITAB1 o_ITAB1 = null;
+        O_ITAB1 o_ITAB1 = null;
 
-		String zcodeh = arr.get(0);
-		String zcodeh2 = arr.get(1);
-		String zcodev = arr.get(2);
-		String zcodevt = arr.get(3);
+        String zcodeh = arr.get(0);
+        String zcodeh2 = arr.get(1);
+        String zcodev = arr.get(2);
+        String zcodevt = arr.get(3);
 
-		String set1 = arr.get(4);
+        String set1 = arr.get(4);
 
-		o_ITAB1 = new O_ITAB1(zcodeh, zcodeh2, zcodev, zcodevt, set1);
+        o_ITAB1 = new O_ITAB1(zcodeh, zcodeh2, zcodev, zcodevt, set1);
 
-		return o_ITAB1;
-	}
+        return o_ITAB1;
+    }
 
-	public boolean deleteRow(String tableName, String[] keys,
-			ContentValues values) {
+    public boolean deleteRow(String tableName, String[] keys,
+                             ContentValues values) {
 
-		int re = -1;
+        int re = -1;
 
-		String whereCause = "";
-		String[] whereArgs = new String[keys.length];
+        String whereCause = "";
+        String[] whereArgs = new String[keys.length];
 
-		for (int i = 0; i < keys.length; i++) {
-			String key = keys[i] + " = ?";
-			whereCause = whereCause + key;
+        for (int i = 0; i < keys.length; i++) {
+            String key = keys[i] + " = ?";
+            whereCause = whereCause + key;
 
-			whereArgs[i] = (String) values.get(keys[i]);
+            whereArgs[i] = (String) values.get(keys[i]);
 
-			if (keys.length == i + 1)
-				break;
-			whereCause = whereCause + " AND ";
+            if (keys.length == i + 1)
+                break;
+            whereCause = whereCause + " AND ";
 
-		}
-		try {
-			re = m_db.delete(tableName, whereCause, whereArgs);
-		} catch (SQLiteException exception) {
+        }
+        try {
+            re = m_db.delete(tableName, whereCause, whereArgs);
+        } catch (SQLiteException exception) {
 
-		}
+        }
 
-		return re > 0;
+        return re > 0;
 
-	}
+    }
 
-	public boolean updateRow(String tableName, String[] keys,
-			ContentValues values) {
+    public boolean updateRow(String tableName, String[] keys,
+                             ContentValues values) {
 
-		String whereCause = "";
-		int count = 0;
-		String[] whereArgs = null;
-		if (keys != null) {
-			count = keys.length;
-			whereArgs = new String[count];
-		}
-		for (int i = 0; i < count; i++) {
-			String key = keys[i] + " = ?";
-			whereCause = whereCause + key;
+        String whereCause = "";
+        int count = 0;
+        String[] whereArgs = null;
+        if (keys != null) {
+            count = keys.length;
+            whereArgs = new String[count];
+        }
+        for (int i = 0; i < count; i++) {
+            String key = keys[i] + " = ?";
+            whereCause = whereCause + key;
 
-			whereArgs[i] = (String) values.get(keys[i]);
+            whereArgs[i] = (String) values.get(keys[i]);
 
-			if (keys.length == i + 1)
-				break;
-			whereCause = whereCause + " AND ";
+            if (keys.length == i + 1)
+                break;
+            whereCause = whereCause + " AND ";
 
-		}
+        }
 
-		int re = m_db.update(tableName, values, whereCause, whereArgs);
+        int re = m_db.update(tableName, values, whereCause, whereArgs);
 
-		return re > 0;
+        return re > 0;
 
-	}
+    }
 
-	private boolean insertRow(String tableName, ContentValues values) {
-		long re = m_db.insert(tableName, null, values);
+    private boolean insertRow(String tableName, ContentValues values) {
+        long re = m_db.insert(tableName, null, values);
 
-		return re > 0;
-	}
+        return re > 0;
+    }
 
-	private void queryCUD(String tableName, ContentValues values) {
+    private void queryCUD(String tableName, ContentValues values) {
 
-		String cud = values.getAsString(CUD_KEY);
+        String cud = values.getAsString(CUD_KEY);
 
-		String[] columes = getColumes(tableName, values);//
-		// getColumes(values);
+        String[] columes = getColumes(tableName, values);//
+        // getColumes(values);
 
-		PrintLog.Print("", "tableName = " + tableName + "  cud = " + cud + "  " + values);
-		
-		if (cud == null) {
-			if (tableName.equals(DEFINE.CALL_LOG_TABLE_NAME)) {
-				insertRow(tableName, values);
-				return;
-			}
-			notCUD(tableName, values, columes);
-			return;
-		}
+        PrintLog.Print("", "tableName = " + tableName + "  cud = " + cud + "  " + values);
 
-		// DB에 인코딩으로 저장으로 바뀌어 디코딩 후 값을 확인 해야한다.
-		// cud = ConnectorUtil.decrypt(cud);
+        if (cud == null) {
+            if (tableName.equals(DEFINE.CALL_LOG_TABLE_NAME)) {
+                insertRow(tableName, values);
+                return;
+            }
+            notCUD(tableName, values, columes);
+            return;
+        }
 
-		if (cud.equals(CUD_CREATE)) {
-			insertRow(tableName, values);
-		} else if (cud.equals(CUD_UPDATE)) {
-			// String primary = (String)
-			// values.getAsString(CUD_PRIMARY_COLUMNAME);
-			
+        // DB에 인코딩으로 저장으로 바뀌어 디코딩 후 값을 확인 해야한다.
+        // cud = ConnectorUtil.decrypt(cud);
+
+        if (cud.equals(CUD_CREATE)) {
+            insertRow(tableName, values);
+        } else if (cud.equals(CUD_UPDATE)) {
+            // String primary = (String)
+            // values.getAsString(CUD_PRIMARY_COLUMNAME);
+
 //			PrintLog.Print(TAG,
 //					tableName + "  " + cud + " " + values.get("AUFNR") + " "
 //							+ values.get("CCMSTS") + " " + values.get("GSTRS"));
-			
-			
-			updateRow(tableName, columes, values);
-		} else if (cud.equals(CUD_DELETE)) {
-			// String primary = (String)
-			// values.getAsString(CUD_PRIMARY_COLUMNAME);
-			deleteRow(tableName, columes, values);
-		}
 
-	}
 
-	private void notCUD(String tableName, ContentValues values, String[] columes) {
-		boolean result = false;
+            updateRow(tableName, columes, values);
+        } else if (cud.equals(CUD_DELETE)) {
+            // String primary = (String)
+            // values.getAsString(CUD_PRIMARY_COLUMNAME);
+            deleteRow(tableName, columes, values);
+        }
 
-		try {
-			result = updateRow(tableName, columes, values);
+    }
 
-			if (!result)
-				insertRow(tableName, values);
-		} catch (Exception e) {
-			if (!result)
-				insertRow(tableName, values);
-		}
-	}
+    private void notCUD(String tableName, ContentValues values, String[] columes) {
+        boolean result = false;
 
-	@SuppressWarnings("finally")
-	private boolean doTransaction(ArrayList<ContentValues> aValue,
-			String tableName) {
-		boolean bRes = false;
+        try {
+            result = updateRow(tableName, columes, values);
 
-		if (m_db == null) {
-			PrintLog.Print("", "DB OPEN ����.");
-			return bRes;
-		}
+            if (!result)
+                insertRow(tableName, values);
+        } catch (Exception e) {
+            if (!result)
+                insertRow(tableName, values);
+        }
+    }
 
-		m_db.beginTransaction();
+    @SuppressWarnings("finally")
+    private boolean doTransaction(ArrayList<ContentValues> aValue,
+                                  String tableName) {
+        boolean bRes = false;
 
-		if (tableName.equals(DEFINE.ADDRESS_TABLE)) {
-			m_db.delete(DEFINE.ADDRESS_TABLE, null, null);
-		}
+        if (m_db == null) {
+            PrintLog.Print("", "DB OPEN ����.");
+            return bRes;
+        }
 
-		if (mDbProgressInterface != null)
-			mDbProgressInterface.onPublishUdapte("max", aValue.size());
-		try {
-			for (int i = 0; i < aValue.size(); i++) {
-				ContentValues contentValues = aValue.get(i);
-				queryCUD(tableName, contentValues);
-				if (mDbProgressInterface != null)
-					mDbProgressInterface.onPublishUdapte("progress", i);
+        m_db.beginTransaction();
 
-			}
+        if (tableName.equals(DEFINE.ADDRESS_TABLE)) {
+            m_db.delete(DEFINE.ADDRESS_TABLE, null, null);
+        }
 
-			m_db.setTransactionSuccessful();
-			bRes = true;
-		} catch (Exception e) {
-			e.printStackTrace();
+        if (mDbProgressInterface != null)
+            mDbProgressInterface.onPublishUdapte("max", aValue.size());
+        try {
+            for (int i = 0; i < aValue.size(); i++) {
+                ContentValues contentValues = aValue.get(i);
+                queryCUD(tableName, contentValues);
+                if (mDbProgressInterface != null)
+                    mDbProgressInterface.onPublishUdapte("progress", i);
 
-			PrintLog.Print("", e.getMessage());
+            }
 
-			bRes = false;
-		} finally {
-			m_db.endTransaction();
-			return bRes;
-		}
-	}
+            m_db.setTransactionSuccessful();
+            bRes = true;
+        } catch (Exception e) {
+            e.printStackTrace();
 
-	public Cursor selectDB(DbQueryModel dbQueryModel) {
+            PrintLog.Print("", e.getMessage());
 
-		if (m_db == null)
-			initData(mContext);
+            bRes = false;
+        } finally {
+            m_db.endTransaction();
+            return bRes;
+        }
+    }
 
-		Cursor reCursor = null;
+    public Cursor selectDB(DbQueryModel dbQueryModel) {
 
-		String whereCause = "";
-		String[] whereCauseArray = dbQueryModel.getWhereCause();
+        if (m_db == null)
+            initData(mContext);
 
-		String backWhere = "";
+        Cursor reCursor = null;
 
-		int andCount = 0;
+        String whereCause = "";
+        String[] whereCauseArray = dbQueryModel.getWhereCause();
 
-		if (whereCauseArray != null) {
+        String backWhere = "";
 
-			for (int i = 0; i < whereCauseArray.length; i++) {
-				whereCause = whereCause + whereCauseArray[i] + " = ?";
+        int andCount = 0;
 
-				if (whereCauseArray.length == i + 1) {
-					for (int j = 0; j < andCount; j++) {
-						whereCause = whereCause + " )";
-					}
-					break;
-				}
+        if (whereCauseArray != null) {
 
-				if (whereCauseArray[i].equals(whereCauseArray[i + 1])) {
+            for (int i = 0; i < whereCauseArray.length; i++) {
+                whereCause = whereCause + whereCauseArray[i] + " = ?";
 
-					whereCause = whereCause + " OR ";
-				} else {
+                if (whereCauseArray.length == i + 1) {
+                    for (int j = 0; j < andCount; j++) {
+                        whereCause = whereCause + " )";
+                    }
+                    break;
+                }
 
-					andCount++;
-					if (dbQueryModel.isNotFlag()) {
-						whereCause = whereCause + "AND NOT (";
-					} else {
-						whereCause = whereCause + " AND (";
-					}
-				}
+                if (whereCauseArray[i].equals(whereCauseArray[i + 1])) {
 
-			}
-		} else {
-			whereCause = null;
-		}
+                    whereCause = whereCause + " OR ";
+                } else {
 
-		kog.e("Jonathan", " 쿼리문 :: " + whereCause);
-		
-		String orderBy = dbQueryModel.getOrderBy();
-		
-		//2014-01-16 KDH 데이터 겁나게 못돌리네 결국엔 여기서 쓸꺼면 스태틱으로 뺴면 더편하지 에휴-_-;;어디서 나오는 패턴 줏어다가 그대로 만들었구만.
-		try {
-			
+                    andCount++;
+                    if (dbQueryModel.isNotFlag()) {
+                        whereCause = whereCause + "AND NOT (";
+                    } else {
+                        whereCause = whereCause + " AND (";
+                    }
+                }
+
+            }
+        } else {
+            whereCause = null;
+        }
+
+        kog.e("Jonathan", " 쿼리문 :: " + whereCause);
+
+        String orderBy = dbQueryModel.getOrderBy();
+
+        //2014-01-16 KDH 데이터 겁나게 못돌리네 결국엔 여기서 쓸꺼면 스태틱으로 뺴면 더편하지 에휴-_-;;어디서 나오는 패턴 줏어다가 그대로 만들었구만.
+        try {
+
 //			kog.e("Jonathan", "쿼리문 ?? :: " + dbQueryModel.getTableName() + " " + dbQueryModel.getColums().toString()+ " " + whereCause+ " " + dbQueryModel.getWhereArgs()+ " " + orderBy);
-			
-			reCursor = m_db.query(dbQueryModel.getTableName(),
-					dbQueryModel.getColums(), whereCause,
-					dbQueryModel.getWhereArgs(), null, null, orderBy);
-			
-		} catch (SQLiteException e) {
-			// TODO: handle exception
-			PrintLog.Print("SQLiteException", e.getMessage());
-		}
 
-		return reCursor;
+            reCursor = m_db.query(dbQueryModel.getTableName(),
+                    dbQueryModel.getColums(), whereCause,
+                    dbQueryModel.getWhereArgs(), null, null, orderBy);
 
-	}
+        } catch (SQLiteException e) {
+            // TODO: handle exception
+            PrintLog.Print("SQLiteException", e.getMessage());
+        }
 
-	private String[] getColumes(String tableName, ContentValues values) {
+        if (dbQueryModel.getTableName().equals(ConnectController.REPAIR_TABLE_NAME)) {
+            Log.e("yunseung", "쿼리문 ?? :: " + dbQueryModel.getTableName() + " " + dbQueryModel.getColums().toString() + " " + whereCause + " " + dbQueryModel.getWhereArgs() + " " + orderBy);
+        }
+        return reCursor;
 
-		String[] resultColoumes = null;
+    }
 
-		if (tableName.equals(DEFINE.CAR_MASTER_TABLE_NAME)) {
-			kog.e("Jonathan", "CAR_MASTER_TABLE_NAME :: " );
-			resultColoumes = CAR_MASTER_KEY_COLUMNAMES;
-		} else if (tableName.equals(ConnectController.REPAIR_TABLE_NAME)) {
-			resultColoumes = REFAIR_KEY_COLUMNAMES;
-		} else if (tableName.equals(DEFINE.LOGIN_TABLE_NAME)) {
-			resultColoumes = LOGIN_KEY_COLUMNAMES;
-		} else if (tableName.equals(DEFINE.STOCK_TABLE_NAME)) {
-			resultColoumes = STOCK_KEY_COLUMNAMES;
-		} else if (tableName.equals(DEFINE.REPAIR_RESULT_BASE_TABLE_NAME)) {
-			resultColoumes = getColumes(values);
-		} else if (tableName.equals(DEFINE.REPAIR_RESULT_STOCK_TABLE_NAME)) {
-			resultColoumes = getColumes(values);
-		} else if (tableName.equals(DEFINE.REPAIR_RESULT_IMAGE_TABLE_NAME)) {
-			resultColoumes = getColumes(values);
-		} else if (tableName.equals(DEFINE.ADDRESS_TABLE)) {
-			resultColoumes = ADDRESS_KEY_COLUMNAMES;
-		}
+    private String[] getColumes(String tableName, ContentValues values) {
 
-		return resultColoumes;
-	}
+        String[] resultColoumes = null;
 
-	private String[] getColumes(ContentValues values) {
+        if (tableName.equals(DEFINE.CAR_MASTER_TABLE_NAME)) {
+            kog.e("Jonathan", "CAR_MASTER_TABLE_NAME :: ");
+            resultColoumes = CAR_MASTER_KEY_COLUMNAMES;
+        } else if (tableName.equals(ConnectController.REPAIR_TABLE_NAME)) {
+            resultColoumes = REFAIR_KEY_COLUMNAMES;
+        } else if (tableName.equals(DEFINE.LOGIN_TABLE_NAME)) {
+            resultColoumes = LOGIN_KEY_COLUMNAMES;
+        } else if (tableName.equals(DEFINE.STOCK_TABLE_NAME)) {
+            resultColoumes = STOCK_KEY_COLUMNAMES;
+        } else if (tableName.equals(DEFINE.REPAIR_RESULT_BASE_TABLE_NAME)) {
+            resultColoumes = getColumes(values);
+        } else if (tableName.equals(DEFINE.REPAIR_RESULT_STOCK_TABLE_NAME)) {
+            resultColoumes = getColumes(values);
+        } else if (tableName.equals(DEFINE.REPAIR_RESULT_IMAGE_TABLE_NAME)) {
+            resultColoumes = getColumes(values);
+        } else if (tableName.equals(DEFINE.ADDRESS_TABLE)) {
+            resultColoumes = ADDRESS_KEY_COLUMNAMES;
+        }
 
-		String[] resultColoumes = new String[values.size()];
+        return resultColoumes;
+    }
 
-		Set<Entry<String, Object>> s = values.valueSet();
-		Iterator itr = s.iterator();
+    private String[] getColumes(ContentValues values) {
 
-		int i = 0;
+        String[] resultColoumes = new String[values.size()];
 
-		while (itr.hasNext()) {
-			Entry me = (Entry) itr.next();
-			String key = me.getKey().toString();
+        Set<Entry<String, Object>> s = values.valueSet();
+        Iterator itr = s.iterator();
 
-			resultColoumes[i] = key;
-			i++;
-		}
+        int i = 0;
 
-		return resultColoumes;
-	}
+        while (itr.hasNext()) {
+            Entry me = (Entry) itr.next();
+            String key = me.getKey().toString();
 
-	public String checkNeedTable() {
+            resultColoumes[i] = key;
+            i++;
+        }
 
-		String reMessage = "";
+        return resultColoumes;
+    }
 
-		Cursor c = m_db.rawQuery("SELECT name FROM sqlite_master", null);
+    public String checkNeedTable() {
 
-		// if (c != null) {
-		// if (c.getCount() > 0)
-		// isTableFlag = true;
-		// }
+        String reMessage = "";
 
-		ArrayList<String> array = new ArrayList<String>();
+        Cursor c = m_db.rawQuery("SELECT name FROM sqlite_master", null);
 
-		if (c.moveToFirst()) {
-			for (;;) {
+        // if (c != null) {
+        // if (c.getCount() > 0)
+        // isTableFlag = true;
+        // }
 
-				array.add(c.getString(0));
+        ArrayList<String> array = new ArrayList<String>();
 
-				if (!c.moveToNext())
-					break;
-			}
-		}
-		reMessage = checkTable(array);
-		return reMessage;
+        if (c.moveToFirst()) {
+            for (; ; ) {
 
-	}
+                array.add(c.getString(0));
 
-	private String checkTable(ArrayList<String> array) {
-		String message = "";
+                if (!c.moveToNext())
+                    break;
+            }
+        }
+        reMessage = checkTable(array);
+        return reMessage;
 
-		for (int i = 0; i < CHECK_TABLES.length; i++) {
-			String checkTableName = CHECK_TABLES[i];
-			boolean checkTable = false;
+    }
 
-			for (String string : array) {
-				if (checkTableName.equals(string)) {
-					checkTable = true;
-					break;
-				}
-			}
-			if (!checkTable) {
-				message = getCheckTableMessage(checkTableName);
-				return message;
-			}
-		}
+    private String checkTable(ArrayList<String> array) {
+        String message = "";
 
-		return message;
-	}
+        for (int i = 0; i < CHECK_TABLES.length; i++) {
+            String checkTableName = CHECK_TABLES[i];
+            boolean checkTable = false;
 
-	private String getCheckTableMessage(String tableName) {
-		String message = "";
-		if (DEFINE.O_ITAB1_TABLE_NAME.equals(tableName)) {
-			message = "공통코드";
-		} else if (DEFINE.REPAIR_TABLE_NAME.equals(tableName)) {
-			message = "순회정비 계획";
-		} else if (DEFINE.CAR_MASTER_TABLE_NAME.equals(tableName)) {
-			message = "소속 MOT 순회기사 리스트";
-		} else if (DEFINE.LOGIN_TABLE_NAME.equals(tableName)) {
-			message = "로그인 사용자 정보";
-		} else if (DEFINE.STOCK_TABLE_NAME.equals(tableName)) {
-			message = "보유재고 테이블";
-		} else if (DEFINE.PARTSMASTER_TABLE_NAME.equals(tableName)) {
-			message = "순회정비 재고 마스터";
-		}
+            for (String string : array) {
+                if (checkTableName.equals(string)) {
+                    checkTable = true;
+                    break;
+                }
+            }
+            if (!checkTable) {
+                message = getCheckTableMessage(checkTableName);
+                return message;
+            }
+        }
 
-		return message;
-	}
+        return message;
+    }
+
+    private String getCheckTableMessage(String tableName) {
+        String message = "";
+        if (DEFINE.O_ITAB1_TABLE_NAME.equals(tableName)) {
+            message = "공통코드";
+        } else if (DEFINE.REPAIR_TABLE_NAME.equals(tableName)) {
+            message = "순회정비 계획";
+        } else if (DEFINE.CAR_MASTER_TABLE_NAME.equals(tableName)) {
+            message = "소속 MOT 순회기사 리스트";
+        } else if (DEFINE.LOGIN_TABLE_NAME.equals(tableName)) {
+            message = "로그인 사용자 정보";
+        } else if (DEFINE.STOCK_TABLE_NAME.equals(tableName)) {
+            message = "보유재고 테이블";
+        } else if (DEFINE.PARTSMASTER_TABLE_NAME.equals(tableName)) {
+            message = "순회정비 재고 마스터";
+        }
+
+        return message;
+    }
 }

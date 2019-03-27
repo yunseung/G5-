@@ -1,5 +1,7 @@
 package com.ktrental.model;
 
+import android.util.Log;
+
 public class BaseMaintenanceModel
 {
     protected boolean check    = false;
@@ -45,6 +47,8 @@ public class BaseMaintenanceModel
     private String CYCMN_TX = "";
 
     private String APM = "";
+
+    private String VBELN = "";
     public BaseMaintenanceModel(String aUFNR)
     {
         super();
@@ -63,7 +67,7 @@ public class BaseMaintenanceModel
 
     public BaseMaintenanceModel(String customer_name, String driver_name, String _carNum, String _address, String _tel, String _time,
             String _carname, String _progress_status, String _day, String AUFNR, String _EQUNR, String _CTRTY, String postCode, String city,
-            String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx, String apm)
+            String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx, String apm, String vbeln, String gubun)
     {
 
         CUSTOMER_NAME = customer_name;
@@ -102,6 +106,10 @@ public class BaseMaintenanceModel
 //        LogUtil.d("hjt", "hjt delay = " + delay);
 
         APM = apm;
+
+        VBELN = vbeln;
+
+        GUBUN = gubun;
     }
 
     public String getMDLCD()
@@ -355,5 +363,13 @@ public class BaseMaintenanceModel
 
     public void setAPM(String APM) {
         this.APM = APM;
+    }
+
+    public String getVBELN() {
+        return VBELN;
+    }
+
+    public void setVBELN(String VBELN) {
+        this.VBELN = VBELN;
     }
 }

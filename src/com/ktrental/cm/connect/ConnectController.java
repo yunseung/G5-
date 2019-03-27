@@ -582,6 +582,23 @@ public class ConnectController {
 			e.printStackTrace();
 		}
 	}
+
+	private final String ZMO_1020_RD07 = "ZMO_1020_RD07";
+	private final String ZMO_1020_RD07_TABLE = "zmo_1020_rd07_table";
+	public void getZMO_1020_RD07(String i_vbeln)// 고장코드이력 검색
+	{
+		LoginModel model = KtRentalApplication.getLoginModel();
+		HashMap<String, String> map = getCommonConnectData();
+		mConnector.setStructure("IS_LOGIN", map);
+
+		mConnector.setParameter("I_VBELN", i_vbeln);
+
+		try {
+			mConnector.executeRFCAsyncTask(ZMO_1060_RD01, ZMO_1060_RD01_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 	private final String ZMO_1060_RD03 = "ZMO_1060_RD03";
