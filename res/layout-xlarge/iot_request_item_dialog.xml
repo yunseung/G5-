@@ -60,8 +60,8 @@
             android:background="#f4f1ec"
             android:paddingBottom="5dp">
 
-            <EditText
-                android:id="@+id/et_car_kind"
+            <TextView
+                android:id="@+id/tv_car_kind"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/input"
@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@id/et_car_kind"
+                android:layout_toLeftOf="@id/tv_car_kind"
                 android:gravity="center_vertical"
                 android:text="차종"
                 android:textSize="25dp" />
@@ -182,10 +182,11 @@
                 android:textSize="18dp"
                 android:gravity="center_vertical"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/tv_memo"
+                android:background="@drawable/input"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="메모를 입력해주세요"/>
+                android:layout_height="60dp"/>
 
             <Button
                 android:id="@+id/btn_confirm"

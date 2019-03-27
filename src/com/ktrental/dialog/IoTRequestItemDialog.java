@@ -29,7 +29,7 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
     private Context mContext;
 
     private View mRootView;
-    private TextView mTvTotalPrice;
+    private TextView mTvTotalPrice, mTvCarKind, mTvMemo;
     private ListView mListView;
 
     private ConnectController mCc;
@@ -42,6 +42,36 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
         super(context);
         this.mContext = context;
         this.mReqNo = reqNo;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.iot_request_item_dialog);
+
+        mRootView = findViewById(R.id.rl_root_view);
+        mTvTotalPrice = (TextView)findViewById(R.id.total_price);
+        mTvCarKind = (TextView)findViewById(R.id.tv_car_kind);
+        mTvMemo = (TextView)findViewById(R.id.tv_memo);
+
+        mRootView.findViewById(R.id.iv_exit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
+        mRootView.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
+        mListView = (ListView) mRootView.findViewById(R.id.iot_request_listview);
+
     }
 
     @Override
@@ -66,34 +96,6 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
         showProgress("조회 중입니다.");
         mCc.getZMO_1020_RD06(mReqNo);
 
-
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.iot_request_item_dialog);
-
-        mRootView = findViewById(R.id.rl_root_view);
-        mTvTotalPrice = (TextView)findViewById(R.id.total_price);
-
-        mRootView.findViewById(R.id.iv_exit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
-
-        mRootView.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
-
-        mListView = (ListView) mRootView.findViewById(R.id.iot_request_listview);
 
     }
 

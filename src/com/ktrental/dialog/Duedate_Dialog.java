@@ -149,7 +149,7 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 	}
 
 	public void setCalCheck(int position, final ArrayList<DayInfo> mDayList) {
-		//TODO 여기서 time picker popup 띄움.. ==> 저장 눌렀을 때 보내던 페이로드에 시간 및 상세요청사항까지 더해서 보내면 됨.
+		//TODO 윤승 여기서 time picker popup 띄움.. ==> 저장 눌렀을 때 보내던 페이로드에 시간 및 상세요청사항까지 더해서 보내면 됨.
 		cal_custom.SELECTED = position;
 		if (mDayList == null)
 			return;
@@ -328,9 +328,7 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.dudate_dialog_close_id: // 닫기
-//			dismiss();
-			IoTCancelPopup popup = new IoTCancelPopup(mContext);
-			popup.show();
+			dismiss();
 			break;
 		case R.id.duedate_dialog_save_id:// 저장하기
 			String str = bt_save.getText().toString();
