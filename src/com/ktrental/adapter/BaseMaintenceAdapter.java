@@ -574,7 +574,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
     private void clickReq1(View v) {
         MonthProgressModel model = (MonthProgressModel)getItem((Integer)v.getTag());
         Log.e("yunseung22", model.getCcmrq());
-        Log.e("yunseung22", model.getCermr());
+        //TODO 윤승 getCcmrq is empty 가 아니면 팝업 띄워.
     }
 
     private void clickReq2(View v) {

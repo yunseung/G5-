@@ -94,8 +94,8 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
         mCc = new ConnectController(this, mContext);
 
         showProgress("조회 중입니다.");
-        mCc.getZMO_1020_RD06(mReqNo);
-
+//        mCc.getZMO_1020_RD06(mReqNo);
+        mCc.getZMO_1020_RD06("19032700006");
 
     }
 
@@ -116,20 +116,23 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
     public void connectResponse(String FuntionName, String resultText, String MTYPE, int resulCode, TableModel tableModel) {
         hideProgress();
 
-        if (tableModel.getTableArray().size() > 0) {
+        if (MTYPE.trim().equals("S")) {
             Log.e("yunseung", FuntionName);
             Log.e("yunseung", resultText);
             Log.e("yunseung", MTYPE);
             Log.e("yunseung", resulCode + "");
             Log.e("yunseung", FuntionName);
 
-            ArrayList<HashMap<String, String>> array_hash = new ArrayList<>();
-            array_hash = tableModel.getTableArray();
+            ArrayList<HashMap<String, String>> ET_ITAB = tableModel.getTableArray("ET_ITAB");
+            ArrayList<HashMap<String, String>> ET_ITAB2 = tableModel.getTableArray("ET_ITAB2");
+
 
             // 마지막 row 의 DMBTR 이 총 가격
-            mTvTotalPrice.setText(array_hash.get(array_hash.size() - 1).get("DMBTR"));
+            mTvTotalPrice.setText(ET_ITAB.get(ET_ITAB.size() - 1).get("DMBTR"));
+            mTvCarKind.setText(ET_ITAB2.get(0).get("MAKTX"));
+            mTvMemo.setText(ET_ITAB2.get(0).get("MEMO"));
 
-            mListView.setAdapter(new ListAdapter(array_hash));
+            mListView.setAdapter(new ListAdapter(ET_ITAB));
         } else {
             // ?????????????????????????????????????????? 어쩔까
         }

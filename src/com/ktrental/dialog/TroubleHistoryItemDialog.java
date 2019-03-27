@@ -63,7 +63,7 @@ public class TroubleHistoryItemDialog extends BaseTouchDialog implements Connect
         cc = new ConnectController(this, context);
 
         showProgress("조회 중입니다.");
-        cc.getZMO_1020_RD07("1");
+        cc.getZMO_1020_RD07(mVbenl);
 
     }
 

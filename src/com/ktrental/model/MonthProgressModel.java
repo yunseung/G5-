@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class MonthProgressModel extends BaseMaintenanceModel {
 	private String cermr = "";
-	private String ccmrq = "1";
+	private String ccmrq = "";
 
 	public MonthProgressModel(String _time, String customer_name, String dirver_name, String _carNum,
 			String _address, String _carname, String _tel,
