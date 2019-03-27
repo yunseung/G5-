@@ -28,10 +28,10 @@ public class HomeMaintenanceModel extends BaseMaintenanceModel {
 			String _progress_status, String _day, String AUFNR, String EQUNR,
 			String CTRTY, String postCode, String city, String street,
 			String drv_mob, String NIELS_NM, String LDATE, String customerName,
-			String _reoil,String _cermr, String _ccmrq, String green2, String txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String vbeln, String gubun) {
+			String _reoil,String _cermr, String _ccmrq, String green2, String txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String vbeln, String gubun, String reqNo) {
 		super(customer_name, driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, drv_mob, green2, txt30, _mdlcd, _vocNum, _kunnr, delay, null, null, vbeln, gubun);
+				street, drv_mob, green2, txt30, _mdlcd, _vocNum, _kunnr, delay, null, null, vbeln, gubun, reqNo);
 		
 		status = _status;
 		this.NIELS_NM = NIELS_NM;

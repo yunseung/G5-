@@ -28,6 +28,7 @@ import com.ktrental.common.DEFINE;
 import com.ktrental.common.KtRentalApplication;
 import com.ktrental.dialog.Address_Change_Dialog;
 import com.ktrental.dialog.History_Dialog;
+import com.ktrental.dialog.IoTRequestItemDialog;
 import com.ktrental.dialog.TroubleHistoryItemDialog;
 import com.ktrental.fragment.BaseRepairFragment;
 import com.ktrental.model.BaseMaintenanceModel;
@@ -359,10 +360,10 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 clickMap(v);
                 break;
             case R.id.btn_trouble_history:
-                BaseMaintenanceModel model = getItem((Integer)v.getTag());
-                TroubleHistoryItemDialog dialog = new TroubleHistoryItemDialog(mContext, model.getVBELN());
-                dialog.show();
-                //TODO 여기서 팝업을 띄우면서 파라미터로 vbeln을 준다... 개굳....
+                clickTroubleHistory(v);
+                break;
+            case R.id.btn_req_iot:
+                clickReqIot(v);
                 break;
             default:
                 break;
@@ -544,7 +545,17 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
     }
 
+    private void clickTroubleHistory(View v) {
+        BaseMaintenanceModel model = getItem((Integer)v.getTag());
+        TroubleHistoryItemDialog dialog = new TroubleHistoryItemDialog(mContext, model.getVBELN());
+        dialog.show();
+    }
 
+    private void clickReqIot(View v) {
+        BaseMaintenanceModel model = getItem((Integer)v.getTag());
+        IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
+        dialog.show();
+    }
 
 
     private void clickEdit(View v)

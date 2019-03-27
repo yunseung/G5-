@@ -3,6 +3,7 @@ package com.ktrental.dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,22 +11,36 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.ktrental.R;
+import com.ktrental.cm.connect.ConnectController;
+import com.ktrental.cm.connect.Connector;
+import com.ktrental.model.TableModel;
 import com.ktrental.popup.BaseTouchDialog;
+import com.ktrental.popup.ProgressPopup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class IoTRequestItemDialog extends BaseTouchDialog {
+public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.ConnectInterface {
+
+    private Context mContext;
 
     private View mRootView;
     private ListView mListView;
 
-    public IoTRequestItemDialog(Context context) {
+    private ConnectController mCc;
+
+    private String mReqNo = null;
+
+    protected ProgressPopup mProgressPopup;
+
+    public IoTRequestItemDialog(Context context, String reqNo) {
         super(context);
+        this.mContext = context;
+        this.mReqNo = reqNo;
     }
 
     @Override
@@ -44,6 +59,11 @@ public class IoTRequestItemDialog extends BaseTouchDialog {
         // setCanceledOnTouchOutside(true);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
+        mCc = new ConnectController(this, mContext);
+
+        showProgress("조회 중입니다.");
+        mCc.getZMO_1020_RD06(mReqNo);
 
 
     }
@@ -73,16 +93,6 @@ public class IoTRequestItemDialog extends BaseTouchDialog {
 
         mListView = (ListView) mRootView.findViewById(R.id.iot_request_listview);
 
-        List<String> reasonList = new ArrayList<>();
-        reasonList.add("선택해주세요");
-        reasonList.add("고객요청");
-        reasonList.add("예약변경");
-        reasonList.add("단순변심");
-        reasonList.add("연락두절");
-        reasonList.add("기타");
-
-        mListView.setAdapter(new ReasonListAdapter(reasonList));
-
     }
 
     @Override
@@ -98,23 +108,111 @@ public class IoTRequestItemDialog extends BaseTouchDialog {
         // onDestroy();
     }
 
+    @Override
+    public void connectResponse(String FuntionName, String resultText, String MTYPE, int resulCode, TableModel tableModel) {
+        hideProgress();
+        Log.e("yunseung", FuntionName);
+        Log.e("yunseung", resultText);
+        Log.e("yunseung", MTYPE);
+        Log.e("yunseung", resulCode + "");
+        Log.e("yunseung", FuntionName);
 
-    public class ReasonListAdapter extends BaseAdapter {
-        private List<String> mReasonList;
+        ArrayList<HashMap<String, String>> array_hash = new ArrayList<>();
+        array_hash = tableModel.getTableArray();
+
+        mListView.setAdapter(new ListAdapter(array_hash));
+    }
+
+    @Override
+    public void reDownloadDB(String newVersion) {
+
+    }
+
+    public void showProgress(String message)
+    {
+        if (mProgressPopup != null)
+        {
+            mProgressPopup.setMessage(message);
+            if (mRootView != null)
+            {
+                // CommonUtil.showCallStack();
+                mRootView.post(new Runnable()
+                {
+
+                    @Override
+                    public void run()
+                    {
+                        // TODO Auto-generated method stub
+                        try
+                        {
+                            if (mProgressPopup != null)
+                            {
+                                mProgressPopup.show();
+                            }
+                        }
+                        catch (WindowManager.BadTokenException e)
+                        {
+                            // TODO: handle exception
+                        }
+                        catch (IllegalStateException e)
+                        {
+                            // TODO: handle exception
+                        }
+
+                    }
+                });
+
+            }
+            else
+            {
+                mProgressPopup.show();
+            }
+        }
+    }
+
+    public void hideProgress()
+    {
+        if (mProgressPopup != null)
+        {
+            if (mRootView != null)
+            {
+                mRootView.post(new Runnable()
+                {
+
+                    @Override
+                    public void run()
+                    {
+                        if (mProgressPopup != null && mProgressPopup.isShowing()) {
+                            mProgressPopup.dismiss();
+                        }
+                    }
+                });
+
+            }
+            else
+            {
+                mProgressPopup.hide();
+            }
+        }
+    }
+
+
+    public class ListAdapter extends BaseAdapter {
+        private List<HashMap<String, String>> mHashArray;
         private ViewHolder mViewHolder = null;
 
-        public ReasonListAdapter(List<String> list) {
-            mReasonList = list;
+        public ListAdapter(List<HashMap<String, String>> list) {
+            mHashArray = list;
         }
 
         @Override
         public int getCount() {
-            return mReasonList.size();
+            return mHashArray.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return mReasonList.get(position);
+            return mHashArray.get(position);
         }
 
         @Override
@@ -125,20 +223,32 @@ public class IoTRequestItemDialog extends BaseTouchDialog {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.iot_cancel_row, null);
+                convertView = LayoutInflater.from(mContext).inflate(R.layout.iot_request_item_row, null);
                 mViewHolder = new ViewHolder();
-                mViewHolder.tv = (TextView) convertView.findViewById(R.id.tv_reason);
+                mViewHolder.tvNo = (TextView) convertView.findViewById(R.id.tv_no);
+                mViewHolder.tvItem = (TextView) convertView.findViewById(R.id.tv_item);
+                mViewHolder.tvPartName = (TextView) convertView.findViewById(R.id.tv_part_name);
+                mViewHolder.tvQuantity = (TextView) convertView.findViewById(R.id.tv_quantity);
+                mViewHolder.tvPrice = (TextView) convertView.findViewById(R.id.tv_price);
                 convertView.setTag(mViewHolder);
             } else {
                 mViewHolder = (ViewHolder)convertView.getTag();
             }
 
-            mViewHolder.tv.setText(mReasonList.get(position));
+            mViewHolder.tvNo.setText(mHashArray.get(position).get("NO"));
+            mViewHolder.tvItem.setText(mHashArray.get(position).get("WGBEZ"));
+            mViewHolder.tvPartName.setText(mHashArray.get(position).get("MAKTX"));
+            mViewHolder.tvQuantity.setText(mHashArray.get(position).get("QTY"));
+            mViewHolder.tvPrice.setText(mHashArray.get(position).get("DMBTR"));
             return convertView;
         }
 
         class ViewHolder {
-            public TextView tv = null;
+            public TextView tvNo = null;
+            public TextView tvItem = null;
+            public TextView tvPartName = null;
+            public TextView tvQuantity = null;
+            public TextView tvPrice = null;
         }
     }
 }

@@ -103,7 +103,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 	private String[] maintenace_colums = { DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX,
 			DEFINE.CCMRQ, DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS,
 			DEFINE.AUFNR, DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30,
-			DEFINE.MDLCD, DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN};
+			DEFINE.MDLCD, DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO};
 
 	private String[] maintenace_plan_colums = { DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.CEMER, DEFINE.GUBUN };
 
@@ -1000,6 +1000,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 					String apm = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[24]));
 					String vbeln = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[25]));
 					String gubun = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[26]));
+					String reqNo = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[27]));
 
 					// kog.e("Jonathan", "Hello Jonathan
 					// MaintenanceStatusFragment:: " + VOCNUM);
@@ -1027,7 +1028,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 							decrypt(maintenace_colums[11], day), decrypt(maintenace_colums[12], aufnr),
 							decrypt(maintenace_colums[13], equnr), decrypt(maintenace_colums[14], ctrty), postCode,
 							city, street, decrypt(maintenace_colums[15], drv_mob),
-							decrypt(maintenace_colums[16], cermr), gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, CYCMN_TX, apm, vbeln, gubun);
+							decrypt(maintenace_colums[16], cermr), gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, CYCMN_TX, apm, vbeln, gubun, reqNo);
 
 					System.out.println("요기는 모니 -__.... " + "MainenanceStateMnetn   ");// +
 																						// VOCINFO);

@@ -49,6 +49,8 @@ public class BaseMaintenanceModel
     private String APM = "";
 
     private String VBELN = "";
+
+    private String REQNO = "";
     public BaseMaintenanceModel(String aUFNR)
     {
         super();
@@ -67,7 +69,7 @@ public class BaseMaintenanceModel
 
     public BaseMaintenanceModel(String customer_name, String driver_name, String _carNum, String _address, String _tel, String _time,
             String _carname, String _progress_status, String _day, String AUFNR, String _EQUNR, String _CTRTY, String postCode, String city,
-            String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx, String apm, String vbeln, String gubun)
+            String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx, String apm, String vbeln, String gubun, String reqNo)
     {
 
         CUSTOMER_NAME = customer_name;
@@ -110,6 +112,8 @@ public class BaseMaintenanceModel
         VBELN = vbeln;
 
         GUBUN = gubun;
+
+        REQNO = reqNo;
     }
 
     public String getMDLCD()
@@ -371,5 +375,13 @@ public class BaseMaintenanceModel
 
     public void setVBELN(String VBELN) {
         this.VBELN = VBELN;
+    }
+
+    public String getREQNO() {
+        return REQNO;
+    }
+
+    public void setREQNO(String REQNO) {
+        this.REQNO = REQNO;
     }
 }

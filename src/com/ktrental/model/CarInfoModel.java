@@ -173,6 +173,8 @@ public class CarInfoModel extends BaseMaintenanceModel {
 
 	private String apm = "";
 
+	private String REQNO = "";
+
 	public CarInfoModel(String customer_name, String driver_name, String _carNum, String _address,
 			String _tel, String _time, String _carname,
 			String _progress_status, String _day, String customerName,
@@ -189,10 +191,10 @@ public class CarInfoModel extends BaseMaintenanceModel {
 			String oilType, String AUFNR, String _trustTerm2, String _OILTYPNM,
 			String EQUNR, String CTRTY, String _CEMER, String CHNGBN,
 			String OWNER, String postCode, String city, String street, 
-			String drv_mob, String drv_tel, String gueen2 , String txt30, String vocNum, String kunnr, String delay, String vbeln, String gubun) {
+			String drv_mob, String drv_tel, String gueen2 , String txt30, String vocNum, String kunnr, String delay, String vbeln, String gubun, String reqNo) {
 		super(customer_name ,driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun);
+				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun, reqNo);
 		LogUtil.d("hjt", "hjt delay = " + delay);
 
 		this.customerName = customerName;
@@ -231,6 +233,7 @@ public class CarInfoModel extends BaseMaintenanceModel {
 		this.drv_mob = drv_mob;
 		this.drv_tel = drv_tel;
 		this.DELAY = delay;
+		this.REQNO = reqNo;
 		
 		d_name = driver_name;
 		c_name = customer_name;

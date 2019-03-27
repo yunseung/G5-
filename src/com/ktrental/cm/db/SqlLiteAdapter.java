@@ -410,6 +410,9 @@ public class SqlLiteAdapter {
         // 윤승이 로그
         for (HashMap<String, String> aa : aData) {
             Log.e("yunseung11", "valuese : " + aa.values());
+            Log.e("yunseung11", "reqNo : " + aa.get("REQNO"));
+            Log.e("yunseung11", "OILTYP : " + aa.get("OILTYP"));
+            Log.e("yunseung11", "VKGRP_TX : " + aa.get("VKGRP_TX"));
         }
 
         for (int i = 0; i < nCnt; i++) {

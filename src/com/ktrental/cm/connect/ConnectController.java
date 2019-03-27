@@ -587,14 +587,29 @@ public class ConnectController {
 	private final String ZMO_1020_RD07_TABLE = "zmo_1020_rd07_table";
 	public void getZMO_1020_RD07(String i_vbeln)// 고장코드이력 검색
 	{
-		LoginModel model = KtRentalApplication.getLoginModel();
 		HashMap<String, String> map = getCommonConnectData();
 		mConnector.setStructure("IS_LOGIN", map);
 
 		mConnector.setParameter("I_VBELN", i_vbeln);
 
 		try {
-			mConnector.executeRFCAsyncTask(ZMO_1060_RD01, ZMO_1060_RD01_TABLE);
+			mConnector.executeRFCAsyncTask(ZMO_1020_RD07, ZMO_1020_RD07_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private final String ZMO_1020_RD06 = "ZMO_1020_RD06";
+	private final String ZMO_1020_RD06_TABLE = "zmo_1020_rd06_table";
+	public void getZMO_1020_RD06(String reqNo)// IoT 요청사항 검색
+	{
+		HashMap<String, String> map = getCommonConnectData();
+		mConnector.setStructure("IS_LOGIN", map);
+
+		mConnector.setParameter("I_REQNO", reqNo);
+
+		try {
+			mConnector.executeRFCAsyncTask(ZMO_1020_RD06, ZMO_1020_RD06_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

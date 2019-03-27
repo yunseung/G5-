@@ -195,6 +195,7 @@ public class DEFINE {
 	public final static String DELAY = "DELAY";
 
 	public final static String APM = "APM";
+	public final static String REQNO = "REQNO";
 
 	public static String SESSION = "";
 	
