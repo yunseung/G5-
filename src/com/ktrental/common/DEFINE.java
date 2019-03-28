@@ -196,6 +196,7 @@ public class DEFINE {
 
 	public final static String APM = "APM";
 	public final static String REQNO = "REQNO";
+	public static final String ATVYN = "ATVYN";
 
 	public static String SESSION = "";
 	

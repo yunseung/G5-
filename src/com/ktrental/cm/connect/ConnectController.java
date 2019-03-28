@@ -1198,8 +1198,7 @@ public class ConnectController {
 	private final String ZMO_1050_WR04 = "ZMO_1050_WR04";
 	private final String ZMO_1050_WR04_TABLE = "zmo_1050_wr04_table";
 
-	public void setZMO_1050_WR04(String sELECTED_DAY,
-			ArrayList<HashMap<String, String>> table) {
+	public void setZMO_1050_WR04(String sELECTED_DAY, String chprerq, String chtime, ArrayList<HashMap<String, String>> table) {
 		LoginModel model = KtRentalApplication.getLoginModel();
 		HashMap<String, String> map = getCommonConnectData();
 		mConnector.setStructure("IS_LOGIN", map);

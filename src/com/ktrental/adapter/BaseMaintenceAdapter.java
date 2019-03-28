@@ -29,6 +29,7 @@ import com.ktrental.common.KtRentalApplication;
 import com.ktrental.dialog.Address_Change_Dialog;
 import com.ktrental.dialog.History_Dialog;
 import com.ktrental.dialog.IoTRequestItemDialog;
+import com.ktrental.dialog.SimpleTextDialog;
 import com.ktrental.dialog.TroubleHistoryItemDialog;
 import com.ktrental.fragment.BaseRepairFragment;
 import com.ktrental.model.BaseMaintenanceModel;
@@ -138,9 +139,9 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             // IOT ODM 고급형에 따른 UI 변경
             if (model.getGUBUN().trim().isEmpty()) {
                 viewHolder.tvGubun.setVisibility(View.INVISIBLE);
-//                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.INVISIBLE);
-//                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
             } else if (model.getGUBUN().equals("A")) {
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
                 viewHolder.tvGubun.setText("IoT");
@@ -149,9 +150,9 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
             } else if (model.getGUBUN().equals("O")) {
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
-//                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.VISIBLE);
-//                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
                 viewHolder.tvGubun.setText("ODM");
 
                 // 2017-06-02. hjt 지연일수 추가
@@ -561,23 +562,40 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
     private void clickTroubleHistory(View v) {
         BaseMaintenanceModel model = getItem((Integer)v.getTag());
-        TroubleHistoryItemDialog dialog = new TroubleHistoryItemDialog(mContext, model.getVBELN());
-        dialog.show();
+        if (model.getVBELN().trim().isEmpty()) {
+            EventPopupC popupC = new EventPopupC(mContext);
+            popupC.show("고장코드이력이 없습니다.");
+        } else {
+            TroubleHistoryItemDialog dialog = new TroubleHistoryItemDialog(mContext, model.getVBELN());
+            dialog.show();
+        }
     }
 
     private void clickReqIot(View v) {
         BaseMaintenanceModel model = getItem((Integer)v.getTag());
-        IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
-        dialog.show();
+        if (model.getREQNO().trim().isEmpty()) {
+            EventPopupC popupC = new EventPopupC(mContext);
+            popupC.show("IoT 요청항목이 없습니다.");
+        } else {
+            IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
+            dialog.show();
+        }
     }
 
     private void clickReq1(View v) {
         MonthProgressModel model = (MonthProgressModel)getItem((Integer)v.getTag());
-        Log.e("yunseung22", model.getCcmrq());
-        //TODO 윤승 getCcmrq is empty 가 아니면 팝업 띄워.
+        if (model.getCcmrq().trim().isEmpty()) {
+            EventPopupC popupC = new EventPopupC(mContext);
+            popupC.show("차기요청사항이 없습니다.");
+        } else {
+            SimpleTextDialog dialog = new SimpleTextDialog(mContext, "차기요청사항", model.getCcmrq());
+            dialog.show();
+        }
     }
 
     private void clickReq2(View v) {
+        MonthProgressModel model = (MonthProgressModel)getItem((Integer)v.getTag());
+        //TODO 윤승 struct 1 에 있는 PRERQ 참조 < 스케쥴 예정일 변경 화면에서 쓴 요청사항이 PRERQ 이다.
 
     }
 

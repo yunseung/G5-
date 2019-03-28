@@ -29,11 +29,14 @@ public class SimpleTextDialog extends BaseTouchDialog {
     private Context mContext;
 
     private View mRootView;
-    private TextView mTvTitle, mTvContent;
+
+    private String mTitle, mContent;
 
     public SimpleTextDialog(Context context, String title, String content) {
         super(context);
         this.mContext = context;
+        mTitle = title;
+        mContent = content;
     }
 
     @Override
@@ -41,11 +44,11 @@ public class SimpleTextDialog extends BaseTouchDialog {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.iot_request_item_dialog);
+        setContentView(R.layout.simple_text_dialog);
 
         mRootView = findViewById(R.id.rl_root_view);
 
-        mRootView.findViewById(R.id.iv_exit).setOnClickListener(new View.OnClickListener() {
+        mRootView.findViewById(R.id.btn_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
@@ -58,6 +61,9 @@ public class SimpleTextDialog extends BaseTouchDialog {
                 dismiss();
             }
         });
+
+        ((TextView)mRootView.findViewById(R.id.tv_dialog_title)).setText(mTitle);
+        ((TextView)mRootView.findViewById(R.id.tv_dialog_content)).setText(mContent);
 
     }
 

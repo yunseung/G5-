@@ -64,6 +64,8 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 
 	private int TODAY;
 
+	private String mTime, mMemo;
+
 	public Duedate_Dialog(Context context,
 			ArrayList<BaseMaintenanceModel> mBaseMaintenanceModels) {
 		super(context);
@@ -150,6 +152,15 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 
 	public void setCalCheck(int position, final ArrayList<DayInfo> mDayList) {
 		//TODO 윤승 여기서 time picker popup 띄움.. ==> 저장 눌렀을 때 보내던 페이로드에 시간 및 상세요청사항까지 더해서 보내면 됨.
+		TimePickDialog dialog = new TimePickDialog(mContext);
+		dialog.setOnTimePickListener(new TimePickDialog.OnTimePickListener() {
+			@Override
+			public void onTimePickResult(String time, String memo) {
+				mTime = time;
+				mMemo = memo;
+			}
+		});
+		dialog.show();
 		cal_custom.SELECTED = position;
 		if (mDayList == null)
 			return;
@@ -369,7 +380,7 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 
 				showProgress("저장중 입니다.");
 				SENDED_DATE = SELECTED_DAY;
-				cc.setZMO_1050_WR04(SENDED_DATE, getTable());
+				cc.setZMO_1050_WR04(SENDED_DATE, mTime, mMemo, getTable());
 			}
 			break;
 		}
@@ -383,7 +394,6 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 			if (Duedate_Dialog_Left_Adapter.checked_items.contains(i)) {
 				HashMap<String, String> hm = new HashMap<String, String>();
 				hm.put("AUFNR", bmm_arr.get(i).getAUFNR());
-				// Log.i("##", "#### 에유에프엔알" + hm.get("AUFNR"));
 				i_itab1.add(hm);
 			}
 		}

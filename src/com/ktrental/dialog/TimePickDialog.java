@@ -1,38 +1,19 @@
 package com.ktrental.dialog;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ktrental.R;
-import com.ktrental.adapter.Account_List_Dialog_Adapter;
-import com.ktrental.cm.connect.ConnectController2;
-import com.ktrental.cm.connect.Connector.ConnectInterface;
-import com.ktrental.model.CorCardAccountModel;
-import com.ktrental.model.TableModel;
-import com.ktrental.popup.EventPopupC;
-import com.ktrental.util.CommonUtil;
-import com.ktrental.util.kog;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.logging.Handler;
 
 public class TimePickDialog extends DialogC implements View.OnClickListener  {
 
-	private TextView mBtnLeftInput, mBtnRightInput;
+	private TextView mLeftInput, mRightInput;
 	private EditText mEtDetail;
 
 	public static final int TYPE_LEFT = 0; // 시
@@ -44,6 +25,16 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 	}
 
+	private OnTimePickListener mListener;
+
+	public interface OnTimePickListener {
+		void onTimePickResult(String time,String memo);
+	}
+
+	public void setOnTimePickListener(OnTimePickListener listener) {
+		this.mListener = listener;
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -51,10 +42,10 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 
 		setContentView(R.layout.time_pick_dialog);
 
-		mBtnLeftInput = (TextView)findViewById(R.id.tv_inventory_input_left);
-		mBtnLeftInput.setOnClickListener(this);
-		mBtnRightInput = (TextView)findViewById(R.id.tv_inventory_input_right);
-		mBtnRightInput.setOnClickListener(this);
+		mLeftInput = (TextView)findViewById(R.id.tv_inventory_input_left);
+		mLeftInput.setOnClickListener(this);
+		mRightInput = (TextView)findViewById(R.id.tv_inventory_input_right);
+		mRightInput.setOnClickListener(this);
 
 		mEtDetail = (EditText)findViewById(R.id.detail_text);
 
@@ -121,13 +112,23 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 				setInput("CLEAR", true);
 				break;
 			case R.id.inventory_bt_done:
+				Log.e("yunseung555", "+++" + mLeftInput.getText().toString().trim());
+				Log.e("yunseung555", "+++" + mRightInput.getText().toString().trim());
+
+				if (timeValidation(mLeftInput.getText().toString().trim(), mRightInput.getText().toString().trim())) {
+					mListener.onTimePickResult(mLeftInput.getText().toString().trim()+mRightInput.getText().toString().trim(), mEtDetail.getText().toString());
+					this.dismiss();
+				} else {
+					Toast.makeText(mContext, "시간 형식이 잘못되었습니다.", Toast.LENGTH_SHORT).show();
+				}
+
 //				if (mDismissListener != null) {
 //					String result = "";
-//					if (mBtnLeftInput != null) {
-//						result = mBtnLeftInput.getText().toString();
-//						result = result + mBtnRightInput.getText().toString();
-//						mBtnLeftInput.setText("");
-//						mBtnRightInput.setText("");
+//					if (mLeftInput != null) {
+//						result = mLeftInput.getText().toString();
+//						result = result + mRightInput.getText().toString();
+//						mLeftInput.setText("");
+//						mRightInput.setText("");
 //					}
 //					result = CommonUtil.setDotTime(result);
 //					// checkTime();
@@ -135,7 +136,6 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 //					mDismissListener = null;
 //				}
 				// setInput("CLEAR", true);
-				this.dismiss();
 				break;
 			case R.id.tv_inventory_input_left:
 				setFocusInput(TYPE_LEFT);
@@ -160,20 +160,20 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 
 		if (num.equals("CLEAR")) {
 			setFocusInput(TYPE_LEFT);
-			mBtnLeftInput.setText("");
-			mBtnRightInput.setText("");
+			mLeftInput.setText("");
+			mRightInput.setText("");
 		}
 
 		if (mSelectedType == TYPE_LEFT) {
-			// if (mBtnLeftInput.length() == 2) {
+			// if (mLeftInput.length() == 2) {
 			// setFocusInput(TYPE_RIGHT);
 			// return;
 			// }
 
-			tvCurrent = mBtnLeftInput;
+			tvCurrent = mLeftInput;
 
 		} else {
-			tvCurrent = mBtnRightInput;
+			tvCurrent = mRightInput;
 		}
 
 		if (!delFlag) {
@@ -187,9 +187,9 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 			num = tvCurrent.getText().toString() + num;
 			tvCurrent.setText(num);
 			if (mSelectedType == TYPE_LEFT) {
-				if (mBtnLeftInput.length() == 2) {
+				if (mLeftInput.length() == 2) {
 					setFocusInput(TYPE_RIGHT);
-					tvCurrent = mBtnRightInput;
+					tvCurrent = mRightInput;
 				}
 			}
 		} else {
@@ -206,14 +206,25 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 
 	private void setFocusInput(int type) {
 		if (type == TYPE_LEFT) {
-			mBtnLeftInput
+			mLeftInput
 					.setBackgroundResource(R.drawable.popup_calculator_focus);
-			mBtnRightInput.setBackgroundDrawable(null);
+			mRightInput.setBackgroundDrawable(null);
 		} else {
-			mBtnRightInput
+			mRightInput
 					.setBackgroundResource(R.drawable.popup_calculator_focus);
-			mBtnLeftInput.setBackgroundDrawable(null);
+			mLeftInput.setBackgroundDrawable(null);
 		}
 		mSelectedType = type;
+	}
+
+	private boolean timeValidation(String hour, String minute) {
+		int intHour = Integer.parseInt(hour);
+		int intMinute = Integer.parseInt(minute);
+
+		if (intHour > 23 | intMinute > 60) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
