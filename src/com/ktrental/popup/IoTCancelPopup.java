@@ -3,27 +3,41 @@ package com.ktrental.popup;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.ktrental.R;
+import com.ktrental.cm.connect.ConnectController;
+import com.ktrental.cm.connect.Connector;
+import com.ktrental.dialog.IoTRequestItemDialog;
+import com.ktrental.model.TableModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class IoTCancelPopup extends BaseTouchDialog {
+public class IoTCancelPopup extends BaseTouchDialog implements Connector.ConnectInterface {
 
     private View mRootView;
     private Spinner mSpReason;
+    private String mReqNo;
+    private EditText mDetailMemo;
 
-    public IoTCancelPopup(Context context) {
+    private ConnectController mCc;
+    protected ProgressPopup mProgressPopup;
+
+    public IoTCancelPopup(Context context, String reqNo) {
         super(context);
+
+        mReqNo = reqNo;
     }
 
     @Override
@@ -68,12 +82,17 @@ public class IoTCancelPopup extends BaseTouchDialog {
         mRootView.findViewById(R.id.btn_registration).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+                mCc = new ConnectController(IoTCancelPopup.this, mContext);
+                showProgress("조회 중입니다.");
+                mCc.getZMO_1020_WR01(mReqNo, "", mDetailMemo.getText().toString());
             }
         });
 
+        mDetailMemo = (EditText) mRootView.findViewById(R.id.detail_memo);
+
         mSpReason = (Spinner) mRootView.findViewById(R.id.sp_reason);
 
+        //TODO 윤승 pwm.show("PM111", bt_group1, true); 이거 참조!!
         List<String> reasonList = new ArrayList<>();
         reasonList.add("선택해주세요");
         reasonList.add("고객요청");
@@ -97,6 +116,101 @@ public class IoTCancelPopup extends BaseTouchDialog {
         // getChildFragmentManager().executePendingTransactions();
         // onDetach();
         // onDestroy();
+    }
+
+
+
+    @Override
+    public void connectResponse(String FuntionName, String resultText, String MTYPE, int resulCode, TableModel tableModel) {
+        hideProgress();
+
+        if (MTYPE.trim().equals("S")) {
+            Log.e("yunseung", FuntionName);
+            Log.e("yunseung", resultText);
+            Log.e("yunseung", MTYPE);
+            Log.e("yunseung", resulCode + "");
+            Log.e("yunseung", FuntionName);
+        } else {
+            // ?????????????????????????????????????????? 어쩔까
+        }
+    }
+
+    @Override
+    public void reDownloadDB(String newVersion) {
+
+    }
+
+
+
+
+
+
+    public void showProgress(String message)
+    {
+        if (mProgressPopup != null)
+        {
+            mProgressPopup.setMessage(message);
+            if (mRootView != null)
+            {
+                // CommonUtil.showCallStack();
+                mRootView.post(new Runnable()
+                {
+
+                    @Override
+                    public void run()
+                    {
+                        // TODO Auto-generated method stub
+                        try
+                        {
+                            if (mProgressPopup != null)
+                            {
+                                mProgressPopup.show();
+                            }
+                        }
+                        catch (WindowManager.BadTokenException e)
+                        {
+                            // TODO: handle exception
+                        }
+                        catch (IllegalStateException e)
+                        {
+                            // TODO: handle exception
+                        }
+
+                    }
+                });
+
+            }
+            else
+            {
+                mProgressPopup.show();
+            }
+        }
+    }
+
+    public void hideProgress()
+    {
+        if (mProgressPopup != null)
+        {
+            if (mRootView != null)
+            {
+                mRootView.post(new Runnable()
+                {
+
+                    @Override
+                    public void run()
+                    {
+                        if (mProgressPopup != null && mProgressPopup.isShowing()) {
+                            mProgressPopup.dismiss();
+                        }
+                    }
+                });
+
+            }
+            else
+            {
+                mProgressPopup.hide();
+            }
+        }
     }
 
 

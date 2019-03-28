@@ -35,6 +35,7 @@ import com.ktrental.fragment.BaseRepairFragment;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.HomeMaintenanceModel;
 import com.ktrental.model.LoginModel;
+import com.ktrental.model.MaintenanceModel;
 import com.ktrental.model.MonthProgressModel;
 import com.ktrental.model.RepairPlanModel;
 import com.ktrental.model.TableModel;
@@ -574,8 +575,10 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
     private void clickReqIot(View v) {
         BaseMaintenanceModel model = getItem((Integer)v.getTag());
         if (model.getREQNO().trim().isEmpty()) {
-            EventPopupC popupC = new EventPopupC(mContext);
-            popupC.show("IoT 요청항목이 없습니다.");
+//            EventPopupC popupC = new EventPopupC(mContext);
+//            popupC.show("IoT 요청항목이 없습니다.");
+            IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
+            dialog.show();
         } else {
             IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
             dialog.show();
@@ -583,19 +586,25 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
     }
 
     private void clickReq1(View v) {
-        MonthProgressModel model = (MonthProgressModel)getItem((Integer)v.getTag());
-        if (model.getCcmrq().trim().isEmpty()) {
+        BaseMaintenanceModel model = getItem((Integer)v.getTag());
+        if (model.getCCMRQ().trim().isEmpty()) {
             EventPopupC popupC = new EventPopupC(mContext);
             popupC.show("차기요청사항이 없습니다.");
         } else {
-            SimpleTextDialog dialog = new SimpleTextDialog(mContext, "차기요청사항", model.getCcmrq());
+            SimpleTextDialog dialog = new SimpleTextDialog(mContext, "차기요청사항", model.getCCMRQ());
             dialog.show();
         }
     }
 
     private void clickReq2(View v) {
-        MonthProgressModel model = (MonthProgressModel)getItem((Integer)v.getTag());
-        //TODO 윤승 struct 1 에 있는 PRERQ 참조 < 스케쥴 예정일 변경 화면에서 쓴 요청사항이 PRERQ 이다.
+        BaseMaintenanceModel model = getItem((Integer)v.getTag());
+        if (model.getPRERQ().trim().isEmpty()) {
+            EventPopupC popupC = new EventPopupC(mContext);
+            popupC.show("요청사항이 없습니다.");
+        } else {
+            SimpleTextDialog dialog = new SimpleTextDialog(mContext, "요청사항", model.getPRERQ());
+            dialog.show();
+        }
 
     }
 

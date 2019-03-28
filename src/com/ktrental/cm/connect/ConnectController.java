@@ -614,6 +614,24 @@ public class ConnectController {
 			e.printStackTrace();
 		}
 	}
+
+	private final String ZMO_1020_WR01 = "ZMO_1020_WR01";
+	private final String ZMO_1020_WR01_TABLE = "zmo_1020_wr01_table";
+	public void getZMO_1020_WR01(String reqNo, String cnslcd, String cnslmemo)// IoT 요청사항 검색
+	{
+		HashMap<String, String> map = getCommonConnectData();
+		mConnector.setStructure("IS_LOGIN", map);
+
+		mConnector.setParameter("I_REQNO", reqNo);
+		mConnector.setParameter("I_CNSLCD", cnslcd);
+		mConnector.setParameter("I_CNSLMEMO", cnslmemo);
+
+		try {
+			mConnector.executeRFCAsyncTask(ZMO_1020_WR01, ZMO_1020_WR01_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 	private final String ZMO_1060_RD03 = "ZMO_1060_RD03";

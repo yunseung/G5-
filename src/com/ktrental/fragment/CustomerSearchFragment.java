@@ -1327,12 +1327,16 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 
 		String atvyn = o_struct1.get("ATVYN");
 
+		String prerq = o_struct1.get("PRERQ");
+
+		String ccmrq = o_struct1.get("CCMRQ");
+
 		kog.e("Jonathan", "Hello Jonathan2 :: " + VOCNUM);
 
 		BaseMaintenanceModel model = new BaseMaintenanceModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, _EQUNR, _CTRTY, postCode, city,
-				street, _drv_mob, gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, null, apm, vbeln, gubun, reqNo, atvyn);
+				street, _drv_mob, gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, null, apm, vbeln, gubun, reqNo, atvyn, prerq, ccmrq);
 
 		return model;
 	}
@@ -1580,6 +1584,8 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 			String gubun = cursor.getString(cursor.getColumnIndex(maintenace_colums[25]));
 			String reqNo = cursor.getString(cursor.getColumnIndex(maintenace_colums[26]));
 			String atvyn = cursor.getString(cursor.getColumnIndex(maintenace_colums[27]));
+			String prerq = cursor.getString(cursor.getColumnIndex(maintenace_colums[28]));
+			String ccmrq = cursor.getString(cursor.getColumnIndex(maintenace_colums[29]));
 
 			if (time != null) {
 				if (time.length() > 4) {
@@ -1608,7 +1614,8 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 							maintenace_colums[14], ctrty), postCode, city,
 					street, decrypt(maintenace_colums[15], drv_mob), decrypt(
 							maintenace_colums[15], cermr), gueen2, txt30,
-					MDLCD, VOCNUM, kunnr, maintenace_colums[22], CYCMN_TX, apm, vbeln, gubun, reqNo, atvyn);
+					MDLCD, VOCNUM, kunnr, maintenace_colums[22], CYCMN_TX, apm, vbeln,
+					gubun, reqNo, atvyn, prerq, ccmrq);
 
 			System.out.println("요기는 모니 -__.... " + "CustomerSearch");
 
@@ -1713,6 +1720,8 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 		String gubun = o_struct1.get("GUBUN");
 		String reqNo = o_struct1.get("REQNO");
 		String atvyn = o_struct1.get("ATVYN");
+		String prerq = o_struct1.get("PRERQ");
+		String ccmrq = o_struct1.get("CCMRQ");
 
 		Set<String> set1 = o_struct1.keySet();
 		Set<String> set2 = o_struct2.keySet();
@@ -1753,7 +1762,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 		BaseMaintenanceModel model = new BaseMaintenanceModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, _EQUNR, _CTRTY, postCode, city,
-				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null, apm, vbeln, gubun, reqNo, atvyn);
+				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null, apm, vbeln, gubun, reqNo, atvyn, prerq, ccmrq);
 
 		CarInfoModel carInfoModel = new CarInfoModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
@@ -1766,7 +1775,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 				tireFunk, emergencyResponseCount, snowTire, mdlcd, oilType,
 				AUFNR, _trustTerm2, _OILTYPNM, _EQUNR, "", _CEMER, CHNGBN,
 				OWNER, postCode, city, street, _drv_mob, _drv_tel, GUEEN2,
-				TXT30, VOCNUM, kunnr, DELAY, vbeln, gubun, reqNo, atvyn);
+				TXT30, VOCNUM, kunnr, DELAY, vbeln, gubun, reqNo, atvyn, prerq, ccmrq);
 
 		carInfoModel.setGUBUN(GUBUN);
 		showResultFragment(model, carInfoModel);
@@ -1779,7 +1788,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 			DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2,
 			DEFINE.TXT30, DEFINE.MDLCD, DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY,
 			DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO,
-			DEFINE.ATVYN};
+			DEFINE.ATVYN, DEFINE.PRERQ, DEFINE.CCMRQ};
 
 	private void queryMaintenace(String DriverName, String CarNum) {
 		// CommonUtil.showCallStack();

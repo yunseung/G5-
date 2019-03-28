@@ -53,6 +53,8 @@ public class BaseMaintenanceModel
     private String REQNO = "";
 
     private String ATVYN = "";
+    private String PRERQ = "";
+    private String CCMRQ = "";
     public BaseMaintenanceModel(String aUFNR)
     {
         super();
@@ -72,7 +74,7 @@ public class BaseMaintenanceModel
     public BaseMaintenanceModel(String customer_name, String driver_name, String _carNum, String _address, String _tel, String _time,
             String _carname, String _progress_status, String _day, String AUFNR, String _EQUNR, String _CTRTY, String postCode, String city,
             String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx,
-            String apm, String vbeln, String gubun, String reqNo, String atvyn)
+            String apm, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq)
     {
 
         CUSTOMER_NAME = customer_name;
@@ -119,6 +121,10 @@ public class BaseMaintenanceModel
         REQNO = reqNo;
 
         ATVYN = atvyn;
+
+        PRERQ = prerq;
+
+        CCMRQ = ccmrq;
     }
 
     public String getMDLCD()
@@ -392,5 +398,13 @@ public class BaseMaintenanceModel
 
     public String getATVYN() {
         return ATVYN;
+    }
+
+    public String getPRERQ() {
+        return PRERQ;
+    }
+
+    public String getCCMRQ() {
+        return CCMRQ;
     }
 }

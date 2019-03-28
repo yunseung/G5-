@@ -103,7 +103,8 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
     private String[]                     maintenace_colums = {
             DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX, DEFINE.CCMRQ, DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET,
             DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR, DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.NIELS_NM, DEFINE.LDATE,
-            DEFINE.REPOIL, DEFINE.CEMER,  DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO, DEFINE.ATVYN};
+            DEFINE.REPOIL, DEFINE.CEMER,  DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO, DEFINE.ATVYN,
+            DEFINE.PRERQ};
 
     private HashMap<String, DbAsyncTask> mAsyncMap         = new HashMap<String, DbAsyncTask>();
 
@@ -938,6 +939,8 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
 
                 String atvyn = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[27]));
 
+                String prerq = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[28]));
+
 
 
 
@@ -972,7 +975,7 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
                         maintenace_colums[14], ctrty), postCode, city, street, decrypt(maintenace_colums[15], drv_mob), decrypt(
                         maintenace_colums[16], vip), decrypt(maintenace_colums[17], ldate), decrypt(maintenace_colums[3], customerName), decrypt(
                         maintenace_colums[18], reOil), decrypt(maintenace_colums[19], cermr), decrypt(maintenace_colums[5], ccmrq), "", "", "",
-                        decrypt(maintenace_colums[20],vocNum), decrypt(maintenace_colums[21], kunnr), maintenace_colums[22], vbeln, gubun, reqNo, atvyn);
+                        decrypt(maintenace_colums[20],vocNum), decrypt(maintenace_colums[21], kunnr), maintenace_colums[22], vbeln, gubun, reqNo, atvyn, prerq);
 
                 // MaintenanceModel md = new MaintenanceModel(time,
                 // name, invnr,

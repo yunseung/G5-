@@ -33,10 +33,9 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
     private ListView mListView;
 
     private ConnectController mCc;
+    protected ProgressPopup mProgressPopup;
 
     private String mReqNo = null;
-
-    protected ProgressPopup mProgressPopup;
 
     public IoTRequestItemDialog(Context context, String reqNo) {
         super(context);
@@ -94,8 +93,8 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
         mCc = new ConnectController(this, mContext);
 
         showProgress("조회 중입니다.");
-//        mCc.getZMO_1020_RD06(mReqNo);
-        mCc.getZMO_1020_RD06("19032700006");
+        mCc.getZMO_1020_RD06(mReqNo);
+//        mCc.getZMO_1020_RD06("19032700006");
 
     }
 

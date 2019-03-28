@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/list02_bg_n"
-        android:orientation="horizontal"
-        android:weightSum="9" >
+        android:orientation="horizontal" >
 
         <ImageView
             android:id="@+id/iv_check"
@@ -25,7 +24,7 @@
             android:id="@+id/tv_item_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="7"
+            android:layout_weight="1"
             android:layout_marginLeft="18dp"
             android:gravity="center_vertical"
             android:text="TextView"
@@ -33,13 +32,12 @@
 
         <FrameLayout
             android:id="@+id/fl_consumption"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
             <com.ktrental.ui.PopupWindowTextView
                 android:id="@+id/tv_item_consumption"
-                android:layout_width="40dp"
+                android:layout_width="55dp"
                 android:layout_height="33dp"
                 android:layout_gravity="center"
                 android:background="@drawable/input01"
@@ -51,14 +49,24 @@
 
         <TextView
             android:id="@+id/tv_item_stock"
-            android:layout_width="0dp"
+            android:layout_width="55dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:paddingLeft="3dp"
             android:text="TextView"
             android:textColor="#333333" />
+        <TextView
+            android:id="@+id/tv_item_price"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:paddingLeft="3dp"
+            android:layout_marginRight="5dp"
+            android:text="20,000"
+            android:textColor="#333333" />
+
     </LinearLayout>
 
 </LinearLayout>

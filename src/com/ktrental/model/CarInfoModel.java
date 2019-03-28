@@ -192,10 +192,10 @@ public class CarInfoModel extends BaseMaintenanceModel {
 			String EQUNR, String CTRTY, String _CEMER, String CHNGBN,
 			String OWNER, String postCode, String city, String street, 
 			String drv_mob, String drv_tel, String gueen2 , String txt30, String vocNum,
-			String kunnr, String delay, String vbeln, String gubun, String reqNo, String atvyn) {
+			String kunnr, String delay, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq) {
 		super(customer_name ,driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun, reqNo, atvyn);
+				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun, reqNo, atvyn, prerq, ccmrq);
 		LogUtil.d("hjt", "hjt delay = " + delay);
 
 		this.customerName = customerName;

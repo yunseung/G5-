@@ -109,6 +109,8 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 			// myung 20131224 UPDATE 리스트의 재고는 해당 아이테믜 선택된 소모 전체를 확인하고 적용.
 			// int val = stock - consumption - selectedConsumption;
 			int val = stock - MaintenanceResultFragment.getToalConsumption(model.getMATNR());
+			//TODO 윤승
+//			int price = MaintenanceResultFragment.getToalConsumption()
 			itemViewHolder.getStock = val;
 
 			// Jonathan 14.12.16 수정
@@ -122,19 +124,24 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 				itemViewHolder.tvConsumption.setTextColor(Color.parseColor("#fd2727"));
 				itemViewHolder.tvName.setTextColor(Color.parseColor("#fd2727"));
 				itemViewHolder.tvStock.setTextColor(Color.parseColor("#fd2727"));
+				itemViewHolder.tvPrice.setTextColor(Color.parseColor("#fd2727"));
 			} else {
 				String color = "#333333";
 				itemViewHolder.tvConsumption.setTextColor(Color.parseColor(color));
 				itemViewHolder.tvName.setTextColor(Color.parseColor(color));
 				itemViewHolder.tvStock.setTextColor(Color.parseColor(color));
+				itemViewHolder.tvPrice.setTextColor(Color.parseColor(color));
 			}
 
 			itemViewHolder.tvStock.setText("" + val);
+			//TODO 윤승
+//			itemViewHolder.tvPrice.setText(""/);
 			itemViewHolder.tvName.setText(model.getName());
 		}
 		itemViewHolder.ivCheck.setTag(position);
 		itemViewHolder.llRoot.setTag(position);
 		itemViewHolder.tvStock.setTag(position);
+		itemViewHolder.tvPrice.setTag(position);
 
 		if (anchorArray.containsKey(itemViewHolder.tvConsumption)) {
 			anchorArray.remove(itemViewHolder.tvConsumption);
@@ -189,6 +196,7 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 		// }
 
 		itemViewHolder.tvStock = (TextView) rootView.findViewById(R.id.tv_item_stock);
+		itemViewHolder.tvPrice = (TextView) rootView.findViewById(R.id.tv_item_price);
 
 		itemViewHolder.llRoot.setOnClickListener(this);
 		itemViewHolder.ivCheck.setOnClickListener(this);
@@ -522,6 +530,7 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 		public PopupWindowTextView tvConsumption;
 		public TextView tvName;
 		public TextView tvStock;
+		public TextView tvPrice;
 		int getStock;
 
 	}
