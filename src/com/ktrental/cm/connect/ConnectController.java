@@ -1198,13 +1198,17 @@ public class ConnectController {
 	private final String ZMO_1050_WR04 = "ZMO_1050_WR04";
 	private final String ZMO_1050_WR04_TABLE = "zmo_1050_wr04_table";
 
-	public void setZMO_1050_WR04(String sELECTED_DAY, String chprerq, String chtime, ArrayList<HashMap<String, String>> table) {
+	public void setZMO_1050_WR04(String reqNo, String sELECTED_DAY, String chtime, String chprerq, String ATVYN, ArrayList<HashMap<String, String>> table) {
 		LoginModel model = KtRentalApplication.getLoginModel();
 		HashMap<String, String> map = getCommonConnectData();
 		mConnector.setStructure("IS_LOGIN", map);
+		mConnector.setParameter("I_REQNO", reqNo);
 		mConnector.setParameter("I_PERNR", model.getPernr());
-
 		mConnector.setParameter("I_CHDATE", sELECTED_DAY);
+		mConnector.setParameter("I_CHTIME", chtime + "00");
+		mConnector.setParameter("I_CHPRERQ", chprerq);
+		mConnector.setParameter("I_ATVYN", ATVYN);
+
 		mConnector.setTable("I_ITAB1", table);
 
 		try {
@@ -1214,6 +1218,28 @@ public class ConnectController {
 		}
 
 	}
+
+//	private final String ZMP_0024_005 = "ZMP_0024_005";
+//	private final String ZMP_0024_005_TABLE = "zmp_0024_005_table";
+//
+//	public void setZMP_0024_005(String sELECTED_DAY, String chprerq, String chtime, String reqNo, String atvyn) {
+//		LoginModel model = KtRentalApplication.getLoginModel();
+//		HashMap<String, String> map = getCommonConnectData();
+//		mConnector.setStructure("IS_LOGIN", map);
+//		mConnector.setParameter("I_REQNO", reqNo);
+//		mConnector.setParameter("I_PERNR", model.getPernr());
+//		mConnector.setParameter("I_CHDATE", sELECTED_DAY);
+//		mConnector.setParameter("I_CHTIME", chtime);
+//		mConnector.setParameter("I_CHPRERQ", chprerq);
+//		mConnector.setParameter("I_ATVYN", atvyn);
+//
+//		try {
+//			mConnector.executeRFCAsyncTask(ZMP_0024_005, ZMP_0024_005_TABLE);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 	private final String ZMO_1060_WR01 = "ZMO_1060_WR01";
 	private final String ZMO_1060_WR01_TABLE = "zmo_1060_wr01_table";

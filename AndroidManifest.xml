@@ -49,22 +49,24 @@
             android:name="com.ktrental.activity.Main_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".product.Menu1_Activity"
             android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name=".product.Menu2_Activity"
             android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name=".product.Menu2_1_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
             android:name=".product.Menu3_Activity"
@@ -82,46 +84,46 @@
             android:name=".product.Menu4_1_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
             android:name=".product.Menu5_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
             android:name=".product.Menu7_1_CustomerSearch_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
             android:name=".product.Menu7_2_Movement_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         
         <activity
             android:name=".product.Menu4_2_Notice_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
 
         <activity
             android:name=".product.Menu4_4_CorCard_Activity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         
           <activity
             android:name=".product.VocInfoActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         
 

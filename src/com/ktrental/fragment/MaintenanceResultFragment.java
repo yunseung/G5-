@@ -927,7 +927,7 @@ public class MaintenanceResultFragment extends BaseFragment implements OnChecked
         arr.add(mCurrentModel);
         if (arr.size() <= 0)
             return;
-        Duedate_Dialog dd = new Duedate_Dialog(mContext, arr);
+        Duedate_Dialog dd = new Duedate_Dialog(mContext, arr, null, null);
         dd.show();
     }
 

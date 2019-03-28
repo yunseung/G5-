@@ -235,6 +235,7 @@
                         android:gravity="center"
                         android:shadowColor="#7b8e95"
                         android:text="예정일변경"
+                        android:clickable="false"
                         android:textColor="#555555"
                         android:textSize="16sp" />
 

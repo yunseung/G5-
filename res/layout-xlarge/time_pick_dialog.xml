@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="311dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#ffffff"
     android:padding="7dp" >
 
     <LinearLayout
@@ -32,6 +33,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/popup_calculator_focus"
                     android:gravity="center"
+                    android:focusable="true"
                     android:maxLength="2"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -185,13 +187,6 @@
                 android:layout_marginTop="1dp"
                 android:background="@drawable/popup_caculator_btn_00_selector" />
 
-            <Button
-                android:id="@+id/inventory_bt_done"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="1dp"
-                android:layout_toRightOf="@+id/ll_bottom"
-                android:background="@drawable/popup_caculator_btn_ok_selector" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -199,7 +194,6 @@
         android:id="@+id/detail_text"
         android:layout_width="match_parent"
         android:layout_height="93dp"
-        android:inputType="none"
         android:layout_marginRight="12dp"
         android:layout_marginTop="20dp"
         android:hint="상세요청사항을 입력해주세요."/>

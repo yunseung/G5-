@@ -1,10 +1,12 @@
 package com.ktrental.dialog;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 
 	private TextView mLeftInput, mRightInput;
 	private EditText mEtDetail;
+	private Context mContext;
 
 	public static final int TYPE_LEFT = 0; // 시
 	public static final int TYPE_RIGHT = 1; // 분
@@ -22,6 +25,7 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 
 	public TimePickDialog(Context context) {
 		super(context);
+		mContext = context;
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 	}
 
@@ -64,9 +68,20 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 		// findViewById(R.id.inventory_bt_exit).setOnClickListener(this);
 		findViewById(R.id.inventory_bt_delete).setOnClickListener(this);
 		findViewById(R.id.inventory_bt_clear).setOnClickListener(this);
-		findViewById(R.id.inventory_bt_done).setOnClickListener(this);
+		findViewById(R.id.btn_cancel).setOnClickListener(this);
+		findViewById(R.id.btn_confirm).setOnClickListener(this);
 	}
-	
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+
+		InputMethodManager im = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+		im.hideSoftInputFromWindow(mEtDetail.getWindowToken(), 0);
+
+		mEtDetail.setFocusable(true);
+	}
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -111,10 +126,7 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 			case R.id.inventory_bt_clear:
 				setInput("CLEAR", true);
 				break;
-			case R.id.inventory_bt_done:
-				Log.e("yunseung555", "+++" + mLeftInput.getText().toString().trim());
-				Log.e("yunseung555", "+++" + mRightInput.getText().toString().trim());
-
+			case R.id.btn_confirm:
 				if (timeValidation(mLeftInput.getText().toString().trim(), mRightInput.getText().toString().trim())) {
 					mListener.onTimePickResult(mLeftInput.getText().toString().trim()+mRightInput.getText().toString().trim(), mEtDetail.getText().toString());
 					this.dismiss();
@@ -148,6 +160,10 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 				break;
 			case R.id.fl_inventory_input_right:
 				setFocusInput(TYPE_RIGHT);
+				break;
+
+			case R.id.btn_cancel:
+				dismiss();
 				break;
 			default:
 				break;

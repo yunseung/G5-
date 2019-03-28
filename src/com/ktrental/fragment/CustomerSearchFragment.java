@@ -1508,8 +1508,8 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 
 	@Override
 	protected void movePlan(ArrayList<BaseMaintenanceModel> models) {
-		// TODO Auto-generated method stub
-		Duedate_Dialog dd = new Duedate_Dialog(context, models);
+		// TODO Auto-generated method stub 안쓰이는 기능으로 추측
+		Duedate_Dialog dd = new Duedate_Dialog(context, models, null, null);
 		dd.show();
 	}
 

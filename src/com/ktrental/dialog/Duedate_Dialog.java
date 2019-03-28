@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
@@ -19,7 +18,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ktrental.R;
-import com.ktrental.activity.LoginActivity;
 import com.ktrental.adapter.Duedate_Dialog_Left_Adapter;
 import com.ktrental.adapter.Duedate_Dialog_Right_Adapter;
 import com.ktrental.cm.connect.ConnectController;
@@ -33,7 +31,6 @@ import com.ktrental.custom.DayInfo;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.TableModel;
 import com.ktrental.popup.EventPopupC;
-import com.ktrental.popup.IoTCancelPopup;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -66,11 +63,16 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 
 	private String mTime, mMemo;
 
-	public Duedate_Dialog(Context context,
-			ArrayList<BaseMaintenanceModel> mBaseMaintenanceModels) {
+	private String mATVYN;
+	private String mREQNO;
+
+	public Duedate_Dialog(Context context, ArrayList<BaseMaintenanceModel> mBaseMaintenanceModels, String ATVYN, String REQNO) {
 		super(context);
 		mContext = context;
 		this.bmm_arr = mBaseMaintenanceModels;
+		mATVYN = ATVYN;
+		mREQNO = REQNO;
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.dd = this;
 		setContentView(R.layout.duedate_dialog);
@@ -146,21 +148,22 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 				setCalCheck(position, mDayList);
 				SELECTED_POSITION = position;
 				day_list = mDayList;
+
+				TimePickDialog dialog = new TimePickDialog(mContext);
+				dialog.setOnTimePickListener(new TimePickDialog.OnTimePickListener() {
+					@Override
+					public void onTimePickResult(String time, String memo) {
+						mTime = time;
+						mMemo = memo;
+					}
+				});
+				dialog.show();
 			}
 		});
 	}
 
 	public void setCalCheck(int position, final ArrayList<DayInfo> mDayList) {
-		//TODO 윤승 여기서 time picker popup 띄움.. ==> 저장 눌렀을 때 보내던 페이로드에 시간 및 상세요청사항까지 더해서 보내면 됨.
-		TimePickDialog dialog = new TimePickDialog(mContext);
-		dialog.setOnTimePickListener(new TimePickDialog.OnTimePickListener() {
-			@Override
-			public void onTimePickResult(String time, String memo) {
-				mTime = time;
-				mMemo = memo;
-			}
-		});
-		dialog.show();
+
 		cal_custom.SELECTED = position;
 		if (mDayList == null)
 			return;
@@ -380,7 +383,10 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 
 				showProgress("저장중 입니다.");
 				SENDED_DATE = SELECTED_DAY;
-				cc.setZMO_1050_WR04(SENDED_DATE, mTime, mMemo, getTable());
+
+
+				cc.setZMO_1050_WR04(mREQNO, SENDED_DATE, mTime, mMemo, mATVYN, getTable());
+
 			}
 			break;
 		}

@@ -390,5 +390,7 @@ public class BaseMaintenanceModel
         this.REQNO = REQNO;
     }
 
-
+    public String getATVYN() {
+        return ATVYN;
+    }
 }

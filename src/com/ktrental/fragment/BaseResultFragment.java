@@ -383,7 +383,7 @@ public abstract class BaseResultFragment extends BaseFragment
                 }
             }
         }, mContext);
-        connectController.setZMO_1050_WR04(CommonUtil.getCurrentDay(), null, null, getTable(model));
+//        connectController.setZMO_1050_WR04(CommonUtil.getCurrentDay(), , getTable(model));
         showProgress("예정일을 변경 중 입니다.");
     }
 

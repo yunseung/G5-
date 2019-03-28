@@ -2,6 +2,7 @@ package com.ktrental.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ import com.ktrental.model.RepairDayInfoModel;
 import com.ktrental.model.RepairPlanModel;
 import com.ktrental.popup.BaseTextPopup;
 import com.ktrental.popup.BaseTextPopup.OnSelectedPopupItem;
+import com.ktrental.popup.EventPopupC;
 import com.ktrental.popup.Maintenance1_Popup;
 import com.ktrental.product.VocInfoActivity;
 import com.ktrental.util.CommonUtil;
@@ -1167,10 +1169,40 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
 	@Override
 	protected void movePlan(ArrayList<BaseMaintenanceModel> models) {
+		boolean bool = true;
+		if (models.size() > 1) {
+			for (int i = 0; i < models.size(); i++) {
+				if (!models.get(i).getATVYN().trim().isEmpty()) {
+					bool = false;
+					EventPopupC popupC = new EventPopupC(mContext);
+					popupC.show("iot 정비는 단건 예정일 변경만 가능합니다.");
+				}
+			}
 
-		Duedate_Dialog dd = new Duedate_Dialog(context, models);
-		dd.show();
-		maintenanceAdapter.initSelectedMaintenanceArray();
+			if (bool) {
+				Duedate_Dialog dd = new Duedate_Dialog(mContext, models, models.get(0).getATVYN(), models.get(0).getREQNO());
+				// myung 20131230 ADD 체크초기화
+				dd.setOnDismissListener(new DialogInterface.OnDismissListener() {
+					@Override
+					public void onDismiss(DialogInterface dialog) {
+						maintenanceAdapter.initSelectedMaintenanceArray();
+					}
+				});
+				dd.show();
+			}
+		} else {
+			// iot 이든 일반이든 무조건 1건이다.
+			// iot 와 일반의 예정일 변경 RFC 가 상이하기 때문에 생성자 파라미터에 구분자를 추가함, // yunseung
+			Duedate_Dialog dd = new Duedate_Dialog(mContext, models, models.get(0).getATVYN(), models.get(0).getREQNO());
+			// myung 20131230 ADD 체크초기화
+			dd.setOnDismissListener(new DialogInterface.OnDismissListener() {
+				@Override
+				public void onDismiss(DialogInterface dialog) {
+					maintenanceAdapter.initSelectedMaintenanceArray();
+				}
+			});
+			dd.show();
+		}
 	}
 
 	@Override
