@@ -8,9 +8,9 @@ public class PartsMasterModel {
 	String MTQTY;
 	String FUELCD;
 	String MDLCD;
-	String MINQTY;
-	String MAXQTY;
-	String NETPR;
+	String MINQTY = null;
+	String MAXQTY = null;
+	String NETPR = null;
 
 //	String GRP_CD;
 

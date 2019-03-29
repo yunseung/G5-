@@ -107,7 +107,8 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	private ConnectController cc;
 
-	private TextView mTvTitlePrice;
+	private TextView mTvTitlePrice1;
+	private TextView mTvTitlePrice2;
 
 	public void setOnResultInut(OnResultInut aOnResultInut) {
 		this.mOnResultInut = aOnResultInut;
@@ -222,7 +223,8 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	private void initSettingView() {
 
-		mTvTitlePrice = (TextView) mRootView.findViewById(R.id.tv_title_price);
+		mTvTitlePrice1 = (TextView) mRootView.findViewById(R.id.tv_title_price1);
+		mTvTitlePrice2 = (TextView) mRootView.findViewById(R.id.tv_title_price2);
 
 		TextView title = (TextView) mRootView.findViewById(R.id.tv_dialog_title);
 		title.setText(Tilte);
@@ -251,7 +253,7 @@ public class MaintentanceInputFragment extends BaseFragment
 		mLvItem.setAdapter(mItemAdapter);
 
 		mLvLast = (ListView) mRootView.findViewById(R.id.lv_last_item);
-		mLastItemAdapter = new MaintenancLastItemAdapter(mContext, MaintenancLastItemAdapter.INPUT);
+		mLastItemAdapter = new MaintenancLastItemAdapter(mContext, MaintenancLastItemAdapter.INPUT, mCarInfoModel.get_gubun());
 		mLastItemAdapter.setData(mLastItemModels);
 		mLvLast.setAdapter(mLastItemAdapter);
 
@@ -280,11 +282,13 @@ public class MaintentanceInputFragment extends BaseFragment
 			queryGroup();
 		}
 
-		if (mCarInfoModel.get_gubun().equals("A")) {
-			mTvTitlePrice.setVisibility(View.VISIBLE);
-		} else {
-			mTvTitlePrice.setVisibility(View.GONE);
-		}
+//		if (mCarInfoModel.get_gubun().equals("A")) {
+			mTvTitlePrice1.setVisibility(View.VISIBLE);
+			mTvTitlePrice2.setVisibility(View.VISIBLE);
+//		} else {
+//			mTvTitlePrice1.setVisibility(View.GONE);
+//			mTvTitlePrice2.setVisibility(View.GONE);
+//		}
 
 		mBtnSave = (Button) mRootView.findViewById(R.id.btn_save);
 		mBtnSave.setOnClickListener(this);
@@ -774,13 +778,15 @@ public class MaintentanceInputFragment extends BaseFragment
 
 									{
 										MTQTY = partsMasterModel.getMTQTY().trim();
-										if (!MINQTY.isEmpty()) {
+										if (!partsMasterModel.getMINQTY().isEmpty()) {
 											MINQTY = partsMasterModel.getMINQTY().trim();
 										}
-										if (!MAXQTY.isEmpty()) {
+
+										if (!partsMasterModel.getMAXQTY().isEmpty()) {
 											MAXQTY = partsMasterModel.getMAXQTY().trim();
 										}
-										if (NETPR.isEmpty()) {
+
+										if (!partsMasterModel.getNETPR().isEmpty()) {
 											NETPR = partsMasterModel.getNETPR().trim();
 										}
 									}
@@ -951,13 +957,15 @@ public class MaintentanceInputFragment extends BaseFragment
 
 									{
 										MTQTY = partsMasterModel.getMTQTY().trim();
-										if (!MINQTY.isEmpty()) {
+										if (partsMasterModel.getMINQTY() != null) {
 											MINQTY = partsMasterModel.getMINQTY().trim();
 										}
-										if (!MAXQTY.isEmpty()) {
+
+										if (partsMasterModel.getMAXQTY() != null) {
 											MAXQTY = partsMasterModel.getMAXQTY().trim();
 										}
-										if (!NETPR.isEmpty()) {
+
+										if (partsMasterModel.getNETPR() != null) {
 											NETPR = partsMasterModel.getNETPR().trim();
 										}
 

@@ -32,10 +32,12 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 	boolean bSetItem = false;
 	public final static int INPUT = 0;
 	public final static int RESIST = 1;
+	private String mGubun;
 
-	public MaintenancLastItemAdapter(Context context, int type) {
+	public MaintenancLastItemAdapter(Context context, int type, String gubun) {
 		super(context);
 		mType = type;
+		mGubun = gubun;
 	}
 
 	@Override
@@ -60,6 +62,8 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 			if (model.getMaintenanceGroupModel() != null) {
 				lastItemViewHolder.tvGroupName.setText("" + model.getMaintenanceGroupModel().getName());
 			}
+
+			lastItemViewHolder.tvLastPrice.setText("" + model.getNETPR());
 
 			int stock = model.getStock();
 			int consumption = model.getConsumption();
@@ -106,6 +110,8 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 
 		lastItemViewHolder.tvConsumption = (TextView) rootView.findViewById(R.id.tv_last_consumption);
 
+		lastItemViewHolder.tvLastPrice = (TextView) rootView.findViewById(R.id.tv_last_price);
+
 		lastItemViewHolder.tvStock = (TextView) rootView.findViewById(R.id.tv_last_stock);
 
 		lastItemViewHolder.rlRoot.setOnClickListener(this);
@@ -127,6 +133,12 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 			((LinearLayout.LayoutParams)lastItemViewHolder.tvStock.getLayoutParams()).weight = 1;
 		}
 
+//		if (mGubun.equals("A")) {
+			lastItemViewHolder.tvLastPrice.setVisibility(View.VISIBLE);
+//		} else {
+//			lastItemViewHolder.tvLastPrice.setVisibility(View.GONE);
+//		}
+
 		rootView.setTag(lastItemViewHolder);
 
 		// Log.d("",
@@ -146,6 +158,7 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 		public TextView tvGroupName;
 		public TextView tvItemName;
 		public TextView tvStock;
+		public TextView tvLastPrice;
 	}
 
 	@Override

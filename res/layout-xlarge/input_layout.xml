@@ -122,6 +122,7 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/tv_title_price1"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -241,8 +242,7 @@
                         android:layout_height="31dp"
                         android:background="@drawable/table_top"
                         android:paddingLeft="14dp"
-                        android:paddingRight="12dp"
-                        android:weightSum="10" >
+                        android:paddingRight="12dp">
 
                         <TextView
                             android:layout_width="0dp"
@@ -281,6 +281,16 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="소모수량"
+                            android:textColor="#555555"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_title_price2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="금액"
                             android:textColor="#555555"
                             android:textSize="15sp" />
                     </LinearLayout>

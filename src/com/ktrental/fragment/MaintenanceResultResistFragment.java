@@ -373,7 +373,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 		mBtnsave = (Button) mRootView.findViewById(R.id.btn_maintenance_save);
 		mBtnsave.setOnClickListener(this);
 
-		mLastItemAdapter = new MaintenancLastItemAdapter(mContext, MaintenancLastItemAdapter.RESIST);
+		mLastItemAdapter = new MaintenancLastItemAdapter(mContext, MaintenancLastItemAdapter.RESIST, null);
 		mLvItem = (ListView) mRootView.findViewById(R.id.lv_item);
 
 		// mMaintenanceSaveDummy2560 =

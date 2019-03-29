@@ -5,8 +5,7 @@
     android:layout_height="50dp"
     android:background="@drawable/table_list_n"
     android:paddingLeft="14dp"
-    android:paddingRight="12dp"
-    android:weightSum="9" >
+    android:paddingRight="12dp">
 
     <ImageView
         android:id="@+id/iv_last_check"
@@ -59,6 +58,20 @@
 
     <TextView
         android:id="@+id/tv_last_stock"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_weight="1"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/input01_d"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/tv_last_price"
         android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_weight="1"
