@@ -799,7 +799,6 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
     private boolean checkAUFNR(BaseMaintenanceModel model)
     {
-
         String aufnr = model.getAUFNR();
         // Log.i("checkAUFNR", "aufnr : "+aufnr);
 

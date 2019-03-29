@@ -12,8 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ktrental.R;
+import com.ktrental.popup.BaseTouchDialog;
 
-public class TimePickDialog extends DialogC implements View.OnClickListener  {
+public class TimePickDialog extends BaseTouchDialog implements View.OnClickListener  {
 
 	private TextView mLeftInput, mRightInput;
 	private EditText mEtDetail;
@@ -45,6 +46,8 @@ public class TimePickDialog extends DialogC implements View.OnClickListener  {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.time_pick_dialog);
+
+		setCanceledOnTouchOutside(false);
 
 		mLeftInput = (TextView)findViewById(R.id.tv_inventory_input_left);
 		mLeftInput.setOnClickListener(this);

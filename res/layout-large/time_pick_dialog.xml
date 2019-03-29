@@ -3,8 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:focusable="true"
-    android:clickable="false"
+    android:focusableInTouchMode="true"
     android:background="#ffffff"
     android:padding="7dp" >
 
@@ -32,7 +31,6 @@
                     android:id="@+id/tv_inventory_input_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
                     android:layout_gravity="center"
                     android:background="@drawable/popup_calculator_focus"
                     android:gravity="center"
