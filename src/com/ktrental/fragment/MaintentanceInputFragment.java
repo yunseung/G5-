@@ -79,7 +79,6 @@ public class MaintentanceInputFragment extends BaseFragment
 	private ArrayList<MaintenanceItemModel> mFirstItems = new ArrayList<MaintenanceItemModel>();
 
 	private OnResultInut mOnResultInut;
-
 	private ArrayList<PartsMasterModel> mPartsArray = new ArrayList<PartsMasterModel>();
 
 	private HashMap<String, ArrayList<PartsMasterModel>> mPartsMap = new HashMap<String, ArrayList<PartsMasterModel>>();
@@ -108,6 +107,8 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	private ConnectController cc;
 
+	private TextView mTvTitlePrice;
+
 	public void setOnResultInut(OnResultInut aOnResultInut) {
 		this.mOnResultInut = aOnResultInut;
 	}
@@ -121,11 +122,33 @@ public class MaintentanceInputFragment extends BaseFragment
 			return;
 		}
 		if (FuntionName.equals("ZMO_1020_RD05")) {
-			// pre.sendEmptyMessage(0);
 			rd05_arr = tableModel.getTableArray();
 			queryGroup();
 		} else if (FuntionName.equals("ZMO_1020_RD08")) {
 			Log.e("yunseung+++", FuntionName);
+
+			ArrayList<HashMap<String, String>> array_hash = tableModel.getTableArray("O_ITAB2");
+			MaintenanceGroupModel maintenanceGroupModel = null;
+			mGroupLArrayList.clear();
+
+			String prev_item = "";
+			for (int i = 0; i < array_hash.size(); i++) {
+				String item = array_hash.get(i).get("MATKL");
+				if(i==0) {
+					maintenanceGroupModel = new MaintenanceGroupModel(array_hash.get(i).get("WGBEZ"), array_hash.get(i).get("MATKL"));
+					mGroupLArrayList.add(maintenanceGroupModel);
+				} else if(!prev_item.equals(item)) {
+					maintenanceGroupModel = new MaintenanceGroupModel(array_hash.get(i).get("WGBEZ"), array_hash.get(i).get("MATKL"));
+					mGroupLArrayList.add(maintenanceGroupModel);
+				}
+				prev_item = array_hash.get(i).get("MATKL");
+			}
+			mGroupAdapter.setData(mGroupLArrayList);
+
+			if (array_hash.size() > 0)
+				responsePartsTypeForIoT(array_hash);
+			else
+				setGroupList();
 		}
 	}
 
@@ -199,6 +222,8 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	private void initSettingView() {
 
+		mTvTitlePrice = (TextView) mRootView.findViewById(R.id.tv_title_price);
+
 		TextView title = (TextView) mRootView.findViewById(R.id.tv_dialog_title);
 		title.setText(Tilte);
 
@@ -222,7 +247,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 		// 2014-05-09 KDH 와 이건 진짜 핵노답 이다.
 		mLvItem = (ListView) mRootView.findViewById(R.id.lv_maintenance_item);
-		mItemAdapter = new MaintenanceItemAdapter(mContext, mRootView, mLvItem, inventoryPopup, this);
+		mItemAdapter = new MaintenanceItemAdapter(mContext, mRootView, mLvItem, inventoryPopup, mCarInfoModel.get_gubun(), this);
 		mLvItem.setAdapter(mItemAdapter);
 
 		mLvLast = (ListView) mRootView.findViewById(R.id.lv_last_item);
@@ -245,16 +270,21 @@ public class MaintentanceInputFragment extends BaseFragment
 				cc.getZMO_1020_RD05(mCarInfoModel.getCarNum());
 			} else if (mCarInfoModel.get_gubun().equals("A")) {
 				cc.getZMO_1020_RD08(mCarInfoModel.getMINVNR());
-				Toast.makeText(mContext, "제발..", Toast.LENGTH_SHORT).show();
 			} else {
 				isInspect = false;
-				queryGroup(); // 보통의 경우 여기로 들어오는거같다.
+				cc.getZMO_1020_RD08(mCarInfoModel.getMINVNR());
+//				queryGroup(); // 보통의 경우 여기로 들어오는거같다.
 			}
 		} else {
 			isInspect = false;
 			queryGroup();
 		}
 
+		if (mCarInfoModel.get_gubun().equals("A")) {
+			mTvTitlePrice.setVisibility(View.VISIBLE);
+		} else {
+			mTvTitlePrice.setVisibility(View.GONE);
+		}
 
 		mBtnSave = (Button) mRootView.findViewById(R.id.btn_save);
 		mBtnSave.setOnClickListener(this);
@@ -389,7 +419,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 				}
 			}
-//TODO 윤승 여기가2번
+//TODO 윤승 여기가 대분류 선택했을때
 			mItemAdapter.setData(arr);
 			mItemAdapter.setSelectedMaintenanceModels(backSelectedItem);
 			initItemEmpty(arr);
@@ -726,6 +756,7 @@ public class MaintentanceInputFragment extends BaseFragment
 							String MTQTY = "";
 							String MINQTY = "";
 							String MAXQTY = "";
+							String NETPR = "";
 							if (mPartsMap.containsKey(MATKL)) {
 								ArrayList<PartsMasterModel> partsMasterModels = mPartsMap.get(MATKL);
 								for (PartsMasterModel partsMasterModel : partsMasterModels) {
@@ -743,9 +774,15 @@ public class MaintentanceInputFragment extends BaseFragment
 
 									{
 										MTQTY = partsMasterModel.getMTQTY().trim();
-										MINQTY = partsMasterModel.getMINQTY().trim();
-										MAXQTY = partsMasterModel.getMAXQTY().trim();
-
+										if (!MINQTY.isEmpty()) {
+											MINQTY = partsMasterModel.getMINQTY().trim();
+										}
+										if (!MAXQTY.isEmpty()) {
+											MAXQTY = partsMasterModel.getMAXQTY().trim();
+										}
+										if (NETPR.isEmpty()) {
+											NETPR = partsMasterModel.getNETPR().trim();
+										}
 									}
 								}
 							}
@@ -759,7 +796,7 @@ public class MaintentanceInputFragment extends BaseFragment
 									labstInt,
 									rd05_arr.get(i).get("MATNR"),
 									rd05_arr.get(i).get("MEINS"), null,
-									rd05_arr.get(i).get("GRP_CD"), MTQTY, MINQTY, MAXQTY);
+									rd05_arr.get(i).get("GRP_CD"), MTQTY, MINQTY, MAXQTY, NETPR);
 
 							for (MaintenanceItemModel itemModel : mLastItemModels) {
 								if (itemModel.getName().equals(model.getName())) {
@@ -894,6 +931,7 @@ public class MaintentanceInputFragment extends BaseFragment
 							String MTQTY = "";
 							String MINQTY = "";
 							String MAXQTY = "";
+							String NETPR = "";
 							if (mPartsMap.containsKey(MATKL)) {
 								ArrayList<PartsMasterModel> partsMasterModels = mPartsMap.get(MATKL);
 								for (PartsMasterModel partsMasterModel : partsMasterModels) {
@@ -913,11 +951,20 @@ public class MaintentanceInputFragment extends BaseFragment
 
 									{
 										MTQTY = partsMasterModel.getMTQTY().trim();
-										MINQTY = partsMasterModel.getMINQTY().trim();
-										MAXQTY = partsMasterModel.getMAXQTY().trim();
+										if (!MINQTY.isEmpty()) {
+											MINQTY = partsMasterModel.getMINQTY().trim();
+										}
+										if (!MAXQTY.isEmpty()) {
+											MAXQTY = partsMasterModel.getMAXQTY().trim();
+										}
+										if (!NETPR.isEmpty()) {
+											NETPR = partsMasterModel.getNETPR().trim();
+										}
+
 										kog.e("KDH", "AUAU MTQTY = " + MTQTY);
 										kog.e("KDH", "AUAU MINQTY = " + MINQTY);
 										kog.e("KDH", "AUAU MAXQTY = " + MAXQTY);
+										kog.e("yunseung", "AUAU NETPR = " + NETPR);
 									}
 								}
 							}
@@ -927,7 +974,7 @@ public class MaintentanceInputFragment extends BaseFragment
 									Integer.parseInt(mCursor.getString(mCursor.getColumnIndex("LABST"))),
 									mCursor.getString(mCursor.getColumnIndex("MATNR")),
 									mCursor.getString(mCursor.getColumnIndex("MEINS")), null,
-									mCursor.getString(mCursor.getColumnIndex("GRP_CD")), MTQTY, MINQTY, MAXQTY);
+									mCursor.getString(mCursor.getColumnIndex("GRP_CD")), MTQTY, MINQTY, MAXQTY, NETPR);
 
 							for (MaintenanceItemModel itemModel : mLastItemModels) {
 								if (itemModel.getName().equals(model.getName())) {
@@ -1191,7 +1238,6 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	}
 
-	//TODO 윤승 여기가 그룹맵 1번
 	private void setGroupList() {
 		if (mGroupLArrayList.size() > 0) {
 
@@ -1231,24 +1277,12 @@ public class MaintentanceInputFragment extends BaseFragment
 			String MINQTY = cursor.getString(cursor.getColumnIndex("MINQTY"));
 			String MAXQTY = cursor.getString(cursor.getColumnIndex("MAXQTY"));
 
-			// String FUELCD =
-			// cursor.getString(cursor.getColumnIndex("FUELCD"));
-			// String GRP_CD =
-			// cursor.getString(cursor.getColumnIndex("GRP_CD"));
-
-			// Jonathan 14.11.18 MTQTY 찾음 (2)
-//			kog.e("KDH", "KKK MATNR = " + MATNR);
-//			kog.e("KDH", "KKK MATKL = " + MATKL);
-//			kog.e("KDH", "KKK MTQTY = " + MTQTY);
-//			kog.e("KDH", "KKK FUELCD = " + mCarInfoModel.getOilType());
 			kog.e("KDH", "KKK MATNR = " + MATNR + " || 부품명 = " + MATKL + " | 수량 = " + MTQTY + " || 최소수량 = " + MINQTY + " || 최대수량 = " + MAXQTY);
 
 			// kog.e("KDH", "KKK GRP_CD = "+GRP_CD);
 
 			PartsMasterModel model = new PartsMasterModel(MATNR, MATKL, MTQTY, mCarInfoModel.getOilType(),
-					mCarInfoModel.getMdlcd(), MINQTY, MAXQTY);
-
-			mPartsArray.add(model);
+					mCarInfoModel.getMdlcd(), MINQTY, MAXQTY, null);
 
 			if (mPartsMap.containsKey(MATKL)) {
 				ArrayList<PartsMasterModel> arrayList = mPartsMap.get(MATKL);
@@ -1261,25 +1295,42 @@ public class MaintentanceInputFragment extends BaseFragment
 			cursor.moveToNext();
 		}
 		cursor.close();
+		setGroupList();
+		hideProgress();
 
-		// if (mGroupLArrayList.size() > 0) {
-		//
-		// ArrayList<MaintenanceItemModel> tempArr = null;
-		// for (int i = 0; i < mGroupLArrayList.size(); i++) {
-		// tempArr = new ArrayList<MaintenanceItemModel>();
-		// mGroupMap.put(mGroupLArrayList.get(i).getName_key(), tempArr);
-		// if (i == 0)
-		// mItemModels = tempArr;
-		// }
-		//
-		// initQueryItem();
-		//
-		// // for (PartsMasterModel stockModel : mPartsArray) {
-		// // // 고객정보와 비교하여
-		// // // item에 리스트를 보여준다.
-		// // }
-		// // queryItem(mGroupLArrayList.get(0));
-		// }
+	}
+
+	private void responsePartsTypeForIoT(ArrayList<HashMap<String, String>> array_hash) {
+		kog.e("Jonathan", "관련품목  responsePartsType");
+		if (array_hash == null)
+			return;
+
+
+		// myung 20131125 장비항목입력 리스트 생성 시에 같은 항목 증가하는 오류
+		mPartsMap.clear();
+
+		for (int i = 0; i < array_hash.size(); i++) {
+			String MATNR = array_hash.get(i).get("MATNR");
+			mMATNR.add(MATNR);
+			String MATKL = array_hash.get(i).get("MATKL");
+			String MTQTY = array_hash.get(i).get("MTQTY");
+			String NETPR = array_hash.get(i).get("NETPR");
+
+			kog.e("yunseung++", "KKK MATNR = " + MATNR + " || 부품명 = " + MATKL + " | 수량 = " + MTQTY + " || 금액 = " + NETPR);
+
+			PartsMasterModel model = new PartsMasterModel(MATNR, MATKL, MTQTY, mCarInfoModel.getOilType(),
+					mCarInfoModel.getMdlcd(), null, null, NETPR);
+
+			if (mPartsMap.containsKey(MATKL)) {
+				ArrayList<PartsMasterModel> arrayList = mPartsMap.get(MATKL);
+				arrayList.add(model);
+			} else {
+				ArrayList<PartsMasterModel> arrayList = new ArrayList<PartsMasterModel>();
+				arrayList.add(model);
+				mPartsMap.put(MATKL, arrayList);
+			}
+		}
+
 		setGroupList();
 		hideProgress();
 

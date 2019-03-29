@@ -43,8 +43,7 @@ public abstract class BaseCommonAdapter<T> extends BaseAdapter {
 		mItemArray = new ArrayList<T>();  //이쪽에서 Array Object 가 22개 들어오는데... [0]MaintenenceModel  
 		//address, carName carNumber 는 있는데, name = "나인스"  NAME1  = null 어디서 받아오는지 모르겠다. 14.06.15 Jonathan
 		mContext = context;
-		mInflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
 	public void setData(List<T> datas) {

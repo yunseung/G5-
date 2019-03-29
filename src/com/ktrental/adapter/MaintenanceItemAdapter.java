@@ -61,6 +61,8 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 
 	private int mOilPosition = -1;
 
+	private String mGubun;
+
 	public interface OnConsumptionItem {
 		void onCancelConsumption(String matkl, String matnr);
 
@@ -70,12 +72,13 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 	}
 
 	public MaintenanceItemAdapter(Context context, View popView, ListView lv, InventoryPopup _inventoryPopup,
-								  OnConsumptionItem onConsumptionItem) {
+								  String gubun, OnConsumptionItem onConsumptionItem) {
 		super(context);
 		mPopView = popView;
 		mLv = lv;
 		inventoryPopup = _inventoryPopup;
 		mOnConsumptionItem = onConsumptionItem;
+		mGubun = gubun;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -109,8 +112,7 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 			// myung 20131224 UPDATE 리스트의 재고는 해당 아이테믜 선택된 소모 전체를 확인하고 적용.
 			// int val = stock - consumption - selectedConsumption;
 			int val = stock - MaintenanceResultFragment.getToalConsumption(model.getMATNR());
-			//TODO 윤승
-//			int price = MaintenanceResultFragment.getToalConsumption()
+
 			itemViewHolder.getStock = val;
 
 			// Jonathan 14.12.16 수정
@@ -134,9 +136,15 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 			}
 
 			itemViewHolder.tvStock.setText("" + val);
-			//TODO 윤승
-//			itemViewHolder.tvPrice.setText(""/);
 			itemViewHolder.tvName.setText(model.getName());
+
+			if (mGubun.equals("A")) {
+				itemViewHolder.tvPrice.setVisibility(View.VISIBLE);
+				itemViewHolder.tvPrice.setText(model.getNETPR());
+			} else {
+				itemViewHolder.tvPrice.setVisibility(View.GONE);
+			}
+
 		}
 		itemViewHolder.ivCheck.setTag(position);
 		itemViewHolder.llRoot.setTag(position);

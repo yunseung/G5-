@@ -35,6 +35,8 @@ public class MaintenanceItemModel implements Cloneable {
 	private String MINQTY = "";
 	private String MAXQTY = "";
 
+	private String NETPR = "";
+
 
 	public MaintenanceItemModel(MaintenanceGroupModel group, String _GRP_CD) {
 		// TODO Auto-generated constructor stub
@@ -83,10 +85,7 @@ public class MaintenanceItemModel implements Cloneable {
 	}
 
 	public MaintenanceItemModel(String name, int stock, String MATNR, String ERFME, MaintenanceGroupModel groupModel,
-								String _GRP_CD, String _MTQTY, String _MINQTY, String _MAXQTY
-								// ,String FUELCD
-								// ,String MAKTX
-	) {
+								String _GRP_CD, String _MTQTY, String _MINQTY, String _MAXQTY, String _NETPR) {
 
 		this.name = name;
 		this.stock = stock;
@@ -95,6 +94,7 @@ public class MaintenanceItemModel implements Cloneable {
 		MTQTY = _MTQTY;
 		MINQTY = _MINQTY;
 		MAXQTY = _MAXQTY;
+		NETPR = _NETPR;
 
 		// this.MDLCD = MDLCD;
 		// this.FUELCD = FUELCD;
@@ -205,6 +205,10 @@ public class MaintenanceItemModel implements Cloneable {
 
 	public void setMAXQTY(String maxqty) {
 		MAXQTY = maxqty;
+	}
+
+	public String getNETPR() {
+		return NETPR;
 	}
 
 }

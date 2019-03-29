@@ -10,12 +10,12 @@ public class PartsMasterModel {
 	String MDLCD;
 	String MINQTY;
 	String MAXQTY;
+	String NETPR;
 
 //	String GRP_CD;
 
 	public PartsMasterModel(String mATNR, String mATKL, String mTQTY, String mFUELCD
-			,String mMDLCD, String mMINQTY, String mMAXQTY
-	) {
+			,String mMDLCD, String mMINQTY, String mMAXQTY, String mNETPR) {
 		MATNR = mATNR;
 		MATKL = mATKL;
 		MTQTY = mTQTY;
@@ -23,6 +23,7 @@ public class PartsMasterModel {
 		MDLCD = mMDLCD;
 		MINQTY = mMINQTY;
 		MAXQTY = mMAXQTY;
+		NETPR = mNETPR;
 	}
 
 
@@ -82,6 +83,10 @@ public class PartsMasterModel {
 
 	public String getMAXQTY() {
 		return MAXQTY;
+	}
+
+	public String getNETPR() {
+		return NETPR;
 	}
 
 	public void setMAXQTY(String maxqty) {
