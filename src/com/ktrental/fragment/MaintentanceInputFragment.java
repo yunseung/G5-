@@ -277,11 +277,10 @@ public class MaintentanceInputFragment extends BaseFragment
 				mItemAdapter.setIsIspect(true);
 				cc.getZMO_1020_RD05(mCarInfoModel.getCarNum());
 			} else if (mCarInfoModel.get_gubun().equals("A")) {
-				cc.getZMO_1020_RD08(mCarInfoModel.getMINVNR());
+				cc.getZMO_1020_RD08(mCarInfoModel.getCarNum(), mCarInfoModel.getMINVNR());
 			} else {
 				isInspect = false;
-				cc.getZMO_1020_RD08(mCarInfoModel.getMINVNR());
-//				queryGroup(); // 보통의 경우 여기로 들어오는거같다.
+				queryGroup(); // 보통의 경우 여기로 들어오는거같다.
 			}
 		} else {
 			isInspect = false;

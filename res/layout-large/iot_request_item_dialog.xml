@@ -73,6 +73,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/input"
                 android:gravity="center"
+                android:textColor="@color/contents_text"
                 android:textSize="17dp"/>
 
 
@@ -194,7 +195,7 @@
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:textColor="@color/contents_text"
-                android:textSize="18dp"
+                android:textSize="14dp"
                 android:text=""
                 android:background="@drawable/input" />
 

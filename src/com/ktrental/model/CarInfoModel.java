@@ -179,6 +179,8 @@ public class CarInfoModel extends BaseMaintenanceModel {
 
 	private String _gubun = ""; // 기존 여기서 쓰이던 구분과 다른 구분. 이 구분은 iot/일반/고급형
 
+	private String INVNR = "";
+
 	public CarInfoModel(String customer_name, String driver_name, String _carNum, String _address,
 			String _tel, String _time, String _carname,
 			String _progress_status, String _day, String customerName,
@@ -241,10 +243,15 @@ public class CarInfoModel extends BaseMaintenanceModel {
 		this.REQNO = reqNo;
 		this.MINVNR = minvnr;
 		this._gubun = gubun;
+		this.INVNR = _carNum;
 		
 		d_name = driver_name;
 		c_name = customer_name;
 
+	}
+
+	public String getINVNR() {
+		return INVNR;
 	}
 
 	public String getMINVNR() {

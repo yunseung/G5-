@@ -1305,12 +1305,12 @@ public class ConnectController {
 
 	private final String ZMO_1020_RD08 = "ZMO_1020_RD08";
 	private final String ZMO_1020_RD08_TABLE = "zmo_1020_rd08_table";
-	public void getZMO_1020_RD08(String minvnr) {
+	public void getZMO_1020_RD08(String invnr, String minvnr) {
 		HashMap<String, String> map = getCommonConnectData();
 		LoginModel model = KtRentalApplication.getLoginModel();
 		mConnector.setStructure("IS_LOGIN", map);
-//		mConnector.setParameter("I_MINVNR", minvnr);
-		mConnector.setParameter("I_INVNR", "64호7924");
+		mConnector.setParameter("I_INVNR", invnr);
+		mConnector.setParameter("I_MINVNR", minvnr);
 
 		try {
 			mConnector.executeRFCAsyncTask(ZMO_1020_RD08, ZMO_1020_RD08_TABLE);

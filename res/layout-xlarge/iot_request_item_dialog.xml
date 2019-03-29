@@ -74,6 +74,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/contents_text"
                 android:textSize="20dp"
                 android:background="@drawable/input" />
 
@@ -194,7 +195,7 @@
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:textColor="@color/contents_text"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:text=""
                 android:background="@drawable/input" />
 
