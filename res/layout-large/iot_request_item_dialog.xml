@@ -143,33 +143,32 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
-                android:divider="@null"
-                android:paddingBottom="20dp" />
+                android:divider="@null" />
 
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center_vertical"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
                 android:background="@drawable/popup_tb_bt"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="총 금액"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
 
 
                 <TextView
                     android:id="@+id/total_price"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="2,450,500원"
                     android:textStyle="bold"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
 
             </LinearLayout>
 
