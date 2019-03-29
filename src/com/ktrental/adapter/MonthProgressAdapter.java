@@ -37,8 +37,8 @@ public class MonthProgressAdapter extends BaseMaintenceAdapter {
 
 		MonthProgressModel model = (MonthProgressModel) getItem(position);
 		if (model != null) {
-			if (model.getAUFNR().isEmpty()) {
-				viewHolder.tvDay.setText(insertDot(model.getDay()) + " " + model.getAPM());
+			if (model.getAUFNR().trim().isEmpty() && model.getATVYN().equals("A")) {
+				viewHolder.tvDay.setText(insertDot(model.getDay()) + " " + (model.getAPM().equals("AM") ? "오전" : "오후"));
 			} else {
 				viewHolder.tvDay.setText(insertDot(model.getDay()) + " " + model.getTime());
 			}

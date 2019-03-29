@@ -1,6 +1,7 @@
 package com.ktrental.dialog;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.ConnectInterface {
+public class IoTRequestItemDialog extends DialogC implements Connector.ConnectInterface {
 
     private Context mContext;
 
@@ -41,17 +42,22 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
         super(context);
         this.mContext = context;
         this.mReqNo = reqNo;
-    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.iot_request_item_dialog);
 
+        Window w = getWindow();
+        w.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams lp = w.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        w.setAttributes(lp);
+
         mRootView = findViewById(R.id.rl_root_view);
         mTvTotalPrice = (TextView)findViewById(R.id.total_price);
+        mListView = (ListView) findViewById(R.id.iot_request_listview);
         mTvCarKind = (TextView)findViewById(R.id.tv_car_kind);
         mTvMemo = (TextView)findViewById(R.id.tv_memo);
 
@@ -69,21 +75,9 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
             }
         });
 
-        mListView = (ListView) mRootView.findViewById(R.id.iot_request_listview);
 
-    }
 
-    @Override
-    public void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
         setCanceledOnTouchOutside(false);
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-
-        // WindowManager.LayoutParams lp =
-        // getDialog().getWindow().getAttributes();
-//        lp.dimAmount = 0.6f;
-//        getWindow().setAttributes(lp);
 
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
         // setCanceledOnTouchOutside(true);
@@ -94,9 +88,9 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
 
         showProgress("조회 중입니다.");
         mCc.getZMO_1020_RD06(mReqNo);
-//        mCc.getZMO_1020_RD06("19032700006");
-
+        //        mCc.getZMO_1020_RD06("19032700006");
     }
+
 
     @Override
     public void dismiss() {

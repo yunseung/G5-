@@ -575,10 +575,8 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
     private void clickReqIot(View v) {
         BaseMaintenanceModel model = getItem((Integer)v.getTag());
         if (model.getREQNO().trim().isEmpty()) {
-//            EventPopupC popupC = new EventPopupC(mContext);
-//            popupC.show("IoT 요청항목이 없습니다.");
-            IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
-            dialog.show();
+            EventPopupC popupC = new EventPopupC(mContext);
+            popupC.show("IoT 요청항목이 없습니다.");
         } else {
             IoTRequestItemDialog dialog = new IoTRequestItemDialog(mContext, model.getREQNO());
             dialog.show();
@@ -804,9 +802,9 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
         if (aufnr == null || aufnr.equals("") || aufnr.equals(" "))
         {
-
-            EventPopupC epc = new EventPopupC(mContext);
-            epc.show("정비번호가 없습니다. MOT 에 문의해 주세요.");
+//TODO
+//            EventPopupC epc = new EventPopupC(mContext);
+//            epc.show("정비번호가 없습니다. MOT 에 문의해 주세요.");
 
             // showEventPopup2(new OnEventOkListener() {
             //
@@ -816,7 +814,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             //
             // }
             // }, "정비번호가 없습니다. MOT 에 문의해 주세요.");
-            return false;
+            return true;
         }
         // EventPopupC epc = new EventPopupC(mContext);
         // epc.show("정비번호가 없습니다. MOT 에 문의해 주세요.");

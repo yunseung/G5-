@@ -1114,10 +1114,17 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         if (arr.size() > 1) {
             showEventPopup2(null, "IoT 정비취소는 단건만 진행 가능합니다. 한 건만 선택해주세요.");
+            return;
         }
 
-        IoTCancelPopup popup = new IoTCancelPopup(mContext, arr.get(0).getREQNO());
-        popup.show();
+
+        //TODO 하는중..
+        RepairPlanModel.getProgressStatus(arr.get(0).getProgress_status());
+
+        if (arr.get(0).getATVYN().equals("A") && arr.get(0).getAUFNR().trim().isEmpty()) {
+            IoTCancelPopup popup = new IoTCancelPopup(mContext, arr.get(0).getREQNO());
+            popup.show();
+        }
 
     }
 

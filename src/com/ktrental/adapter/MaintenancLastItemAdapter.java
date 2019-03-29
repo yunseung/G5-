@@ -132,10 +132,12 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 			((LinearLayout.LayoutParams)lastItemViewHolder.tvStock.getLayoutParams()).weight = 1;
 		}
 
-		if (mGubun.equals("A")) {
-			lastItemViewHolder.tvLastPrice.setVisibility(View.VISIBLE);
-		} else {
-			lastItemViewHolder.tvLastPrice.setVisibility(View.GONE);
+		if (mGubun != null) {
+			if (mGubun.equals("A")) {
+				lastItemViewHolder.tvLastPrice.setVisibility(View.VISIBLE);
+			} else {
+				lastItemViewHolder.tvLastPrice.setVisibility(View.GONE);
+			}
 		}
 
 		rootView.setTag(lastItemViewHolder);
