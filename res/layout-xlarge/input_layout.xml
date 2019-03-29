@@ -295,14 +295,16 @@
                             android:textSize="15sp" />
                     </LinearLayout>
 
-                    <FrameLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
                         <ListView
                             android:id="@+id/lv_last_item"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
                             android:divider="@null" >
                         </ListView>
 
@@ -313,7 +315,36 @@
                             android:layout_gravity="center"
                             android:background="@drawable/nodata"
                             android:visibility="gone" />
-                    </FrameLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_last_total_area"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.3"
+                            android:layout_gravity="center_vertical"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:background="@drawable/popup_tb_bt"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="총 금액"
+                                android:textSize="14dp" />
+
+
+                            <TextView
+                                android:id="@+id/tv_last_total_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2,450,500원"
+                                android:textStyle="bold"
+                                android:textSize="14dp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

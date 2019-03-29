@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -109,6 +110,9 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	private TextView mTvTitlePrice1;
 	private TextView mTvTitlePrice2;
+
+	private LinearLayout mLlLastTotalArea;
+	private TextView mTvLastTotalPrice;
 
 	public void setOnResultInut(OnResultInut aOnResultInut) {
 		this.mOnResultInut = aOnResultInut;
@@ -225,6 +229,8 @@ public class MaintentanceInputFragment extends BaseFragment
 
 		mTvTitlePrice1 = (TextView) mRootView.findViewById(R.id.tv_title_price1);
 		mTvTitlePrice2 = (TextView) mRootView.findViewById(R.id.tv_title_price2);
+		mLlLastTotalArea = (LinearLayout) mRootView.findViewById(R.id.ll_last_total_area);
+		mTvLastTotalPrice = (TextView) mRootView.findViewById(R.id.tv_last_total_price);
 
 		TextView title = (TextView) mRootView.findViewById(R.id.tv_dialog_title);
 		title.setText(Tilte);
@@ -282,13 +288,15 @@ public class MaintentanceInputFragment extends BaseFragment
 			queryGroup();
 		}
 
-//		if (mCarInfoModel.get_gubun().equals("A")) {
+		if (mCarInfoModel.get_gubun().equals("A")) {
 			mTvTitlePrice1.setVisibility(View.VISIBLE);
 			mTvTitlePrice2.setVisibility(View.VISIBLE);
-//		} else {
-//			mTvTitlePrice1.setVisibility(View.GONE);
-//			mTvTitlePrice2.setVisibility(View.GONE);
-//		}
+			mLlLastTotalArea.setVisibility(View.VISIBLE);
+		} else {
+			mTvTitlePrice1.setVisibility(View.GONE);
+			mTvTitlePrice2.setVisibility(View.GONE);
+			mLlLastTotalArea.setVisibility(View.GONE);
+		}
 
 		mBtnSave = (Button) mRootView.findViewById(R.id.btn_save);
 		mBtnSave.setOnClickListener(this);

@@ -32,7 +32,7 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 	boolean bSetItem = false;
 	public final static int INPUT = 0;
 	public final static int RESIST = 1;
-	private String mGubun;
+	private String mGubun = "";
 
 	public MaintenancLastItemAdapter(Context context, int type, String gubun) {
 		super(context);
@@ -55,7 +55,6 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 			} else {
 				rootView.setBackgroundResource(R.drawable.table_list_n);
 				lastItemViewHolder.ivCheck.setImageResource(R.drawable.check_off);
-
 			}
 
 			lastItemViewHolder.tvConsumption.setText("" + model.getConsumption());
@@ -133,11 +132,11 @@ public class MaintenancLastItemAdapter extends BaseCommonAdapter<MaintenanceItem
 			((LinearLayout.LayoutParams)lastItemViewHolder.tvStock.getLayoutParams()).weight = 1;
 		}
 
-//		if (mGubun.equals("A")) {
+		if (mGubun.equals("A")) {
 			lastItemViewHolder.tvLastPrice.setVisibility(View.VISIBLE);
-//		} else {
-//			lastItemViewHolder.tvLastPrice.setVisibility(View.GONE);
-//		}
+		} else {
+			lastItemViewHolder.tvLastPrice.setVisibility(View.GONE);
+		}
 
 		rootView.setTag(lastItemViewHolder);
 
