@@ -116,12 +116,6 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
         hideProgress();
 
         if (MTYPE.trim().equals("S")) {
-            Log.e("yunseung", FuntionName);
-            Log.e("yunseung", resultText);
-            Log.e("yunseung", MTYPE);
-            Log.e("yunseung", resulCode + "");
-            Log.e("yunseung", FuntionName);
-
             ArrayList<HashMap<String, String>> ET_ITAB = tableModel.getTableArray("ET_ITAB");
             ArrayList<HashMap<String, String>> ET_ITAB2 = tableModel.getTableArray("ET_ITAB2");
 
@@ -130,6 +124,8 @@ public class IoTRequestItemDialog extends BaseTouchDialog implements Connector.C
             mTvTotalPrice.setText(ET_ITAB.get(ET_ITAB.size() - 1).get("DMBTR"));
             mTvCarKind.setText(ET_ITAB2.get(0).get("MAKTX"));
             mTvMemo.setText(ET_ITAB2.get(0).get("MEMO"));
+
+            ET_ITAB.remove(ET_ITAB.size() - 1);
 
             mListView.setAdapter(new ListAdapter(ET_ITAB));
         } else {
