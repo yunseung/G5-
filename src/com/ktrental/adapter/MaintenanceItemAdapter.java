@@ -460,7 +460,7 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 					});
 
 				} else {
-
+					//TODO 씨발!!
 					model.setConsumption(consumption);
 					selectedMaintenanceModels.add(model);
 					model.setCheck(true);

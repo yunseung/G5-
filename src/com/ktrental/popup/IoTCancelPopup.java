@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,12 +28,14 @@ import java.util.List;
 public class IoTCancelPopup extends BaseTouchDialog implements Connector.ConnectInterface {
 
     private View mRootView;
-    private Spinner mSpReason;
+    private Button mSpReason;
     private String mReqNo;
     private EditText mDetailMemo;
 
     private ConnectController mCc;
     protected ProgressPopup mProgressPopup;
+
+    private Popup_Window_Multy pwm;
 
     public IoTCancelPopup(Context context, String reqNo) {
         super(context);
@@ -56,6 +59,8 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
         // setCanceledOnTouchOutside(true);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
+        pwm = new Popup_Window_Multy(mContext);
 
 
     }
@@ -90,18 +95,24 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
 
         mDetailMemo = (EditText) mRootView.findViewById(R.id.detail_memo);
 
-        mSpReason = (Spinner) mRootView.findViewById(R.id.sp_reason);
+        mSpReason = (Button) mRootView.findViewById(R.id.sp_reason);
+        mSpReason.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pwm.show("PM307", mSpReason, true);
+            }
+        });
 
         //TODO 윤승 pwm.show("PM111", bt_group1, true); 이거 참조!!
-        List<String> reasonList = new ArrayList<>();
-        reasonList.add("선택해주세요");
-        reasonList.add("고객요청");
-        reasonList.add("예약변경");
-        reasonList.add("단순변심");
-        reasonList.add("연락두절");
-        reasonList.add("기타");
-
-        mSpReason.setAdapter(new ReasonListAdapter(reasonList));
+//        List<String> reasonList = new ArrayList<>();
+//        reasonList.add("선택해주세요");
+//        reasonList.add("고객요청");
+//        reasonList.add("예약변경");
+//        reasonList.add("단순변심");
+//        reasonList.add("연락두절");
+//        reasonList.add("기타");
+//
+//        mSpReason.setAdapter(new ReasonListAdapter(reasonList));
 
     }
 

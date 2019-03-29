@@ -138,18 +138,18 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
 
             // IOT ODM 고급형에 따른 UI 변경
-            if (model.getGUBUN().trim().isEmpty()) {
+            if (model.get_gubun().trim().isEmpty()) {
                 viewHolder.tvGubun.setVisibility(View.INVISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.INVISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
-            } else if (model.getGUBUN().equals("A")) {
+            } else if (model.get_gubun().equals("A")) {
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
                 viewHolder.tvGubun.setText("IoT");
                 viewHolder.tvDelay.setVisibility(View.INVISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
-            } else if (model.getGUBUN().equals("O")) {
+            } else if (model.get_gubun().equals("O")) {
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.tvDelay.setVisibility(View.VISIBLE);

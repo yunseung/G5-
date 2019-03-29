@@ -175,6 +175,10 @@ public class CarInfoModel extends BaseMaintenanceModel {
 
 	private String REQNO = "";
 
+	private String MINVNR = "";
+
+	private String _gubun = ""; // 기존 여기서 쓰이던 구분과 다른 구분. 이 구분은 iot/일반/고급형
+
 	public CarInfoModel(String customer_name, String driver_name, String _carNum, String _address,
 			String _tel, String _time, String _carname,
 			String _progress_status, String _day, String customerName,
@@ -192,10 +196,10 @@ public class CarInfoModel extends BaseMaintenanceModel {
 			String EQUNR, String CTRTY, String _CEMER, String CHNGBN,
 			String OWNER, String postCode, String city, String street, 
 			String drv_mob, String drv_tel, String gueen2 , String txt30, String vocNum,
-			String kunnr, String delay, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq) {
+			String kunnr, String delay, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq, String minvnr) {
 		super(customer_name ,driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun, reqNo, atvyn, prerq, ccmrq);
+				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr);
 		LogUtil.d("hjt", "hjt delay = " + delay);
 
 		this.customerName = customerName;
@@ -235,12 +239,21 @@ public class CarInfoModel extends BaseMaintenanceModel {
 		this.drv_tel = drv_tel;
 		this.DELAY = delay;
 		this.REQNO = reqNo;
+		this.MINVNR = minvnr;
+		this._gubun = gubun;
 		
 		d_name = driver_name;
 		c_name = customer_name;
 
 	}
-	
+
+	public String getMINVNR() {
+		return MINVNR;
+	}
+
+	public String get_gubun() {
+		return _gubun;
+	}
 
 	public String getDriverName() {	// 운전자명 받기
 		if (d_name == null) {

@@ -49,21 +49,15 @@ public class RepairPlanModel {
 
 						plan++;
 
-						Log.e("yunseung222", "subscriptionWaiting : " + subscriptionWaitting);
-						Log.e("yunseung222", "plan : " + plan);
 					} else if (gubun.trim().equals("A")) {
 						subscriptionWaitting2++;
 
 						plan2++;
 
-						Log.e("yunseung222", "subscriptionWaiting2 : " + subscriptionWaitting2);
-						Log.e("yunseung222", "plan2 : " + plan2);
 					} else if (gubun.trim().equals("O")) {
 						subscriptionWaitting3++;
 
 						plan3++;
-						Log.e("yunseung222", "subscriptionWaiting3 : " + subscriptionWaitting3);
-						Log.e("yunseung222", "plan3 : " + plan3);
 					}
 
 

@@ -55,6 +55,8 @@ public class BaseMaintenanceModel
     private String ATVYN = "";
     private String PRERQ = "";
     private String CCMRQ = "";
+    private String MINVNR = "";
+    private String _gubun = ""; // 기존에 쓰던 대문자 GUBUN 과 다른 구분 ㅡㅡ... 아..... 이건 iot/일반/고급 구분하는 구분
     public BaseMaintenanceModel(String aUFNR)
     {
         super();
@@ -74,7 +76,7 @@ public class BaseMaintenanceModel
     public BaseMaintenanceModel(String customer_name, String driver_name, String _carNum, String _address, String _tel, String _time,
             String _carname, String _progress_status, String _day, String AUFNR, String _EQUNR, String _CTRTY, String postCode, String city,
             String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx,
-            String apm, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq)
+            String apm, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq, String minvnr)
     {
 
         CUSTOMER_NAME = customer_name;
@@ -116,7 +118,7 @@ public class BaseMaintenanceModel
 
         VBELN = vbeln;
 
-        GUBUN = gubun;
+        _gubun = gubun;
 
         REQNO = reqNo;
 
@@ -125,6 +127,16 @@ public class BaseMaintenanceModel
         PRERQ = prerq;
 
         CCMRQ = ccmrq;
+
+        MINVNR = minvnr;
+    }
+
+    public String get_gubun() {
+        return _gubun;
+    }
+
+    public String getMINVNR() {
+        return MINVNR;
     }
 
     public String getMDLCD()

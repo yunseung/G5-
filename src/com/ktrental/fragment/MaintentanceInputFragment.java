@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -123,6 +124,8 @@ public class MaintentanceInputFragment extends BaseFragment
 			// pre.sendEmptyMessage(0);
 			rd05_arr = tableModel.getTableArray();
 			queryGroup();
+		} else if (FuntionName.equals("ZMO_1020_RD08")) {
+			Log.e("yunseung+++", FuntionName);
 		}
 	}
 
@@ -217,7 +220,7 @@ public class MaintentanceInputFragment extends BaseFragment
 		mGroupAdapter.setOnSeletedItem(this);
 		mLvGroup.setAdapter(mGroupAdapter);
 
-		// 2014-05-09 KDH 이건 노답 이다.
+		// 2014-05-09 KDH 와 이건 진짜 핵노답 이다.
 		mLvItem = (ListView) mRootView.findViewById(R.id.lv_maintenance_item);
 		mItemAdapter = new MaintenanceItemAdapter(mContext, mRootView, mLvItem, inventoryPopup, this);
 		mLvItem.setAdapter(mItemAdapter);
@@ -231,16 +234,21 @@ public class MaintentanceInputFragment extends BaseFragment
 		mIvLastEmpty = (ImageView) mRootView.findViewById(R.id.iv_last_empty);
 
 		cc = new ConnectController(this, mContext);
+
+		Log.e("+++", "+++" + mCarInfoModel.get_gubun() + "---");
 		//2017-11-28. hjt 순회점검일 경우엔 아이템이 다르다.
 		if (mCarInfoModel != null) {
 			String period = mCarInfoModel.getTourMainenancePeriod();
-			if (period != null && period.contains("점검")) {
+			if (period != null && period.contains("점검")) { // 6개월짜리 어쩌구.. 이건 냅둬??
 				isInspect = true;
 				mItemAdapter.setIsIspect(true);
 				cc.getZMO_1020_RD05(mCarInfoModel.getCarNum());
+			} else if (mCarInfoModel.get_gubun().equals("A")) {
+				cc.getZMO_1020_RD08(mCarInfoModel.getMINVNR());
+				Toast.makeText(mContext, "제발..", Toast.LENGTH_SHORT).show();
 			} else {
 				isInspect = false;
-				queryGroup();
+				queryGroup(); // 보통의 경우 여기로 들어오는거같다.
 			}
 		} else {
 			isInspect = false;
@@ -381,7 +389,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 				}
 			}
-
+//TODO 윤승 여기가2번
 			mItemAdapter.setData(arr);
 			mItemAdapter.setSelectedMaintenanceModels(backSelectedItem);
 			initItemEmpty(arr);
@@ -527,6 +535,7 @@ public class MaintentanceInputFragment extends BaseFragment
 				}
 			}
 			if (!checkLast) {
+				//TODO 정비항목 체크해서 추가하면 하단 리스트에 이곳에서 add 된 후 이 메서드 아래로~~
 				MaintenanceItemModel model = maintenanceItemModel.clone();
 				model.setCheck(false);
 				mLastItemModels.add(model);
@@ -671,7 +680,7 @@ public class MaintentanceInputFragment extends BaseFragment
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-
+//TODO 윤승 여기가 1번
 				mItemAdapter.setData(temp);
 				mItemAdapter.setSelectedMaintenanceModels(backSelectedItem);
 				mItemAdapter.notifyDataSetChanged();
@@ -736,6 +745,7 @@ public class MaintentanceInputFragment extends BaseFragment
 										MTQTY = partsMasterModel.getMTQTY().trim();
 										MINQTY = partsMasterModel.getMINQTY().trim();
 										MAXQTY = partsMasterModel.getMAXQTY().trim();
+
 									}
 								}
 							}
@@ -792,8 +802,7 @@ public class MaintentanceInputFragment extends BaseFragment
 							while (it.hasNext()) {
 								key = it.next();
 								for (int j = 0; j < mPartsMap.get(key).size(); j++) {
-									kog.e("Jonathan",
-											"mPartsMap 어디보자~! key ===  " + key + "    MTQTY  === "
+									kog.e("Jonathan","윤승아 444 mPartsMap 어디보자~! key ===  " + key + "    MTQTY  === "
 													+ mPartsMap.get(key).get(j).getMTQTY() + "    MATNR  === "
 													+ mPartsMap.get(key).get(j).getMATNR());
 								}
@@ -805,6 +814,7 @@ public class MaintentanceInputFragment extends BaseFragment
 								for (PartsMasterModel partsMasterModel : partsMasterModels) {
 									if (partsMasterModel.getMATNR().equals(model.getMATNR())) {
 										tempList.add(model);
+
 									}
 								}
 							}
@@ -828,10 +838,7 @@ public class MaintentanceInputFragment extends BaseFragment
 					}
 				}
 
-				for (
-						MaintenanceGroupModel groupModel : mGroupLArrayList)
-
-				{
+				for (MaintenanceGroupModel groupModel : mGroupLArrayList) {
 					String matkl = groupModel.getName_key();
 					if (mGroupMap.containsKey(matkl)) {
 						ArrayList<MaintenanceItemModel> arrayList = mGroupMap.get(matkl);
@@ -963,10 +970,10 @@ public class MaintentanceInputFragment extends BaseFragment
 							while (it.hasNext()) {
 								key = it.next();
 								for (int i = 0; i < mPartsMap.get(key).size(); i++) {
-									kog.e("Jonathan",
-											"mPartsMap 어디보자~! key ===  " + key + "    MTQTY  === "
-													+ mPartsMap.get(key).get(i).getMTQTY() + "    MATNR  === "
-													+ mPartsMap.get(key).get(i).getMATNR());
+//									kog.e("Jonathan",
+//											"mPartsMap 어디보자~! key ===  " + key + "    MTQTY  === "
+//													+ mPartsMap.get(key).get(i).getMTQTY() + "    MATNR  === "
+//													+ mPartsMap.get(key).get(i).getMATNR());
 								}
 							}
 
@@ -998,6 +1005,7 @@ public class MaintentanceInputFragment extends BaseFragment
 				ArrayList<MaintenanceItemModel> arrayList = tempGroupMap.get(strKey);
 				if (arrayList.size() > 0) {
 					mGroupMap.remove(strKey);
+					//TODO 윤승 여기가 그룹맵에 하위 항목들 넣어주는 곳
 					mGroupMap.put(strKey, arrayList);
 				}
 			}
@@ -1183,6 +1191,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	}
 
+	//TODO 윤승 여기가 그룹맵 1번
 	private void setGroupList() {
 		if (mGroupLArrayList.size() > 0) {
 
@@ -1221,6 +1230,7 @@ public class MaintentanceInputFragment extends BaseFragment
 			String MTQTY = cursor.getString(cursor.getColumnIndex("MTQTY"));
 			String MINQTY = cursor.getString(cursor.getColumnIndex("MINQTY"));
 			String MAXQTY = cursor.getString(cursor.getColumnIndex("MAXQTY"));
+
 			// String FUELCD =
 			// cursor.getString(cursor.getColumnIndex("FUELCD"));
 			// String GRP_CD =

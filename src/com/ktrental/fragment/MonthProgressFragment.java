@@ -55,6 +55,7 @@ import com.ktrental.model.RepairPlanModel;
 import com.ktrental.popup.BaseTextPopup;
 import com.ktrental.popup.BaseTextPopup.OnSelectedPopupItem;
 import com.ktrental.popup.EventPopupC;
+import com.ktrental.popup.IoTCancelPopup;
 import com.ktrental.product.VocInfoActivity;
 import com.ktrental.ui.Mam;
 import com.ktrental.util.CommonUtil;
@@ -107,14 +108,15 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     private Button BtnTransfer; // 이관 관리 버튼
     private Button BtnNotImplemented; // 미실시사유등록 버튼
     private Button BtnMonthVocInfo; // VOC 내역 조회
+    private Button BtnIotCancel; //IoT 정비 취소
 
 //	private Mam mWorkProgress;
 
-    private String[] month_colums = {DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX,
-            DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR,
-            DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30, DEFINE.MDLCD,
-            DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO,
-            DEFINE.CCMRQ, DEFINE.ATVYN, DEFINE.PRERQ};
+    private String[] month_colums = {DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX, //4
+            DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR, //11
+            DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30, DEFINE.MDLCD, //18
+            DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO, //26
+            DEFINE.CCMRQ, DEFINE.ATVYN, DEFINE.PRERQ, DEFINE.MINVNR};
 
     private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
 
@@ -325,6 +327,9 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         BtnMonthVocInfo = (Button) root.findViewById(R.id.btn_month_voc_info);
         BtnMonthVocInfo.setOnClickListener(this);
+
+        BtnIotCancel = (Button) root.findViewById(R.id.btn_cancel_iot);
+        BtnIotCancel.setOnClickListener(this);
 
         mEtSearch = (EditText) root.findViewById(R.id.et_search);
         mEtSearch.setOnKeyListener(new OnKeyListener() {
@@ -610,6 +615,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                                 String ccmrq = cursor.getString(cursor.getColumnIndex(month_colums[27]));
                                 String atvyn = cursor.getString(cursor.getColumnIndex(month_colums[28]));
                                 String prerq = cursor.getString(cursor.getColumnIndex(month_colums[29]));
+                                String minvnr = cursor.getString(cursor.getColumnIndex(month_colums[30]));
 
 //							LogUtil.d("hjt", "hjt delay = " + delay);
 //
@@ -651,7 +657,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                                         decrypt(month_colums[11], aufnr), decrypt(month_colums[12], equnr),
                                         decrypt(month_colums[13], ctrty), postCode, city, street,
                                         decrypt(month_colums[14], drv_mob), decrypt(month_colums[15], cermr), gueen2, txt30,
-                                        mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm, vbeln, gubun, reqno, ccmrq, atvyn, prerq);
+                                        mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm, vbeln, gubun, reqno, ccmrq, atvyn, prerq, minvnr);
 
                                 // MaintenanceModel md = new MaintenanceModel(time,
                                 // name, invnr,
@@ -859,6 +865,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                 clickVocInfo(KUNNR);
             }
             break;
+
+            case R.id.btn_cancel_iot:
+                clickIotCancel();
+                break;
             default:
                 break;
         }
@@ -1093,6 +1103,22 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent.putExtra(VocInfoActivity.VOC_KUNNR, kunnr);
         startActivity(intent);
+    }
+
+    private void clickIotCancel() {
+        ArrayList<BaseMaintenanceModel> arr = monthProgressAdapter.getSelectedMaintenanceModels();
+        if (arr.size() <= 0) {
+            showEventPopup2(null, "IoT 정비취소는 IoT 정비대상 차량을 선택후 가능합니다. IoT 정비대상 차량을 선택해주세요.");
+            return;
+        }
+
+        if (arr.size() > 1) {
+            showEventPopup2(null, "IoT 정비취소는 단건만 진행 가능합니다. 한 건만 선택해주세요.");
+        }
+
+        IoTCancelPopup popup = new IoTCancelPopup(mContext, arr.get(0).getREQNO());
+        popup.show();
+
     }
 
     private void showFilterPopup(BaseTextPopup popup, View anchor) {
