@@ -1,6 +1,7 @@
 package com.ktrental.dialog;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,16 +48,7 @@ public class TroubleHistoryItemDialog extends BaseTouchDialog implements Connect
         // TODO Auto-generated method stub
         super.onStart();
         setCanceledOnTouchOutside(false);
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-
-        // WindowManager.LayoutParams lp =
-        // getDialog().getWindow().getAttributes();
-//        lp.dimAmount = 0.6f;
-//        getWindow().setAttributes(lp);
-
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        // setCanceledOnTouchOutside(true);
-
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
 
@@ -73,6 +65,14 @@ public class TroubleHistoryItemDialog extends BaseTouchDialog implements Connect
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.trouble_history_item_dialog);
+
+        Window w = getWindow();
+        w.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams lp = w.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        w.setAttributes(lp);
 
         mRootView = findViewById(R.id.rl_root_view);
 

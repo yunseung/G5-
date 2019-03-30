@@ -70,38 +70,43 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="순번"
+                    android:gravity="center"
                     android:textSize="20dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="등록일자"
+                    android:gravity="center"
                     android:textSize="20dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="운행거리"
+                    android:gravity="center"
                     android:textSize="20dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
+                    android:gravity="center"
                     android:text="항목명"
                     android:textSize="20dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:text="세부설명"
+                    android:gravity="center"
                     android:textSize="20dp" />
 
             </LinearLayout>
@@ -113,10 +118,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
-                android:divider="@null"
-                android:paddingBottom="20dp" />
-
-
+                android:divider="@null" />
 
             <View
                 android:layout_width="match_parent"

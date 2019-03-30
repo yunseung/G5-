@@ -800,9 +800,13 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         String aufnr = model.getAUFNR();
         // Log.i("checkAUFNR", "aufnr : "+aufnr);
 
-        if (aufnr == null || aufnr.equals("") || aufnr.equals(" "))
-        {
-//TODO
+        //TODO 윤승
+        if (model.getATVYN().equals("A")) { // IOT
+            //if (CCMSTS가 E0001 이거나 E0002 일때) 체크 가능
+            // else 불가능
+        }
+
+        if (aufnr.trim().isEmpty())  {
 //            EventPopupC epc = new EventPopupC(mContext);
 //            epc.show("정비번호가 없습니다. MOT 에 문의해 주세요.");
 
