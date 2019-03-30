@@ -31,6 +31,7 @@ import com.ktrental.model.CarInfoModel;
 import com.ktrental.model.DbQueryModel;
 import com.ktrental.model.MaintenanceGroupModel;
 import com.ktrental.model.MaintenanceItemModel;
+import com.ktrental.model.MaintenanceModel;
 import com.ktrental.model.PartsMasterModel;
 import com.ktrental.model.TableModel;
 import com.ktrental.popup.ElectricSelectPopup;
@@ -42,6 +43,7 @@ import com.ktrental.util.OnEventOkListener;
 import com.ktrental.util.OnSelectedItem;
 import com.ktrental.util.kog;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -113,6 +115,8 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	private LinearLayout mLlLastTotalArea;
 	private TextView mTvLastTotalPrice;
+
+	private int mLastTotalPrice = 0;
 
 	public void setOnResultInut(OnResultInut aOnResultInut) {
 		this.mOnResultInut = aOnResultInut;
@@ -553,7 +557,19 @@ public class MaintentanceInputFragment extends BaseFragment
 		mItemAdapter.initSelectedMaintenanceItem(tempModels);
 		mLastItemAdapter.initSelectedMaintenanceArray();
 		mLastItemAdapter.setData(mLastItemModels);
+		mLastTotalPrice = 0;
+		for (MaintenanceItemModel model : mLastItemModels) {
+			mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+		}
+
+		mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
 		initLastEmpty();
+	}
+
+	private String currencyFormat(int inputMoney) {
+		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+
+		return decimalFormat.format(inputMoney);
 	}
 
 	private void clickAdd() {
@@ -623,8 +639,14 @@ public class MaintentanceInputFragment extends BaseFragment
 
 		mItemAdapter.initSelectedMaintenanceArray();
 		mLastItemAdapter.setData(mLastItemModels);
-		mLastItemAdapter.notifyDataSetChanged();
 
+		mLastTotalPrice = 0;
+		for (MaintenanceItemModel model : mLastItemModels) {
+			mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+		}
+
+		mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
+		mLastItemAdapter.notifyDataSetChanged();
 	}
 
 	@Override
