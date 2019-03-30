@@ -164,6 +164,14 @@ public class RepairPlanModel {
 		return complate;
 	}
 
+	public int getTotalComplateForDayInfo() {
+		return complate + complate2 + complate3;
+	}
+
+	public int getTotalPlanCountForDayInfo() {
+		return plan + plan2 + plan3;
+	}
+
 	public void setComplate(int complate) {
 		this.complate = complate;
 	}

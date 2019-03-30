@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.widget.Toast;
 
 import com.ktrental.cm.connect.ConnectController;
 import com.ktrental.cm.connect.Connector.ConnectInterface;
@@ -11,6 +12,7 @@ import com.ktrental.cm.db.DbAsyncTask;
 import com.ktrental.cm.db.DbAsyncTask.DbAsyncResLintener;
 import com.ktrental.common.DEFINE;
 import com.ktrental.dialog.Mistery_Shopping_Dialog;
+import com.ktrental.dialog.TimePickDialog;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.CarInfoModel;
 import com.ktrental.model.TableModel;
@@ -72,8 +74,15 @@ public abstract class BaseResultFragment extends BaseFragment
                     @Override
                     public void onOk()
                     {
-                        // TODO Auto-generated method stub
-                        setChangeDate(model);
+                        TimePickDialog dialog = new TimePickDialog(mContext);
+                        dialog.setOnTimePickListener(new TimePickDialog.OnTimePickListener() {
+                            @Override
+                            public void onTimePickResult(String time, String memo) {
+                                setChangeDate(model, time, memo);
+                            }
+                        });
+                        dialog.show();
+                        Toast.makeText(mContext, "원하시는 금일의 시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     }
                 }, new OnEventCancelListener()
                 {
@@ -161,8 +170,15 @@ public abstract class BaseResultFragment extends BaseFragment
 
                         @Override
                         public void onOk() {
-                            // TODO Auto-generated method stub
-                            setChangeDate(model);
+                            TimePickDialog dialog = new TimePickDialog(mContext);
+                            dialog.setOnTimePickListener(new TimePickDialog.OnTimePickListener() {
+                                @Override
+                                public void onTimePickResult(String time, String memo) {
+                                    setChangeDate(model, time, memo);
+                                }
+                            });
+                            dialog.show();
+                            Toast.makeText(mContext, "원하시는 금일의 시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
                         }
                     }, new OnEventCancelListener() {
 
@@ -355,10 +371,9 @@ public abstract class BaseResultFragment extends BaseFragment
         return baseMaintenanceModels;
     }
 
-    private void setChangeDate(final BaseMaintenanceModel model)
+    private void setChangeDate(final BaseMaintenanceModel model, String time, String memo)
     {
-        ConnectController connectController = new ConnectController(new ConnectInterface()
-        {
+        ConnectController connectController = new ConnectController(new ConnectInterface() {
 
             @Override
             public void reDownloadDB(String newVersion)
@@ -383,7 +398,7 @@ public abstract class BaseResultFragment extends BaseFragment
                 }
             }
         }, mContext);
-//        connectController.setZMO_1050_WR04(CommonUtil.getCurrentDay(), , getTable(model));
+        connectController.setZMO_1050_WR04(model.getREQNO(), CommonUtil.getCurrentDay(), time, memo, model.getATVYN(), getTable(model));
         showProgress("예정일을 변경 중 입니다.");
     }
 

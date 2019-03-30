@@ -91,9 +91,9 @@ public class Maintenance_Date_Adapter extends
 
 			if (repairPlanModel != null ) {
 				date_ViewHolder.tvComplate.setText(""
-						+ repairPlanModel.getComplate());
+						+ repairPlanModel.getTotalComplateForDayInfo());
 				date_ViewHolder.tvPlan.setText(" / "
-						+ repairPlanModel.getPlan());
+						+ repairPlanModel.getTotalPlanCountForDayInfo());
 			} else {
 				date_ViewHolder.tvComplate.setText("" + 0);
 				date_ViewHolder.tvPlan.setText(" / " + 0);

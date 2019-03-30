@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ktrental.R;
 import com.ktrental.cm.connect.ConnectController;
@@ -62,7 +63,6 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
 
         pwm = new Popup_Window_Multy(mContext);
 
-
     }
 
     @Override
@@ -89,7 +89,7 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
             public void onClick(View v) {
                 mCc = new ConnectController(IoTCancelPopup.this, mContext);
                 showProgress("조회 중입니다.");
-                mCc.getZMO_1020_WR01(mReqNo, "", mDetailMemo.getText().toString());
+                mCc.getZMO_1020_WR01(mReqNo, mSpReason.getTag().toString(), mDetailMemo.getText().toString());
             }
         });
 
@@ -99,20 +99,9 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
         mSpReason.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pwm.show("PM307", mSpReason, true);
+                pwm.show("PM307", mSpReason);
             }
         });
-
-        //TODO 윤승 pwm.show("PM111", bt_group1, true); 이거 참조!!
-//        List<String> reasonList = new ArrayList<>();
-//        reasonList.add("선택해주세요");
-//        reasonList.add("고객요청");
-//        reasonList.add("예약변경");
-//        reasonList.add("단순변심");
-//        reasonList.add("연락두절");
-//        reasonList.add("기타");
-//
-//        mSpReason.setAdapter(new ReasonListAdapter(reasonList));
 
     }
 
@@ -120,30 +109,15 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
     public void dismiss() {
         super.dismiss();
 
-        // FragmentTransaction transaction = getFragmentManager()
-        // .beginTransaction();
-        // transaction.detach(this);
-        // transaction.commit();
-        // getChildFragmentManager().executePendingTransactions();
-        // onDetach();
-        // onDestroy();
     }
-
 
 
     @Override
     public void connectResponse(String FuntionName, String resultText, String MTYPE, int resulCode, TableModel tableModel) {
         hideProgress();
 
-        if (MTYPE.trim().equals("S")) {
-            Log.e("yunseung", FuntionName);
-            Log.e("yunseung", resultText);
-            Log.e("yunseung", MTYPE);
-            Log.e("yunseung", resulCode + "");
-            Log.e("yunseung", FuntionName);
-        } else {
-            // ?????????????????????????????????????????? 어쩔까
-        }
+        Toast.makeText(mContext, resultText, Toast.LENGTH_SHORT).show();
+        dismiss();
     }
 
     @Override
@@ -152,134 +126,51 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
     }
 
 
-
-
-
-
-    public void showProgress(String message)
-    {
-        if (mProgressPopup != null)
-        {
+    public void showProgress(String message) {
+        if (mProgressPopup != null) {
             mProgressPopup.setMessage(message);
-            if (mRootView != null)
-            {
+            if (mRootView != null) {
                 // CommonUtil.showCallStack();
-                mRootView.post(new Runnable()
-                {
+                mRootView.post(new Runnable() {
 
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         // TODO Auto-generated method stub
-                        try
-                        {
-                            if (mProgressPopup != null)
-                            {
+                        try {
+                            if (mProgressPopup != null) {
                                 mProgressPopup.show();
                             }
-                        }
-                        catch (WindowManager.BadTokenException e)
-                        {
+                        } catch (WindowManager.BadTokenException e) {
                             // TODO: handle exception
-                        }
-                        catch (IllegalStateException e)
-                        {
+                        } catch (IllegalStateException e) {
                             // TODO: handle exception
                         }
 
                     }
                 });
 
-            }
-            else
-            {
+            } else {
                 mProgressPopup.show();
             }
         }
     }
 
-    public void hideProgress()
-    {
-        if (mProgressPopup != null)
-        {
-            if (mRootView != null)
-            {
-                mRootView.post(new Runnable()
-                {
+    public void hideProgress() {
+        if (mProgressPopup != null) {
+            if (mRootView != null) {
+                mRootView.post(new Runnable() {
 
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         if (mProgressPopup != null && mProgressPopup.isShowing()) {
                             mProgressPopup.dismiss();
                         }
                     }
                 });
 
-            }
-            else
-            {
+            } else {
                 mProgressPopup.hide();
             }
-        }
-    }
-
-
-    public class ReasonListAdapter extends BaseAdapter {
-        private List<String> mReasonList;
-        private ViewHolder mViewHolder = null;
-
-        public ReasonListAdapter(List<String> list) {
-            mReasonList = list;
-        }
-
-        @Override
-        public int getCount() {
-            return mReasonList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return mReasonList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.iot_cancel_row, null);
-                mViewHolder = new ViewHolder();
-                mViewHolder.tv = (TextView) convertView.findViewById(R.id.tv_reason);
-                convertView.setTag(mViewHolder);
-            } else {
-                mViewHolder = (ViewHolder)convertView.getTag();
-            }
-
-            mViewHolder.tv.setText(mReasonList.get(position));
-            return convertView;
-        }
-
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.iot_cancel_row, null);
-                mViewHolder = new ViewHolder();
-                mViewHolder.tv = (TextView) convertView.findViewById(R.id.tv_reason);
-                convertView.setTag(mViewHolder);
-            } else {
-                mViewHolder = (ViewHolder)convertView.getTag();
-            }
-
-            mViewHolder.tv.setText(mReasonList.get(position));
-            return convertView;
-        }
-
-        class ViewHolder {
-            public TextView tv = null;
         }
     }
 }

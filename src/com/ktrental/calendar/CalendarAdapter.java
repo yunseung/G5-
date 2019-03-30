@@ -174,13 +174,8 @@ public class CalendarAdapter extends BaseCommonAdapter<RepairDayInfoModel> imple
 			}
 
 			if (planModel != null) {
-				dayViewHolder.tvHandle.setText("" + planModel.getComplate());
-				dayViewHolder.tvPlan.setText("/" + planModel.getPlan());
-
-				kog.e("KDH", "planModel.getComplate() = " + planModel.getComplate());
-				kog.e("KDH", "planModel.getPlan() = " + planModel.getPlan());
-				kog.e("KDH", "planModel.getCurrentDay() = " + day.getCurrentDay());
-
+				dayViewHolder.tvHandle.setText("" + planModel.getTotalComplateForDayInfo());
+				dayViewHolder.tvPlan.setText("/" + planModel.getTotalPlanCountForDayInfo());
 			} else {
 				if (day.isInMonth()) {
 					dayViewHolder.tvHandle.setText("" + 0);
