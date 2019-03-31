@@ -44,6 +44,7 @@ import com.ktrental.popup.EventPopupC;
 import com.ktrental.popup.SMSPopup;
 import com.ktrental.product.BaseActivity;
 import com.ktrental.util.CommonUtil;
+import com.ktrental.util.OnEventOkListener;
 import com.ktrental.util.kog;
 import com.ktrental.viewholder.BaseMaintenanceViewHolder;
 
@@ -802,22 +803,21 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
         //TODO 윤승
         if (model.getATVYN().equals("A")) { // IOT
-            //if (CCMSTS가 E0001 이거나 E0002 일때) 체크 가능
-            // else 불가능
+            return true;
         }
 
-        if (aufnr.trim().isEmpty())  {
-//            EventPopupC epc = new EventPopupC(mContext);
-//            epc.show("정비번호가 없습니다. MOT 에 문의해 주세요.");
+        if (aufnr.trim().isEmpty() && !model.getATVYN().equals("A"))  {
+            EventPopupC epc = new EventPopupC(mContext);
+            epc.show("정비번호가 없습니다. MOT 에 문의해 주세요.");
 
-            // showEventPopup2(new OnEventOkListener() {
-            //
-            // @Override
-            // public void onOk() {
-            // // TODO Auto-generated method stub
-            //
-            // }
-            // }, "정비번호가 없습니다. MOT 에 문의해 주세요.");
+             showEventPopup2(new OnEventOkListener() {
+
+             @Override
+             public void onOk() {
+             // TODO Auto-generated method stub
+
+             }
+             }, "정비번호가 없습니다. MOT 에 문의해 주세요.");
             return true;
         }
         // EventPopupC epc = new EventPopupC(mContext);

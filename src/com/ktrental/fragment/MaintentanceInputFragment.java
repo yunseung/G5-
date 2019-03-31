@@ -557,12 +557,15 @@ public class MaintentanceInputFragment extends BaseFragment
 		mItemAdapter.initSelectedMaintenanceItem(tempModels);
 		mLastItemAdapter.initSelectedMaintenanceArray();
 		mLastItemAdapter.setData(mLastItemModels);
-		mLastTotalPrice = 0;
-		for (MaintenanceItemModel model : mLastItemModels) {
-			mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
-		}
 
-		mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
+		if (mCarInfoModel.get_gubun().equals("A")) {
+			mLastTotalPrice = 0;
+			for (MaintenanceItemModel model : mLastItemModels) {
+				mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+			}
+
+			mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
+		}
 		initLastEmpty();
 	}
 
@@ -640,12 +643,15 @@ public class MaintentanceInputFragment extends BaseFragment
 		mItemAdapter.initSelectedMaintenanceArray();
 		mLastItemAdapter.setData(mLastItemModels);
 
-		mLastTotalPrice = 0;
-		for (MaintenanceItemModel model : mLastItemModels) {
-			mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+		if (mCarInfoModel.get_gubun().equals("A")) {
+			mLastTotalPrice = 0;
+			for (MaintenanceItemModel model : mLastItemModels) {
+				mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+			}
+			mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
 		}
 
-		mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
+
 		mLastItemAdapter.notifyDataSetChanged();
 	}
 
