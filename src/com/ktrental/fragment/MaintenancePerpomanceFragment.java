@@ -1,6 +1,8 @@
 package com.ktrental.fragment;
 
+import android.graphics.Point;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -260,17 +263,24 @@ public class MaintenancePerpomanceFragment extends BaseRepairFragment implements
 	}
 
 	private void drawGraph(ImageView iv, int count) {
-		// int size = 250 * count / 100;
-		// LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) iv
-		// .getLayoutParams();
-		// lp.width = 45;
-		// lp.height = size;
-		// myung 20131206 정비현황조회 그래프 사이즈 2560 대응
-		// if(DEFINE.DISPLAY.equals("2560")){
-		// lp.width *= 2;
-		// lp.height *= 2;
-		// }
-		// iv.setLayoutParams(lp);
+		Display display = getActivity().getWindowManager().getDefaultDisplay();
+
+		Point size2 = new Point();
+		display.getSize(size2);
+		int width = size2.x;
+		int height = size2.y;
+
+		int size = 250 * count / 100;
+		LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) iv
+				.getLayoutParams();
+		lp.width = 45;
+		lp.height = size;
+//     myung 20131206 정비현황조회 그래프 사이즈 2560 대응
+		if(width == 2048){
+			lp.width *= 2;
+			lp.height *= 2;
+		}
+		iv.setLayoutParams(lp);
 		if(mContext != null) {
 			Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.graph_up_animation);
 			iv.startAnimation(animation);
