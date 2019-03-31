@@ -138,11 +138,23 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             viewHolder.tvAgreement.setText(RepairPlanModel.getProgressStatus(model.getProgress_status()));
 
 
+
+            // 2017-06-02. hjt 지연일수 추가
+            // 2017-06-08. 지연일수 0이면 안보이도록
+            if(model != null) {
+                if(model.getDelay() != null && !model.getDelay().equals("0")) {
+                    viewHolder.tvDelay.setText("지연일수 : " + model.getDelay());
+                    viewHolder.tvDelay.setVisibility(View.VISIBLE);
+                } else {
+                    viewHolder.tvDelay.setVisibility(View.GONE);
+                }
+            }
+
             // IOT ODM 고급형에 따른 UI 변경
             if (model.get_gubun().trim().isEmpty()) {
                 viewHolder.tvGubun.setVisibility(View.INVISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
-                viewHolder.tvDelay.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
             } else if (model.get_gubun().equals("A")) {
                 viewHolder.tvGubun.setVisibility(View.VISIBLE);
@@ -156,17 +168,6 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.tvDelay.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
                 viewHolder.tvGubun.setText("ODM");
-
-                // 2017-06-02. hjt 지연일수 추가
-                // 2017-06-08. 지연일수 0이면 안보이도록
-                if(model != null) {
-                    if(model.getDelay() != null && !model.getDelay().equals("0")) {
-                        viewHolder.tvDelay.setText("지연일수 : " + model.getDelay());
-                        viewHolder.tvDelay.setVisibility(View.VISIBLE);
-                    } else {
-                        viewHolder.tvDelay.setVisibility(View.GONE);
-                    }
-                }
             }
 
             if("0".equals(model.getVocNum()))

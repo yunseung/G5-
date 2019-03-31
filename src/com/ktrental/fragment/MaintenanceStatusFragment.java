@@ -956,7 +956,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
                 colums);
 
         dbQueryModel.setOrderBy(
-                "  case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
+                "gubun DESC,  case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
 
         DbAsyncTask dbAsyncTask = new DbAsyncTask(currentDay, mContext, this, dbQueryModel);
         mAsyncMap.put(currentDay, dbAsyncTask);

@@ -1804,7 +1804,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 				ConnectController.REPAIR_TABLE_NAME, _whereCause, _whereArgs,
 				colums);
 		dbQueryModel
-				.setOrderBy("  case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
+				.setOrderBy("gubun DESC, case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
 		DbAsyncTask dbAsyncTask = new DbAsyncTask(DriverName, mContext,
 				new DbAsyncResLintener() {
 

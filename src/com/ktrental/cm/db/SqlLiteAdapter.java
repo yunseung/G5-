@@ -877,9 +877,6 @@ public class SqlLiteAdapter {
             PrintLog.Print("SQLiteException", e.getMessage());
         }
 
-        if (dbQueryModel.getTableName().equals(ConnectController.REPAIR_TABLE_NAME)) {
-            Log.e("yunseung", "쿼리문 ?? :: " + dbQueryModel.getTableName() + " " + dbQueryModel.getColums().toString() + " " + whereCause + " " + dbQueryModel.getWhereArgs() + " " + orderBy);
-        }
         return reCursor;
 
     }

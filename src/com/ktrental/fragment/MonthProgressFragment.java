@@ -1269,7 +1269,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         dbQueryModel.setOrderBy("GSTRS asc");
         dbQueryModel.setOrderBy(
-                "GSTRS asc,  case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
+                "gubun DESC, GSTRS asc,  case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
 
         DbAsyncTask dbAsyncTask = new DbAsyncTask(currentDay, mContext, this, dbQueryModel);
         mAsyncMap.put(currentDay, dbAsyncTask);
@@ -1477,8 +1477,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         mTvPlan.setText(getPlan());
         mTvPlan2.setText(getPlan2());
         mTvPlan3.setText(getPlan3());
-
-        Log.e("++++", "1 : " + getComplate() + "  1 : " + getComplate2() + "  1 : " + getComplate3() + "  1 : " + getPlan() + "  1 : " + getPlan2() + "  1 : " + getPlan3() );
 
         int val1 = Integer.parseInt(getPlan()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate()) / Double.parseDouble(getPlan())) * 100);
         int val2 = Integer.parseInt(getPlan2()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate2()) / Double.parseDouble(getPlan2())) * 100);
