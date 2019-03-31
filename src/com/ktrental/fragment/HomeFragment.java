@@ -843,9 +843,9 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
             int plan2 = Integer.valueOf(getPlan2());
             int plan3 = Integer.valueOf(getPlan3());
 
-            int degree = 100 * complate / plan;
-            int degree2 = 100 * complate2 / plan2;
-            int degree3 = 100 * complate3 / plan3;
+            int degree = (int)Math.round(((double)complate / (double)plan) * 100);
+            int degree2 = (int)Math.round(((double)complate2 / (double)plan2) * 100);
+            int degree3 = (int)Math.round(((double)complate3 / (double)plan3) * 100);
 
             if (mTvDegree != null)
                 mTvDegree.setText("" + degree + " %");

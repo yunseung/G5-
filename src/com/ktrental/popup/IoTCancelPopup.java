@@ -87,6 +87,10 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
         mRootView.findViewById(R.id.btn_registration).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mSpReason.getTag() == null) {
+                    Toast.makeText(mContext, "사유를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 mCc = new ConnectController(IoTCancelPopup.this, mContext);
                 showProgress("조회 중입니다.");
                 mCc.getZMO_1020_WR01(mReqNo, mSpReason.getTag().toString(), mDetailMemo.getText().toString());

@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -435,7 +437,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         mBarChart.getDescription().setEnabled(false);
         mBarChart.getLegend().setEnabled(false);
         mBarChart.setFitBars(false);
-        mBarChart.animateXY(1000, 10000);
+        mBarChart.animateXY(300, 3000);
         mBarChart.getXAxis().setDrawGridLines(false);
         mBarChart.getXAxis().setDrawAxisLine(false);
         mBarChart.getXAxis().setDrawLabels(false);
@@ -1118,15 +1120,13 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         }
 
 
-        //TODO 하는중..
-        RepairPlanModel.getProgressStatus(arr.get(0).getProgress_status());
-
-//        if (arr.get(0).getATVYN().equals("A") && arr.get(0).getAUFNR().trim().isEmpty()) {
-//            IoTCancelPopup popup = new IoTCancelPopup(mContext, arr.get(0).getREQNO());
-//            popup.show();
-//        } else {
-//            showEventPopup2(null, "IoT 정비취소 가능 상태가 아닙니다.");
-//        }
+        // iot 건 중에서도 상태에 따라 취소가 불가능한 건이 있지만 그 상황은 rfc 에서 return text 로 내려주기 때문에 여기서 막을 필요는 없어보임.
+        if (arr.get(0).getATVYN().equals("A")) {
+            IoTCancelPopup popup = new IoTCancelPopup(mContext, arr.get(0).getREQNO());
+            popup.show();
+        } else {
+            Toast.makeText(mContext, "IoT 건을 선택해주세요.", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -1478,9 +1478,11 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         mTvPlan2.setText(getPlan2());
         mTvPlan3.setText(getPlan3());
 
-        int val1 = Integer.parseInt(getPlan()) == 0 ? 0 : Integer.parseInt(getComplate()) / Integer.parseInt(getPlan());
-        int val2 = Integer.parseInt(getPlan2()) == 0 ? 0 : Integer.parseInt(getComplate2()) / Integer.parseInt(getPlan2());
-        int val3 = Integer.parseInt(getPlan3()) == 0 ? 0 : Integer.parseInt(getComplate3()) / Integer.parseInt(getPlan3());
+        Log.e("++++", "1 : " + getComplate() + "  1 : " + getComplate2() + "  1 : " + getComplate3() + "  1 : " + getPlan() + "  1 : " + getPlan2() + "  1 : " + getPlan3() );
+
+        int val1 = Integer.parseInt(getPlan()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate()) / Double.parseDouble(getPlan())) * 100);
+        int val2 = Integer.parseInt(getPlan2()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate2()) / Double.parseDouble(getPlan2())) * 100);
+        int val3 = Integer.parseInt(getPlan3()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate3()) / Double.parseDouble(getPlan3())) * 100);
 
         drawBarGraph(val1, val2, val3, 0);
 

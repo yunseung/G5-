@@ -18,6 +18,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ktrental.R;
 import com.ktrental.adapter.MaintenanceAdapter;
@@ -500,10 +501,16 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
         if (arr.size() > 1) {
             showEventPopup2(null, "IoT 정비취소는 단건만 진행 가능합니다. 한 건만 선택해주세요.");
+            return;
         }
 
-        IoTCancelPopup popup = new IoTCancelPopup(mContext, arr.get(0).getREQNO());
-        popup.show();
+        // iot 건 중에서도 상태에 따라 취소가 불가능한 건이 있지만 그 상황은 rfc 에서 return text 로 내려주기 때문에 여기서 막을 필요는 없어보임.
+        if (arr.get(0).getATVYN().equals("A")) {
+            IoTCancelPopup popup = new IoTCancelPopup(mContext, arr.get(0).getREQNO());
+            popup.show();
+        } else {
+            Toast.makeText(mContext, "IoT 건을 선택해주세요.", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
