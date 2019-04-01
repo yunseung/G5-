@@ -3,6 +3,7 @@ package com.ktrental.fragment;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -272,7 +273,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 		cc = new ConnectController(this, mContext);
 
-		Log.e("+++", "+++" + mCarInfoModel.get_gubun() + "---");
+
 		//2017-11-28. hjt 순회점검일 경우엔 아이템이 다르다.
 		if (mCarInfoModel != null) {
 			String period = mCarInfoModel.getTourMainenancePeriod();
@@ -280,9 +281,14 @@ public class MaintentanceInputFragment extends BaseFragment
 				isInspect = true;
 				mItemAdapter.setIsIspect(true);
 				cc.getZMO_1020_RD05(mCarInfoModel.getCarNum());
-			} else if (mCarInfoModel.get_gubun().equals("A")) {
-				cc.getZMO_1020_RD08(mCarInfoModel.getCarNum(), mCarInfoModel.getMINVNR());
-			} else {
+			} else if (mCarInfoModel.get_gubun() != null) {
+				if (mCarInfoModel.get_gubun().equals("A")) {
+					cc.getZMO_1020_RD08(mCarInfoModel.getCarNum(), mCarInfoModel.getMINVNR());
+				} else {
+					isInspect = false;
+					queryGroup(); // 보통의 경우 여기로 들어오는거같다.
+				}
+			}  else {
 				isInspect = false;
 				queryGroup(); // 보통의 경우 여기로 들어오는거같다.
 			}
@@ -291,10 +297,16 @@ public class MaintentanceInputFragment extends BaseFragment
 			queryGroup();
 		}
 
-		if (mCarInfoModel.get_gubun().equals("A")) {
-			mTvTitlePrice1.setVisibility(View.VISIBLE);
-			mTvTitlePrice2.setVisibility(View.VISIBLE);
-			mLlLastTotalArea.setVisibility(View.VISIBLE);
+		if (mCarInfoModel.get_gubun() != null) {
+			if (mCarInfoModel.get_gubun().equals("A")) {
+				mTvTitlePrice1.setVisibility(View.VISIBLE);
+				mTvTitlePrice2.setVisibility(View.VISIBLE);
+				mLlLastTotalArea.setVisibility(View.VISIBLE);
+			} else {
+				mTvTitlePrice1.setVisibility(View.GONE);
+				mTvTitlePrice2.setVisibility(View.GONE);
+				mLlLastTotalArea.setVisibility(View.GONE);
+			}
 		} else {
 			mTvTitlePrice1.setVisibility(View.GONE);
 			mTvTitlePrice2.setVisibility(View.GONE);
@@ -558,13 +570,15 @@ public class MaintentanceInputFragment extends BaseFragment
 		mLastItemAdapter.initSelectedMaintenanceArray();
 		mLastItemAdapter.setData(mLastItemModels);
 
-		if (mCarInfoModel.get_gubun().equals("A")) {
-			mLastTotalPrice = 0;
-			for (MaintenanceItemModel model : mLastItemModels) {
-				mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
-			}
+		if (mCarInfoModel.get_gubun() != null) {
+			if (mCarInfoModel.get_gubun().equals("A")) {
+				mLastTotalPrice = 0;
+				for (MaintenanceItemModel model : mLastItemModels) {
+					mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+				}
 
-			mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
+				mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
+			}
 		}
 		initLastEmpty();
 	}
@@ -643,13 +657,16 @@ public class MaintentanceInputFragment extends BaseFragment
 		mItemAdapter.initSelectedMaintenanceArray();
 		mLastItemAdapter.setData(mLastItemModels);
 
-		if (mCarInfoModel.get_gubun().equals("A")) {
-			mLastTotalPrice = 0;
-			for (MaintenanceItemModel model : mLastItemModels) {
-				mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+		if (mCarInfoModel.get_gubun() != null) {
+			if (mCarInfoModel.get_gubun().equals("A")) {
+				mLastTotalPrice = 0;
+				for (MaintenanceItemModel model : mLastItemModels) {
+					mLastTotalPrice += (Integer.parseInt(model.getNETPR().replace(",", "")) * model.getConsumption());
+				}
+				mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
 			}
-			mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
 		}
+
 
 
 		mLastItemAdapter.notifyDataSetChanged();

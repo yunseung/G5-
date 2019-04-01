@@ -270,8 +270,8 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 			break;
 
 		case R.id.bt_search_tmp:
-			
-			showCarSearchDialog("", false) ;
+			// yunseung 여기 호출 안됨.. view 의 상태가 gone 이고,... 풀어주는 곳도 없음.
+			showCarSearchDialog("", 1) ;
 			
 			break;
 			
@@ -404,22 +404,8 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 	}
 	
 	
-	private void showCarSearchDialog(String aufnr, boolean isCheck2) {
-		if(isCheck2) {
-			final MaintenanceCheckListDialog2 ptcd = new MaintenanceCheckListDialog2(mContext, aufnr);
-			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
-			ptcd.setTitle("순회정비차량 점검표");
-			ptcd.setDone("확인");
-
-			bt_done_car.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					ptcd.dismiss();
-				}
-			});
-
-			ptcd.show();
-		} else {
+	private void showCarSearchDialog(String aufnr, int type) {
+		if(type == 1) {
 			final MaintenanceCheckListDialog ptcd = new MaintenanceCheckListDialog(mContext, aufnr);
 			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
 			ptcd.setTitle("순회정비차량 점검표");
@@ -433,6 +419,34 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 			});
 
 			ptcd.show();
+		} else if ( type == 2){
+			final MaintenanceCheckListDialog2 ptcd = new MaintenanceCheckListDialog2(mContext, aufnr);
+			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
+			ptcd.setTitle("순회정비차량 점검표");
+			ptcd.setDone("확인");
+
+			bt_done_car.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					ptcd.dismiss();
+				}
+			});
+
+			ptcd.show();
+		} else if (type == 3) {
+//			final MaintenanceCheckListDialog3 ptcd = new MaintenanceCheckListDialog3(mContext, aufnr);
+//			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
+//			ptcd.setTitle("순회정비차량 점검표");
+//			ptcd.setDone("확인");
+//
+//			bt_done_car.setOnClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					ptcd.dismiss();
+//				}
+//			});
+//
+//			ptcd.show();
 		}
 
 	}
@@ -552,12 +566,15 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 					String cycmnt = tmpSlcurprg.get(position).get("CYCMNT");
 					// 2017-11-28. hjt. 순회정비가 아닌 순회점검여부
 					boolean check2 = false;
+					int type = 1;
 					if(cycmnt != null){
 						if(cycmnt.contains("점검")){
-							check2 = true;
+							type = 2;
+						} else if (cycmnt.toLowerCase().trim().contains("iot")) {
+							type = 3;
 						}
 					}
-					showCarSearchDialog(tmpSlcurprg.get(position).get("AUFNR"), check2) ;
+					showCarSearchDialog(tmpSlcurprg.get(position).get("AUFNR"), type) ;
 					
 					
 				}

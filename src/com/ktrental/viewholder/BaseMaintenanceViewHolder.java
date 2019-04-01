@@ -27,7 +27,7 @@ public class BaseMaintenanceViewHolder {
 	public TextView tvDelay;
 	public TextView tvODC;
 
-	public TextView tvGubun;
+	public TextView tvIoT;
 	public Button btnTroubleHistory;
 	public Button btnReqIot;
 	public Button btnReq1;

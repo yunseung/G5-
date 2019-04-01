@@ -138,11 +138,13 @@ public class MaintenanceItemAdapter extends BaseCommonAdapter<MaintenanceItemMod
 			itemViewHolder.tvStock.setText("" + val);
 			itemViewHolder.tvName.setText(model.getName());
 
-			if (mGubun.equals("A")) {
-				itemViewHolder.tvPrice.setVisibility(View.VISIBLE);
-				itemViewHolder.tvPrice.setText(model.getNETPR());
-			} else {
-				itemViewHolder.tvPrice.setVisibility(View.GONE);
+			if (mGubun != null) {
+				if (mGubun.equals("A")) {
+					itemViewHolder.tvPrice.setVisibility(View.VISIBLE);
+					itemViewHolder.tvPrice.setText(model.getNETPR());
+				} else {
+					itemViewHolder.tvPrice.setVisibility(View.GONE);
+				}
 			}
 
 		}

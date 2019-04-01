@@ -90,7 +90,7 @@
                 android:visibility="gone"/>
 
             <TextView
-                android:id="@+id/gubun"
+                android:id="@+id/tv_iot_info"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="24dp"

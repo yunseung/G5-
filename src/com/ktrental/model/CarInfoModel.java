@@ -259,7 +259,10 @@ public class CarInfoModel extends BaseMaintenanceModel {
 	}
 
 	public String get_gubun() {
-		return _gubun;
+		if (_gubun != null)
+			return _gubun;
+		else
+			return null;
 	}
 
 	public String getDriverName() {	// 운전자명 받기

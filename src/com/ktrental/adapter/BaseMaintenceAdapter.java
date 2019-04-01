@@ -33,10 +33,7 @@ import com.ktrental.dialog.SimpleTextDialog;
 import com.ktrental.dialog.TroubleHistoryItemDialog;
 import com.ktrental.fragment.BaseRepairFragment;
 import com.ktrental.model.BaseMaintenanceModel;
-import com.ktrental.model.HomeMaintenanceModel;
 import com.ktrental.model.LoginModel;
-import com.ktrental.model.MaintenanceModel;
-import com.ktrental.model.MonthProgressModel;
 import com.ktrental.model.RepairPlanModel;
 import com.ktrental.model.TableModel;
 import com.ktrental.popup.CallSendPopup;
@@ -152,22 +149,19 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
             // IOT ODM 고급형에 따른 UI 변경
             if (model.get_gubun().trim().isEmpty()) {
-                viewHolder.tvGubun.setVisibility(View.INVISIBLE);
+                viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
-                viewHolder.tvDelay.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
             } else if (model.get_gubun().equals("A")) {
-                viewHolder.tvGubun.setVisibility(View.VISIBLE);
-                viewHolder.tvGubun.setText("IoT");
+                viewHolder.tvIoT.setVisibility(View.VISIBLE);
+                viewHolder.tvIoT.setText("IoT");
                 viewHolder.tvDelay.setVisibility(View.INVISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
             } else if (model.get_gubun().equals("O")) {
-                viewHolder.tvGubun.setVisibility(View.VISIBLE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
-                viewHolder.tvDelay.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
-                viewHolder.tvGubun.setText("ODM");
+                viewHolder.tvIoT.setVisibility(View.GONE);
             }
 
             if("0".equals(model.getVocNum()))
@@ -308,7 +302,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
 
         viewHolder.tvODC = (TextView) rootView.findViewById(R.id.tv_odc_info);
 
-        viewHolder.tvGubun = (TextView) rootView.findViewById(R.id.gubun);
+        viewHolder.tvIoT = (TextView) rootView.findViewById(R.id.tv_iot_info);
         viewHolder.btnTroubleHistory = (Button) rootView.findViewById(R.id.btn_trouble_history);
         viewHolder.btnReqIot = (Button) rootView.findViewById(R.id.btn_req_iot);
 

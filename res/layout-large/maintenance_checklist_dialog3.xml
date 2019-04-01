@@ -565,485 +565,490 @@
                             </LinearLayout>
 
 
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="61dp"-->
-                                <!--android:layout_marginLeft="30dp"-->
-                                <!--android:gravity="center_vertical"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:weightSum="15">-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_index7"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="1" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_good07"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="작업내용1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="4.7" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_outqty07"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="10" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="5" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_price07"-->
-                                    <!--android:layout_width="65dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="98,500" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="3" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_total_price07"-->
-                                    <!--android:layout_width="100dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="100,000,000" />-->
-                            <!--</LinearLayout>-->
-
-
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="61dp"-->
-                                <!--android:layout_marginLeft="30dp"-->
-                                <!--android:gravity="center_vertical"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:weightSum="15">-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_index8"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="1" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_good08"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="작업내용1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="4.7" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_outqty08"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="10" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="5" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_price08"-->
-                                    <!--android:layout_width="65dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="98,500" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="3" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_total_price08"-->
-                                    <!--android:layout_width="100dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="100,000,000" />-->
-                            <!--</LinearLayout>-->
-
-
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="61dp"-->
-                                <!--android:layout_marginLeft="30dp"-->
-                                <!--android:gravity="center_vertical"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:weightSum="15">-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_index9"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="1" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_good09"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="작업내용1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="4.7" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_outqty09"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="10" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="5" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_price09"-->
-                                    <!--android:layout_width="65dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="98,500" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="3" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_total_price09"-->
-                                    <!--android:layout_width="100dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="100,000,000" />-->
-                            <!--</LinearLayout>-->
-
-
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="61dp"-->
-                                <!--android:layout_marginLeft="30dp"-->
-                                <!--android:gravity="center_vertical"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:weightSum="15">-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_index10"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="1" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_good10"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="작업내용1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="4.7" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_outqty10"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="10" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="5" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_price10"-->
-                                    <!--android:layout_width="65dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="98,500" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="3" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_total_price10"-->
-                                    <!--android:layout_width="100dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="100,000,000" />-->
-                            <!--</LinearLayout>-->
-
-
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="61dp"-->
-                                <!--android:layout_marginLeft="30dp"-->
-                                <!--android:gravity="center_vertical"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:weightSum="15">-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_index11"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="1" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_good11"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="작업내용1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="4.7" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_outqty11"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="10" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="5" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_price11"-->
-                                    <!--android:layout_width="65dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="98,500" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="3" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_total_price11"-->
-                                    <!--android:layout_width="100dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="100,000,000" />-->
-                            <!--</LinearLayout>-->
-
-
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="61dp"-->
-                                <!--android:layout_marginLeft="30dp"-->
-                                <!--android:gravity="center_vertical"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:weightSum="15">-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_index12"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="1" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_good12"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="작업내용1" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="4.7" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_outqty12"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="10" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="5" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_price12"-->
-                                    <!--android:layout_width="65dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="98,500" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="3" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_total_price12"-->
-                                    <!--android:layout_width="100dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="100,000,000" />-->
-                            <!--</LinearLayout>-->
-
-
-                            <!--<LinearLayout-->
-                                <!--android:id="@+id/list_bottom"-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="61dp"-->
-                                <!--android:layout_marginLeft="30dp"-->
-                                <!--android:gravity="center_vertical"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:weightSum="15">-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="4.5" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_total1"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="3,725,000" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="6.25" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_vat"-->
-                                    <!--android:layout_width="80dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="372,500" />-->
-
-                                <!--<View-->
-                                    <!--android:layout_width="0dp"-->
-                                    <!--android:layout_height="match_parent"-->
-                                    <!--android:layout_weight="3" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv1"-->
-                                    <!--android:layout_width="100dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:gravity="right"-->
-                                    <!--android:text="98,500"-->
-                                    <!--android:textStyle="bold" />-->
-                            <!--</LinearLayout>-->
-
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="50dp"-->
-                                <!--android:gravity="center_vertical||right"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:paddingRight="30dp">-->
-
-                                <!--<TextView-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:text="순회정비 유의 사항 확인 "-->
-                                    <!--android:textColor="@color/contents_text"-->
-                                    <!--android:textSize="17sp"-->
-                                    <!--tools:ignore="TooManyViews" />-->
-
-
-                                <!--<ImageView-->
-                                    <!--android:id="@+id/iv_confirm_check"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="50dp"-->
-                                    <!--android:src="@drawable/check_on" />-->
-
-                            <!--</LinearLayout>-->
-
-                            <!--<LinearLayout-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="50dp"-->
-                                <!--android:orientation="horizontal"-->
-                                <!--android:paddingTop="2dp">-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_year"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:layout_marginLeft="330dp"-->
-                                    <!--android:text="2009"-->
-                                    <!--android:textColor="@color/contents_text"-->
-                                    <!--android:textSize="17sp"-->
-                                    <!--tools:ignore="TooManyViews" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_month"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:layout_marginLeft="50dp"-->
-                                    <!--android:text="03"-->
-                                    <!--android:textColor="@color/contents_text"-->
-                                    <!--android:textSize="17sp"-->
-                                    <!--tools:ignore="TooManyViews" />-->
-
-                                <!--<TextView-->
-                                    <!--android:id="@+id/tv_day"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:layout_marginLeft="42dp"-->
-                                    <!--android:text="10"-->
-                                    <!--android:textColor="@color/contents_text"-->
-                                    <!--android:textSize="17sp"-->
-                                    <!--tools:ignore="TooManyViews" />-->
-
-                            <!--</LinearLayout>-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:layout_marginLeft="30dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="15">
+
+                                <TextView
+                                    android:id="@+id/tv_index7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/tv_good07"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="작업내용1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4.7" />
+
+                                <TextView
+                                    android:id="@+id/tv_outqty07"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5" />
+
+                                <TextView
+                                    android:id="@+id/tv_price07"
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="98,500" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_price07"
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="100,000,000" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:layout_marginLeft="30dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="15">
+
+                                <TextView
+                                    android:id="@+id/tv_index8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/tv_good08"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="작업내용1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4.7" />
+
+                                <TextView
+                                    android:id="@+id/tv_outqty08"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5" />
+
+                                <TextView
+                                    android:id="@+id/tv_price08"
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="98,500" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_price08"
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="100,000,000" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:layout_marginLeft="30dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="15">
+
+                                <TextView
+                                    android:id="@+id/tv_index9"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/tv_good09"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="작업내용1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4.7" />
+
+                                <TextView
+                                    android:id="@+id/tv_outqty09"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5" />
+
+                                <TextView
+                                    android:id="@+id/tv_price09"
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="98,500" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_price09"
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="100,000,000" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:layout_marginLeft="30dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="15">
+
+                                <TextView
+                                    android:id="@+id/tv_index10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/tv_good10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="작업내용1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4.7" />
+
+                                <TextView
+                                    android:id="@+id/tv_outqty10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5" />
+
+                                <TextView
+                                    android:id="@+id/tv_price10"
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="98,500" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_price10"
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="100,000,000" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:layout_marginLeft="30dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="15">
+
+                                <TextView
+                                    android:id="@+id/tv_index11"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/tv_good11"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="작업내용1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4.7" />
+
+                                <TextView
+                                    android:id="@+id/tv_outqty11"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5" />
+
+                                <TextView
+                                    android:id="@+id/tv_price11"
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="98,500" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_price11"
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="100,000,000" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:layout_marginLeft="30dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="15">
+
+                                <TextView
+                                    android:id="@+id/tv_index12"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/tv_good12"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="작업내용1" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4.7" />
+
+                                <TextView
+                                    android:id="@+id/tv_outqty12"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5" />
+
+                                <TextView
+                                    android:id="@+id/tv_price12"
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="98,500" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_price12"
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="100,000,000" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/list_bottom"
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:layout_marginLeft="30dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="15">
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4.5" />
+
+                                <TextView
+                                    android:id="@+id/tv_total1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="3,725,000" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="6.25" />
+
+                                <TextView
+                                    android:id="@+id/tv_vat"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="372,500" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3" />
+
+                                <TextView
+                                    android:id="@+id/tv1"
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="98,500"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="30dp">
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="순회정비 유의 사항 확인 "
+                                    android:textColor="@color/contents_text"
+                                    android:textSize="17sp"
+                                    tools:ignore="TooManyViews" />
+
+
+                                <ImageView
+                                    android:id="@+id/iv_confirm_check"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="50dp"
+                                    android:src="@drawable/check_on" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:orientation="horizontal"
+                                android:paddingTop="2dp">
+
+                                <TextView
+                                    android:id="@+id/tv_year"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="330dp"
+                                    android:text="2009"
+                                    android:textColor="@color/contents_text"
+                                    android:textSize="17sp"
+                                    tools:ignore="TooManyViews" />
+
+                                <TextView
+                                    android:id="@+id/tv_month"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="50dp"
+                                    android:text="03"
+                                    android:textColor="@color/contents_text"
+                                    android:textSize="17sp"
+                                    tools:ignore="TooManyViews" />
+
+                                <TextView
+                                    android:id="@+id/tv_day"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="42dp"
+                                    android:text="10"
+                                    android:textColor="@color/contents_text"
+                                    android:textSize="17sp"
+                                    tools:ignore="TooManyViews" />
+
+                            </LinearLayout>
 
 
                             <LinearLayout
@@ -1058,7 +1063,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="330dp"
                                     android:layout_marginTop="15dp"
-                                    android:text="2009"
+                                    android:text="김윤승"
                                     android:textColor="@color/contents_text"
                                     android:textSize="17sp"
                                     tools:ignore="TooManyViews" />
