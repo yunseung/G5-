@@ -96,93 +96,99 @@
                         <TextView
                             android:id="@+id/tv_invnr"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="58dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginLeft="122dp"
-                            android:layout_marginTop="95dp"
+                            android:layout_marginTop="80dp"
+                            android:gravity="center_vertical"
                             android:text="차량번호" />
 
                         <TextView
                             android:id="@+id/tv_maktx"
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="220dp"
+                            android:layout_height="58dp"
                             android:layout_marginLeft="125dp"
-                            android:layout_marginTop="98dp"
+                            android:layout_marginTop="80dp"
                             android:layout_toRightOf="@+id/tv_invnr"
+                            android:gravity="center_vertical"
                             android:text="차명(차종)"
                             android:textSize="9sp" />
 
                         <TextView
                             android:id="@+id/tv_incml"
                             android:layout_width="130dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@id/tv_maktx"
-                            android:layout_alignBottom="@id/tv_maktx"
+                            android:layout_height="58dp"
                             android:layout_alignParentRight="true"
+                            android:layout_marginTop="80dp"
                             android:layout_marginRight="20dp"
+                            android:gravity="center_vertical"
                             android:text="주행거리"
                             android:textSize="9sp" />
 
                         <TextView
                             android:id="@+id/tv_dlsm1"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="58dp"
                             android:layout_below="@id/tv_invnr"
                             android:layout_alignLeft="@id/tv_invnr"
-                            android:layout_marginTop="45dp"
+                            android:layout_marginTop="3dp"
+                            android:gravity="center_vertical"
                             android:text="계약자명" />
 
                         <TextView
-                            android:id="@+id/tv_gstri"
+                            android:id="@+id/tv_reg_date"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="58dp"
+                            android:layout_below="@id/tv_maktx"
                             android:layout_alignBaseline="@id/tv_dlsm1"
                             android:layout_alignLeft="@id/tv_maktx"
-                            android:layout_alignBottom="@id/tv_dlsm1"
+                            android:layout_toRightOf="@id/tv_dlsm1"
+                            android:gravity="center_vertical"
                             android:text="차량등록일" />
 
                         <TextView
-                            android:id="@+id/tv_sojae"
+                            android:id="@+id/tv_repair_reserve_date"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/tv_dlsm1"
-                            android:layout_alignLeft="@+id/tv_incml"
-                            android:layout_alignBottom="@+id/tv_dlsm1"
+                            android:layout_height="58dp"
+                            android:layout_below="@id/tv_maktx"
+                            android:layout_alignBaseline="@id/tv_dlsm1"
+                            android:layout_alignLeft="@id/tv_incml"
+                            android:layout_toRightOf="@id/tv_gstri"
+                            android:gravity="center_vertical"
                             android:text="정비 예약일시"
                             android:textSize="9sp" />
 
                         <TextView
                             android:id="@+id/tv_repair_complete_date"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="58dp"
                             android:layout_below="@id/tv_dlsm1"
                             android:layout_alignLeft="@id/tv_invnr"
-                            android:layout_marginTop="120dp"
+                            android:layout_marginTop="76dp"
+                            android:gravity="center_vertical"
                             android:text="정비완료일시"
                             android:textSize="9sp" />
 
                         <TextView
                             android:id="@+id/tv_round_car"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_gstri"
-                            android:layout_alignBaseline="@id/tv_repair_complete_date"
+                            android:layout_height="58dp"
+                            android:layout_below="@id/tv_reg_date"
                             android:layout_alignLeft="@id/tv_maktx"
-                            android:layout_alignBottom="@id/tv_repair_complete_date"
-                            android:layout_marginTop="120dp"
+                            android:layout_marginTop="76dp"
+                            android:gravity="center_vertical"
                             android:text="순회차량"
                             android:textSize="9sp" />
 
                         <TextView
                             android:id="@+id/tv_repair_engineer"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_sojae"
-                            android:layout_alignBaseline="@+id/tv_repair_complete_date"
+                            android:layout_height="58dp"
+                            android:layout_below="@id/tv_repair_reserve_date"
                             android:layout_alignLeft="@+id/tv_incml"
-                            android:layout_alignBottom="@+id/tv_repair_complete_date"
-                            android:layout_marginTop="120dp"
+                            android:layout_marginTop="76dp"
+                            android:gravity="center_vertical"
                             android:text="책임정비기사"
                             android:textSize="9sp" />
 
@@ -205,7 +211,8 @@
                                     android:id="@+id/tv_index1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -216,7 +223,8 @@
                                     android:id="@+id/tv_good01"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -227,7 +235,8 @@
                                     android:id="@+id/tv_outqty01"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -239,7 +248,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -251,7 +261,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -267,7 +278,8 @@
                                     android:id="@+id/tv_index2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -278,7 +290,8 @@
                                     android:id="@+id/tv_good02"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -289,7 +302,8 @@
                                     android:id="@+id/tv_outqty02"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -301,7 +315,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -313,7 +328,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -329,7 +345,8 @@
                                     android:id="@+id/tv_index3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -340,7 +357,8 @@
                                     android:id="@+id/tv_good03"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -351,7 +369,8 @@
                                     android:id="@+id/tv_outqty03"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -363,7 +382,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -375,7 +395,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -391,7 +412,8 @@
                                     android:id="@+id/tv_index4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -402,7 +424,8 @@
                                     android:id="@+id/tv_good04"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -413,7 +436,8 @@
                                     android:id="@+id/tv_outqty04"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -425,7 +449,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -437,7 +462,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -453,7 +479,8 @@
                                     android:id="@+id/tv_index5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -464,7 +491,8 @@
                                     android:id="@+id/tv_good05"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -475,7 +503,8 @@
                                     android:id="@+id/tv_outqty05"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -487,7 +516,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -499,7 +529,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -515,7 +546,8 @@
                                     android:id="@+id/tv_index6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -526,7 +558,8 @@
                                     android:id="@+id/tv_good06"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -537,7 +570,8 @@
                                     android:id="@+id/tv_outqty06"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -549,7 +583,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -561,7 +596,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -577,7 +613,8 @@
                                     android:id="@+id/tv_index7"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -588,7 +625,8 @@
                                     android:id="@+id/tv_good07"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -599,7 +637,8 @@
                                     android:id="@+id/tv_outqty07"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -611,7 +650,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -623,7 +663,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -639,7 +680,8 @@
                                     android:id="@+id/tv_index8"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -650,7 +692,8 @@
                                     android:id="@+id/tv_good08"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -661,7 +704,8 @@
                                     android:id="@+id/tv_outqty08"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -673,7 +717,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -685,7 +730,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -701,7 +747,8 @@
                                     android:id="@+id/tv_index9"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -712,7 +759,8 @@
                                     android:id="@+id/tv_good09"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -723,7 +771,8 @@
                                     android:id="@+id/tv_outqty09"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -735,7 +784,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -747,7 +797,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -763,7 +814,8 @@
                                     android:id="@+id/tv_index10"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -774,7 +826,8 @@
                                     android:id="@+id/tv_good10"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -785,7 +838,8 @@
                                     android:id="@+id/tv_outqty10"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -797,7 +851,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -809,7 +864,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -825,7 +881,8 @@
                                     android:id="@+id/tv_index11"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -836,7 +893,8 @@
                                     android:id="@+id/tv_good11"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -847,7 +905,8 @@
                                     android:id="@+id/tv_outqty11"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -859,7 +918,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -871,7 +931,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 
@@ -887,7 +948,8 @@
                                     android:id="@+id/tv_index12"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1" />
+                                    android:text="1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -898,7 +960,8 @@
                                     android:id="@+id/tv_good12"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1" />
+                                    android:text="작업내용1"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -909,7 +972,8 @@
                                     android:id="@+id/tv_outqty12"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="10" />
+                                    android:text="10"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -921,7 +985,8 @@
                                     android:layout_width="65dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="98,500" />
+                                    android:text="98,500"
+                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="0dp"
@@ -933,7 +998,8 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
-                                    android:text="100,000,000" />
+                                    android:text="100,000,000"
+                                    android:visibility="gone" />
                             </LinearLayout>
 
 

@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="6"
                 android:textColor="#555555"
-                android:textSize="@dimen/calendar_height_other"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="/20"
                 android:textColor="#aaaaaa"
-                android:textSize="@dimen/calendar_height_other" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
