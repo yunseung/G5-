@@ -570,11 +570,16 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 					if(cycmnt != null){
 						if(cycmnt.contains("점검")){
 							type = 2;
+							showCarSearchDialog(tmpSlcurprg.get(position).get("AUFNR"), type) ;
+							return;
 						} else if (cycmnt.toLowerCase().trim().contains("iot")) {
 							type = 3;
+							showCarSearchDialog(tmpSlcurprg.get(position).get("REQNO"), type) ;
+							return;
 						}
 					}
 					showCarSearchDialog(tmpSlcurprg.get(position).get("AUFNR"), type) ;
+
 					
 					
 				}

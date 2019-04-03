@@ -60,7 +60,7 @@ public class MaintenanceAdapter extends BaseMaintenceAdapter
         MaintenanceModel model = (MaintenanceModel) getItem(position);
         if (model != null)
         {
-            viewHolder.tvTime.setText(model.getTime());
+            viewHolder.tvTime.setText(insertDot(model.getDay()) + " " + model.getTime());
             viewHolder.tvStatus.setText(model.getStatus());
             if("0".equals(model.getVocNum()))
             {
@@ -86,7 +86,6 @@ public class MaintenanceAdapter extends BaseMaintenceAdapter
         viewHolder = (MaintenanceViewHolder) rootView.getTag();
 
         viewHolder.tvTime = (TextView) rootView.findViewById(R.id.tv_dayortime);
-        viewHolder.tvTime.setVisibility(View.GONE);
         viewHolder.tvStatus = (TextView) rootView.findViewById(R.id.tv_status);
         viewHolder.tvVocInfo = (TextView) rootView.findViewById(R.id.tv_voc_info);
         
@@ -152,6 +151,18 @@ public class MaintenanceAdapter extends BaseMaintenceAdapter
         this.mTermType = aTermType;
         mFilteringFlag = true;
         filtering();
+    }
+
+    private String insertDot(String aDay) {
+        String reStr = aDay;
+        if (aDay != null || aDay.length() == 8) {
+            String year = aDay.substring(0, 4) + ".";
+            String month = aDay.substring(4, 6) + ".";
+            String day = aDay.substring(6, 8);
+
+            reStr = year + month + day;
+        }
+        return reStr;
     }
 
     @SuppressWarnings("unchecked")

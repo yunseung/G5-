@@ -30,8 +30,7 @@
 
             <TextView
                 android:id="@+id/tv_agreement"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:background="@drawable/list_infobox02"
                 android:gravity="center"
@@ -41,8 +40,7 @@
 
             <TextView
                 android:id="@+id/tv_period"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox01"
@@ -66,8 +64,7 @@
             
             <TextView
                 android:id="@+id/tv_voc_info"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox03"
@@ -78,8 +75,7 @@
 
             <TextView
                 android:id="@+id/tv_odc_info"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox05"
@@ -91,8 +87,7 @@
 
             <TextView
                 android:id="@+id/tv_iot_info"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox04"

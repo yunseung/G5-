@@ -277,6 +277,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         viewHolder.llRoot = (LinearLayout) rootView.findViewById(R.id.ll_root);
         viewHolder.tvCarNum = (TextView) rootView.findViewById(R.id.tv_carnum);
         viewHolder.tvName = (TextView) rootView.findViewById(R.id.tv_name);
+        viewHolder.tvName.setSelected(true);
         viewHolder.tvAddress = (TextView) rootView.findViewById(R.id.tv_address);
 
         viewHolder.ivCheck = (ImageView) rootView.findViewById(R.id.iv_check);

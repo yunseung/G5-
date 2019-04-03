@@ -119,6 +119,15 @@
                             android:layout_marginLeft="1dp"
                             android:layout_marginRight="1dp"
                             android:layout_weight="26"
+                            android:background="#f8d052"
+                            android:gravity="center" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_weight="26"
                             android:background="#5bb6f1"
                             android:gravity="center" />
 
@@ -129,15 +138,6 @@
                             android:layout_marginRight="1dp"
                             android:layout_weight="26"
                             android:background="#44c9ab"
-                            android:gravity="center" />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="1dp"
-                            android:layout_marginRight="1dp"
-                            android:layout_weight="26"
-                            android:background="#f8d052"
                             android:gravity="center" />
 
                     </LinearLayout>

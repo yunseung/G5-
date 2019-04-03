@@ -302,6 +302,7 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 		contentValues.put("GSTRS", SELECTED_DAY);
 		contentValues.put("AUFNR", aufnr);
 		contentValues.put("PRERQ", mMemo);
+		contentValues.put("GSUZS", mTime + "00");
 		String[] keys = new String[1];
 		keys[0] = "AUFNR";
 		DbAsyncTask dbAsyncTask = new DbAsyncTask("updateComplete",

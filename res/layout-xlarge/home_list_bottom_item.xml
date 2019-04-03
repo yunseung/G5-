@@ -33,9 +33,8 @@
 
             <TextView
                 android:id="@+id/tv_agreement"
-                android:layout_width="0dp"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
-                android:layout_weight="1"
                 android:background="@drawable/list_infobox02"
                 android:gravity="center"
                 android:text="계약종료"
@@ -44,10 +43,9 @@
 
             <TextView
                 android:id="@+id/tv_period"
-                android:layout_width="0dp"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
-                android:layout_weight="1"
                 android:background="@drawable/list_infobox01"
                 android:gravity="center"
                 android:text="장기"
@@ -56,10 +54,9 @@
 
             <TextView
                 android:id="@+id/tv_gueen2"
-                android:layout_width="0dp"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
-                android:layout_weight="1"
                 android:background="@drawable/list_infobox05"
                 android:gravity="center"
                 android:text="계약종료"
@@ -69,10 +66,9 @@
 
             <TextView
                 android:id="@+id/tv_voc_info"
-                android:layout_width="0dp"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
-                android:layout_weight="1"
                 android:background="@drawable/list_infobox03"
                 android:gravity="center"
                 android:text="VOC 내역"
@@ -81,10 +77,9 @@
 
             <TextView
                 android:id="@+id/tv_odc_info"
-                android:layout_width="0dp"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
-                android:layout_weight="1"
                 android:background="@drawable/list_infobox05"
                 android:gravity="center"
                 android:text="ODM"
@@ -94,10 +89,9 @@
 
             <TextView
                 android:id="@+id/tv_iot_info"
-                android:layout_width="0dp"
+                android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="6dp"
-                android:layout_weight="1"
                 android:background="@drawable/list_infobox04"
                 android:gravity="center"
                 android:text="IoT"

@@ -401,31 +401,26 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
     }
 
-    private void drawBarGraph(int va1, int val2, int val3, int val4) {
+    private void drawBarGraph(int va1, int val2, int val3) {
         List<BarEntry> entries1 = new ArrayList<>();
         entries1.add(new BarEntry(1, va1));
         List<BarEntry> entries2 = new ArrayList<>();
         entries2.add(new BarEntry(2, val2));
         List<BarEntry> entries3 = new ArrayList<>();
         entries3.add(new BarEntry(3, val3));
-        List<BarEntry> entries4 = new ArrayList<>();
-        entries4.add(new BarEntry(4, val4));
 
         List<IBarDataSet> bars = new ArrayList<>();
 
         BarDataSet barDataSet1 = new BarDataSet(entries1, "first");
-        barDataSet1.setColor(0XFF5BB6F1);
+        barDataSet1.setColor(0XFFF8D052);
         BarDataSet barDataSet2 = new BarDataSet(entries2, "second");
-        barDataSet2.setColor(0XFF44C0AB);
+        barDataSet2.setColor(0XFF5BB6F1);
         BarDataSet barDataSet3 = new BarDataSet(entries3, "third");
-        barDataSet3.setColor(0XFFF8D052);
-        BarDataSet barDataSet4 = new BarDataSet(entries4, "fourth");
-        barDataSet4.setColor(0XFF7B8289);
+        barDataSet3.setColor(0XFF44C0AB);
 
         bars.add(barDataSet1);
         bars.add(barDataSet2);
         bars.add(barDataSet3);
-        bars.add(barDataSet4);
 
         BarData barData = new BarData(bars);
 //		barData.setDrawValues(false);
@@ -1269,7 +1264,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         dbQueryModel.setOrderBy("GSTRS asc");
         dbQueryModel.setOrderBy(
-                "gubun DESC, GSTRS asc,  case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
+                "gubun DESC, GSTRS asc, GSUZS ASC, case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
 
         DbAsyncTask dbAsyncTask = new DbAsyncTask(currentDay, mContext, this, dbQueryModel);
         mAsyncMap.put(currentDay, dbAsyncTask);
@@ -1482,7 +1477,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         int val2 = Integer.parseInt(getPlan2()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate2()) / Double.parseDouble(getPlan2())) * 100);
         int val3 = Integer.parseInt(getPlan3()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate3()) / Double.parseDouble(getPlan3())) * 100);
 
-        drawBarGraph(val1, val2, val3, 0);
+        drawBarGraph(val1, val2, val3);
 
         int complate = Integer.valueOf(getComplate());
         int plan = Integer.valueOf(getPlan());
