@@ -260,9 +260,10 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/tv_notimplemeneted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="0"
                     android:textColor="#555555"
                     android:layout_marginLeft="5dp"
                     android:textSize="13dp"
@@ -277,9 +278,10 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/tv_long_notimplemented"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="0"
                     android:textColor="#555555"
                     android:layout_marginLeft="5dp"
                     android:textSize="13dp"

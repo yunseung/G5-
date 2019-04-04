@@ -602,7 +602,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="9dp"
             android:layout_weight="16"
             android:gravity="center"
             android:orientation="horizontal">
@@ -640,6 +639,55 @@
                 android:layout_weight="24"
                 android:gravity="center"
                 android:text="29"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="9dp"
+            android:layout_weight="16"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="28"
+                android:gravity="center"
+                android:text="긴급"
+                android:textColor="#555555"
+                android:textSize="6.5dp" />
+
+            <TextView
+                android:id="@+id/tv_monthly_emergency"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_monthly_emergency2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#323232"
+                android:textSize="10.5dp" />
+
+            <TextView
+                android:id="@+id/tv_monthly_emergency3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="24"
+                android:gravity="center"
+                android:text="10"
                 android:textColor="#323232"
                 android:textSize="10.5dp" />
 

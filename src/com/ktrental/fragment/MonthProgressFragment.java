@@ -104,6 +104,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     private Button mBtnSearch;
     private TextView mTvPlan, mTvPlan2, mTvPlan3;
     private TextView mTvComplate, mTvComplate2, mTvComplate3;
+    private TextView mTvNotImplemented, mTvNotLongImplemented;
     private Button mBtnDelText;
 
     private Button BtnDate; // 예정일변경 버튼
@@ -314,6 +315,8 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         mTvPlan2 = (TextView) root.findViewById(R.id.tv_month_plan2);
         mTvComplate3 = (TextView) root.findViewById(R.id.tv_month_complate3);
         mTvPlan3 = (TextView) root.findViewById(R.id.tv_month_plan3);
+        mTvNotImplemented = (TextView) root.findViewById(R.id.tv_notimplemeneted);
+        mTvNotLongImplemented = (TextView) root.findViewById(R.id.tv_long_notimplemented);
 
         root.findViewById(R.id.btn_notimplemented).setOnClickListener(this);
 
@@ -1472,6 +1475,8 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         mTvPlan.setText(getPlan());
         mTvPlan2.setText(getPlan2());
         mTvPlan3.setText(getPlan3());
+        mTvNotImplemented.setText(getNotImplemetned());
+        mTvNotLongImplemented.setText(getNotLongImplemetned());
 
         int val1 = Integer.parseInt(getPlan()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate()) / Double.parseDouble(getPlan())) * 100);
         int val2 = Integer.parseInt(getPlan2()) == 0 ? 0 : (int)Math.round((Double.parseDouble(getComplate2()) / Double.parseDouble(getPlan2())) * 100);

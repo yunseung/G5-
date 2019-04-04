@@ -27,6 +27,7 @@ import com.ktrental.common.KtRentalApplication;
 import com.ktrental.dialog.Customer_Search_Dialog;
 import com.ktrental.dialog.MaintenanceCheckListDialog;
 import com.ktrental.dialog.MaintenanceCheckListDialog2;
+import com.ktrental.dialog.MaintenanceCheckListDialog3;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.LoginModel;
 import com.ktrental.model.TableModel;
@@ -434,19 +435,19 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 
 			ptcd.show();
 		} else if (type == 3) {
-//			final MaintenanceCheckListDialog3 ptcd = new MaintenanceCheckListDialog3(mContext, aufnr);
-//			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
-//			ptcd.setTitle("순회정비차량 점검표");
-//			ptcd.setDone("확인");
-//
-//			bt_done_car.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					ptcd.dismiss();
-//				}
-//			});
-//
-//			ptcd.show();
+			final MaintenanceCheckListDialog3 ptcd = new MaintenanceCheckListDialog3(mContext, aufnr);
+			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
+			ptcd.setTitle("순회정비차량 점검표");
+			ptcd.setDone("확인");
+
+			bt_done_car.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					ptcd.dismiss();
+				}
+			});
+
+			ptcd.show();
 		}
 
 	}

@@ -128,6 +128,49 @@ public abstract class BaseRepairFragment extends BaseResultFragment implements
         return reComplate;
     }
 
+    protected String getEmergency() {
+        String reEmergency = "";
+
+        reEmergency = String.valueOf(KtRentalApplication.getInstance()
+                .getEmergencyVal());
+
+        return reEmergency;
+    }
+
+    protected String getEmergency2() {
+        String reEmergency2 = "";
+
+        reEmergency2 = String.valueOf(KtRentalApplication.getInstance()
+                .getEmergencyVal2());
+
+        return reEmergency2;
+    }
+
+    protected String getEmergency3() {
+        String reEmergency3 = "";
+
+        reEmergency3 = String.valueOf(KtRentalApplication.getInstance()
+                .getEmergencyVal3());
+
+        return reEmergency3;
+    }
+
+    protected String getNotImplemetned() {
+        String reNotImplemented = "";
+
+        reNotImplemented = String.valueOf(KtRentalApplication.getInstance().getNotImplementedVal());
+
+        return reNotImplemented;
+    }
+
+    protected String getNotLongImplemetned() {
+        String reNotLongImplemented = "";
+
+        reNotLongImplemented = String.valueOf(KtRentalApplication.getInstance().getNotLongImplementedVal());
+
+        return reNotLongImplemented;
+    }
+
     @Override
     public void OnSeletedItem(Object item) {
         // TODO Auto-generated method stub

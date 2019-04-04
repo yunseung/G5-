@@ -249,6 +249,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:orientation="horizontal"
+                android:layout_marginBottom="22dp"
                 android:gravity="center">
 
                 <TextView
@@ -259,11 +260,12 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/tv_notimplemeneted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="0"
+                    android:layout_marginLeft="2dp"
                     android:textColor="#555555"
-                    android:layout_marginLeft="5dp"
                     android:textSize="13dp"
                     android:textStyle="bold" />
 
@@ -271,28 +273,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="장기미처리"
+                    android:layout_marginLeft="10dp"
                     android:textSize="8dp"
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/tv_long_notimplemented"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="0"
                     android:textColor="#555555"
+                    android:layout_marginLeft="2dp"
                     android:textSize="13dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="2dp"
-                android:layout_marginLeft="1dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="1dp"
-                android:background="#FF7B8289"
-                android:layout_marginBottom="20dp"
-                android:gravity="center" />
         </LinearLayout>
     </LinearLayout>
 

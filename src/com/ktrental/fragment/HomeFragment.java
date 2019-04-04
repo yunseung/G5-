@@ -79,6 +79,7 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
     private TextView                     mTvMontyPlanLeft, mTvMontyPlanLeft2, mTvMontyPlanLeft3;
     private TextView                     mTvMontyPlanRight, mTvMontyPlanRight2, mTvMontyPlanRight3;
     private TextView                     mTvDegree, mTvDegree2, mTvDegree3;
+    private TextView                     mTvMonthlyEmergency, mTvMonthlyEmergency2, mTvMonthlyEmergency3;
     private Button                       mBtnSend;
     private LinearLayout                 mLlTodayPlan;
     private LinearLayout                 mLlTodayOrder;
@@ -226,6 +227,9 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
         mTvDegree = (TextView) mRootView.findViewById(R.id.tv_percent);
         mTvDegree2 = (TextView) mRootView.findViewById(R.id.tv_percent2);
         mTvDegree3 = (TextView) mRootView.findViewById(R.id.tv_percent3);
+        mTvMonthlyEmergency = (TextView) mRootView.findViewById(R.id.tv_monthly_emergency);
+        mTvMonthlyEmergency2 = (TextView) mRootView.findViewById(R.id.tv_monthly_emergency2);
+        mTvMonthlyEmergency3 = (TextView) mRootView.findViewById(R.id.tv_monthly_emergency3);
 
 //        mBtnSend = (Button) mRootView.findViewById(R.id.btn_send_result);
 //        mBtnSend.setOnClickListener(this);
@@ -485,6 +489,9 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
             mTvMontyPlanRight.setText(plan);
             mTvMontyPlanRight2.setText(getPlan2());
             mTvMontyPlanRight3.setText(getPlan3());
+            mTvMonthlyEmergency.setText(getEmergency());
+            mTvMonthlyEmergency2.setText(getEmergency2());
+            mTvMonthlyEmergency3.setText(getEmergency3());
 
         }
         initDegree();
