@@ -260,6 +260,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         monthProgressAdapter = new MonthProgressAdapter(mContext, this);
 
+        setIotLocationTop();
         monthProgressAdapter.setDataArr(mBaseMaintenanceModels);
         mLvProgressStatus.setAdapter(monthProgressAdapter);
 
@@ -675,12 +676,15 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                             }
                             cursor.close();
 
+
+
                             if (mLvProgressStatus != null) {
                                 mLvProgressStatus.post(new Runnable() {
 
                                     @Override
                                     public void run() {
                                         // TODO Auto-generated method stub
+                                        setIotLocationTop();
                                         monthProgressAdapter.setDataArr(mBaseMaintenanceModels);
                                         hideProgress();
                                         initMaintenanceEmpty(monthProgressAdapter.getCount());
@@ -798,6 +802,20 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         }
 
+    }
+
+    private void setIotLocationTop() {
+        ArrayList<BaseMaintenanceModel> tempArray = new ArrayList<>();
+        for (int i = 0; i < mBaseMaintenanceModels.size(); i++) {
+            if (mBaseMaintenanceModels.get(i).get_gubun().equals("A")) {
+                tempArray.add(mBaseMaintenanceModels.get(i));
+                mBaseMaintenanceModels.remove(i);
+            }
+        }
+
+        for (int i = 0; i < tempArray.size(); i++) {
+            mBaseMaintenanceModels.add(i, tempArray.get(i));
+        }
     }
 
     private void setStringArray(Cursor cursor, ArrayList<String> array) {

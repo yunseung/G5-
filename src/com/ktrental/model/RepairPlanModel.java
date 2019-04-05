@@ -27,8 +27,14 @@ public class RepairPlanModel {
 	private int progress_s = 0;
 	private int emergency, emergency2, emergency3 = 0;
 
+	private String mGubun;
+
 	public int getEmergency() {
 		return emergency;
+	}
+
+	public String getGubun() {
+		return mGubun;
 	}
 
 	public void setEmergency(int emergency) {
@@ -41,6 +47,7 @@ public class RepairPlanModel {
 	}
 
 	public void addWork(String workName, boolean planFlag, String gubun) {
+		mGubun = gubun;
 		for (int i = 0; i < workArr.length; i++) {
 			if (workArr[i].equals(workName)) {
 				if (i == 0) {
