@@ -1050,6 +1050,7 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/checking_area"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
                                 android:gravity="center_vertical"
@@ -1145,6 +1146,17 @@
 
 
                     </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sign_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="127dp"
+                        layout="@layout/checking_bottom" />
+                    </LinearLayout>
 
 
                 </LinearLayout>

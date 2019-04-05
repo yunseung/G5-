@@ -968,7 +968,7 @@
                                 <View
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="4.15"/>
+                                    android:layout_weight="4.15" />
 
                                 <TextView
                                     android:id="@+id/tv_vat"
@@ -992,11 +992,13 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/checking_area"
                                 android:layout_width="match_parent"
                                 android:layout_height="35dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
-                                android:paddingRight="30dp">
+                                android:paddingRight="30dp"
+                                android:visibility="invisible">
 
                                 <View
                                     android:layout_width="0dp"
@@ -1087,6 +1089,19 @@
 
 
                     </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sign_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <include
+                            layout="@layout/checking_bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="127dp" />
+
+                    </LinearLayout>
 
 
                 </LinearLayout>

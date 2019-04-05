@@ -133,7 +133,7 @@ public class MaintenanceResultFragment extends BaseFragment implements OnChecked
         super(className, changeFragmentListener);
 
         maintenanceResultInfoFragment = new MaintenanceResultInfoFragment(MaintenanceResultInfoFragment.class.getName(), null, this, this, this);
-        maintenanceResultResistFragment = new MaintenanceResultResistFragment(MaintenanceResultResistFragment.class.getName(), null, this, this, this);
+        maintenanceResultResistFragment = new MaintenanceResultResistFragment(MaintenanceResultResistFragment.class.getName(), null, this, this, this, arrayList.get(0).get_gubun());
 
         mCheckingComplateFragment = new CheckingCompleteFragment(this, this);
 
@@ -147,7 +147,7 @@ public class MaintenanceResultFragment extends BaseFragment implements OnChecked
         super(className, changeFragmentListener);
 
         maintenanceResultInfoFragment = new MaintenanceResultInfoFragment(MaintenanceResultInfoFragment.class.getName(), null, this, this, this);
-        maintenanceResultResistFragment = new MaintenanceResultResistFragment(MaintenanceResultResistFragment.class.getName(), null, this, this, this);
+        maintenanceResultResistFragment = new MaintenanceResultResistFragment(MaintenanceResultResistFragment.class.getName(), null, this, this, this, arrayList.get(0).get_gubun());
         mCheckingComplateFragment = new CheckingCompleteFragment(this, this);
 
         mCarInfoModelArray = arrayList;

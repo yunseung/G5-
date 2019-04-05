@@ -435,19 +435,19 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 
 			ptcd.show();
 		} else if (type == 3) {
-			final MaintenanceCheckListDialog3 ptcd = new MaintenanceCheckListDialog3(mContext, aufnr);
-			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
-			ptcd.setTitle("순회정비차량 점검표");
-			ptcd.setDone("확인");
-
-			bt_done_car.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					ptcd.dismiss();
-				}
-			});
-
-			ptcd.show();
+//			final MaintenanceCheckListDialog3 ptcd = new MaintenanceCheckListDialog3(mContext, aufnr);
+//			Button bt_done_car = (Button) ptcd.findViewById(R.id.partstransfer_car_search_done_id);
+//			ptcd.setTitle("순회정비차량 점검표");
+//			ptcd.setDone("확인");
+//
+//			bt_done_car.setOnClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					ptcd.dismiss();
+//				}
+//			});
+//
+//			ptcd.show();
 		}
 
 	}
@@ -509,13 +509,13 @@ public class MaintenanceCheckListFragment extends BaseRepairFragment implements
 		if (MTYPE == null || !MTYPE.equals("S")) {
 //			mCC.duplicateLogin(mContext);
 			
-			Toast.makeText(mContext, resultText, 0).show();
+			Toast.makeText(mContext, resultText, Toast.LENGTH_SHORT).show();
 			return;
 		}
 		else if("E".equals(MTYPE))
 		{
 //			mCC.duplicateLogin(mContext);
-			Toast.makeText(mContext, resultText, 0).show();
+			Toast.makeText(mContext, resultText, Toast.LENGTH_SHORT).show();
 		}
 		
 		

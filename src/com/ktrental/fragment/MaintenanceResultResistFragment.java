@@ -113,6 +113,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 	private String mTempMileage = "";
 
 	private String mProgressStatus = "";
+	private String mGubun;
 
 	private OnModify mOnModify;
 
@@ -305,11 +306,12 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 	public MaintenanceResultResistFragment(){}
 
 	public MaintenanceResultResistFragment(String className, OnChangeFragmentListener changeFragmentListener,
-			OnCheckingResult onCheckingResult, OnModify onModify, OnNumberResultCancel onNumberResultCancel) {
+			OnCheckingResult onCheckingResult, OnModify onModify, OnNumberResultCancel onNumberResultCancel, String gubun) {
 		super(className, changeFragmentListener);
 		mOnCheckingResult = onCheckingResult;
 		mOnModify = onModify;
 		mOnNumberResultCancel = onNumberResultCancel;
+		mGubun = gubun;
 		// TODO Auto-generated constructor stub
 
 	}
@@ -373,7 +375,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 		mBtnsave = (Button) mRootView.findViewById(R.id.btn_maintenance_save);
 		mBtnsave.setOnClickListener(this);
 
-		mLastItemAdapter = new MaintenancLastItemAdapter(mContext, MaintenancLastItemAdapter.RESIST, null);
+		mLastItemAdapter = new MaintenancLastItemAdapter(mContext, MaintenancLastItemAdapter.RESIST, mGubun);
 		mLvItem = (ListView) mRootView.findViewById(R.id.lv_item);
 
 		// mMaintenanceSaveDummy2560 =
