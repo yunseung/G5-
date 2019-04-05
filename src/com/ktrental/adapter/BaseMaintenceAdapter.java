@@ -147,23 +147,6 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 }
             }
 
-            // IOT ODM 고급형에 따른 UI 변경
-            if (model.get_gubun().trim().isEmpty()) {
-                viewHolder.tvIoT.setVisibility(View.GONE);
-                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
-                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
-            } else if (model.get_gubun().equals("A")) {
-                viewHolder.tvIoT.setVisibility(View.VISIBLE);
-                viewHolder.tvIoT.setText("IoT");
-                viewHolder.tvDelay.setVisibility(View.INVISIBLE);
-                viewHolder.btnReqIot.setVisibility(View.VISIBLE);
-                viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
-            } else if (model.get_gubun().equals("O")) {
-                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
-                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
-                viewHolder.tvIoT.setVisibility(View.GONE);
-            }
-
             if("0".equals(model.getVocNum()))
             {
             	viewHolder.tvVocNum.setVisibility(View.GONE);
@@ -177,13 +160,33 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             if(model.getCYCMN_TX() != null){
                 if(model.getCYCMN_TX().contains("점검")){
                     viewHolder.tvODC.setVisibility(View.VISIBLE);
-                    viewHolder.item_back.setBackgroundColor(Color.parseColor("#A9E2F3"));
+//                    viewHolder.item_back.setBackgroundColor(Color.parseColor("#A9E2F3"));
                 }else {
                     viewHolder.tvODC.setVisibility(View.GONE);
-                    viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
                 }
             }else {
                 viewHolder.tvODC.setVisibility(View.GONE);
+            }
+
+            // IOT ODM 고급형에 따른 UI 변경
+            if (model.get_gubun().trim().isEmpty()) {
+                viewHolder.tvIoT.setVisibility(View.GONE);
+                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setVisibility(View.VISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+                viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
+            } else if (model.get_gubun().equals("A")) {
+                viewHolder.tvIoT.setVisibility(View.VISIBLE);
+                viewHolder.tvIoT.setText("IoT");
+                viewHolder.tvDelay.setVisibility(View.INVISIBLE);
+                viewHolder.btnReqIot.setVisibility(View.VISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
+                viewHolder.item_back.setBackgroundColor(Color.parseColor("#A9E2F3"));
+            } else if (model.get_gubun().equals("O")) {
+                viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
+                viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setVisibility(View.VISIBLE);
+                viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
             }
 

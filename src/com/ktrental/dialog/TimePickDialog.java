@@ -135,6 +135,13 @@ public class TimePickDialog extends BaseTouchDialog implements View.OnClickListe
                     return;
                 }
                 if (timeValidation(mLeftInput.getText().toString().trim(), mRightInput.getText().toString().trim())) {
+                    if (mLeftInput.getText().toString().trim().length() < 2) {
+                        mLeftInput.setText("0" + mLeftInput.getText().toString().trim());
+                    }
+
+                    if (mRightInput.getText().toString().trim().length() < 2) {
+                        mRightInput.setText("0" + mRightInput.getText().toString().trim());
+                    }
                     mListener.onTimePickResult(mLeftInput.getText().toString().trim() + mRightInput.getText().toString().trim(), mEtDetail.getText().toString());
                     this.dismiss();
                 } else {

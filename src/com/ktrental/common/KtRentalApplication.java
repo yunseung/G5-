@@ -216,6 +216,7 @@ public class KtRentalApplication extends Application implements
             mEmergencyVal2 = 0;
             mEmergencyVal3 = 0;
             mNotImplementedVal = 0;
+            mNotLongImplementedVal = 0;
 
             RepairPlanModel repairPlanModel = new RepairPlanModel();
 
@@ -231,7 +232,7 @@ public class KtRentalApplication extends Application implements
                 String gubun = cursor.getString(3);
                 String delay = cursor.getString(4);
 
-                if (Integer.parseInt(delay) > 60) {
+                if (Integer.parseInt(delay) > 30) {
                     mNotLongImplementedVal++;
                 }
 
@@ -313,17 +314,7 @@ public class KtRentalApplication extends Application implements
                         } else if (gubun.trim().equals("O")) {
                             mPlanVal3++;
                         }
-                    } else if (!cemer.trim().isEmpty()) {
-                        if (gubun.trim().isEmpty()) {
-                            mEmergencyVal++;
-                        } else if (gubun.trim().equals("A")) {
-                            mEmergencyVal2++;
-                        } else if (gubun.trim().equals("O")) {
-                            mEmergencyVal3++;
-                        }
                     }
-
-
                 }
 
             cursor.moveToNext();
