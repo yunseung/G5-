@@ -58,9 +58,12 @@ public class MaintenanceAdapter extends BaseMaintenceAdapter
         MaintenanceViewHolder viewHolder = (MaintenanceViewHolder) rootView.getTag();
 
         MaintenanceModel model = (MaintenanceModel) getItem(position);
-        if (model != null)
-        {
-            viewHolder.tvTime.setText(insertDot(model.getDay()) + " " + model.getTime());
+        if (model != null) {
+            if (model.getAUFNR().trim().isEmpty() && model.getATVYN().equals("A")) {
+                viewHolder.tvTime.setText(insertDot(model.getDay()) + " " + (model.getAPM().equals("AM") ? "오전" : "오후"));
+            } else {
+                viewHolder.tvTime.setText(insertDot(model.getDay()) + " " + model.getTime());
+            }
             viewHolder.tvStatus.setText(model.getStatus());
             if("0".equals(model.getVocNum()))
             {

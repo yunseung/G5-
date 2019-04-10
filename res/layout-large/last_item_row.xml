@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="14dp"
         android:src="@drawable/check_off" />
 
     <TextView
@@ -24,7 +23,6 @@
         android:layout_toRightOf="@+id/iv_last_check"
         android:gravity="center_vertical"
         android:paddingLeft="12dp"
-        android:paddingRight="12dp"
         android:text="정비항목그룹"
         android:textColor="#333333"
         android:textSize="16sp" />
@@ -37,7 +35,6 @@
         android:layout_toRightOf="@+id/tv_last_group_name"
         android:gravity="center_vertical"
         android:paddingLeft="12dp"
-        android:paddingRight="12dp"
         android:text="정비항목"
         android:textColor="#333333"
         android:textSize="16sp" />
