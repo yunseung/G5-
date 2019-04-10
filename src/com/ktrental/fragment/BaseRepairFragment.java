@@ -155,6 +155,30 @@ public abstract class BaseRepairFragment extends BaseResultFragment implements
         return reEmergency3;
     }
 
+    protected String getPossetion() {
+        String rePossetion = "";
+
+        rePossetion = String.valueOf(KtRentalApplication.getInstance().getPossetionVal());
+
+        return rePossetion;
+    }
+
+    protected String getPossetion2() {
+        String rePossetion = "";
+
+        rePossetion = String.valueOf(KtRentalApplication.getInstance().getPossetionVal2());
+
+        return rePossetion;
+    }
+
+    protected String getPossetion3() {
+        String rePossetion = "";
+
+        rePossetion = String.valueOf(KtRentalApplication.getInstance().getPossetionVal3());
+
+        return rePossetion;
+    }
+
     protected String getNotImplemetned() {
         String reNotImplemented = "";
 

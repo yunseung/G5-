@@ -571,6 +571,7 @@
                 android:textSize="6.5dp" />
 
             <TextView
+                android:id="@+id/tv_month_possetion"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="24"
@@ -580,6 +581,7 @@
                 android:textSize="10.5dp" />
 
             <TextView
+                android:id="@+id/tv_month_possetion2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="24"
@@ -589,6 +591,7 @@
                 android:textSize="10.5dp" />
 
             <TextView
+                android:id="@+id/tv_month_possetion3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="24"

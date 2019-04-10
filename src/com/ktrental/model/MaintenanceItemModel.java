@@ -35,6 +35,7 @@ public class MaintenanceItemModel implements Cloneable {
 	private String MINQTY = "";
 	private String MAXQTY = "";
 
+	// yunseung 19년 추가. iot 가격
 	private String NETPR = "";
 
 

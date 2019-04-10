@@ -78,6 +78,7 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
     private TextView                     mTvTodayEmergency, mTvTodayEmergency2, mTvTodayEmergency3;
     private TextView                     mTvMontyPlanLeft, mTvMontyPlanLeft2, mTvMontyPlanLeft3;
     private TextView                     mTvMontyPlanRight, mTvMontyPlanRight2, mTvMontyPlanRight3;
+    private TextView                     mTvMonthlyPossetion, mTvMonthlyPossetion2, mTvMonthlyPossetion3;
     private TextView                     mTvDegree, mTvDegree2, mTvDegree3;
     private TextView                     mTvMonthlyEmergency, mTvMonthlyEmergency2, mTvMonthlyEmergency3;
     private Button                       mBtnSend;
@@ -220,6 +221,9 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
         mTvMontyPlanRight = (TextView) mRootView.findViewById(R.id.tv_month_plan_right);
         mTvMontyPlanRight2 = (TextView) mRootView.findViewById(R.id.tv_month_plan_right2);
         mTvMontyPlanRight3 = (TextView) mRootView.findViewById(R.id.tv_month_plan_right3);
+        mTvMonthlyPossetion = (TextView) mRootView.findViewById(R.id.tv_month_possetion);
+        mTvMonthlyPossetion2 = (TextView) mRootView.findViewById(R.id.tv_month_possetion2);
+        mTvMonthlyPossetion3 = (TextView) mRootView.findViewById(R.id.tv_month_possetion3);
         mLlMonthPlan = (LinearLayout) mRootView.findViewById(R.id.ll_month_plan);
         mLlMonthPlan.setOnClickListener(this);
         mLlMonthPercent = (LinearLayout) mRootView.findViewById(R.id.ll_month_percent);
@@ -492,6 +496,9 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
             mTvMonthlyEmergency.setText(getEmergency());
             mTvMonthlyEmergency2.setText(getEmergency2());
             mTvMonthlyEmergency3.setText(getEmergency3());
+            mTvMonthlyPossetion.setText(getPossetion());
+            mTvMonthlyPossetion2.setText(getPossetion2());
+            mTvMonthlyPossetion3.setText(getPossetion3());
 
         }
         initDegree();

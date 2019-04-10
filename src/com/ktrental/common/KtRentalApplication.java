@@ -55,6 +55,8 @@ public class KtRentalApplication extends Application implements
 
     private int mEmergencyVal, mEmergencyVal2, mEmergencyVal3 = 0;
 
+    private int mPossetionVal, mPossetionVal2, mPossetionVal3 = 0;
+
     private int mNotImplementedVal = 0;
     private int mNotLongImplementedVal = 0;
 
@@ -217,6 +219,9 @@ public class KtRentalApplication extends Application implements
             mEmergencyVal3 = 0;
             mNotImplementedVal = 0;
             mNotLongImplementedVal = 0;
+            mPossetionVal = 0;
+            mPossetionVal2 = 0;
+            mPossetionVal3 = 0;
 
             RepairPlanModel repairPlanModel = new RepairPlanModel();
 
@@ -238,6 +243,16 @@ public class KtRentalApplication extends Application implements
 
                 if (E0005.equals(work)) {
                     mNotImplementedVal++;
+
+                    if (cemer.equals(" ")) {
+                        if (gubun.trim().isEmpty()) {
+                            mPossetionVal++;
+                        } else if (gubun.trim().equals("A")) {
+                            mPossetionVal2++;
+                        } else if (gubun.trim().equals("O")) {
+                            mPossetionVal3++;
+                        }
+                    }
                 }
 
                 if (E0004.equals(work)) {
@@ -379,6 +394,18 @@ public class KtRentalApplication extends Application implements
 
     public int getEmergencyVal3() {
         return mEmergencyVal3;
+    }
+
+    public int getPossetionVal() {
+        return mPossetionVal;
+    }
+
+    public int getPossetionVal2() {
+        return mPossetionVal2;
+    }
+
+    public int getPossetionVal3() {
+        return mPossetionVal3;
     }
 
     public int getNotImplementedVal() {
