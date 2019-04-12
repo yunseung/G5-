@@ -495,9 +495,6 @@ public class CheckingCompleteFragment extends BaseFragment
 
 	private void clickComplate() {
 
-		kog.e("Jonathan", "주소가 도대체 뭐야 ? " + mResultModel.getmCarInfoModel().getAddress());
-		Log.e("mEtName", "" + mEtName.getText().toString().trim().length());
-
 		if(!iv_confirm_check.isSelected())
 		{
 			showEventPopup2(null, "순회정비 유의 사항을 확인해 주세요. ");
@@ -685,7 +682,7 @@ public class CheckingCompleteFragment extends BaseFragment
 					maintenanceItemModel.getMATNR(), "" + maintenanceItemModel.getConsumption(),
 					maintenanceItemModel.getERFME(), loginModel.getLgort(), loginModel.getWerks(),
 					maintenanceItemModel.getMaintenanceGroupModel().getName_key(), carInfoModel.getCUSTOMER_NAME(),
-					carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD());
+					carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD(), maintenanceItemModel.getNETPR());
 			sendStockModels.add(sendStockModel);
 		}
 
@@ -708,7 +705,7 @@ public class CheckingCompleteFragment extends BaseFragment
 					maintenanceItemModel.getMATNR(), "" + maintenanceItemModel.getConsumption(),
 					maintenanceItemModel.getERFME(), loginModel.getLgort(), loginModel.getWerks(),
 					maintenanceItemModel.getMaintenanceGroupModel().getName_key(), carInfoModel.getCUSTOMER_NAME(),
-					carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD());
+					carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD(), maintenanceItemModel.getNETPR());
 			sendStockModels.add(sendStockModel);
 		}
 
@@ -726,10 +723,6 @@ public class CheckingCompleteFragment extends BaseFragment
 	@Override
 	public void connectResponse(String FuntionName, String resultText, String MTYPE, int resulCode,
 			TableModel tableModel) {
-
-		PrintLog.Print("FuntionName", FuntionName);
-
-		kog.e("Jonathan", "FuntionName  ::: " + FuntionName);
 
 		// 완료로 바꿔준다.
 		updateComplete();

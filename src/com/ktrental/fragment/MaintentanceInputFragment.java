@@ -135,8 +135,6 @@ public class MaintentanceInputFragment extends BaseFragment
 			rd05_arr = tableModel.getTableArray();
 			queryGroup();
 		} else if (FuntionName.equals("ZMO_1020_RD08")) {
-			Log.e("yunseung+++", FuntionName);
-
 			ArrayList<HashMap<String, String>> array_hash = tableModel.getTableArray("O_ITAB2");
 			MaintenanceGroupModel maintenanceGroupModel = null;
 			mGroupLArrayList.clear();
@@ -1365,8 +1363,6 @@ public class MaintentanceInputFragment extends BaseFragment
 		if (array_hash == null)
 			return;
 
-
-		// myung 20131125 장비항목입력 리스트 생성 시에 같은 항목 증가하는 오류
 		mPartsMap.clear();
 
 		for (int i = 0; i < array_hash.size(); i++) {
@@ -1375,8 +1371,6 @@ public class MaintentanceInputFragment extends BaseFragment
 			String MATKL = array_hash.get(i).get("MATKL");
 			String MTQTY = array_hash.get(i).get("MTQTY");
 			String NETPR = array_hash.get(i).get("NETPR");
-
-			kog.e("yunseung++", "KKK MATNR = " + MATNR + " || 부품명 = " + MATKL + " | 수량 = " + MTQTY + " || 금액 = " + NETPR);
 
 			PartsMasterModel model = new PartsMasterModel(MATNR, MATKL, MTQTY, mCarInfoModel.getOilType(),
 					mCarInfoModel.getMdlcd(), null, null, NETPR);

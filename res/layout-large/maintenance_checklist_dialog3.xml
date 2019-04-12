@@ -8,6 +8,7 @@
         android:layout_width="@dimen/pop_max_width"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
+        android:layout_margin="20dp"
         android:background="@drawable/popup_bg"
         android:orientation="vertical"
         android:padding="8dp">
@@ -113,7 +114,7 @@
                             android:layout_toRightOf="@+id/tv_invnr"
                             android:gravity="center_vertical"
                             android:text="차명(차종)"
-                            android:textSize="9sp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_incml"
@@ -124,7 +125,7 @@
                             android:layout_marginRight="20dp"
                             android:gravity="center_vertical"
                             android:text="주행거리"
-                            android:textSize="9sp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_dlsm1"
@@ -157,7 +158,7 @@
                             android:layout_toRightOf="@id/tv_gstri"
                             android:gravity="center_vertical"
                             android:text="정비 예약일시"
-                            android:textSize="9sp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_repair_complete_date"
@@ -168,7 +169,7 @@
                             android:layout_marginTop="76dp"
                             android:gravity="center_vertical"
                             android:text="정비완료일시"
-                            android:textSize="9sp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_round_car"
@@ -179,7 +180,7 @@
                             android:layout_marginTop="76dp"
                             android:gravity="center_vertical"
                             android:text="순회차량"
-                            android:textSize="9sp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_repair_engineer"
@@ -190,7 +191,7 @@
                             android:layout_marginTop="76dp"
                             android:gravity="center_vertical"
                             android:text="책임정비기사"
-                            android:textSize="9sp" />
+                            android:textSize="12sp" />
 
 
                         <LinearLayout
@@ -204,65 +205,46 @@
                                 android:layout_height="61dp"
                                 android:layout_marginLeft="30dp"
                                 android:gravity="center_vertical"
-                                android:orientation="horizontal"
-                                android:weightSum="15">
+                                android:orientation="horizontal">
 
                                 <TextView
                                     android:id="@+id/tv_index1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1"
-                                    android:visibility="gone" />
+                                    android:text="1" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good01"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
-                                    android:text="작업내용1"
-                                    android:visibility="gone" />
+                                    android:layout_marginLeft="40dp"
+                                    android:text="작업내용1" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
 
                                 <TextView
                                     android:id="@+id/tv_outqty01"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
-                                    android:text="10"
-                                    android:visibility="gone" />
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
+                                    android:layout_marginLeft="25dp"
+                                    android:text="10" />
 
                                 <TextView
                                     android:id="@+id/tv_price01"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
-                                    android:text="98,500"
-                                    android:visibility="gone" />
+                                    android:text="98,500" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
 
                                 <TextView
                                     android:id="@+id/tv_total_price01"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
-                                    android:text="100,000,000"
-                                    android:visibility="gone" />
+                                    android:text="100,000,000" />
                             </LinearLayout>
 
 
@@ -281,52 +263,36 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
-
                                 <TextView
                                     android:id="@+id/tv_good02"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty02"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price02"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price02"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -348,52 +314,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good03"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty03"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price03"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price03"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -415,52 +366,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good04"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty04"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price04"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price04"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -482,52 +418,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good05"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty05"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price05"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price05"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -549,52 +470,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good06"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty06"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price06"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price06"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -616,52 +522,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good07"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty07"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price07"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price07"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -683,52 +574,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good08"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty08"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price08"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price08"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -750,52 +626,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good09"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty09"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price09"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price09"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -817,52 +678,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good10"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty10"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price10"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price10"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -884,52 +730,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good11"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty11"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price11"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price11"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -951,52 +782,37 @@
                                     android:text="1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_good12"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="4.7" />
-
                                 <TextView
                                     android:id="@+id/tv_outqty12"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="5" />
-
                                 <TextView
                                     android:id="@+id/tv_price12"
-                                    android:layout_width="65dp"
+                                    android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="120dp"
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:visibility="gone" />
 
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="3" />
-
                                 <TextView
                                     android:id="@+id/tv_total_price12"
-                                    android:layout_width="100dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="110dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:visibility="gone" />
@@ -1041,7 +857,7 @@
                                     android:layout_weight="3" />
 
                                 <TextView
-                                    android:id="@+id/tv1"
+                                    android:id="@+id/tv_total2"
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
@@ -1146,17 +962,6 @@
 
 
                     </RelativeLayout>
-
-                    <LinearLayout
-                        android:id="@+id/sign_area"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    <include
-                        android:layout_width="match_parent"
-                        android:layout_height="127dp"
-                        layout="@layout/checking_bottom" />
-                    </LinearLayout>
 
 
                 </LinearLayout>

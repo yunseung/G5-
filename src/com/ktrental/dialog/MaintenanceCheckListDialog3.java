@@ -18,7 +18,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -32,7 +31,6 @@ import com.ktrental.cm.connect.ConnectController;
 import com.ktrental.cm.connect.Connector;
 import com.ktrental.cm.connect.Connector.ConnectInterface;
 import com.ktrental.common.DEFINE;
-import com.ktrental.fragment.SignFragment;
 import com.ktrental.model.TableModel;
 import com.ktrental.util.kog;
 
@@ -42,12 +40,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Random;
-import java.util.Set;
 
 public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInterface, View.OnClickListener {
     private Window w;
@@ -74,7 +69,7 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
 
 
     private ArrayList<HashMap<String, String>> array_hash;
-    private ArrayList<RepairPartList> array_repairParts;
+    private ArrayList<RepairPartList> array_repairParts = new ArrayList<>();
 
 //	private Popup_Window_PM013 ppm013popup;
 
@@ -189,6 +184,10 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
     private TextView tv_outqty12;    // 항목 수량
     private TextView tv_price12; // 항목 금액
     private TextView tv_total_price12; // 항목 금액 * 수량
+
+    private TextView tv_total1;
+    private TextView tv_vat;
+    private TextView tv_total2;
 
     private TextView tv_ename;    //점검자 성명
     private ImageView iv_sign;    //고객확인
@@ -334,15 +333,17 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
         tv_total_price12 = (TextView) findViewById(R.id.tv_total_price12);
         array_repairParts.add(new RepairPartList(tv_index12, tv_good12, tv_outqty12, tv_price12, tv_total_price12));
 
+        tv_total1 = (TextView) findViewById(R.id.tv_total1);
+        tv_vat = (TextView) findViewById(R.id.tv_vat);
+        tv_total2 = (TextView) findViewById(R.id.tv_total2);
+
 
         tv_ename = (TextView) findViewById(R.id.tv_ename);
         iv_sign = (ImageView) findViewById(R.id.iv_sign);
 
         iv_confirm_check = (ImageView) findViewById(R.id.iv_confirm_check);
 
-        findViewById(R.id.btn_sign).setOnClickListener(this);
-
-        connectController.getZMO_1070_RD11(reqNo);
+        connectController.getZMO_1170_RD11(reqNo);
 
     }
 
@@ -360,7 +361,7 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
         hideProgress();
 
 
-        if (FuntionName.equals("ZMO_1070_RD11")) {
+        if (FuntionName.equals("ZMO_1170_RD11")) {
 
             HashMap<String, String> ES_HEADER = new HashMap<String, String>();
             ES_HEADER = tableModel.getStruct("ES_HEADER");
@@ -379,6 +380,10 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
             tv_round_car.setText(ES_HEADER.get("MINVNR"));
             tv_repair_engineer.setText(ES_HEADER.get("USR_NM").toString()); // 화면 맨 밑 작성자도 같은 필드 사용하면 됨.
             tv_ename.setText(ES_HEADER.get("USR_NM").toString());
+
+            tv_total1.setText(ES_FOOTER.get("DMBTR_T"));
+            tv_vat.setText(ES_FOOTER.get("DMBTR_T_VAT"));
+            tv_total2.setText(ES_FOOTER.get("DMBTR_T2"));
 
 
             // 작업내용 MAKTX

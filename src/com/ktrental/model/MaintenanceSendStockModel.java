@@ -45,11 +45,13 @@ public class MaintenanceSendStockModel {
 	
 	private String GRP_CD;
 
+	private String NETPR;
+
 
 	public MaintenanceSendStockModel(String aUFNR, String mTINVNR,
 			String mATNR, String eRFMG, String eRFME, String lGORT,
 			String wERKS, String mATKL, String _name, String invnr,
-			String gRPCD) {
+			String gRPCD, String nETPR) {
 		super();
 		AUFNR = aUFNR;
 		mHashMap.put("AUFNR", AUFNR);
@@ -81,6 +83,9 @@ public class MaintenanceSendStockModel {
 		//2014.01.11	ypkim
 		GRP_CD = gRPCD;
 		mHashMap.put("GRP_CD", GRP_CD);
+
+		NETPR = nETPR;
+		mHashMap.put("NETPR", NETPR);
 		
 	}
 	

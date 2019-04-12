@@ -1061,6 +1061,7 @@ public class MaintenanceResultInfoFragment extends BaseFragment
 						String ERFME = hashMap.get("ERFME");
 						String MATKL = hashMap.get("MATKL");
 						String GRP_CD = hashMap.get("GRP_CD");
+						String NETPR = hashMap.get("DMBTR");
 
 						// String MDLCD = hashMap.get("MDLCD");
 						// String FUELCD = hashMap.get("FUELCD");
@@ -1088,7 +1089,7 @@ public class MaintenanceResultInfoFragment extends BaseFragment
 
 						MaintenanceGroupModel groupModel = new MaintenanceGroupModel("", MATKL);
 						MaintenanceItemModel model = new MaintenanceItemModel(MAKTX, stock, MATNR, ERFME, groupModel,
-								GRP_CD, null, null, null, null);
+								GRP_CD, null, null, null, NETPR);
 
 						PrintLog.Print("============= connectResponse ============", "FuntionName = " + FuntionName
 								+ ", STOCK = " + stock + ", Consumption = " + selectConsumption);

@@ -1087,7 +1087,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 				epc.show("고객 조회를 먼저 실행해 주세요.");
 				return;
 			}
-			History_Dialog hd = new History_Dialog(context, o_struct1, 2);
+			History_Dialog hd = new History_Dialog(context, o_struct1, 0);
 			hd.show();
 			break;
 		case R.id.customer_contacts_id: // 관련연락처

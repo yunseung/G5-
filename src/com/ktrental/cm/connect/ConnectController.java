@@ -1171,10 +1171,10 @@ public class ConnectController {
 
 
 	//20190402 yunseung 순회정비 명세표?? For IoT
-	public final static String ZMO_1070_RD11 = "ZMO_1070_RD11";
-	public final static String ZMO_1070_RD11_TABLE = "ZMO_1070_RD11_TABLE";
+	public final static String ZMO_1170_RD11 = "ZMO_1170_RD11";
+	public final static String ZMO_1170_RD11_TABLE = "ZMO_1170_RD11_TABLE";
 
-	public void getZMO_1070_RD11(String reqNo) {
+	public void getZMO_1170_RD11(String reqNo) {
 		LoginModel model = KtRentalApplication.getLoginModel();
 		HashMap<String, String> map = getCommonConnectData();
 		mConnector.setStructure("IS_LOGIN", map);
@@ -1183,7 +1183,7 @@ public class ConnectController {
 
 
 		try {
-			mConnector.executeRFCAsyncTask(ZMO_1070_RD04, ZMO_1070_RD04_TABLE);
+			mConnector.executeRFCAsyncTask(ZMO_1170_RD11, ZMO_1170_RD11_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -104,19 +104,21 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 				this, dbQueryModel);
 		dbAsyncTask.execute(DbAsyncTask.DB_SELECT);
 	}
-	
 
-	private void queryStock(String funName) {
+	public void sendResultForIoT(ArrayList<HashMap<String, String>> arrayHash) {
+		queryImage();
+	}
+
+	private void queryStock() {
 		String[] _whereArgs = null;
 		String[] _whereCause = null;
-
 		String[] colums = null;
 
 		DbQueryModel dbQueryModel = new DbQueryModel(
 				DEFINE.REPAIR_RESULT_STOCK_TABLE_NAME, _whereCause, _whereArgs,
 				colums);
 
-		DbAsyncTask dbAsyncTask = new DbAsyncTask(funName, mContext, this,
+		DbAsyncTask dbAsyncTask = new DbAsyncTask("send", mContext, this,
 				dbQueryModel);
 		dbAsyncTask.execute(DbAsyncTask.DB_SELECT);
 	}
@@ -187,7 +189,7 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 			// queryStock("send");
 			// }
 
-			queryStock("send");
+			queryStock();
 
 		} else if (funName.equals("send")) {
 			if (cursor == null) {
@@ -470,12 +472,18 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 						ArrayList<HashMap<String, String>> stockArr = mStockMap
 								.get(strKey1);
 
+						// 모든 항목에 WAERS = "KRW" 값ㅅ이 고정으로 들어감.. 여기서 추가
+						for (int i = 0; i < stockArr.size(); i++) {
+						    stockArr.get(i).put("WAERS", "KRW");
+                        }
+
 						for (HashMap<String, String> map1 : stockArr) {
 							// Log.e("map1 AUFNR size",
 							// ""+map1.get("AUFNR").length());
 							// Log.e("map AUFNR size",
 							// ""+map.get("AUFNR").length());
 							// 2014.101.08	ypkim
+
 							if (map1.get("AUFNR").equals(map.get("AUFNR")) &&
 									map1.get("INVNR").equals(map.get("INVNR"))) {
 								tempStockArr.add(map1);
@@ -510,13 +518,15 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 					
 				}
 
-				kog.e("KDH", ""+tempImageArr.size());
+
 				// myung 20131216 UPDATE I_TAB1 의 정비오더&사인이미지명과 I_TAB2의
 				// 정비오더&사인이미지명을 비교하여 다른게 있으면 다른 정비오더 데이터 전송하지 말것.
 				
-				mConnectController.sendMaintenance(mBaseMap.get(strKey),
-						tempStockArr, tempImageArr, GUBUN, strKey);
-				
+//				mConnectController.sendMaintenance(mBaseMap.get(strKey), tempStockArr, tempImageArr, GUBUN, strKey, netpr, waers = kwr <= 1020_rd08 에 있음 이거 넣어주면 됨.);
+				mConnectController.sendMaintenance(mBaseMap.get(strKey), tempStockArr, tempImageArr, GUBUN, strKey);
+
+				kog.e("KDH", ""+tempImageArr.size());
+
 				// mConnectController.sendMaintenance(mBaseMap.get(strKey),
 				// mStockMap.get(strKey), mImageMap.get(strKey), GUBUN,
 				// strKey);
