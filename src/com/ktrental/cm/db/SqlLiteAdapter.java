@@ -654,21 +654,40 @@ public class SqlLiteAdapter {
         int re = -1;
 
         String whereCause = "";
-        String[] whereArgs = new String[keys.length];
+        String[] whereArgs = null;
+        if(keys != null) {
+            whereArgs = new String[keys.length];
 
-        for (int i = 0; i < keys.length; i++) {
-            String key = keys[i] + " = ?";
-            whereCause = whereCause + key;
+            for (int i = 0; i < keys.length; i++) {
+                String key = keys[i] + " = ?";
+                whereCause = whereCause + key;
 
-            whereArgs[i] = (String) values.get(keys[i]);
+                whereArgs[i] = (String) values.get(keys[i]);
 
-            if (keys.length == i + 1)
-                break;
-            whereCause = whereCause + " AND ";
+                if (keys.length == i + 1)
+                    break;
+                whereCause = whereCause + " AND ";
 
+            }
         }
         try {
             re = m_db.delete(tableName, whereCause, whereArgs);
+        } catch (SQLiteException exception) {
+
+        }
+
+        return re > 0;
+
+    }
+
+    public boolean deleteAllRow(String tableName) {
+
+        int re = -1;
+
+        try {
+            String query = "DELETE FROM " + tableName;
+            m_db.rawQuery(query, null);
+//            re = m_db.delete(tableName, "1=1", null);
         } catch (SQLiteException exception) {
 
         }

@@ -250,7 +250,8 @@ public class Menu1_Activity extends BaseActivity implements ConnectInterface,
 
 	@Override
 	protected void onPause() {
-		pp.dismiss();
+		if(pp != null)
+			pp.dismiss();
 		super.onPause();
 	}
 
@@ -321,7 +322,8 @@ public class Menu1_Activity extends BaseActivity implements ConnectInterface,
 				setField1(O_ITAB1.get(0));
 			}
 
-			pp.show();
+			if(pp != null)
+				pp.show();
 			// 2013.11.18 YPKIM
 			// ZMO_1100_RD03 호출 시 차량번호, 정비유형, 정비진행상태 호출하도록 수정 함.
 			// ZMO_1100_RD03 펑션 하나로 사용 함.

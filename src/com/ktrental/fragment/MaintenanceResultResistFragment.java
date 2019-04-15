@@ -138,7 +138,6 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 
 	public void setCarInfoModel(CarInfoModel aCarInfoModel) {
 		this.mCarInfoModel = aCarInfoModel;
-
 		if (mFirstMap.containsKey(aCarInfoModel.getCarNum())) {
 			mFirstFlag = false;
 			// myung 20131231 ADD 점검결과 등록 BACK버튼 클릭시 확인팝업창 뛰우기

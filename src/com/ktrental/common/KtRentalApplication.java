@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
 import com.ktrental.calendar.CalendarController;
@@ -16,8 +15,8 @@ import com.ktrental.cm.connect.ConnectController;
 import com.ktrental.cm.connect.ConnectorUtil;
 import com.ktrental.cm.db.DbAsyncTask;
 import com.ktrental.cm.db.DbAsyncTask.DbAsyncResLintener;
-import com.ktrental.model.DbQueryModel;
 import com.ktrental.cm.db.SqlLiteAdapter;
+import com.ktrental.model.DbQueryModel;
 import com.ktrental.model.LoginModel;
 import com.ktrental.model.RepairDayInfoModel;
 import com.ktrental.model.RepairPlanModel;

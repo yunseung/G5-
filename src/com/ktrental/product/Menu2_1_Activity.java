@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.telephony.SmsManager;
 import android.text.Layout;
@@ -3101,117 +3102,117 @@ HashMap<String, String> setData = new HashMap<String, String>();
 		return retZCODEVT;
 	}
 
-    private void sendSMS() {
+	private void sendSMS() {
 		kog.e("Jonathan", " sendSMS");
-        StringBuffer sb = new StringBuffer();
+		StringBuffer sb = new StringBuffer();
 
 		ArrayList<String> sp_message_parts = null;
 		ArrayList<String> cus_message_parts = null;
 
-        String carenum = context.getString(R.string.insure_care_number);
-        String carnum = context.getString(R.string.insure_carnum);
-        String car_kind = context.getString(R.string.insure_car_kind);
-        String accidate = context.getString(R.string.insure_accidate);
-        String acci_location = context.getString(R.string.insure_acci_location);
-        String acci_content = context.getString(R.string.insure_acci_content);
-        String acci_insure_num = context.getString(R.string.insure_acci_insure_num);
-        String acci_repair_location = context.getString(R.string.insure_acci_repair_location);
-        String spName = context.getString(R.string.insure_sp_name);
-        String spPhone = context.getString(R.string.insure_sp_phone);
-        String car_manager = context.getString(R.string.insure_car_manager);
-        String car_manager_phone = context.getString(R.string.insure_car_manager_phone);
-        String customer_name = context.getString(R.string.insure_customer_name);
-        String customer_phone = context.getString(R.string.insure_customer_phone);
-        String etc = context.getString(R.string.insure_etc);
+		String carenum = context.getString(R.string.insure_care_number);
+		String carnum = context.getString(R.string.insure_carnum);
+		String car_kind = context.getString(R.string.insure_car_kind);
+		String accidate = context.getString(R.string.insure_accidate);
+		String acci_location = context.getString(R.string.insure_acci_location);
+		String acci_content = context.getString(R.string.insure_acci_content);
+		String acci_insure_num = context.getString(R.string.insure_acci_insure_num);
+		String acci_repair_location = context.getString(R.string.insure_acci_repair_location);
+		String spName = context.getString(R.string.insure_sp_name);
+		String spPhone = context.getString(R.string.insure_sp_phone);
+		String car_manager = context.getString(R.string.insure_car_manager);
+		String car_manager_phone = context.getString(R.string.insure_car_manager_phone);
+		String customer_name = context.getString(R.string.insure_customer_name);
+		String customer_phone = context.getString(R.string.insure_customer_phone);
+		String etc = context.getString(R.string.insure_etc);
 
-        String content_carenum = O_STRUDCT1.get("AUFNR");
-        String content_carnum  = O_STRUDCT1.get("INVNR");
-        String content_car_kind = O_STRUDCT2.get("MAKTX");
-        String content_accidate = O_STRUDCT1.get("ACCDT");
-        String content_acci_location = O_STRUDCT1.get("FULL_ADDR2") + " " + O_STRUDCT1.get("REQRNM");
-        String content_acci_content = O_STRUDCT1.get("ACCDES");
+		String content_carenum = O_STRUDCT1.get("AUFNR");
+		String content_carnum  = O_STRUDCT1.get("INVNR");
+		String content_car_kind = O_STRUDCT2.get("MAKTX");
+		String content_accidate = O_STRUDCT1.get("ACCDT");
+		String content_acci_location = O_STRUDCT1.get("FULL_ADDR2") + " " + O_STRUDCT1.get("REQRNM");
+		String content_acci_content = O_STRUDCT1.get("ACCDES");
 //		mEtAcciInsureNum.setText(model.get("INVNR"));
-        String content_acci_repair_location = O_STRUDCT1.get("REQPCD");
-        String content_spName = O_STRUDCT1.get("SPLIFNR");
-        String content_spPhone = O_STRUDCT1.get("SPTEL");
-        String content_car_manager = O_STRUDCT1.get("DAM02N");
-        String content_car_manager_phone = O_STRUDCT1.get("DAM02HP");
-        String content_customer_name = O_STRUDCT1.get("DRVNAM");
-        String content_customer_phone = O_STRUDCT1.get("DRVHP");
+		String content_acci_repair_location = O_STRUDCT1.get("REQPCD");
+		String content_spName = O_STRUDCT1.get("SPLIFNR");
+		String content_spPhone = O_STRUDCT1.get("SPTEL");
+		String content_car_manager = O_STRUDCT1.get("DAM02N");
+		String content_car_manager_phone = O_STRUDCT1.get("DAM02HP");
+		String content_customer_name = O_STRUDCT1.get("DRVNAM");
+		String content_customer_phone = O_STRUDCT1.get("DRVHP");
 
-        sb.append(carenum + " : " + content_carenum);
-        sb.append("\r\n");
-//        sb.append(System.getProperty( "line.separator"));
-        sb.append(carnum + " : " + content_carnum);
+		sb.append(carenum + " : " + content_carenum);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(car_kind + " : " + content_car_kind);
+		sb.append(carnum + " : " + content_carnum);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(accidate + " : " + content_accidate);
+		sb.append(car_kind + " : " + content_car_kind);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(acci_location + " : " + content_acci_location);
+		sb.append(accidate + " : " + content_accidate);
+		sb.append("\r\n");
+//        sb.append(System.getProperty( "line.separator"));
+		sb.append(acci_location + " : " + content_acci_location);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
 //        sb.append(acci_repair_location + " : " + content_acci_repair_location);
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(acci_content + " : " + content_acci_content);
+		sb.append(acci_content + " : " + content_acci_content);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
 //        sb.append(acci_insure_num + " : " + "");
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(acci_repair_location + " : " + content_acci_repair_location);
+		sb.append(acci_repair_location + " : " + content_acci_repair_location);
 //        sb.append(System.getProperty( "line.separator"));
 		sb.append("\r\n");
-        sb.append(customer_name + " : " + content_customer_name);
+		sb.append(customer_name + " : " + content_customer_name);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(customer_phone + " : " + content_customer_phone);
+		sb.append(customer_phone + " : " + content_customer_phone);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(car_manager + " : " + content_car_manager);
+		sb.append(car_manager + " : " + content_car_manager);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
-        sb.append(car_manager_phone + " : " + content_car_manager_phone);
+		sb.append(car_manager_phone + " : " + content_car_manager_phone);
 		sb.append("\r\n");
 //        sb.append(System.getProperty( "line.separator"));
 //        sb.append(etc + " : " + mTvEtc.getText().toString());
 
 //		String phoneNumber = mTvContact.getText().toString();
 //		String message = mEtMessage.getText().toString();
-        SmsManager sms = SmsManager.getDefault();
+		SmsManager sms = SmsManager.getDefault();
 		String sp_message = String.valueOf(sb);
 
-        /**
-         * 여기는 고객에게 전달할 내용
-         */
+		/**
+		 * 여기는 고객에게 전달할 내용
+		 */
 
-        StringBuffer cus_sb = new StringBuffer();
-        cus_sb.append(carnum + " : " + content_carnum);
+		StringBuffer cus_sb = new StringBuffer();
+		cus_sb.append(carnum + " : " + content_carnum);
 		cus_sb.append("\r\n");
 //        cus_sb.append(System.getProperty( "line.separator"));
-        cus_sb.append(car_kind + " : " + content_car_kind);
+		cus_sb.append(car_kind + " : " + content_car_kind);
 //        cus_sb.append(System.getProperty( "line.separator"));
 		cus_sb.append("\r\n");
-        cus_sb.append(accidate + " : " + content_accidate);
+		cus_sb.append(accidate + " : " + content_accidate);
 		cus_sb.append("\r\n");
 //        cus_sb.append(System.getProperty( "line.separator"));
-        cus_sb.append(acci_location + " : " + content_acci_location);
+		cus_sb.append(acci_location + " : " + content_acci_location);
 		cus_sb.append("\r\n");
 //        cus_sb.append(System.getProperty( "line.separator"));
-        cus_sb.append(acci_repair_location + " : " + content_acci_repair_location);
+		cus_sb.append(acci_repair_location + " : " + content_acci_repair_location);
 		cus_sb.append("\r\n");
 //        cus_sb.append(System.getProperty( "line.separator"));
-        cus_sb.append(spName + " : " + dam01nm);
+		cus_sb.append(spName + " : " + dam01nm);
 		cus_sb.append("\r\n");
 //        cus_sb.append(System.getProperty( "line.separator"));
-        cus_sb.append(spPhone + " : " + telf1);
+		cus_sb.append(spPhone + " : " + telf1);
 		cus_sb.append("\r\n");
 //        cus_sb.append(System.getProperty( "line.separator"));
-        cus_sb.append("* 대차 담당자가 순차적으로 빠른 시간 내에 연락 드릴 예정입니다.");
+		cus_sb.append("* 대차 담당자가 순차적으로 빠른 시간 내에 연락 드릴 예정입니다.");
 
-        String cus_message = String.valueOf(cus_sb);
+		String cus_message = String.valueOf(cus_sb);
 		kog.e("Jonathan", "SMS cus_message = " + cus_message);
 		LogUtil.e("SMS", "SMS cus_message = " + cus_message);
 
@@ -3301,20 +3302,33 @@ HashMap<String, String> setData = new HashMap<String, String>();
 			content_customer_phone = "01099458330";
 			content_spPhone = "01099458330";
 		}
+
+		LogUtil.e("SMS", "SMS content_spPhone = " + content_spPhone);
+		LogUtil.e("SMS", "SMS content_customer_phone = " + content_customer_phone);
 		/** SMS 발송 시작 **/
 		sms.sendMultipartTextMessage(content_spPhone, null, sp_message_parts, sentIntents, null);
 		saveCallLog("SMS", content_spPhone);
 
+		final SmsManager sms2 = sms;
+		final String content_customer_phone2 = content_customer_phone;
+		final ArrayList<String> cus_message_parts2 = cus_message_parts;
+		final ArrayList<PendingIntent> sentIntents2 = sentIntents;
 
-		sms.sendMultipartTextMessage(content_customer_phone, null, cus_message_parts, sentIntents, null);
-		saveCallLog("SMS", content_customer_phone);
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				sms2.sendMultipartTextMessage(content_customer_phone2, null, cus_message_parts2, sentIntents2, null);
+				saveCallLog("SMS", content_customer_phone2);
+			}
+		}, 1000);
+
 
 //		if(mSendSmsCount > 0) {
 //			send_SMS_RFC(content_spPhone, "1588-1230", "0", "보험대차SMS", sp_message, "PM019", content_car_manager);
 //		} else {
 //			send_SMS_RFC(content_customer_phone, "1588-1230", "0", "보험대차SMS", cus_message, "PM019", dam01nm);
 //		}
-    }
+	}
 
 	private void send_SMS_RFC(String TRTEL, String ANSTEL, String SCHETP, String SUBJECT, String MSG, String USERID, String KUNNRNM){
 		cc.ZSD_SEND_SMS("", KUNNRNM, USERID, "", "", TRTEL, ANSTEL, SCHETP, SUBJECT, MSG);

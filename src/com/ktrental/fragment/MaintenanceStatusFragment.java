@@ -1,5 +1,6 @@
 package com.ktrental.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -158,6 +159,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
     public MaintenanceStatusFragment() {
     }
 
+    @SuppressLint("ValidFragment")
     public MaintenanceStatusFragment(String className, OnChangeFragmentListener changeFragmentListener) {
         super(className, changeFragmentListener);
         mOnChangeFragmentListener = changeFragmentListener;
@@ -719,6 +721,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
             } else if (funName.equals("queryMaintenacePlan")) {
                 if (cursor == null)
                     return;
+
 
                 cursor.moveToFirst();
                 mRepairPlanModelArray.clear();

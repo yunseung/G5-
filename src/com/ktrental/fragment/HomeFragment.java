@@ -2,6 +2,7 @@ package com.ktrental.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ import com.ktrental.util.ResultController.OnResultCompleate;
 import com.ktrental.util.SharedPreferencesUtil;
 import com.ktrental.util.kog;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -64,6 +66,8 @@ import java.util.HashMap;
 public class HomeFragment extends BaseRepairFragment implements OnClickListener, OnCalendarListener, ConnectInterface, DbAsyncResLintener,
         OnCardClick
 {
+    private static final String   DB_PATH       = "DATABASE";
+    private static final String   DOWNLOAD_PATH = "DOWNLOAD";
 
     private Context                      mContext;
     private CalendarFragment             mCalendarFragment;
@@ -224,6 +228,7 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
         mTvMonthlyPossetion = (TextView) mRootView.findViewById(R.id.tv_month_possetion);
         mTvMonthlyPossetion2 = (TextView) mRootView.findViewById(R.id.tv_month_possetion2);
         mTvMonthlyPossetion3 = (TextView) mRootView.findViewById(R.id.tv_month_possetion3);
+
         mLlMonthPlan = (LinearLayout) mRootView.findViewById(R.id.ll_month_plan);
         mLlMonthPlan.setOnClickListener(this);
         mLlMonthPercent = (LinearLayout) mRootView.findViewById(R.id.ll_month_percent);
@@ -686,22 +691,76 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
             // SyncStr = "A";
             // sharedPreferencesUtil.setSyncSuccess(false);
             // }
-            SyncStr = " ";
+            final String SyncStr2 = "A";
             // loginSuccess(); // 순회정비계획 싱크가 느려 우선은 로그인성공으로 바로가게 한다.
             // return;
+            final ConnectController connectController = new ConnectController(this, mContext);            ContentValues contentValues = new ContentValues();
+
+            TableModel tableModel = new TableModel("");
+            ArrayList<String> dropTables = new ArrayList<String>();
+            dropTables.add(DEFINE.REPAIR_TABLE_NAME);
+
+            DbAsyncTask asyncTask = new DbAsyncTask("drop_repair_table", ConnectController.REPAIR_TABLE_NAME, mContext, new DbAsyncResLintener()
+            {
+
+                @Override
+                public void onCompleteDB(String funName, int type, Cursor cursor, String tableName)
+                {
+//                    File root = mContext.getExternalCacheDir();
+//                    String dirPath = root.getPath() + "/";
+//                    File file = new File(dirPath + "DOWNLOAD");
+//                    if (!file.exists()) // 원하는 경로에 폴더가 있는지 확인
+//                        file.mkdirs();
+//                    String mDbPath = dirPath + "DATABASE";
+//                    kog.e("Jonathan", "downloadDB::" + mDbPath);
+//                    connectController.downloadDB("-1", file.getPath());
+
+
+//                    hideProgress();
+                    LoginModel model = KtRentalApplication.getLoginModel();
+//                    queryBaseGroup();
+//                    KtRentalApplication.getInstance().queryMaintenacePlan();
+//                    // runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "순회정비 리스트를 확인 중 입니다.");
+//                    // 테이블 데이타를 얻어온다.
+                    connectController.getRepairPlan(model.getPernr(), SyncStr2, mContext);
+                }
+            }, tableModel, dropTables);
+            asyncTask.execute(DbAsyncTask.DB_DROP_TABLES);
+
+//            DbAsyncTask asyncTask = new DbAsyncTask(ConnectController.REPAIR_FUNTION_NAME, ConnectController.REPAIR_TABLE_NAME, mContext, new DbAsyncResLintener()
+//            {
+//
+//                @Override
+//                public void onCompleteDB(String funName, int type, Cursor cursor, String tableName)
+//                {
+//                    hideProgress();
+//                    LoginModel model = KtRentalApplication.getLoginModel();
+//                    queryBaseGroup();
+//                    KtRentalApplication.getInstance().queryMaintenacePlan();
+//                    // runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "순회정비 리스트를 확인 중 입니다.");
+//                    // 테이블 데이타를 얻어온다.
+////                    connectController.getRepairPlan(model.getPernr(), SyncStr2, mContext);
+//                }
+//            }, contentValues, null);
+//            asyncTask.execute(DbAsyncTask.DB_DELETE_ALL_ROW);
         }
         else
         {
 
             SyncStr = "A";
             sharedPreferencesUtil.setSyncSuccess(false);
+            LoginModel model = KtRentalApplication.getLoginModel();
+//        // runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "순회정비 리스트를 확인 중 입니다.");
+            ConnectController connectController = new ConnectController(this, mContext);
+//        // 테이블 데이타를 얻어온다.
+            connectController.getRepairPlan(model.getPernr(), SyncStr, mContext);
         }
+//        LoginModel model = KtRentalApplication.getLoginModel();
+//        // runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "순회정비 리스트를 확인 중 입니다.");
+//        ConnectController connectController = new ConnectController(this, mContext);
+//        // 테이블 데이타를 얻어온다.
+//        connectController.getRepairPlan(model.getPernr(), SyncStr, mContext);
 
-        LoginModel model = KtRentalApplication.getLoginModel();
-        // runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "순회정비 리스트를 확인 중 입니다.");
-        ConnectController connectController = new ConnectController(this, mContext);
-        // 테이블 데이타를 얻어온다.
-        connectController.getRepairPlan(model.getPernr(), SyncStr, mContext);
     }
 
     @Override
@@ -785,7 +844,40 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
     public void reDownloadDB(String newVersion)
     {
         // TODO Auto-generated method stub
+        File root = mContext.getExternalCacheDir();
+        String dirPath = root.getPath() + "/" + DOWNLOAD_PATH + "/" + DEFINE.SQLLITE_DB_NAME;
+        if (CommonUtil.isFile(dirPath))
+            dbRoad(dirPath);
+    }
+    private void dbRoad(final String downloadPath)
+    {
+        final ConnectController connectController = new ConnectController(this, mContext);
+        mActivity.runOnUiThread(new Runnable()
+        {
 
+            @Override
+            public void run()
+            {
+                // TODO Auto-generated method stub
+                DbAsyncTask asyncTask = new DbAsyncTask("DB_ROAD", O_ITAB1.TABLENAME, mContext, new DbAsyncResLintener()
+                {
+
+                    @Override
+                    public void onCompleteDB(String funName, int type, Cursor cursor, String tableName)
+                    {
+                        // TODO Auto-generated method stub
+                        hideProgress();
+                        LoginModel model = KtRentalApplication.getLoginModel();
+//                        queryBaseGroup();
+//                        KtRentalApplication.getInstance().queryMaintenacePlan();
+                        // runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "순회정비 리스트를 확인 중 입니다.");
+                        // 테이블 데이타를 얻어온다.
+                        connectController.getRepairPlan(model.getPernr(), " ", mContext);
+                    }
+                }, null, downloadPath);
+                asyncTask.execute(DbAsyncTask.DB_ROAD);
+            }
+        });
     }
 
     private void queryBaseGroup()

@@ -385,7 +385,6 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
             tv_vat.setText(ES_FOOTER.get("DMBTR_T_VAT"));
             tv_total2.setText(ES_FOOTER.get("DMBTR_T2"));
 
-
             // 작업내용 MAKTX
             // 수량 ERFMG
             // 금액 DMBTR

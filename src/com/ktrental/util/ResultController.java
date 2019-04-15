@@ -1,20 +1,11 @@
 package com.ktrental.util;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.ktrental.activity.LoginActivity;
 import com.ktrental.cm.connect.ConnectController;
 import com.ktrental.cm.connect.Connector.ConnectInterface;
 import com.ktrental.cm.db.DbAsyncTask;
@@ -22,12 +13,16 @@ import com.ktrental.cm.db.DbAsyncTask.DbAsyncResLintener;
 import com.ktrental.common.AppSt;
 import com.ktrental.common.DEFINE;
 import com.ktrental.common.KtRentalApplication;
-import com.ktrental.common.Result_Send;
-import com.ktrental.fragment.MaintenanceResultFragment;
 import com.ktrental.model.DbQueryModel;
 import com.ktrental.model.LoginModel;
 import com.ktrental.model.O_ITAB1;
 import com.ktrental.model.TableModel;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
 
 //2014-01-16 KDH 결과등록 -_-/ 이건뭐..끝판왕이네..
 public class ResultController implements DbAsyncResLintener, ConnectInterface {
@@ -122,6 +117,7 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 				dbQueryModel);
 		dbAsyncTask.execute(DbAsyncTask.DB_SELECT);
 	}
+
 
 	private void queryStock(String aufnr, String funName) {
 		String[] _whereArgs = { aufnr };
@@ -474,8 +470,8 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 
 						// 모든 항목에 WAERS = "KRW" 값ㅅ이 고정으로 들어감.. 여기서 추가
 						for (int i = 0; i < stockArr.size(); i++) {
-						    stockArr.get(i).put("WAERS", "KRW");
-                        }
+							stockArr.get(i).put("WAERS", "KRW");
+						}
 
 						for (HashMap<String, String> map1 : stockArr) {
 							// Log.e("map1 AUFNR size",
@@ -521,7 +517,7 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 
 				// myung 20131216 UPDATE I_TAB1 의 정비오더&사인이미지명과 I_TAB2의
 				// 정비오더&사인이미지명을 비교하여 다른게 있으면 다른 정비오더 데이터 전송하지 말것.
-				
+
 //				mConnectController.sendMaintenance(mBaseMap.get(strKey), tempStockArr, tempImageArr, GUBUN, strKey, netpr, waers = kwr <= 1020_rd08 에 있음 이거 넣어주면 됨.);
 				mConnectController.sendMaintenance(mBaseMap.get(strKey), tempStockArr, tempImageArr, GUBUN, strKey);
 

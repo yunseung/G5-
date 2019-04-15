@@ -74,7 +74,7 @@ public class MaintenanceAdapter extends BaseMaintenceAdapter
             	viewHolder.tvVocInfo.setVisibility(View.VISIBLE);
             	viewHolder.tvVocInfo.setText("VOC : " + model.getVocNum());
             }
-            	
+
         }
     }
 

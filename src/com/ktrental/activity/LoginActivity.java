@@ -41,9 +41,6 @@ import com.ktrental.cm.db.DbAsyncTask.DbAsyncResLintener;
 import com.ktrental.cm.db.SqlLiteAdapter;
 import com.ktrental.common.DEFINE;
 import com.ktrental.common.KtRentalApplication;
-import com.ktrental.dialog.IoTRequestItemDialog;
-import com.ktrental.dialog.TimePickDialog;
-import com.ktrental.dialog.TroubleHistoryItemDialog;
 import com.ktrental.model.DbQueryModel;
 import com.ktrental.model.LoginModel;
 import com.ktrental.model.O_ITAB1;
@@ -53,7 +50,6 @@ import com.ktrental.popup.EventPopup2;
 import com.ktrental.popup.EventPopupC;
 import com.ktrental.popup.EventPopupCC;
 import com.ktrental.popup.ProgressPopup;
-import com.ktrental.popup.TimePopup;
 import com.ktrental.product.Menu1_Activity;
 import com.ktrental.util.CommonUtil;
 import com.ktrental.util.LogUtil;
@@ -266,8 +262,8 @@ public class LoginActivity extends Activity implements OnClickListener, OnChecke
 
         // 2017-11-16. 개발버전에선 아이디 입력 가능하도록 변경하자
         if(DEFINE.getDEBUG_MODE() == true && mIdEditText != null && mIdEditText.getText().toString().equals("")){
-                mIdEditText.setEnabled(true);
-                mLoginButton.setVisibility(View.VISIBLE);
+            mIdEditText.setEnabled(true);
+            mLoginButton.setVisibility(View.VISIBLE);
         } else {
             startVerCheck();
         }
@@ -1407,62 +1403,62 @@ public class LoginActivity extends Activity implements OnClickListener, OnChecke
 
             if (nMonth == 12 && month == 1)
                 nMonth = 0;
-                if (month > nMonth)
-                {
-                    shareU.setInt("login_first_check_month", month);
+            if (month > nMonth)
+            {
+                shareU.setInt("login_first_check_month", month);
 
-                    kog.e("Jonathan", "로그인1");
-                    runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "데이터 초기화");
-                    mPreferencesUtil.setSyncSuccess(false);
-                    dropRepairTables(new DbAsyncResLintener()
+                kog.e("Jonathan", "로그인1");
+                runUiThread(UiRunnable.MODE_PROGRESS_SHOW, "데이터 초기화");
+                mPreferencesUtil.setSyncSuccess(false);
+                dropRepairTables(new DbAsyncResLintener()
+                {
+
+                    @Override
+                    public void onCompleteDB(String funName, int type, Cursor cursor, String tableName)
                     {
+                        // TODO Auto-generated method stub
+                        runUiThread(UiRunnable.MODE_PROGRESS_HIDE, "데이터 초기화");
+                        String SyncStr = "A";
+                        sharedPreferencesUtil.setSyncSuccess(false);
+                        pp.setMessage("순회정비 리스트를 확인 중 입니다.");
+                        pp.show();
+                        // runUiThread(UiRunnable.MODE_PROGRESS_SHOW,
+                        // "순회정비 리스트를 확인 중 입니다.");
+                        Log.d("HONG", "model.getPernr() " + model.getPernr());
+                        // 테이블 데이타를 얻어온다.
+                        mConnectController.getRepairPlan(model.getPernr(), SyncStr, LoginActivity.this);
+                        sharedPreferencesUtil.setLastLoginId(model.getPernr());
+                    }
+                });
 
-                        @Override
-                        public void onCompleteDB(String funName, int type, Cursor cursor, String tableName)
-                        {
-                            // TODO Auto-generated method stub
-                            runUiThread(UiRunnable.MODE_PROGRESS_HIDE, "데이터 초기화");
-                            String SyncStr = "A";
-                            sharedPreferencesUtil.setSyncSuccess(false);
-                            pp.setMessage("순회정비 리스트를 확인 중 입니다.");
-                            pp.show();
-                            // runUiThread(UiRunnable.MODE_PROGRESS_SHOW,
-                            // "순회정비 리스트를 확인 중 입니다.");
-                            Log.d("HONG", "model.getPernr() " + model.getPernr());
-                            // 테이블 데이타를 얻어온다.
-                            mConnectController.getRepairPlan(model.getPernr(), SyncStr, LoginActivity.this);
-                            sharedPreferencesUtil.setLastLoginId(model.getPernr());
-                        }
-                    });
+            }
+            else if (sharedPreferencesUtil.isSuccessSyncDB())
+            {
+                kog.e("Jonathan", "로그인2");
+                String SyncStr = " ";
+                pp.setMessage("순회정비 리스트를 확인 중 입니다.");
+                pp.show();
+                // runUiThread(UiRunnable.MODE_PROGRESS_SHOW,
+                // "순회정비 리스트를 확인 중 입니다.");
+                // Log.d("HONG", "model.getPernr() " + model.getPernr());
+                // 테이블 데이타를 얻어온다.
+                mConnectController.getRepairPlan(model.getPernr(), SyncStr, this);
+                sharedPreferencesUtil.setLastLoginId(model.getPernr());
 
-                }
-                else if (sharedPreferencesUtil.isSuccessSyncDB())
-                {
-                    kog.e("Jonathan", "로그인2");
-                    String SyncStr = " ";
-                    pp.setMessage("순회정비 리스트를 확인 중 입니다.");
-                    pp.show();
-                    // runUiThread(UiRunnable.MODE_PROGRESS_SHOW,
-                    // "순회정비 리스트를 확인 중 입니다.");
-                    // Log.d("HONG", "model.getPernr() " + model.getPernr());
-                    // 테이블 데이타를 얻어온다.
-                    mConnectController.getRepairPlan(model.getPernr(), SyncStr, this);
-                    sharedPreferencesUtil.setLastLoginId(model.getPernr());
-
-                }
-                else
-                {
-                    kog.e("Jonathan", "로그인3");
-                    String SyncStr = "A";
-                    sharedPreferencesUtil.setSyncSuccess(false);
-                    pp.setMessage("순회정비 리스트를 확인 중 입니다.");
-                    pp.show();
-                    // runUiThread(UiRunnable.MODE_PROGRESS_SHOW,
-                    // "순회정비 리스트를 확인 중 입니다.");
-                    // Log.d("HONG", "model.getPernr() " + model.getPernr());
-                    // 테이블 데이타를 얻어온다.
-                    mConnectController.getRepairPlan(model.getPernr(), SyncStr, this);
-                    sharedPreferencesUtil.setLastLoginId(model.getPernr());
+            }
+            else
+            {
+                kog.e("Jonathan", "로그인3");
+                String SyncStr = "A";
+                sharedPreferencesUtil.setSyncSuccess(false);
+                pp.setMessage("순회정비 리스트를 확인 중 입니다.");
+                pp.show();
+                // runUiThread(UiRunnable.MODE_PROGRESS_SHOW,
+                // "순회정비 리스트를 확인 중 입니다.");
+                // Log.d("HONG", "model.getPernr() " + model.getPernr());
+                // 테이블 데이타를 얻어온다.
+                mConnectController.getRepairPlan(model.getPernr(), SyncStr, this);
+                sharedPreferencesUtil.setLastLoginId(model.getPernr());
             }
         }
         else

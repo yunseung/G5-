@@ -1363,6 +1363,8 @@ public class MaintentanceInputFragment extends BaseFragment
 		if (array_hash == null)
 			return;
 
+
+		// myung 20131125 장비항목입력 리스트 생성 시에 같은 항목 증가하는 오류
 		mPartsMap.clear();
 
 		for (int i = 0; i < array_hash.size(); i++) {

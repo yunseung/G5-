@@ -44,6 +44,7 @@ public class DbAsyncTask extends AsyncTask<Integer// excute()실행시 넘겨줄
     public final static int         DB_UPDATE       = 6;
     public final static int         DB_TABLE_CHECK  = 7;
     public final static int         DB_DROP_TABLES  = 8;
+    public final static int         DB_DELETE_ALL_ROW = 9;
     private String                  mTableName      = null;
     private ProgressDialog          mDlg;
     private Context                 mContext;
@@ -207,6 +208,9 @@ public class DbAsyncTask extends AsyncTask<Integer// excute()실행시 넘겨줄
                 break;
             case DB_DROP_TABLES:
                 dropTables();
+                break;
+            case DB_DELETE_ALL_ROW:
+                deleteAllRow();
                 break;
             default:
                 break;
@@ -453,6 +457,12 @@ public class DbAsyncTask extends AsyncTask<Integer// excute()실행시 넘겨줄
     {
         SqlLiteAdapter sqlLiteAdapter = SqlLiteAdapter.getInstance();
         boolean flag = sqlLiteAdapter.deleteRow(mTableName, mWhereKey, mContentValues);
+        PrintLog.Print("", "deleteRow" + flag);
+    }
+
+    private void deleteAllRow(){
+        SqlLiteAdapter sqlLiteAdapter = SqlLiteAdapter.getInstance();
+        boolean flag = sqlLiteAdapter.deleteAllRow(mTableName);
         PrintLog.Print("", "deleteRow" + flag);
     }
 
