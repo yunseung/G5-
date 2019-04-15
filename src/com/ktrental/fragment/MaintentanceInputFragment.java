@@ -119,7 +119,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	private int mLastTotalPrice = 0;
 
-	public void setOnResultInut(OnResultInut aOnResultInut) {
+	public void setOnResultInput(OnResultInut aOnResultInut) {
 		this.mOnResultInut = aOnResultInut;
 	}
 
@@ -444,7 +444,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 				}
 			}
-//TODO 윤승 여기가 대분류 선택했을때
+
 			mItemAdapter.setData(arr);
 			mItemAdapter.setSelectedMaintenanceModels(backSelectedItem);
 			initItemEmpty(arr);

@@ -88,7 +88,6 @@ public class IoTRequestItemDialog extends DialogC implements Connector.ConnectIn
 
         showProgress("조회 중입니다.");
         mCc.getZMO_1020_RD06(mReqNo);
-        //        mCc.getZMO_1020_RD06("19032700006");
     }
 
 
@@ -234,6 +233,7 @@ public class IoTRequestItemDialog extends DialogC implements Connector.ConnectIn
                 mViewHolder.tvPartName = (TextView) convertView.findViewById(R.id.tv_part_name);
                 mViewHolder.tvQuantity = (TextView) convertView.findViewById(R.id.tv_quantity);
                 mViewHolder.tvPrice = (TextView) convertView.findViewById(R.id.tv_price);
+                mViewHolder.tvPrice2 = (TextView) convertView.findViewById(R.id.tv_price2);
                 convertView.setTag(mViewHolder);
             } else {
                 mViewHolder = (ViewHolder)convertView.getTag();
@@ -244,6 +244,7 @@ public class IoTRequestItemDialog extends DialogC implements Connector.ConnectIn
             mViewHolder.tvPartName.setText(mHashArray.get(position).get("MAKTX"));
             mViewHolder.tvQuantity.setText(mHashArray.get(position).get("QTY"));
             mViewHolder.tvPrice.setText(mHashArray.get(position).get("DMBTR"));
+            mViewHolder.tvPrice2.setText(mHashArray.get(position).get("DMBTR_VAT"));
             return convertView;
         }
 
@@ -253,6 +254,7 @@ public class IoTRequestItemDialog extends DialogC implements Connector.ConnectIn
             public TextView tvPartName = null;
             public TextView tvQuantity = null;
             public TextView tvPrice = null;
+            public TextView tvPrice2 = null;
         }
     }
 }

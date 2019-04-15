@@ -1373,7 +1373,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 
 		mMaintentanceInputFragment.setmLastItemModels(mLastItemModels);
 		mMaintentanceInputFragment.setCarInfoModel(mCarInfoModel);
-		mMaintentanceInputFragment.setOnResultInut(this);
+		mMaintentanceInputFragment.setOnResultInput(this);
 		mMaintentanceInputFragment.setTotalStockSelectArray(mTotalLastItemModels);
 
 		// myung 20131120 2560대응
