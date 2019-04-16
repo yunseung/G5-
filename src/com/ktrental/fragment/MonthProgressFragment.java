@@ -924,6 +924,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             @Override
             public void onDismiss(DialogInterface dialog) {
                 // TODO Auto-generated method stub
+                refreshState();
                 monthProgressAdapter.initSelectedMaintenanceArray();
             }
         });
@@ -1395,6 +1396,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         monthProgressAdapter.initSelectedMaintenanceArray();
+                        refreshState();
                     }
                 });
                 dd.show();
@@ -1408,6 +1410,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                 @Override
                 public void onDismiss(DialogInterface dialog) {
                     monthProgressAdapter.initSelectedMaintenanceArray();
+                    refreshState();
                 }
             });
             dd.show();
@@ -1423,16 +1426,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
     @Override
     public void onClickCalendarTitle() {
-        // TODO Auto-generated method stub
-
-        monthProgressAdapter.initSelectedMaintenanceArray();
-        // monthProgressAdapter.initFiltering();
-        monthProgressAdapter.setInfoType("");
-        // monthProgressAdapter.filtering();
-        mCalendarFragment.initSelectedPosition();
-        monthProgressAdapter.setMaintenanceType("");
-        mEtSearch.setText("");
-        queryMaintenace("");
+        refreshState();
     }
 
     @Override
@@ -1451,6 +1445,17 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             mEmptyView.setVisibility(View.VISIBLE);
             mLvProgressStatus.setVisibility(View.GONE);
         }
+    }
+
+    private void refreshState() {
+        monthProgressAdapter.initSelectedMaintenanceArray();
+        // monthProgressAdapter.initFiltering();
+        monthProgressAdapter.setInfoType("");
+        // monthProgressAdapter.filtering();
+        mCalendarFragment.initSelectedPosition();
+        monthProgressAdapter.setMaintenanceType("");
+        mEtSearch.setText("");
+        queryMaintenace("");
     }
 
     @Override

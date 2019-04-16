@@ -425,6 +425,10 @@ public class CheckingCompleteFragment extends BaseFragment
 		}
 	}
 
+	private void responseGroupForIoT() {
+
+	}
+
 	private void responseGroup(Cursor cursor) {
 		cursor.moveToFirst();
 

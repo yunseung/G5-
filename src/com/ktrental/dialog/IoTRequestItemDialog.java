@@ -30,7 +30,7 @@ public class IoTRequestItemDialog extends DialogC implements Connector.ConnectIn
     private Context mContext;
 
     private View mRootView;
-    private TextView mTvTotalPrice, mTvCarKind, mTvMemo;
+    private TextView mTvTotalPrice, mTvTotalPrice2, mTvCarKind, mTvMemo;
     private ListView mListView;
 
     private ConnectController mCc;
@@ -56,7 +56,9 @@ public class IoTRequestItemDialog extends DialogC implements Connector.ConnectIn
         w.setAttributes(lp);
 
         mRootView = findViewById(R.id.rl_root_view);
+
         mTvTotalPrice = (TextView)findViewById(R.id.total_price);
+        mTvTotalPrice2 = (TextView)findViewById(R.id.total_price2);
         mListView = (ListView) findViewById(R.id.iot_request_listview);
         mTvCarKind = (TextView)findViewById(R.id.tv_car_kind);
         mTvMemo = (TextView)findViewById(R.id.tv_memo);
@@ -115,8 +117,10 @@ public class IoTRequestItemDialog extends DialogC implements Connector.ConnectIn
 
             // 마지막 row 의 DMBTR 이 총 가격
             mTvTotalPrice.setText(ET_ITAB.get(ET_ITAB.size() - 1).get("DMBTR"));
+            mTvTotalPrice2.setText(ET_ITAB.get(ET_ITAB.size() - 1).get("DMBTR_VAT"));
             mTvCarKind.setText(ET_ITAB2.get(0).get("MAKTX"));
             mTvMemo.setText(ET_ITAB2.get(0).get("MEMO"));
+
 
             ET_ITAB.remove(ET_ITAB.size() - 1);
 
