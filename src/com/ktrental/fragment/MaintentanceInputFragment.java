@@ -182,32 +182,37 @@ public class MaintentanceInputFragment extends BaseFragment
 	}
 
 	public void setmLastItemModels(ArrayList<MaintenanceItemModel> array) {
-		mLastItemModels = array;
+		if (array.size() > 0) {
+			mLastItemModels = array;
 
-		mFirstItems = new ArrayList<MaintenanceItemModel>();
+			mFirstItems = new ArrayList<MaintenanceItemModel>();
 
-		ArrayList<MaintenanceItemModel> removeArr = new ArrayList<MaintenanceItemModel>();
+			mLastTotalPrice = 0;
 
-		for (MaintenanceItemModel maintenanceItemModel : array) {
+			ArrayList<MaintenanceItemModel> removeArr = new ArrayList<MaintenanceItemModel>();
 
-			MaintenanceItemModel firstItem = null;
-			for (MaintenanceItemModel item : mFirstItems) {
-				if (item.getName().equals(maintenanceItemModel.getName())) {
-					firstItem = item;
+			for (MaintenanceItemModel maintenanceItemModel : array) {
+
+				MaintenanceItemModel firstItem = null;
+				for (MaintenanceItemModel item : mFirstItems) {
+					if (item.getName().equals(maintenanceItemModel.getName())) {
+						firstItem = item;
+					}
 				}
+				if (firstItem != null) {
+					removeArr.add(firstItem);
+					// mFirstItems.remove(firstItem);
+				}
+
+				mFirstItems.add(maintenanceItemModel.clone());
+
+				mLastTotalPrice += (Integer.parseInt(maintenanceItemModel.getNETPR().replace(",", "")) * maintenanceItemModel.getConsumption());
+
 			}
-			if (firstItem != null) {
-				removeArr.add(firstItem);
-				// mFirstItems.remove(firstItem);
+			for (MaintenanceItemModel maintenanceItemModel : removeArr) {
+				mFirstItems.remove(maintenanceItemModel);
 			}
-
-			mFirstItems.add(maintenanceItemModel.clone());
-
 		}
-		for (MaintenanceItemModel maintenanceItemModel : removeArr) {
-			mFirstItems.remove(maintenanceItemModel);
-		}
-
 	}
 
 	@Override
@@ -234,6 +239,8 @@ public class MaintentanceInputFragment extends BaseFragment
 		mTvTitlePrice2 = (TextView) mRootView.findViewById(R.id.tv_title_price2);
 		mLlLastTotalArea = (LinearLayout) mRootView.findViewById(R.id.ll_last_total_area);
 		mTvLastTotalPrice = (TextView) mRootView.findViewById(R.id.tv_last_total_price);
+
+		mTvLastTotalPrice.setText(currencyFormat(mLastTotalPrice) + "원");
 
 		TextView title = (TextView) mRootView.findViewById(R.id.tv_dialog_title);
 		title.setText(Tilte);
