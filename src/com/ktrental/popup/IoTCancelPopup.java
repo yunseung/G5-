@@ -91,6 +91,11 @@ public class IoTCancelPopup extends BaseTouchDialog implements Connector.Connect
                     Toast.makeText(mContext, "사유를 선택해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                if (mDetailMemo.getText().toString().isEmpty()) {
+                    Toast.makeText(mContext, "싱세사유를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 mCc = new ConnectController(IoTCancelPopup.this, mContext);
                 showProgress("조회 중입니다.");
                 mCc.getZMO_1020_WR01(mReqNo, mSpReason.getTag().toString(), mDetailMemo.getText().toString());

@@ -45,7 +45,7 @@
                 android:paddingRight="10dp"
                 android:text="2013.06.18"
                 android:textColor="#555555"
-                android:textSize="16sp" />
+                android:textSize="13sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,7 +76,7 @@
                 android:paddingRight="10dp"
                 android:text="09:00"
                 android:textColor="#555555"
-                android:textSize="16sp" />
+                android:textSize="13sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -107,7 +107,7 @@
                 android:paddingRight="10dp"
                 android:text="12:00"
                 android:textColor="#555555"
-                android:textSize="16sp" />
+                android:textSize="13sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -138,7 +138,7 @@
                 android:paddingRight="10dp"
                 android:text="3000 km"
                 android:textColor="#555555"
-                android:textSize="16sp" />
+                android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
 

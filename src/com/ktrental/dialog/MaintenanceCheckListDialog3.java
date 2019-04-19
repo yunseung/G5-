@@ -396,7 +396,7 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
                 array_repairParts.get(i).tv_price.setVisibility(View.VISIBLE);
                 array_repairParts.get(i).tv_total_price.setVisibility(View.VISIBLE);
 
-                array_repairParts.get(i).tv_index.setText("" + i);
+                array_repairParts.get(i).tv_index.setText("" + (i + 1));
                 array_repairParts.get(i).tv_good.setText("" + array_hash.get(i).get("MAKTX"));
                 array_repairParts.get(i).tv_outqty.setText("" + array_hash.get(i).get("ERFMG"));
                 array_repairParts.get(i).tv_price.setText("" + array_hash.get(i).get("DMBTR"));

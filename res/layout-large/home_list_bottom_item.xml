@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="4dp">
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
             <TextView
                 android:id="@+id/tv_agreement"
                 android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_height="20dp"
                 android:background="@drawable/list_infobox02"
                 android:gravity="center"
                 android:text="계약종료"
@@ -41,7 +42,7 @@
             <TextView
                 android:id="@+id/tv_period"
                 android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox01"
                 android:gravity="center"
@@ -53,7 +54,7 @@
                 android:id="@+id/tv_gueen2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="24dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox05"
                 android:gravity="center"
@@ -65,7 +66,7 @@
             <TextView
                 android:id="@+id/tv_voc_info"
                 android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox03"
                 android:gravity="center"
@@ -76,7 +77,7 @@
             <TextView
                 android:id="@+id/tv_odc_info"
                 android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox05"
                 android:gravity="center"
@@ -88,7 +89,7 @@
             <TextView
                 android:id="@+id/tv_iot_info"
                 android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/list_infobox04"
                 android:gravity="center"
@@ -117,57 +118,6 @@
             -->
 
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/list_quick_btn_bg" >
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/btn_req1"
-            android:layout_width="50dp"
-            android:layout_height="38dp"
-            android:background="@drawable/list_quick_btn_request_selector" />
-        <Button
-            android:id="@+id/btn_req2"
-            android:layout_width="50dp"
-            android:layout_height="38dp"
-            android:background="@drawable/list_quick_btn_it_request_selector" />
-	    <Button
-	        android:id="@+id/btn_find"
-	        android:layout_width="50dp"
-	        android:layout_height="38dp"
-	        android:background="@drawable/list_quick_btn_find_selector" />
-        <Button
-            android:id="@+id/btn_call"
-            android:layout_width="50dp"
-            android:layout_height="38dp"
-            android:background="@drawable/call_btn_selector" />
-
-        <Button
-            android:id="@+id/btn_sms"
-            android:layout_width="50dp"
-            android:layout_height="38dp"
-            android:background="@drawable/sms_btn_selector" />
-
-        <Button
-            android:id="@+id/btn_map"
-            android:layout_width="50dp"
-            android:layout_height="38dp"
-            android:background="@drawable/map_btn_selector" />
-
-        <Button
-            android:id="@+id/btn_edit"
-            android:layout_width="50dp"
-            android:layout_height="38dp"
-            android:layout_marginRight="7dp"
-            android:background="@drawable/edit_btn_selector" />
     </LinearLayout>
 
 </LinearLayout>

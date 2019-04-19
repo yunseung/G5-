@@ -28,22 +28,64 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp">
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_dayortime"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="2013.12.12"
                     android:textColor="#4a7b89"
-                    android:textSize="22dp" />
+                    android:textSize="20dp" />
+                <Button
+                    android:id="@+id/btn_req1"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/list_quick_btn_request_selector" />
+                <Button
+                    android:id="@+id/btn_req2"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/list_quick_btn_it_request_selector" />
+                <Button
+                    android:id="@+id/btn_find"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/list_quick_btn_find_selector" />
+                <Button
+                    android:id="@+id/btn_call"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/call_btn_selector" />
+
+                <Button
+                    android:id="@+id/btn_sms"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/sms_btn_selector" />
+
+                <Button
+                    android:id="@+id/btn_map"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/map_btn_selector" />
+
+                <Button
+                    android:id="@+id/btn_edit"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="7dp"
+                    android:background="@drawable/edit_btn_selector" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -52,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:text="52허 8080"
                     android:textColor="#ff7447"
-                    android:textSize="22dp" />
+                    android:textSize="18dp" />
 
                 <TextView
                     android:id="@+id/tv_carname"
@@ -61,7 +103,7 @@
                     android:layout_marginLeft="15dp"
                     android:text="52허 8080"
                     android:textColor="#666666"
-                    android:textSize="20dp" />
+                    android:textSize="13dp" />
 
                 <TextView
                     android:id="@+id/tv_status"
@@ -78,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
@@ -89,38 +132,41 @@
                     android:ellipsize="marquee"
                     android:singleLine="true"
                     android:textColor="#333333"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
 
                 <!-- 2017-06-02. hjt 지연일수 반영 -->
                 <TextView
                     android:id="@+id/tv_delay"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:lines="1"
                     android:background="#000000"
+                    android:gravity="center_vertical"
                     android:paddingLeft="2dp"
                     android:paddingRight="2dp"
                     android:text="지연일수 : "
                     android:textColor="#ffffff"
-                    android:textSize="17dp" />
+                    android:textSize="13dp" />
 
                 <Button
                     android:id="@+id/btn_trouble_history"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:background="@drawable/btn_new_sm"
+                    android:textSize="13dp"
                     android:layout_marginLeft="20dp"
                     android:text="고장코드이력"/>
 
                 <Button
                     android:id="@+id/btn_req_iot"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_sm"
                     android:paddingLeft="5dp"
+                    android:textSize="13dp"
                     android:paddingRight="5dp"
                     android:layout_marginLeft="10dp"
                     android:text="IOT요청항목"/>
@@ -129,13 +175,14 @@
 
             <TextView
                 android:id="@+id/tv_address"
+                android:layout_marginTop="1.5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="서울시 동대문 신설동"
                 android:textColor="#999999"
-                android:textSize="18dp" />
+                android:textSize="13dp" />
 
             <include layout="@layout/home_list_bottom_item" />
         </LinearLayout>
