@@ -2,17 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="258" >
+        android:layout_weight="258">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="0dp"
@@ -25,24 +25,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="202"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="256" >
+                    android:layout_weight="256">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/left_weekview_bg"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <View
                             android:layout_width="match_parent"
@@ -53,21 +53,21 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_gravity="center"
-                            android:gravity="center"
                             android:layout_marginLeft="35dp"
                             android:layout_marginRight="35dp"
-                            android:layout_weight="28" >
+                            android:layout_weight="28"
+                            android:gravity="center">
 
                             <TextView
                                 android:id="@+id/maintenance_filter1_1_id"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
                                 android:layout_gravity="center"
-                                android:textAlignment="center"
-                                android:includeFontPadding="false"
                                 android:layout_weight="106"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
                                 android:text="2013.07"
+                                android:textAlignment="center"
                                 android:textColor="#555555"
                                 android:textSize="18sp" />
 
@@ -75,9 +75,9 @@
                                 android:id="@+id/maintenance_date2_id"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="center"
                                 android:layout_weight="86"
                                 android:gravity="center"
-                                android:layout_gravity="center"
                                 android:text="정비현황"
                                 android:textColor="#777777"
                                 android:textSize="13sp" />
@@ -86,43 +86,43 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="24"
-                            android:layout_marginTop="3dp"
                             android:layout_marginLeft="16dp"
+                            android:layout_marginTop="3dp"
                             android:layout_marginRight="16dp"
+                            android:layout_weight="24"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="22"/>
+                                android:layout_weight="22" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="11dp"
                                 android:gravity="center"
+                                android:text="고급형"
                                 android:textColor="#555555"
-                                android:text="고급형"/>
+                                android:textSize="11dp" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="11dp"
                                 android:gravity="center"
+                                android:text="IoT"
                                 android:textColor="#555555"
-                                android:text="IoT"/>
+                                android:textSize="11dp" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="11dp"
                                 android:gravity="center"
+                                android:text="ODM"
                                 android:textColor="#555555"
-                                android:text="ODM"/>
+                                android:textSize="11dp" />
 
                         </LinearLayout>
 
@@ -137,44 +137,44 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:textSize="8dp"
+                                android:layout_weight="22"
+                                android:gravity="center"
                                 android:text="처리"
                                 android:textColor="#555555"
-                                android:gravity="center"
-                                android:layout_weight="22"/>
+                                android:textSize="8dp" />
 
                             <TextView
                                 android:id="@+id/tv_complate"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="13dp"
                                 android:gravity="center"
+                                android:text="203"
                                 android:textColor="#de262e"
-                                android:textStyle="bold"
-                                android:text="203"/>
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tv_complate2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="13dp"
                                 android:gravity="center"
+                                android:text="203"
                                 android:textColor="#de262e"
-                                android:textStyle="bold"
-                                android:text="203"/>
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tv_complate3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="13dp"
                                 android:gravity="center"
+                                android:text="203"
                                 android:textColor="#de262e"
-                                android:textStyle="bold"
-                                android:text="203"/>
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -189,48 +189,46 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:textSize="8dp"
+                                android:layout_weight="22"
+                                android:gravity="center"
                                 android:text="계획"
                                 android:textColor="#555555"
-                                android:gravity="center"
-                                android:layout_weight="22"/>
+                                android:textSize="8dp" />
 
                             <TextView
                                 android:id="@+id/tv_plan"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="13dp"
                                 android:gravity="center"
+                                android:text="317"
                                 android:textColor="#555555"
-                                android:textStyle="bold"
-                                android:text="317"/>
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tv_plan2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="13dp"
                                 android:gravity="center"
+                                android:text="317"
                                 android:textColor="#555555"
-                                android:textStyle="bold"
-                                android:text="317"/>
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tv_plan3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="26"
-                                android:textSize="13dp"
                                 android:gravity="center"
+                                android:text="317"
                                 android:textColor="#555555"
-                                android:textStyle="bold"
-                                android:text="317"/>
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
-
-
 
 
                         <View
@@ -242,7 +240,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="33"
-                            android:orientation="horizontal" >
+                            android:orientation="horizontal">
 
                             <View
                                 android:layout_width="0dp"
@@ -286,242 +284,249 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="550"
-                android:background="@drawable/left_list_empty" >
-            </ListView>
+                android:background="@drawable/left_list_empty"></ListView>
         </LinearLayout>
     </FrameLayout>
 
     <!-- 주간 정비 오른쪽 -->
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="972"
-        android:orientation="vertical" >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="50"
-            android:background="@drawable/right_top_bg" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="17dp" >
-
-                <TextView
-                    android:id="@+id/tv_righttitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="2013.07.02"
-                    android:textColor="#555555"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text=" 순회정비대상차량"
-                    android:textColor="#555555"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
-                android:layout_marginRight="6dp" >
-
-                <CheckBox
-                    android:id="@+id/maintenance_filter1_id"
-                    android:layout_width="121dp"
-                    android:layout_height="36dp"
-                    android:layout_marginRight="6dp"
-                    android:background="@drawable/dropdown_selector"
-                    android:button="@null"
-                    android:checked="false"
-                    android:gravity="center_vertical"
-                    android:text="진행상태"
-                    android:textColor="#555555"
-                    android:textSize="16dp" />
-
-                <CheckBox
-                    android:id="@+id/maintenance_filter2_id"
-                    android:layout_width="121dp"
-                    android:layout_height="36dp"
-                    android:layout_marginRight="6dp"
-                    android:background="@drawable/dropdown_selector"
-                    android:button="@null"
-                    android:checked="false"
-                    android:gravity="center_vertical"
-                    android:text="고객명"
-                    android:textColor="#555555"
-                    android:textSize="16dp" />
-
-                <CheckBox
-                    android:id="@+id/maintenance_filter3_id"
-                    android:layout_width="121dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/dropdown_selector"
-                    android:button="@null"
-                    android:checked="false"
-                    android:gravity="center_vertical"
-                    android:text="전체"
-                    android:textColor="#555555"
-                    android:textSize="16dp" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@drawable/right_top_shadow" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="650"
-            android:background="#fafaf7" >
-
-            <ListView
-                android:id="@+id/lv_maintenance"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/maintenance_bottom_id"
-                android:fastScrollEnabled="true" >
-            </ListView>
-
-            <ImageView
-                android:id="@+id/iv_empty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/nodata"
-                android:visibility="gone" />
-        </FrameLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/right_bottom_shadow" />
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/maintenance_bottom_id"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="46"
-            android:background="@drawable/right_bottom_bg"
-            android:orientation="horizontal" >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="6" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:background="@drawable/right_top_bg">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="17dp">
+
+                    <TextView
+                        android:id="@+id/tv_righttitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="2013.07.02"
+                        android:textColor="#555555"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text=" 순회정비대상차량"
+                        android:textColor="#555555"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="6dp">
+
+                    <CheckBox
+                        android:id="@+id/maintenance_filter1_id"
+                        android:layout_width="121dp"
+                        android:layout_height="36dp"
+                        android:layout_marginRight="6dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center_vertical"
+                        android:text="진행상태"
+                        android:textColor="#555555"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:id="@+id/maintenance_filter2_id"
+                        android:layout_width="121dp"
+                        android:layout_height="36dp"
+                        android:layout_marginRight="6dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center_vertical"
+                        android:text="고객명"
+                        android:textColor="#555555"
+                        android:textSize="16dp" />
+
+                    <CheckBox
+                        android:id="@+id/maintenance_filter3_id"
+                        android:layout_width="121dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/dropdown_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center_vertical"
+                        android:text="전체"
+                        android:textColor="#555555"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="656">
+
+                <ListView
+                    android:id="@+id/lv_maintenance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/maintenance_bottom_id"></ListView>
+
+                <ImageView
+                    android:id="@+id/iv_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/nodata"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/right_top_shadow" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/right_bottom_shadow" />
+            </FrameLayout>
+
+
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="960"
-                android:orientation="vertical" >
+                android:id="@+id/maintenance_bottom_id"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="46"
+                android:background="@drawable/right_bottom_bg"
+                android:orientation="horizontal">
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="5" />
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="36" >
+                    android:layout_weight="960"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:layout_height="0dp"
+                        android:layout_weight="5" />
 
-                        <Button
-                            android:id="@+id/btn_date"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/btn05_selector"
-                            android:text="예정일변경"
-                            android:textColor="#ffffff"
-                            android:textSize="18dp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="36">
 
-                        <Button
-                            android:id="@+id/btn_transfer"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="6dp"
-                            android:background="@drawable/btn05_selector"
-                            android:text="이관등록"
-                            android:textColor="#ffffff"
-                            android:textSize="18dp" />
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/btn_notimplemented"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="6dp"
-                            android:background="@drawable/btn05_selector"
-                            android:text="미실시등록"
-                            android:textColor="#ffffff"
-                            android:textSize="18dp" />
-                        
-                        <Button
-                            android:id="@+id/btn_daily_voc_info"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="6dp"
-                            android:background="@drawable/btn05_selector"
-                            android:text="VOC"
-                            android:textColor="#ffffff"
-                            android:textSize="18dp" />
+                            <Button
+                                android:id="@+id/btn_date"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn05_selector"
+                                android:text="예정일변경"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp" />
 
-                        <Button
-                            android:id="@+id/btn_cancel_iot"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="6dp"
-                            android:background="@drawable/btn05_selector"
-                            android:text="IoT정비취소"
-                            android:textColor="#ffffff"
-                            android:textSize="18dp" />
-                    </LinearLayout>
-                </RelativeLayout>
+                            <Button
+                                android:id="@+id/btn_transfer"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn05_selector"
+                                android:text="이관등록"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp" />
+
+                            <Button
+                                android:id="@+id/btn_notimplemented"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn05_selector"
+                                android:text="미실시등록"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp" />
+
+                            <Button
+                                android:id="@+id/btn_daily_voc_info"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn05_selector"
+                                android:text="VOC"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp" />
+
+                            <Button
+                                android:id="@+id/btn_cancel_iot"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn05_selector"
+                                android:text="IoT정비취소"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5" />
+                </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="5" />
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" />
             </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="6" />
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

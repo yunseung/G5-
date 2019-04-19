@@ -91,11 +91,7 @@ public class MaintenanceAdapter extends BaseMaintenceAdapter
         viewHolder.tvTime = (TextView) rootView.findViewById(R.id.tv_dayortime);
         viewHolder.tvStatus = (TextView) rootView.findViewById(R.id.tv_status);
         viewHolder.tvVocInfo = (TextView) rootView.findViewById(R.id.tv_voc_info);
-        
-        LayoutParams ll = (LayoutParams) viewHolder.tvCarNum.getLayoutParams();
 
-        ll.setMargins(0, 0, 0, 0);
-        viewHolder.tvCarNum.setLayoutParams(ll);
 
         // viewHolder.llMaintenace = (LinearLayout) rootView
         // .findViewById(R.id.ll_maintenace);

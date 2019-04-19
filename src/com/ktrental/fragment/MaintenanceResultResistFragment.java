@@ -22,6 +22,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -68,7 +69,8 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 		DbAsyncResLintener, OnSelectedPopupItem, OnKeyListener, ConnectInterface {
 
 	private Button mBtnCareer;
-	private FrameLayout mFlEmpty;
+//	private FrameLayout mFlEmpty;
+	private LinearLayout mLlEmpty;
 
 	/**
 	 * 선택된 차량 보여줘야 되는 총 정보
@@ -300,9 +302,9 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 
 		// myung 20131230 ADD 고객 확인 시 입력한 정비항목이 고객 확인창에 표시도지 않는 현상
 		if (mLastItemModels.isEmpty())
-			mFlEmpty.setVisibility(View.VISIBLE);
+			mLlEmpty.setVisibility(View.VISIBLE);
 		else
-			mFlEmpty.setVisibility(View.GONE);
+			mLlEmpty.setVisibility(View.GONE);
 	}
 	public MaintenanceResultResistFragment(){}
 
@@ -320,7 +322,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-		mRootView = inflater.inflate(R.layout.maintenance_result_resist_layout, null);
+		mRootView = inflater.inflate(R.layout.maintenance_result_resist_layout2, null);
 
 		initSettingViews();
 
@@ -353,7 +355,8 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 		mBtnCareer = (Button) mRootView.findViewById(R.id.btn_item);
 		mBtnCareer.setOnClickListener(this);
 
-		mFlEmpty = (FrameLayout) mRootView.findViewById(R.id.fl_empty);
+//		mFlEmpty = (FrameLayout) mRootView.findViewById(R.id.fl_empty);
+		mLlEmpty = (LinearLayout) mRootView.findViewById(R.id.ll_empty);
 
 		mTvLastMileage = (PopupWindowTextView) mRootView.findViewById(R.id.tv_last_mileage);
 		mTvLastMileage.setOnClickListener(this);
@@ -1391,9 +1394,9 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 	@Override
 	public void onResultInput(ArrayList<MaintenanceItemModel> aSelectedModels, boolean bflag) {
 		if (aSelectedModels == null)
-			mFlEmpty.setVisibility(View.VISIBLE);
+			mLlEmpty.setVisibility(View.VISIBLE);
 		else {
-			mFlEmpty.setVisibility(View.GONE);
+			mLlEmpty.setVisibility(View.GONE);
 			setSelectedItemList(aSelectedModels, bflag);
 			// 화면에 보여준다. 리스트
 		}
@@ -1426,9 +1429,9 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 		}
 
 		if (mLastItemModels.isEmpty())
-			mFlEmpty.setVisibility(View.VISIBLE);
+			mLlEmpty.setVisibility(View.VISIBLE);
 		else
-			mFlEmpty.setVisibility(View.GONE);
+			mLlEmpty.setVisibility(View.GONE);
 		// myung 20131224 UPDATE
 		// mLastItemAdapter.setData(mLastItemModels);
 		if (mFirstFlag && bflag)
@@ -1469,9 +1472,9 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 			}
 			if (mLastItemAdapter != null) {
 				if (mLastItemModels.isEmpty())
-					mFlEmpty.setVisibility(View.VISIBLE);
+					mLlEmpty.setVisibility(View.VISIBLE);
 				else
-					mFlEmpty.setVisibility(View.GONE);
+					mLlEmpty.setVisibility(View.GONE);
 			}
 
 		}
