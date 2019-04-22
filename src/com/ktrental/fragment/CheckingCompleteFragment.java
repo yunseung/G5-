@@ -141,11 +141,13 @@ public class CheckingCompleteFragment extends BaseFragment
             mLlSpecificationArea.setVisibility(View.GONE);
             mLlSpecificationArea2.setVisibility(View.VISIBLE);
         } else {
+            mLlSpecificationArea.setVisibility(View.VISIBLE);
+
+            mLlSpecificationArea2.setVisibility(View.GONE);
             mCheckModels.clear();
             mMaintenanceGroupModels.clear();
             mCheckingAdapter.initArray();
             queryGroup();
-
         }
         initText(aResultModel.getmEtcModel(), aResultModel.getmCarInfoModel());
 

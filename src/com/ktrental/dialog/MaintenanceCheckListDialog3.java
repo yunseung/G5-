@@ -89,13 +89,15 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
         private TextView tv_good;
         private TextView tv_outqty;
         private TextView tv_price;
+        private TextView tv_vat;
         private TextView tv_total_price;
 
-        public RepairPartList(TextView index, TextView good, TextView outqty, TextView price, TextView totalPrice) {
+        public RepairPartList(TextView index, TextView good, TextView outqty, TextView price, TextView vat, TextView totalPrice) {
             this.tv_index = index;
             this.tv_good = good;
             this.tv_outqty = outqty;
             this.tv_price = price;
+            this.tv_vat = vat;
             this.tv_total_price = totalPrice;
         }
     }
@@ -116,6 +118,7 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
     private TextView tv_good01;    // 작업내용
     private TextView tv_outqty01;    // 항목 수량
     private TextView tv_price01; // 항목 금액
+    private TextView tv_vat01; // 부가세 금액
     private TextView tv_total_price01; // 항목 금액 * 수량
 
 
@@ -123,66 +126,77 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
     private TextView tv_good02;    // 작업내용
     private TextView tv_outqty02;    // 항목 수량
     private TextView tv_price02; // 항목 금액
+    private TextView tv_vat02; // 부가세 금액
     private TextView tv_total_price02; // 항목 금액 * 수량
 
     private TextView tv_index03;
     private TextView tv_good03;    // 작업내용
     private TextView tv_outqty03;    // 항목 수량
     private TextView tv_price03; // 항목 금액
+    private TextView tv_vat03; // 부가세 금액
     private TextView tv_total_price03; // 항목 금액 * 수량
 
     private TextView tv_index04;
     private TextView tv_good04;    // 작업내용
     private TextView tv_outqty04;    // 항목 수량
     private TextView tv_price04; // 항목 금액
+    private TextView tv_vat04; // 부가세 금액
     private TextView tv_total_price04; // 항목 금액 * 수량
 
     private TextView tv_index05;
     private TextView tv_good05;    // 작업내용
     private TextView tv_outqty05;    // 항목 수량
     private TextView tv_price05; // 항목 금액
+    private TextView tv_vat05; // 부가세 금액
     private TextView tv_total_price05; // 항목 금액 * 수량
 
     private TextView tv_index06;
     private TextView tv_good06;    // 작업내용
     private TextView tv_outqty06;    // 항목 수량
     private TextView tv_price06; // 항목 금액
+    private TextView tv_vat06; // 부가세 금액
     private TextView tv_total_price06; // 항목 금액 * 수량
 
     private TextView tv_index07;
     private TextView tv_good07;    // 작업내용
     private TextView tv_outqty07;    // 항목 수량
     private TextView tv_price07; // 항목 금액
+    private TextView tv_vat07; // 부가세 금액
     private TextView tv_total_price07; // 항목 금액 * 수량
 
     private TextView tv_index08;
     private TextView tv_good08;    // 작업내용
     private TextView tv_outqty08;    // 항목 수량
     private TextView tv_price08; // 항목 금액
+    private TextView tv_vat08; // 부가세 금액
     private TextView tv_total_price08; // 항목 금액 * 수량
 
     private TextView tv_index09;
     private TextView tv_good09;    // 작업내용
     private TextView tv_outqty09;    // 항목 수량
     private TextView tv_price09; // 항목 금액
+    private TextView tv_vat09; // 부가세 금액
     private TextView tv_total_price09; // 항목 금액 * 수량
 
     private TextView tv_index10;
     private TextView tv_good10;    // 작업내용
     private TextView tv_outqty10;    // 항목 수량
     private TextView tv_price10; // 항목 금액
+    private TextView tv_vat10; // 부가세 금액
     private TextView tv_total_price10; // 항목 금액 * 수량
 
     private TextView tv_index11;
     private TextView tv_good11;    // 작업내용
     private TextView tv_outqty11;    // 항목 수량
     private TextView tv_price11; // 항목 금액
+    private TextView tv_vat11; // 부가세 금액
     private TextView tv_total_price11; // 항목 금액 * 수량
 
     private TextView tv_index12;
     private TextView tv_good12;    // 작업내용
     private TextView tv_outqty12;    // 항목 수량
     private TextView tv_price12; // 항목 금액
+    private TextView tv_vat12; // 부가세 금액
     private TextView tv_total_price12; // 항목 금액 * 수량
 
     private TextView tv_total1;
@@ -250,88 +264,100 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
         tv_good01 = (TextView) findViewById(R.id.tv_good01);
         tv_outqty01 = (TextView) findViewById(R.id.tv_outqty01);
         tv_price01 = (TextView) findViewById(R.id.tv_price01);
+        tv_vat01 = (TextView) findViewById(R.id.tv_vat01);
         tv_total_price01 = (TextView) findViewById(R.id.tv_total_price01);
-        array_repairParts.add(new RepairPartList(tv_index01, tv_good01, tv_outqty01, tv_price01, tv_total_price01));
+        array_repairParts.add(new RepairPartList(tv_index01, tv_good01, tv_outqty01, tv_price01, tv_vat01, tv_total_price01));
 
 
         tv_index02 = (TextView) findViewById(R.id.tv_index2);
         tv_good02 = (TextView) findViewById(R.id.tv_good02);
         tv_outqty02 = (TextView) findViewById(R.id.tv_outqty02);
         tv_price02 = (TextView) findViewById(R.id.tv_price02);
+        tv_vat02 = (TextView) findViewById(R.id.tv_vat02);
         tv_total_price02 = (TextView) findViewById(R.id.tv_total_price02);
-        array_repairParts.add(new RepairPartList(tv_index02, tv_good02, tv_outqty02, tv_price02, tv_total_price02));
+        array_repairParts.add(new RepairPartList(tv_index02, tv_good02, tv_outqty02, tv_price02, tv_vat02, tv_total_price02));
 
         tv_index03 = (TextView) findViewById(R.id.tv_index3);
         tv_good03 = (TextView) findViewById(R.id.tv_good03);
         tv_outqty03 = (TextView) findViewById(R.id.tv_outqty03);
         tv_price03 = (TextView) findViewById(R.id.tv_price03);
+        tv_vat03 = (TextView) findViewById(R.id.tv_vat03);
         tv_total_price03 = (TextView) findViewById(R.id.tv_total_price03);
-        array_repairParts.add(new RepairPartList(tv_index03, tv_good03, tv_outqty03, tv_price03, tv_total_price03));
+        array_repairParts.add(new RepairPartList(tv_index03, tv_good03, tv_outqty03, tv_price03, tv_vat03, tv_total_price03));
 
         tv_index04 = (TextView) findViewById(R.id.tv_index4);
         tv_good04 = (TextView) findViewById(R.id.tv_good04);
         tv_outqty04 = (TextView) findViewById(R.id.tv_outqty04);
         tv_price04 = (TextView) findViewById(R.id.tv_price04);
+        tv_vat04 = (TextView) findViewById(R.id.tv_vat04);
         tv_total_price04 = (TextView) findViewById(R.id.tv_total_price04);
-        array_repairParts.add(new RepairPartList(tv_index04, tv_good04, tv_outqty04, tv_price04, tv_total_price04));
+        array_repairParts.add(new RepairPartList(tv_index04, tv_good04, tv_outqty04, tv_price04, tv_vat04, tv_total_price04));
 
         tv_index05 = (TextView) findViewById(R.id.tv_index5);
         tv_good05 = (TextView) findViewById(R.id.tv_good05);
         tv_outqty05 = (TextView) findViewById(R.id.tv_outqty05);
         tv_price05 = (TextView) findViewById(R.id.tv_price05);
+        tv_vat05 = (TextView) findViewById(R.id.tv_vat05);
         tv_total_price05 = (TextView) findViewById(R.id.tv_total_price05);
-        array_repairParts.add(new RepairPartList(tv_index05, tv_good05, tv_outqty05, tv_price05, tv_total_price05));
+        array_repairParts.add(new RepairPartList(tv_index05, tv_good05, tv_outqty05, tv_price05, tv_vat05, tv_total_price05));
 
 
         tv_index06 = (TextView) findViewById(R.id.tv_index6);
         tv_good06 = (TextView) findViewById(R.id.tv_good06);
         tv_outqty06 = (TextView) findViewById(R.id.tv_outqty06);
         tv_price06 = (TextView) findViewById(R.id.tv_price06);
+        tv_vat06 = (TextView) findViewById(R.id.tv_vat06);
         tv_total_price06 = (TextView) findViewById(R.id.tv_total_price06);
-        array_repairParts.add(new RepairPartList(tv_index06, tv_good06, tv_outqty06, tv_price06, tv_total_price06));
+        array_repairParts.add(new RepairPartList(tv_index06, tv_good06, tv_outqty06, tv_price06, tv_vat06, tv_total_price06));
 
 
         tv_index07 = (TextView) findViewById(R.id.tv_index7);
         tv_good07 = (TextView) findViewById(R.id.tv_good07);
         tv_outqty07 = (TextView) findViewById(R.id.tv_outqty07);
         tv_price07 = (TextView) findViewById(R.id.tv_price07);
+        tv_vat07 = (TextView) findViewById(R.id.tv_vat07);
         tv_total_price07 = (TextView) findViewById(R.id.tv_total_price07);
-        array_repairParts.add(new RepairPartList(tv_index07, tv_good07, tv_outqty07, tv_price07, tv_total_price07));
+        array_repairParts.add(new RepairPartList(tv_index07, tv_good07, tv_outqty07, tv_price07, tv_vat07, tv_total_price07));
 
         tv_index08 = (TextView) findViewById(R.id.tv_index8);
         tv_good08 = (TextView) findViewById(R.id.tv_good08);
         tv_outqty08 = (TextView) findViewById(R.id.tv_outqty08);
         tv_price08 = (TextView) findViewById(R.id.tv_price08);
+        tv_vat08 = (TextView) findViewById(R.id.tv_vat08);
         tv_total_price08 = (TextView) findViewById(R.id.tv_total_price08);
-        array_repairParts.add(new RepairPartList(tv_index08, tv_good08, tv_outqty08, tv_price08, tv_total_price08));
+        array_repairParts.add(new RepairPartList(tv_index08, tv_good08, tv_outqty08, tv_price08, tv_vat08, tv_total_price08));
 
         tv_index09 = (TextView) findViewById(R.id.tv_index9);
         tv_good09 = (TextView) findViewById(R.id.tv_good09);
         tv_outqty09 = (TextView) findViewById(R.id.tv_outqty09);
         tv_price09 = (TextView) findViewById(R.id.tv_price09);
+        tv_vat09 = (TextView) findViewById(R.id.tv_vat09);
         tv_total_price09 = (TextView) findViewById(R.id.tv_total_price09);
-        array_repairParts.add(new RepairPartList(tv_index09, tv_good09, tv_outqty09, tv_price09, tv_total_price09));
+        array_repairParts.add(new RepairPartList(tv_index09, tv_good09, tv_outqty09, tv_price09, tv_vat09, tv_total_price09));
 
         tv_index10 = (TextView) findViewById(R.id.tv_index10);
         tv_good10 = (TextView) findViewById(R.id.tv_good10);
         tv_outqty10 = (TextView) findViewById(R.id.tv_outqty10);
         tv_price10 = (TextView) findViewById(R.id.tv_price10);
+        tv_vat10 = (TextView) findViewById(R.id.tv_vat10);
         tv_total_price10 = (TextView) findViewById(R.id.tv_total_price10);
-        array_repairParts.add(new RepairPartList(tv_index10, tv_good10, tv_outqty10, tv_price10, tv_total_price10));
+        array_repairParts.add(new RepairPartList(tv_index10, tv_good10, tv_outqty10, tv_price10, tv_vat10, tv_total_price10));
 
         tv_index11 = (TextView) findViewById(R.id.tv_index11);
         tv_good11 = (TextView) findViewById(R.id.tv_good11);
         tv_outqty11 = (TextView) findViewById(R.id.tv_outqty11);
         tv_price11 = (TextView) findViewById(R.id.tv_price11);
+        tv_vat11 = (TextView) findViewById(R.id.tv_vat11);
         tv_total_price11 = (TextView) findViewById(R.id.tv_total_price11);
-        array_repairParts.add(new RepairPartList(tv_index11, tv_good11, tv_outqty11, tv_price11, tv_total_price11));
+        array_repairParts.add(new RepairPartList(tv_index11, tv_good11, tv_outqty11, tv_price11, tv_vat11, tv_total_price11));
 
         tv_index12 = (TextView) findViewById(R.id.tv_index12);
         tv_good12 = (TextView) findViewById(R.id.tv_good12);
         tv_outqty12 = (TextView) findViewById(R.id.tv_outqty12);
         tv_price12 = (TextView) findViewById(R.id.tv_price12);
+        tv_vat12 = (TextView) findViewById(R.id.tv_vat12);
         tv_total_price12 = (TextView) findViewById(R.id.tv_total_price12);
-        array_repairParts.add(new RepairPartList(tv_index12, tv_good12, tv_outqty12, tv_price12, tv_total_price12));
+        array_repairParts.add(new RepairPartList(tv_index12, tv_good12, tv_outqty12, tv_price12, tv_vat12, tv_total_price12));
 
         tv_total1 = (TextView) findViewById(R.id.tv_total1);
         tv_vat = (TextView) findViewById(R.id.tv_vat);
@@ -394,12 +420,14 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
                 array_repairParts.get(i).tv_good.setVisibility(View.VISIBLE);
                 array_repairParts.get(i).tv_outqty.setVisibility(View.VISIBLE);
                 array_repairParts.get(i).tv_price.setVisibility(View.VISIBLE);
+                array_repairParts.get(i).tv_vat.setVisibility(View.VISIBLE);
                 array_repairParts.get(i).tv_total_price.setVisibility(View.VISIBLE);
 
                 array_repairParts.get(i).tv_index.setText("" + (i + 1));
                 array_repairParts.get(i).tv_good.setText("" + array_hash.get(i).get("MAKTX"));
                 array_repairParts.get(i).tv_outqty.setText("" + array_hash.get(i).get("ERFMG"));
                 array_repairParts.get(i).tv_price.setText("" + array_hash.get(i).get("DMBTR"));
+                array_repairParts.get(i).tv_vat.setText("" + array_hash.get(i).get("DMBTR_VAT"));
                 array_repairParts.get(i).tv_total_price.setText("" + array_hash.get(i).get("DMBTR_T"));
             }
 

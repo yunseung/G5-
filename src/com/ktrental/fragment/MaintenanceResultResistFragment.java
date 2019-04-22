@@ -160,27 +160,28 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 				}
 
 			} else {
-				if (mProgressStatus.equals("E0004"))
-					if (aCarInfoModel.getGUBUN().equals("E")) {
-						String startDay = CommonUtil.setDotDate(CommonUtil.getCurrentDay());
+				if (mProgressStatus.equals("E0004")) {
+                    if (aCarInfoModel.getGUBUN().equals("E")) {
+                        String startDay = CommonUtil.setDotDate(CommonUtil.getCurrentDay());
 
-						startDay = startDay + "(" + CommonUtil.getDayOfWeek() + ") ";
+                        startDay = startDay + "(" + CommonUtil.getDayOfWeek() + ") ";
 
-						mStartDay = startDay;
-						mStartTime = CommonUtil.setDotTime(CommonUtil.getCurrentTimeHHMM());
-						if (mBtnMaintentnceStartTime != null) {
-							mBtnMaintentnceStartTime.setText(startDay + mStartTime);
-						}
-					}
+                        mStartDay = startDay;
+                        mStartTime = CommonUtil.setDotTime(CommonUtil.getCurrentTimeHHMM());
+                        if (mBtnMaintentnceStartTime != null) {
+                            mBtnMaintentnceStartTime.setText(startDay + mStartTime);
+                        }
+                    }
+                }
 			}
 			mMileage = aCarInfoModel.getLastMileage();
 			if (mMileage.equals("") || mMileage.equals(" "))
 				mMileage = "0";
-			// Log.e("$$$$$$", mMileage);
-			if (mProgressStatus.equals("E0004"))
-				;
-			else
-				mTvLastMileage.setText("" + CommonUtil.currentpoint(mMileage) + " km");
+
+			if (!mProgressStatus.equals("E0004")) {
+                mTvLastMileage.setText("" + CommonUtil.currentpoint(mMileage) + " km");
+            }
+
 
 			mTempMileage = mMileage;
 			initGubun();
