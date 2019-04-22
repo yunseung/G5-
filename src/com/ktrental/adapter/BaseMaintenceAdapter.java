@@ -168,7 +168,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.tvODC.setVisibility(View.GONE);
             }
 
-            // IOT ODM 고급형에 따른 UI 변경
+            // IOT ODM 고급형에 따른 UI 변경 19년 4월 yunseung
             if (model.get_gubun().trim().isEmpty()) {
                 viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
@@ -189,6 +189,21 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
             }
+
+            // 19년 4월 yunseung
+            // 차기요청사항, 요청사항 유무에 따른 버튼 UI 변경.
+            if (model.getPRERQ().trim().isEmpty()) {
+                viewHolder.btnReq2.setBackgroundResource(R.drawable.list_quick_btn_it_request_x_selector);
+            } else {
+                viewHolder.btnReq2.setBackgroundResource(R.drawable.list_quick_btn_it_request_selector);
+            }
+
+            if (model.getCCMRQ().trim().isEmpty()) {
+                viewHolder.btnReq1.setBackgroundResource(R.drawable.list_quick_btn_request_x_selector);
+            } else {
+                viewHolder.btnReq1.setBackgroundResource(R.drawable.list_quick_btn_request_selector);
+            }
+
 
             viewHolder.tvPeriod.setText(RepairPlanModel.getPeriodStatus(model.getCTRTY()));
             if (model.isCheck())

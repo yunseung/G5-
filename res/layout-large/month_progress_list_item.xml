@@ -44,12 +44,12 @@
                     android:id="@+id/btn_req1"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/list_quick_btn_request_selector" />
+                    android:background="@drawable/list_quick_btn_request_x_selector" />
                 <Button
                     android:id="@+id/btn_req2"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/list_quick_btn_it_request_selector" />
+                    android:background="@drawable/list_quick_btn_it_request_x_selector" />
                 <Button
                     android:id="@+id/btn_find"
                     android:layout_width="40dp"

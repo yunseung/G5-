@@ -70,7 +70,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 
 	private Button mBtnCareer;
 //	private FrameLayout mFlEmpty;
-	private LinearLayout mLlEmpty;
+	private LinearLayout mLlEmpty, mLlItemArea;
 
 	/**
 	 * 선택된 차량 보여줘야 되는 총 정보
@@ -301,10 +301,13 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 		mLastItemAdapter.setData(mLastItemModels);
 
 		// myung 20131230 ADD 고객 확인 시 입력한 정비항목이 고객 확인창에 표시도지 않는 현상
-		if (mLastItemModels.isEmpty())
+		if (mLastItemModels.isEmpty()) {
 			mLlEmpty.setVisibility(View.VISIBLE);
-		else
+			mLlItemArea.setVisibility(View.GONE);
+		} else {
 			mLlEmpty.setVisibility(View.GONE);
+			mLlItemArea.setVisibility(View.VISIBLE);
+		}
 	}
 	public MaintenanceResultResistFragment(){}
 
@@ -357,6 +360,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 
 //		mFlEmpty = (FrameLayout) mRootView.findViewById(R.id.fl_empty);
 		mLlEmpty = (LinearLayout) mRootView.findViewById(R.id.ll_empty);
+		mLlItemArea = (LinearLayout) mRootView.findViewById(R.id.ll_item_area);
 
 		mTvLastMileage = (PopupWindowTextView) mRootView.findViewById(R.id.tv_last_mileage);
 		mTvLastMileage.setOnClickListener(this);
@@ -1393,10 +1397,12 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 
 	@Override
 	public void onResultInput(ArrayList<MaintenanceItemModel> aSelectedModels, boolean bflag) {
-		if (aSelectedModels == null)
+		if (aSelectedModels == null) {
 			mLlEmpty.setVisibility(View.VISIBLE);
-		else {
+			mLlItemArea.setVisibility(View.GONE);
+		} else {
 			mLlEmpty.setVisibility(View.GONE);
+			mLlItemArea.setVisibility(View.VISIBLE);
 			setSelectedItemList(aSelectedModels, bflag);
 			// 화면에 보여준다. 리스트
 		}
@@ -1428,10 +1434,13 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 			maintenanceItemModel.setCheck(false);
 		}
 
-		if (mLastItemModels.isEmpty())
+		if (mLastItemModels.isEmpty()) {
 			mLlEmpty.setVisibility(View.VISIBLE);
-		else
+			mLlItemArea.setVisibility(View.GONE);
+		} else {
 			mLlEmpty.setVisibility(View.GONE);
+			mLlItemArea.setVisibility(View.VISIBLE);
+		}
 		// myung 20131224 UPDATE
 		// mLastItemAdapter.setData(mLastItemModels);
 		if (mFirstFlag && bflag)
@@ -1471,10 +1480,13 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 				}
 			}
 			if (mLastItemAdapter != null) {
-				if (mLastItemModels.isEmpty())
+				if (mLastItemModels.isEmpty()) {
 					mLlEmpty.setVisibility(View.VISIBLE);
-				else
+					mLlItemArea.setVisibility(View.GONE);
+				} else {
 					mLlEmpty.setVisibility(View.GONE);
+					mLlItemArea.setVisibility(View.VISIBLE);
+				}
 			}
 
 		}
