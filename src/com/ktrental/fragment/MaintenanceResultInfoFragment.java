@@ -1089,7 +1089,7 @@ public class MaintenanceResultInfoFragment extends BaseFragment
 
 						MaintenanceGroupModel groupModel = new MaintenanceGroupModel("", MATKL);
 						MaintenanceItemModel model = new MaintenanceItemModel(MAKTX, stock, MATNR, ERFME, groupModel,
-								GRP_CD, null, null, null, NETPR);
+								GRP_CD, null, null, null, NETPR, null);
 
 						PrintLog.Print("============= connectResponse ============", "FuntionName = " + FuntionName
 								+ ", STOCK = " + stock + ", Consumption = " + selectConsumption);

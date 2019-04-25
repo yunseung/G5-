@@ -35,7 +35,9 @@ public class MaintenanceItemModel implements Cloneable {
 	private String MINQTY = "";
 	private String MAXQTY = "";
 
-	private String NETPR = "";
+	// yunseung 19년 추가
+	private String NETPR = ""; // 금액
+	private String ACTGRP = ""; // 액티브그룹명
 
 
 	public MaintenanceItemModel(MaintenanceGroupModel group, String _GRP_CD) {
@@ -85,7 +87,7 @@ public class MaintenanceItemModel implements Cloneable {
 	}
 
 	public MaintenanceItemModel(String name, int stock, String MATNR, String ERFME, MaintenanceGroupModel groupModel,
-								String _GRP_CD, String _MTQTY, String _MINQTY, String _MAXQTY, String _NETPR) {
+								String _GRP_CD, String _MTQTY, String _MINQTY, String _MAXQTY, String _NETPR, String _ACTGRP) {
 
 		this.name = name;
 		this.stock = stock;
@@ -95,6 +97,7 @@ public class MaintenanceItemModel implements Cloneable {
 		MINQTY = _MINQTY;
 		MAXQTY = _MAXQTY;
 		NETPR = _NETPR;
+		ACTGRP = _ACTGRP;
 
 		// this.MDLCD = MDLCD;
 		// this.FUELCD = FUELCD;
@@ -209,6 +212,10 @@ public class MaintenanceItemModel implements Cloneable {
 
 	public String getNETPR() {
 		return NETPR;
+	}
+
+	public String getACTGRP() {
+		return ACTGRP;
 	}
 
 }

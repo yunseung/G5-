@@ -770,8 +770,6 @@ public class MaintentanceInputFragment extends BaseFragment
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
-//TODO 윤승 여기가 1번
 				mItemAdapter.setData(temp);
 				mItemAdapter.setSelectedMaintenanceModels(backSelectedItem);
 				mItemAdapter.notifyDataSetChanged();
@@ -818,6 +816,7 @@ public class MaintentanceInputFragment extends BaseFragment
 							String MINQTY = "";
 							String MAXQTY = "";
 							String NETPR = "";
+							String ACTGRP = "";
 							if (mPartsMap.containsKey(MATKL)) {
 								ArrayList<PartsMasterModel> partsMasterModels = mPartsMap.get(MATKL);
 								for (PartsMasterModel partsMasterModel : partsMasterModels) {
@@ -846,6 +845,10 @@ public class MaintentanceInputFragment extends BaseFragment
 										if (!partsMasterModel.getNETPR().isEmpty()) {
 											NETPR = partsMasterModel.getNETPR().trim();
 										}
+
+										if (!partsMasterModel.getACTGRP().isEmpty()) {
+											NETPR = partsMasterModel.getACTGRP().trim();
+										}
 									}
 								}
 							}
@@ -859,7 +862,7 @@ public class MaintentanceInputFragment extends BaseFragment
 									labstInt,
 									rd05_arr.get(i).get("MATNR"),
 									rd05_arr.get(i).get("MEINS"), null,
-									rd05_arr.get(i).get("GRP_CD"), MTQTY, MINQTY, MAXQTY, NETPR);
+									rd05_arr.get(i).get("GRP_CD"), MTQTY, MINQTY, MAXQTY, NETPR, ACTGRP);
 
 							for (MaintenanceItemModel itemModel : mLastItemModels) {
 								if (itemModel.getName().equals(model.getName())) {
@@ -995,6 +998,7 @@ public class MaintentanceInputFragment extends BaseFragment
 							String MINQTY = "";
 							String MAXQTY = "";
 							String NETPR = "";
+							String ACTGRP = "";
 							if (mPartsMap.containsKey(MATKL)) {
 								ArrayList<PartsMasterModel> partsMasterModels = mPartsMap.get(MATKL);
 								for (PartsMasterModel partsMasterModel : partsMasterModels) {
@@ -1026,10 +1030,15 @@ public class MaintentanceInputFragment extends BaseFragment
 											NETPR = partsMasterModel.getNETPR().trim();
 										}
 
+										if (partsMasterModel.getACTGRP() != null) {
+											ACTGRP = partsMasterModel.getACTGRP().trim();
+										}
+
 										kog.e("KDH", "AUAU MTQTY = " + MTQTY);
 										kog.e("KDH", "AUAU MINQTY = " + MINQTY);
 										kog.e("KDH", "AUAU MAXQTY = " + MAXQTY);
 										kog.e("yunseung", "AUAU NETPR = " + NETPR);
+										kog.e("yunseung", "AUAU ACTGRP = " + ACTGRP);
 									}
 								}
 							}
@@ -1039,7 +1048,7 @@ public class MaintentanceInputFragment extends BaseFragment
 									Integer.parseInt(mCursor.getString(mCursor.getColumnIndex("LABST"))),
 									mCursor.getString(mCursor.getColumnIndex("MATNR")),
 									mCursor.getString(mCursor.getColumnIndex("MEINS")), null,
-									mCursor.getString(mCursor.getColumnIndex("GRP_CD")), MTQTY, MINQTY, MAXQTY, NETPR);
+									mCursor.getString(mCursor.getColumnIndex("GRP_CD")), MTQTY, MINQTY, MAXQTY, NETPR, ACTGRP);
 
 							for (MaintenanceItemModel itemModel : mLastItemModels) {
 								if (itemModel.getName().equals(model.getName())) {
@@ -1347,7 +1356,7 @@ public class MaintentanceInputFragment extends BaseFragment
 			// kog.e("KDH", "KKK GRP_CD = "+GRP_CD);
 
 			PartsMasterModel model = new PartsMasterModel(MATNR, MATKL, MTQTY, mCarInfoModel.getOilType(),
-					mCarInfoModel.getMdlcd(), MINQTY, MAXQTY, null);
+					mCarInfoModel.getMdlcd(), MINQTY, MAXQTY, null, null);
 
 			if (mPartsMap.containsKey(MATKL)) {
 				ArrayList<PartsMasterModel> arrayList = mPartsMap.get(MATKL);
@@ -1380,9 +1389,10 @@ public class MaintentanceInputFragment extends BaseFragment
 			String MATKL = array_hash.get(i).get("MATKL");
 			String MTQTY = array_hash.get(i).get("MTQTY");
 			String NETPR = array_hash.get(i).get("NETPR");
+			String ACTGRP = array_hash.get(i).get("ACTGRP");
 
 			PartsMasterModel model = new PartsMasterModel(MATNR, MATKL, MTQTY, mCarInfoModel.getOilType(),
-					mCarInfoModel.getMdlcd(), null, null, NETPR);
+					mCarInfoModel.getMdlcd(), null, null, NETPR, ACTGRP);
 
 			if (mPartsMap.containsKey(MATKL)) {
 				ArrayList<PartsMasterModel> arrayList = mPartsMap.get(MATKL);
@@ -1400,150 +1410,6 @@ public class MaintentanceInputFragment extends BaseFragment
 	}
 
 	ArrayList<String> mMATNR = new ArrayList<String>();
-
-//	private void initQueryItemInspect(){{
-//
-//		String mMATNR = "";
-//
-//				int stock = 0;
-//				try {
-//					stock = Integer.parseInt(mCursor.getString(3));
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//
-//				// Jonathan 14.09.11 재고가 0일때에도 보여지게 함. >= 0 을 > 으로하면 0건 안나옴.
-//				if (stock >= 0) {
-//					String MATKL = mCursor.getString(mCursor.getColumnIndex("MATKL"));
-//
-//					if (mGroupMap.containsKey(MATKL)) {
-//						ArrayList<MaintenanceItemModel> arrayList = mGroupMap.get(MATKL);
-//
-//						ArrayList<MaintenanceItemModel> tempList = tempGroupMap.get(MATKL);
-//
-//						String MTQTY = "";
-//						if (mPartsMap.containsKey(MATKL)) {
-//							ArrayList<PartsMasterModel> partsMasterModels = mPartsMap.get(MATKL);
-//							for (PartsMasterModel partsMasterModel : partsMasterModels) {
-////								String mMATNR = mCursor.getString(5);
-//
-//								for (int i = 0; i < mCursor.getColumnCount(); i++) {
-//									kog.e("Jonathan", "mCursor.size() :: " + mCursor.getCount() + "  " + mCursor.getColumnName(i) + "  " + i + "  " + mCursor.getString(i));
-//									if ("MATNR".equals(mCursor.getColumnName(i))) {
-//										mMATNR = mCursor.getString(i);
-//										kog.e("Jonathan", "mCursor 12:: " + mMATNR + mCursor.getString(i));
-//									}
-//								}
-//
-//								if (partsMasterModel.getMATNR().equals(mMATNR)
-//										&& mCarInfoModel.getMdlcd().equals(partsMasterModel.getMDLCD())
-//										&& mCarInfoModel.getOilType().equals(partsMasterModel.getFUELCD()))
-//
-//								{
-//									MTQTY = partsMasterModel.getMTQTY().trim();
-//									kog.e("KDH", "AUAU MTQTY = " + MTQTY);
-//								}
-//							}
-//						}
-//
-//						MaintenanceItemModel model = new MaintenanceItemModel(
-//								mCursor.getString(mCursor.getColumnIndex("MAKTX")),
-//								Integer.parseInt(mCursor.getString(mCursor.getColumnIndex("LABST"))),
-//								mCursor.getString(mCursor.getColumnIndex("MATNR")),
-//								mCursor.getString(mCursor.getColumnIndex("MEINS")), null,
-//								mCursor.getString(mCursor.getColumnIndex("GRP_CD")), MTQTY);
-//
-//						for (MaintenanceItemModel itemModel : mLastItemModels) {
-//							if (itemModel.getName().equals(model.getName())) {
-//								if (itemModel.getMaintenanceGroupModel().getName_key().equals(MATKL)) {
-//
-//									int consumption = itemModel.getConsumption();
-//									// if (consumption > 0)
-//									// model.setSelectcConsumption(consumption);
-//									// model.setConsumption(consumption);
-//									model.setSelectcConsumption(consumption);
-//									// model.setConsumption(0);
-//									model.setCheck(true);
-//									break;
-//								}
-//							}
-//						}
-//
-//						for (MaintenanceItemModel maintenanceItemModel : mTotalLastItemModels) {
-//							if (maintenanceItemModel.getName().equals(model.getName())) {
-//								if (maintenanceItemModel.getMaintenanceGroupModel().getName_key().equals(MATKL)) {
-//
-//									int consumption = maintenanceItemModel.getConsumption();
-//									// if (consumption > 0)
-//									// model.setSelectcConsumption(consumption);
-//									model.setSelectcConsumption(consumption);
-//									// model.setConsumption(0);
-//									// model.setCheck(true);
-//									break;
-//								}
-//							}
-//
-//						}
-//
-//						arrayList.add(model);
-//
-//						Set<String> set = mPartsMap.keySet();
-//						Iterator<String> it = set.iterator();
-//						String key;
-//
-//						while (it.hasNext()) {
-//							key = it.next();
-//							for (int i = 0; i < mPartsMap.get(key).size(); i++) {
-//								kog.e("Jonathan",
-//										"mPartsMap 어디보자~! key ===  " + key + "    MTQTY  === "
-//												+ mPartsMap.get(key).get(i).getMTQTY() + "    MATNR  === "
-//												+ mPartsMap.get(key).get(i).getMATNR());
-//							}
-//						}
-//
-//						if (mPartsMap.containsKey(MATKL)) {
-//							ArrayList<PartsMasterModel> partsMasterModels = mPartsMap.get(MATKL);
-//
-//							for (PartsMasterModel partsMasterModel : partsMasterModels) {
-//								if (partsMasterModel.getMATNR().equals(model.getMATNR())) {
-//									tempList.add(model);
-//								}
-//							}
-//						}
-//					}
-//				}
-//
-//				mCursor.moveToNext();
-//
-//			}
-//		}
-//
-//		Iterator<String> it = tempGroupMap.keySet().iterator();
-//
-//		while (it.hasNext()) {
-//			String strKey = "";
-//
-//			strKey = it.next();
-//
-//			ArrayList<MaintenanceItemModel> arrayList = tempGroupMap.get(strKey);
-//			if (arrayList.size() > 0) {
-//				mGroupMap.remove(strKey);
-//				mGroupMap.put(strKey, arrayList);
-//			}
-//		}
-//
-//		for (MaintenanceGroupModel groupModel : mGroupLArrayList) {
-//			String matkl = groupModel.getName_key();
-//			if (mGroupMap.containsKey(matkl)) {
-//				ArrayList<MaintenanceItemModel> arrayList = mGroupMap.get(matkl);
-//				for (MaintenanceItemModel maintenanceItemModel : arrayList) {
-//					maintenanceItemModel.setMaintenanceGroupModel(groupModel);
-//				}
-//			}
-//		}
-//		tempGroupMap.clear();
-//		initItem();
-//	}
 
 	private void initQueryItem() {
 

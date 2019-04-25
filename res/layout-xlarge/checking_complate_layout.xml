@@ -52,59 +52,60 @@
                     android:paddingRight="12dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="선택"
-                        android:textColor="#555555"
-                        android:textSize="15sp" />
-
-                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:gravity="center_vertical"
                         android:paddingLeft="12dp"
-                        android:text="정비항목그룹"
+                        android:text="항목그룹"
                         android:textColor="#555555"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="12dp"
-                        android:text="정비항목"
-                        android:textColor="#555555"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="소모수량"
+                        android:text="수량"
                         android:textColor="#555555"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tv_title_price2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1.5"
+                        android:layout_weight="2"
                         android:gravity="center"
-                        android:text="금액"
+                        android:text="단가"
                         android:textColor="#555555"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_title_vat"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="부가세"
+                        android:textColor="#555555"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_title_total_price"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="계"
+                        android:textColor="#555555"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
-
                 <ListView
-                    android:id="@+id/lv_last_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:divider="@null"></ListView>
+                android:id="@+id/lv_last_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"></ListView>
 
                 <LinearLayout
                     android:id="@+id/ll_last_total_area"
@@ -124,11 +125,29 @@
                         android:text="총 금액"
                         android:textSize="14dp" />
 
+                    <TextView
+                        android:id="@+id/tv_last_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0원"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_last_vat"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:gravity="right"
+                        android:text="0원"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_last_total_price"
-                        android:layout_width="wrap_content"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
+                        android:gravity="right"
                         android:text="0원"
                         android:textSize="14dp"
                         android:textStyle="bold" />

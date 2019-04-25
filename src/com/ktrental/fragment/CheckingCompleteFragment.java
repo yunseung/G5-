@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.ktrental.R;
 import com.ktrental.adapter.CheckingAdapter;
+import com.ktrental.adapter.MaintenancCheckingCompleteItemAdapter;
 import com.ktrental.adapter.MaintenancLastItemAdapter;
 import com.ktrental.cm.connect.ConnectController;
 import com.ktrental.cm.connect.Connector.ConnectInterface;
@@ -55,7 +56,10 @@ import com.ktrental.util.kog;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class CheckingCompleteFragment extends BaseFragment
         implements OnClickListener, DbAsyncResLintener, OnSignListener, ConnectInterface {
@@ -113,14 +117,37 @@ public class CheckingCompleteFragment extends BaseFragment
 
     // 최종 점검 항목 리스트
     private ListView mLvLast;
-    private TextView mTvLastTotalPrice;
-    private int mTotalPrice = 0;
-    private MaintenancLastItemAdapter mLastItemAdapter;
+    private TextView mTvLastPrice, mTvLastVat, mTvLastTotalPrice;
+    private MaintenancCheckingCompleteItemAdapter mLastItemAdapter;
 
     private LinearLayout mLlSpecificationArea, mLlSpecificationArea2;
 
     public interface OnSendResult {
         void onSendResult(String name);
+    }
+
+    public class MaintenanceCheckingCompleteModel {
+        private String mGroupName;
+        private String mPrice;
+        private String mConsumption;
+
+        public MaintenanceCheckingCompleteModel(String groupName, String price, String consumption) {
+            mGroupName = groupName;
+            mPrice = price;
+            mConsumption = consumption;
+        }
+
+        public String getGroupName() {
+            return mGroupName;
+        }
+
+        public String getPrice() {
+            return mPrice;
+        }
+
+        public String getConsumption() {
+            return mConsumption;
+        }
     }
 
     public void setResultModel(MaintenanceResultModel aResultModel) {
@@ -129,14 +156,90 @@ public class CheckingCompleteFragment extends BaseFragment
         mLastItemModels = aResultModel.getmLastItemModels();
 
         if (gubun.trim().equals("A")) {
-            mLastItemAdapter = new MaintenancLastItemAdapter(mContext, MaintenancLastItemAdapter.INPUT, gubun);
-            mLastItemAdapter.setData(mLastItemModels);
+            List<String> activeGroupNameArray = new ArrayList<>();
+            List<String> groupNameArray = new ArrayList<>();
+            List<MaintenanceCheckingCompleteModel> lastItemArray = new ArrayList<>();
+
+            // Active group 이름이 있는 애들을 같은 이름끼리 summary 해서 보여주기 위해 배열의 다른 값과 비교할 첫 데이터를 만들어준다.
+            for (MaintenanceItemModel model : mLastItemModels) {
+                if (!model.getACTGRP().trim().isEmpty()) {
+                    activeGroupNameArray.add(model.getACTGRP());
+                    break;
+                }
+            }
+            // Active group 이름이 없는 애들을 같은 항목그룹 이름끼리 summary 해서 보여주기 위해 배열의 다른 값과 비교할 첫 데이터를 만들어준다.
+            for (MaintenanceItemModel model : mLastItemModels) {
+                if (model.getACTGRP().trim().isEmpty()) {
+                    groupNameArray.add(model.getMaintenanceGroupModel().getName());
+                    break;
+                }
+            }
+
+            // 다음 화면 (고객확인 화면) 에서 항목그룹별로 묶어서 보여줘야 하기 때문에 ACTGRP set 으로 묶는 작업.. 아래 for 문 2개.
+            for (int i = 0; i < mLastItemModels.size(); i++) {
+                boolean isActGrpNew = true;
+                boolean isGrpNew = true;
+                for (int j = 0; j < activeGroupNameArray.size(); j++) {
+                    if (mLastItemModels.get(i).getACTGRP().equals(activeGroupNameArray.get(j))) {
+                        isActGrpNew = false;
+                    }
+                }
+
+                for (int j = 0; j < groupNameArray.size(); j++) {
+                    if (mLastItemModels.get(i).getMaintenanceGroupModel().getName().equals(groupNameArray.get(j))) {
+                        isGrpNew = false;
+                    }
+                }
+                if (isActGrpNew) {
+                    if (!mLastItemModels.get(i).getACTGRP().trim().isEmpty()) {
+                        activeGroupNameArray.add(mLastItemModels.get(i).getACTGRP());
+                    }
+                }
+
+                if (isGrpNew) {
+                    if (mLastItemModels.get(i).getACTGRP().trim().isEmpty()) {
+                        groupNameArray.add(mLastItemModels.get(i).getMaintenanceGroupModel().getName());
+                    }
+                }
+            }
+
+            for (int i = 0; i < activeGroupNameArray.size(); i++) {
+                int groupPrice = 0;
+                int consumption = 0;
+                for (MaintenanceItemModel model : mLastItemModels) {
+                    if (model.getACTGRP().equals(activeGroupNameArray.get(i))) {
+                        groupPrice += (Integer.parseInt(model.getNETPR().replace(",", ""))) * model.getConsumption();
+                        consumption += model.getConsumption();
+                    }
+                }
+                lastItemArray.add(new MaintenanceCheckingCompleteModel(activeGroupNameArray.get(i), Integer.toString(groupPrice), Integer.toString(consumption)));
+            }
+
+            for (int i = 0; i < groupNameArray.size(); i++) {
+                int groupPrice = 0;
+                int consumption = 0;
+                for (MaintenanceItemModel model : mLastItemModels) {
+                    if (model.getMaintenanceGroupModel().getName().equals(groupNameArray.get(i))) {
+                        groupPrice += (Integer.parseInt(model.getNETPR().replace(",", ""))) * model.getConsumption();
+                        consumption += model.getConsumption();
+                    }
+                }
+                lastItemArray.add(new MaintenanceCheckingCompleteModel(groupNameArray.get(i), Integer.toString(groupPrice), Integer.toString(consumption)));
+            }
+
+            mLastItemAdapter = new MaintenancCheckingCompleteItemAdapter(mContext, lastItemArray);
+
             mLvLast.setAdapter(mLastItemAdapter);
 
+            int totalPrice = 0;
             for (MaintenanceItemModel item : mLastItemModels) {
-                mTotalPrice += (Integer.parseInt(item.getNETPR().replace(",", "")) * item.getConsumption());
+                totalPrice += (Integer.parseInt(item.getNETPR().replace(",", "")) * item.getConsumption());
             }
-            mTvLastTotalPrice.setText(currencyFormat(mTotalPrice) + "원");
+            mTvLastPrice.setText(currencyFormat(totalPrice) + "원");
+            int vat = (int)Math.round(totalPrice * 0.1);
+            int lastTotalPrice = totalPrice + vat;
+            mTvLastVat.setText(currencyFormat(vat) + "원");
+            mTvLastTotalPrice.setText(currencyFormat(lastTotalPrice) + "원");
 
             mLlSpecificationArea.setVisibility(View.GONE);
             mLlSpecificationArea2.setVisibility(View.VISIBLE);
@@ -223,6 +326,9 @@ public class CheckingCompleteFragment extends BaseFragment
         mLvLast = (ListView) mRootView.findViewById(R.id.lv_last_item);
 
         mTvLastTotalPrice = (TextView) mRootView.findViewById(R.id.tv_last_total_price);
+        mTvLastPrice = (TextView) mRootView.findViewById(R.id.tv_last_price);
+        mTvLastVat = (TextView) mRootView.findViewById(R.id.tv_last_vat);
+
 
         mLlSpecificationArea = (LinearLayout) mRootView.findViewById(R.id.ll_specification_area);
         mLlSpecificationArea2 = (LinearLayout) mRootView.findViewById(R.id.ll_specification_area2);
