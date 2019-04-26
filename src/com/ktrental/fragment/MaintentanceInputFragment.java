@@ -852,7 +852,7 @@ public class MaintentanceInputFragment extends BaseFragment
 										}
 
 										if (!partsMasterModel.getACTGRP().isEmpty()) {
-											NETPR = partsMasterModel.getACTGRP().trim();
+											ACTGRP = partsMasterModel.getACTGRP().trim();
 										}
 									}
 								}
