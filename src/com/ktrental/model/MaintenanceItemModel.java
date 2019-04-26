@@ -38,6 +38,7 @@ public class MaintenanceItemModel implements Cloneable {
 	// yunseung 19년 추가
 	private String NETPR = ""; // 금액
 	private String ACTGRP = ""; // 액티브그룹명
+	private String MATKL = ""; //그룹 코드..?
 
 
 	public MaintenanceItemModel(MaintenanceGroupModel group, String _GRP_CD) {

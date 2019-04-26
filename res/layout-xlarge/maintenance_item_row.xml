@@ -28,6 +28,7 @@
             android:layout_marginLeft="18dp"
             android:gravity="center_vertical"
             android:text="TextView"
+            android:textSize="13dp"
             android:textColor="#333333" />
 
         <FrameLayout
@@ -39,6 +40,7 @@
                 android:id="@+id/tv_item_consumption"
                 android:layout_width="55dp"
                 android:layout_height="33dp"
+                android:textSize="13dp"
                 android:layout_gravity="center"
                 android:background="@drawable/input01"
                 android:gravity="center"
@@ -54,6 +56,7 @@
             android:layout_marginLeft="15dp"
             android:gravity="center"
             android:paddingLeft="3dp"
+            android:textSize="13dp"
             android:text="TextView"
             android:textColor="#333333" />
         <TextView
@@ -61,6 +64,7 @@
             android:layout_width="55dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
+            android:textSize="13dp"
             android:gravity="center"
             android:paddingLeft="3dp"
             android:layout_marginRight="5dp"

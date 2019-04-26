@@ -25,6 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textSize="13dp"
             android:layout_marginLeft="18dp"
             android:gravity="center_vertical"
             android:text="TextView"
@@ -41,6 +42,7 @@
                 android:layout_height="33dp"
                 android:layout_gravity="center"
                 android:background="@drawable/input01"
+                android:textSize="13dp"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="1"
@@ -53,6 +55,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
             android:gravity="center"
+            android:textSize="13dp"
             android:paddingLeft="3dp"
             android:text="TextView"
             android:textColor="#333333" />
@@ -63,6 +66,7 @@
             android:layout_marginLeft="15dp"
             android:gravity="center"
             android:paddingLeft="3dp"
+            android:textSize="13dp"
             android:layout_marginRight="5dp"
             android:text="20,000"
             android:textColor="#333333" />

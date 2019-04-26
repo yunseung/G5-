@@ -53,11 +53,12 @@ public class Unimplementation_Reason_Dialog extends DialogC implements
 	private Button bt_group2;
 
 	private Popup_Window_Multy pwm;
+	private String mGubun = null;
 
 	ArrayList<HashMap<String, String>> temp_itab1 = new ArrayList<HashMap<String, String>>();
 
 	public Unimplementation_Reason_Dialog(Context context,
-			ArrayList<String> aufnr) {
+			ArrayList<String> aufnr, String gubun) {
 		super(context);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.unimplementation_reason_dialog);
@@ -74,6 +75,8 @@ public class Unimplementation_Reason_Dialog extends DialogC implements
 		pd.setCancelable(false);
 		pd.setMessage("검색중입니다.");
 		aufnr_arr = aufnr;
+
+		mGubun = gubun;
 
 		initViews();
 	}

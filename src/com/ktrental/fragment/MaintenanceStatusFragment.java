@@ -223,7 +223,6 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
         mLvMaintenace = (ListView) root.findViewById(R.id.lv_maintenance);
         // setDummyData();
         maintenanceAdapter = new MaintenanceAdapter(mContext, this);
-        setIotLocationTop();
         maintenanceAdapter.setDataArr(mBaseMaintenanceModels);
 
         mLvMaintenace.setAdapter(maintenanceAdapter);
@@ -471,7 +470,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
             }, "미실시 사유등록은 정비대상 차량을 선택 후 가능합니다. 정비대상 차량을 선택해 주세요.");
             return;
         }
-        Unimplementation_Reason_Dialog urd = new Unimplementation_Reason_Dialog(context, aufnr);
+        Unimplementation_Reason_Dialog urd = new Unimplementation_Reason_Dialog(context, aufnr, maintenanceAdapter.getSelectedMaintenanceModels().get(0).get_gubun());
         urd.show();
         maintenanceAdapter.initSelectedMaintenanceArray();
     }
@@ -504,6 +503,11 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
         if (arr.size() > 1) {
             showEventPopup2(null, "IoT 정비취소는 단건만 진행 가능합니다. 한 건만 선택해주세요.");
+            return;
+        }
+
+        if (!arr.get(0).getProgress_status().equals("E0001")) {
+            showEventPopup2(null, "IoT 정비취소는 예약 대기 상태에서만 가능합니다.");
             return;
         }
 
@@ -840,20 +844,6 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
     }
 
-    private void setIotLocationTop() {
-        ArrayList<RepairPlanModel> tempArray = new ArrayList<>();
-        for (int i = 0; i < mRepairPlanModelArray.size(); i++) {
-            if (mRepairPlanModelArray.get(i).getGubun().equals("A")) {
-                tempArray.add(mRepairPlanModelArray.get(i));
-                mRepairPlanModelArray.remove(i);
-            }
-        }
-
-        for (int i = 0; i < tempArray.size(); i++) {
-            mRepairPlanModelArray.add(i, tempArray.get(i));
-        }
-    }
-
     @Override
     public void onDismissDialogFragment() {
         // TODO Auto-generated method stub
@@ -1116,7 +1106,6 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
                     public void run() {
                         // Toast.makeText(mContext, "setDataMaintenanceArr",
                         // Toast.LENGTH_SHORT).show();
-                        setIotLocationTop();
                         maintenanceAdapter.setDataArr(mBaseMaintenanceModels);
                         hideProgress();
                         maintenanceAdapter.setProgressType(mProgressType);

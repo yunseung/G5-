@@ -47,10 +47,12 @@ public class MaintenanceSendStockModel {
 
 	private String NETPR;
 
+	private String ACTGRP;
+
 	public MaintenanceSendStockModel(String aUFNR, String mTINVNR,
 									 String mATNR, String eRFMG, String eRFME, String lGORT,
 									 String wERKS, String mATKL, String _name, String invnr,
-									 String gRPCD, String nETPR) {
+									 String gRPCD, String nETPR, String aCTGRP) {
 		super();
 		AUFNR = aUFNR;
 		mHashMap.put("AUFNR", AUFNR);
@@ -85,6 +87,9 @@ public class MaintenanceSendStockModel {
 
 		NETPR = nETPR;
 		mHashMap.put("NETPR", NETPR);
+
+		ACTGRP = aCTGRP;
+		mHashMap.put("ACTGRP", ACTGRP);
 	}
 	
 	public String getINVNR() {

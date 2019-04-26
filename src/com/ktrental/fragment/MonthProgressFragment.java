@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -804,10 +805,29 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     private void setIotLocationTop() {
         ArrayList<BaseMaintenanceModel> tempArray = new ArrayList<>();
         for (int i = 0; i < mBaseMaintenanceModels.size(); i++) {
-            if (mBaseMaintenanceModels.get(i).get_gubun().equals("A")) {
+            if (mBaseMaintenanceModels.get(i).getProgress_status().equals("E0001")) {
                 tempArray.add(mBaseMaintenanceModels.get(i));
-                mBaseMaintenanceModels.remove(i);
+//                mBaseMaintenanceModels.remove(i);
             }
+        }
+
+        for (BaseMaintenanceModel model : tempArray) {
+            mBaseMaintenanceModels.remove(model);
+        }
+
+        ArrayList<BaseMaintenanceModel> tempArray2 = new ArrayList<>();
+        for (int i = 0; i < tempArray.size(); i++) {
+            if (tempArray.get(i).get_gubun().equals("A")) {
+                tempArray2.add(tempArray.get(i));
+            }
+        }
+
+        for (BaseMaintenanceModel model : tempArray2) {
+            tempArray.remove(model);
+        }
+
+        for (int i = 0; i < tempArray2.size(); i++) {
+            tempArray.add(i, tempArray2.get(i));
         }
 
         for (int i = 0; i < tempArray.size(); i++) {
@@ -904,7 +924,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     }
 
     private void clickNotimplenented() {
-
         if (isE0001()) {
             showEventPopup2(null, "예약대기 상태일 경우 미실시 사유등록은 하실 수 없습니다.");
             return;
@@ -915,7 +934,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             showEventPopup2(null, "미실시 사유등록은 정비대상 차량을 선택 후 가능합니다. 정비대상 차량을 선택해 주세요.");
             return;
         }
-        Unimplementation_Reason_Dialog urd = new Unimplementation_Reason_Dialog(mContext, aufnr);
+        Unimplementation_Reason_Dialog urd = new Unimplementation_Reason_Dialog(mContext, aufnr, monthProgressAdapter.getSelectedMaintenanceModels().get(0).get_gubun());
 
         // 2014.01.1.29 ypkim
         // 미실시사유 등록 후 체크박스 해제 안되는 현상 수정.
@@ -1133,6 +1152,11 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             return;
         }
 
+        if (!arr.get(0).getProgress_status().equals("E0001")) {
+            showEventPopup2(null, "IoT 정비취소는 예약 대기 상태에서만 가능합니다.");
+            return;
+        }
+
 
         // iot 건 중에서도 상태에 따라 취소가 불가능한 건이 있지만 그 상황은 rfc 에서 return text 로 내려주기 때문에 여기서 막을 필요는 없어보임.
         if (arr.get(0).getATVYN().equals("A")) {
@@ -1278,12 +1302,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         String[] colums = month_colums;
 
-        DbQueryModel dbQueryModel = new DbQueryModel(ConnectController.REPAIR_TABLE_NAME, _whereCause, _whereArgs,
-                colums);
+        DbQueryModel dbQueryModel = new DbQueryModel(ConnectController.REPAIR_TABLE_NAME, _whereCause, _whereArgs, colums);
 
-        dbQueryModel.setOrderBy("GSTRS asc");
-        dbQueryModel.setOrderBy(
-                "gubun DESC, GSTRS asc, GSUZS ASC, case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
+        dbQueryModel.setOrderBy("case CCMSTS   when 'E0001' then '1' when 'E0002' then '2' when 'E0003' then '3' when 'E0004' then '4' else '9' end," +
+                " GSTRS asc, GSUZS ASC");
 
         DbAsyncTask dbAsyncTask = new DbAsyncTask(currentDay, mContext, this, dbQueryModel);
         mAsyncMap.put(currentDay, dbAsyncTask);

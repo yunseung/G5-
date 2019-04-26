@@ -521,6 +521,11 @@ public class MaintentanceInputFragment extends BaseFragment
 	private void clickSave() {
 
 		if (mLastItemModels.size() > 0) {
+			//TODO 엔진오일SET 뭐 어쩌구 그거 필수 선택되도록.
+			for (MaintenanceItemModel model : mLastItemModels) {
+//				model.getMaintenanceGroupModel().
+			}
+
 			if (mOnResultInut != null) {
 				mOnResultInut.onResultInput(mLastItemModels, true);
 			}

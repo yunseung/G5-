@@ -468,7 +468,7 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 						ArrayList<HashMap<String, String>> stockArr = mStockMap
 								.get(strKey1);
 
-						// 모든 항목에 WAERS = "KRW" 값ㅅ이 고정으로 들어감.. 여기서 추가
+						// 모든 항목에 WAERS = "KRW" 값이 고정으로 들어감.. 여기서 추가
 						for (int i = 0; i < stockArr.size(); i++) {
 							stockArr.get(i).put("WAERS", "KRW");
 						}
@@ -518,7 +518,6 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 				// myung 20131216 UPDATE I_TAB1 의 정비오더&사인이미지명과 I_TAB2의
 				// 정비오더&사인이미지명을 비교하여 다른게 있으면 다른 정비오더 데이터 전송하지 말것.
 
-//				mConnectController.sendMaintenance(mBaseMap.get(strKey), tempStockArr, tempImageArr, GUBUN, strKey, netpr, waers = kwr <= 1020_rd08 에 있음 이거 넣어주면 됨.);
 				mConnectController.sendMaintenance(mBaseMap.get(strKey), tempStockArr, tempImageArr, GUBUN, strKey);
 
 				kog.e("KDH", ""+tempImageArr.size());
@@ -542,7 +541,6 @@ public class ResultController implements DbAsyncResLintener, ConnectInterface {
 	@Override
 	public void connectResponse(String FuntionName, final String resultText,
 			String MTYPE, int resulCode, TableModel tableModel) {
-		// TODO Auto-generated method stub
 		kog.e("KDH", "connectResponse = "+FuntionName);
 		kog.e("Jonathan", "connectResponse MTYPE :: " + MTYPE);
 		if (MTYPE != null) 

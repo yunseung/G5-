@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.ktrental.R;
 import com.ktrental.adapter.CheckingAdapter;
 import com.ktrental.adapter.MaintenancCheckingCompleteItemAdapter;
-import com.ktrental.adapter.MaintenancLastItemAdapter;
 import com.ktrental.cm.connect.ConnectController;
 import com.ktrental.cm.connect.Connector.ConnectInterface;
 import com.ktrental.cm.db.DbAsyncTask;
@@ -56,8 +55,6 @@ import com.ktrental.util.kog;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -235,6 +232,7 @@ public class CheckingCompleteFragment extends BaseFragment
             for (MaintenanceItemModel item : mLastItemModels) {
                 totalPrice += (Integer.parseInt(item.getNETPR().replace(",", "")) * item.getConsumption());
             }
+
             mTvLastPrice.setText(currencyFormat(totalPrice) + "원");
             int vat = (int)Math.round(totalPrice * 0.1);
             int lastTotalPrice = totalPrice + vat;
@@ -340,8 +338,7 @@ public class CheckingCompleteFragment extends BaseFragment
         CommonUtil.hideKeyboad(mContext, mEtName);
         switch (v.getId()) {
             case R.id.btn_complate:
-                kog.e("KDH", "btn_complate");
-                clickComplate();
+                clickComplete();
                 break;
 
             case R.id.btn_sign:
@@ -648,11 +645,7 @@ public class CheckingCompleteFragment extends BaseFragment
         initCheckModels();
     }
 
-    private void clickComplate() {
-
-//		kog.e("Jonathan", "주소가 도대체 뭐야 ? " + mResultModel.getmCarInfoModel().getAddress());
-//		Log.e("mEtName", "" + mEtName.getText().toString().trim().length());
-
+    private void clickComplete() {
         if (mResultModel.getmCarInfoModel().get_gubun().trim().equals("A")) {
             if (!iv_confirm_check2.isSelected()) {
                 showEventPopup2(null, "순회정비 유의 사항을 확인해 주세요. ");
@@ -734,7 +727,6 @@ public class CheckingCompleteFragment extends BaseFragment
 
         // 2014-01-20 KDH 여기서 결과등록을 하는데..뭔가이상하네..-.;
         mOnSendResult.onSendResult(mResultModel.getmCarInfoModel().getAddress());
-        kog.e("Jonathan", "checking Complete 1");
 
         // MaintenanceSendBaseModel sendBaseModel = getSendBaseModel();
         // ArrayList<MaintenanceSendStockModel> sendStockModels =
@@ -846,7 +838,7 @@ public class CheckingCompleteFragment extends BaseFragment
                     maintenanceItemModel.getMATNR(), "" + maintenanceItemModel.getConsumption(),
                     maintenanceItemModel.getERFME(), loginModel.getLgort(), loginModel.getWerks(),
                     maintenanceItemModel.getMaintenanceGroupModel().getName_key(), carInfoModel.getCUSTOMER_NAME(),
-                    carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD(), maintenanceItemModel.getNETPR());
+                    carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD(), maintenanceItemModel.getNETPR(), maintenanceItemModel.getACTGRP());
             sendStockModels.add(sendStockModel);
         }
 
@@ -869,7 +861,7 @@ public class CheckingCompleteFragment extends BaseFragment
                     maintenanceItemModel.getMATNR(), "" + maintenanceItemModel.getConsumption(),
                     maintenanceItemModel.getERFME(), loginModel.getLgort(), loginModel.getWerks(),
                     maintenanceItemModel.getMaintenanceGroupModel().getName_key(), carInfoModel.getCUSTOMER_NAME(),
-                    carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD(), maintenanceItemModel.getNETPR());
+                    carInfoModel.getCarNum(), maintenanceItemModel.getGRP_CD(), maintenanceItemModel.getNETPR(), maintenanceItemModel.getACTGRP());
             sendStockModels.add(sendStockModel);
         }
 
