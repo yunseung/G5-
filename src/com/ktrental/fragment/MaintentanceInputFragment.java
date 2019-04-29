@@ -49,6 +49,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Set;
 
 public class MaintentanceInputFragment extends BaseFragment
@@ -518,12 +519,50 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	}
 
+	private boolean checkEngineOilSet() {
+		List<String> engineOilSet = new ArrayList<>();
+		engineOilSet.add("401");
+		engineOilSet.add("402");
+		engineOilSet.add("403");
+		engineOilSet.add("404");
+		int isContainEngineOilSet = 0;
+		if (mCarInfoModel.get_gubun().equals("A")) {
+			for (MaintenanceItemModel model : mLastItemModels) {
+				switch (model.getMaintenanceGroupModel().getName_key()) {
+					case "401" :
+						isContainEngineOilSet++;
+						engineOilSet.remove("401");
+						break;
+					case "402" :
+						isContainEngineOilSet++;
+						engineOilSet.remove("402");
+						break;
+					case "403" :
+						isContainEngineOilSet++;
+						engineOilSet.remove("403");
+						break;
+					case "404" :
+						isContainEngineOilSet++;
+						engineOilSet.remove("404");
+						break;
+				}
+			}
+		}
+
+		if (isContainEngineOilSet < 3) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	private void clickSave() {
 
 		if (mLastItemModels.size() > 0) {
-			//TODO 엔진오일SET 뭐 어쩌구 그거 필수 선택되도록.
-			for (MaintenanceItemModel model : mLastItemModels) {
-//				model.getMaintenanceGroupModel().
+
+			if (!checkEngineOilSet()) {
+				showEventPopup2(null, "엔진오일SET(가솔린/디젤오일, 에어크리너, 오일휠터)\n자제그룹은 필수항목입니다.");
+				 return;
 			}
 
 			if (mOnResultInut != null) {
@@ -536,7 +575,6 @@ public class MaintentanceInputFragment extends BaseFragment
 
 				@Override
 				public void onOk() {
-					// TODO Auto-generated method stub
 
 				}
 			}, getString(R.string.maintenance_layout_msg));
