@@ -224,7 +224,10 @@ public class CheckingCompleteFragment extends BaseFragment
                 lastItemArray.add(new MaintenanceCheckingCompleteModel(groupNameArray.get(i), Integer.toString(groupPrice), Integer.toString(consumption)));
             }
 
+            lastItemArray.add(new MaintenanceCheckingCompleteModel("공임비", "29800", ""));
+
             mLastItemAdapter = new MaintenancCheckingCompleteItemAdapter(mContext, lastItemArray);
+
 
             mLvLast.setAdapter(mLastItemAdapter);
 
@@ -232,6 +235,8 @@ public class CheckingCompleteFragment extends BaseFragment
             for (MaintenanceItemModel item : mLastItemModels) {
                 totalPrice += (Integer.parseInt(item.getNETPR().replace(",", "")) * item.getConsumption());
             }
+
+            totalPrice += 29800; // 29,800 은 공임비이다. 부품값 총액 마지막에 무조건 더해줌 (IoT의 경우만)
 
             mTvLastPrice.setText(currencyFormat(totalPrice) + "원");
             int vat = (int)Math.round(totalPrice * 0.1);
