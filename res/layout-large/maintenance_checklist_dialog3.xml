@@ -104,7 +104,8 @@
                             android:layout_marginTop="80dp"
                             android:gravity="center_vertical"
                             android:text="차량번호"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_maktx"
@@ -128,7 +129,7 @@
                             android:gravity="center_vertical"
                             android:text="주행거리"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_dlsm1"
@@ -139,7 +140,8 @@
                             android:layout_marginTop="3dp"
                             android:gravity="center_vertical"
                             android:text="계약자명"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_reg_date"
@@ -151,7 +153,8 @@
                             android:layout_toRightOf="@id/tv_dlsm1"
                             android:gravity="center_vertical"
                             android:text="차량등록일"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_repair_reserve_date"
@@ -164,7 +167,7 @@
                             android:gravity="center_vertical"
                             android:text="정비 예약일시"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_repair_complete_date"
@@ -176,7 +179,7 @@
                             android:gravity="center_vertical"
                             android:text="정비완료일시"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_round_car"
@@ -188,7 +191,7 @@
                             android:gravity="center_vertical"
                             android:text="순회차량"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_repair_engineer"
@@ -200,7 +203,7 @@
                             android:gravity="center_vertical"
                             android:text="책임정비기사"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
 
                         <LinearLayout
@@ -221,7 +224,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="1"
-                                    android:textColor="@android:color/black" />
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15dp" />
 
                                 <TextView
                                     android:id="@+id/tv_good01"
@@ -229,7 +233,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
-                                    android:textColor="@android:color/black" />
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15dp" />
 
 
                                 <TextView
@@ -238,7 +243,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
-                                    android:textColor="@android:color/black" />
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15dp" />
 
                                 <TextView
                                     android:id="@+id/tv_price01"
@@ -247,7 +253,8 @@
                                     android:layout_marginLeft="40dp"
                                     android:gravity="right"
                                     android:text="98,500"
-                                    android:textColor="@android:color/black" />
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15dp" />
 
                                 <TextView
                                     android:id="@+id/tv_vat01"
@@ -257,6 +264,7 @@
                                     android:gravity="right"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="visible" />
 
                                 <TextView
@@ -266,7 +274,8 @@
                                     android:layout_marginLeft="35dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
-                                    android:textColor="@android:color/black" />
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15dp" />
                             </LinearLayout>
 
 
@@ -284,6 +293,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -293,6 +303,7 @@
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -302,6 +313,7 @@
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -312,6 +324,7 @@
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -322,6 +335,7 @@
                                     android:gravity="right"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -332,6 +346,7 @@
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
                             </LinearLayout>
 
@@ -350,6 +365,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
 
@@ -360,6 +376,7 @@
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -369,6 +386,7 @@
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -389,6 +407,7 @@
                                     android:gravity="right"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -399,6 +418,7 @@
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
                             </LinearLayout>
 
@@ -417,6 +437,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
 
@@ -427,6 +448,7 @@
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -436,6 +458,7 @@
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -446,6 +469,7 @@
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -456,6 +480,7 @@
                                     android:gravity="right"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -466,6 +491,7 @@
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
                             </LinearLayout>
 
@@ -484,6 +510,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
 
@@ -494,6 +521,7 @@
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -503,6 +531,7 @@
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -513,6 +542,7 @@
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -523,6 +553,7 @@
                                     android:gravity="right"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -533,6 +564,7 @@
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
                             </LinearLayout>
 
@@ -551,6 +583,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
 
@@ -558,6 +591,7 @@
                                     android:id="@+id/tv_good06"
                                     android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
@@ -567,6 +601,7 @@
                                     android:id="@+id/tv_outqty06"
                                     android:layout_width="40dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
@@ -576,6 +611,7 @@
                                     android:id="@+id/tv_price06"
                                     android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="40dp"
                                     android:gravity="right"
                                     android:text="98,500"
@@ -587,6 +623,7 @@
                                     android:layout_width="110dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="50dp"
+                                    android:textSize="15dp"
                                     android:gravity="right"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
@@ -598,6 +635,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
                                     android:gravity="right"
+                                    android:textSize="15dp"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -616,6 +654,7 @@
                                     android:id="@+id/tv_index7"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:text="1"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -625,6 +664,7 @@
                                     android:id="@+id/tv_good07"
                                     android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
@@ -633,6 +673,7 @@
                                 <TextView
                                     android:id="@+id/tv_outqty07"
                                     android:layout_width="40dp"
+                                    android:textSize="15dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
@@ -643,6 +684,7 @@
                                     android:id="@+id/tv_price07"
                                     android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="40dp"
                                     android:gravity="right"
                                     android:text="98,500"
@@ -656,6 +698,7 @@
                                     android:layout_marginLeft="50dp"
                                     android:gravity="right"
                                     android:text="9,850"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
 
@@ -665,6 +708,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
                                     android:gravity="right"
+                                    android:textSize="15dp"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -684,6 +728,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="1"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
 
@@ -692,6 +737,7 @@
                                     android:id="@+id/tv_good08"
                                     android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
@@ -702,6 +748,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="25dp"
+                                    android:textSize="15dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -713,6 +760,7 @@
                                     android:layout_marginLeft="40dp"
                                     android:gravity="right"
                                     android:text="98,500"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
 
@@ -722,6 +770,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="50dp"
                                     android:gravity="right"
+                                    android:textSize="15dp"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -731,6 +780,7 @@
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
+                                    android:textSize="15dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
@@ -751,6 +801,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="1"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
 
@@ -761,6 +812,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
 
@@ -769,12 +821,14 @@
                                     android:layout_width="40dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="25dp"
+                                    android:textSize="15dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
 
                                 <TextView
                                     android:id="@+id/tv_price09"
+                                    android:textSize="15dp"
                                     android:layout_width="110dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="40dp"
@@ -786,6 +840,7 @@
                                 <TextView
                                     android:id="@+id/tv_vat09"
                                     android:layout_width="110dp"
+                                    android:textSize="15dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="50dp"
                                     android:gravity="right"
@@ -798,6 +853,7 @@
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
+                                    android:textSize="15dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
                                     android:textColor="@android:color/black"
@@ -817,6 +873,7 @@
                                     android:id="@+id/tv_index10"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:text="1"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -827,6 +884,7 @@
                                     android:layout_width="230dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="40dp"
+                                    android:textSize="15dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -836,6 +894,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="25dp"
+                                    android:textSize="15dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -843,6 +902,7 @@
                                 <TextView
                                     android:id="@+id/tv_price10"
                                     android:layout_width="110dp"
+                                    android:textSize="15dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="40dp"
                                     android:gravity="right"
@@ -853,6 +913,7 @@
                                 <TextView
                                     android:id="@+id/tv_vat10"
                                     android:layout_width="110dp"
+                                    android:textSize="15dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="50dp"
                                     android:gravity="right"
@@ -867,6 +928,7 @@
                                     android:layout_marginLeft="35dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
                             </LinearLayout>
@@ -884,6 +946,7 @@
                                     android:id="@+id/tv_index11"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:text="1"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
@@ -893,6 +956,7 @@
                                     android:id="@+id/tv_good11"
                                     android:layout_width="230dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
                                     android:textColor="@android:color/black"
@@ -905,6 +969,7 @@
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -915,6 +980,7 @@
                                     android:gravity="right"
                                     android:text="98,500"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -925,6 +991,7 @@
                                     android:gravity="right"
                                     android:text="9,850"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -934,6 +1001,7 @@
                                     android:layout_marginLeft="35dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
                             </LinearLayout>
@@ -953,6 +1021,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="1"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
 
@@ -962,6 +1031,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="40dp"
                                     android:text="작업내용1"
+                                    android:textSize="15dp"
                                     android:textColor="@android:color/black"
                                     android:visibility="invisible" />
 
@@ -972,12 +1042,14 @@
                                     android:layout_marginLeft="25dp"
                                     android:text="10"
                                     android:textColor="@android:color/black"
+                                    android:textSize="15dp"
                                     android:visibility="invisible" />
 
                                 <TextView
                                     android:id="@+id/tv_price12"
                                     android:layout_width="110dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="40dp"
                                     android:gravity="right"
                                     android:text="98,500"
@@ -987,6 +1059,7 @@
                                 <TextView
                                     android:id="@+id/tv_vat12"
                                     android:layout_width="110dp"
+                                    android:textSize="15dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="50dp"
                                     android:gravity="right"
@@ -998,6 +1071,7 @@
                                     android:id="@+id/tv_total_price12"
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
+                                    android:textSize="15dp"
                                     android:layout_marginLeft="35dp"
                                     android:gravity="right"
                                     android:text="100,000,000"
@@ -1025,6 +1099,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="3,725,000"
+                                    android:textSize="17dp"
                                     android:textColor="@android:color/black" />
 
                                 <View
@@ -1037,6 +1112,7 @@
                                     android:layout_width="80dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
+                                    android:textSize="17dp"
                                     android:text="372,500"
                                     android:textColor="@android:color/black" />
 
@@ -1052,6 +1128,7 @@
                                     android:gravity="right"
                                     android:text="4,097,500"
                                     android:textColor="@android:color/black"
+                                    android:textSize="17dp"
                                     android:textStyle="bold" />
                             </LinearLayout>
 

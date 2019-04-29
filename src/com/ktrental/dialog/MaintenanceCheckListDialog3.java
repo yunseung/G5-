@@ -40,7 +40,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -206,6 +209,10 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
     private TextView tv_ename;    //점검자 성명
     private ImageView iv_sign;    //고객확인
 
+    private TextView tv_year;
+    private TextView tv_month;
+    private TextView tv_day;
+
     private LinearLayout mCheckingArea, mSignArea;
 
 
@@ -367,6 +374,10 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
         tv_ename = (TextView) findViewById(R.id.tv_ename);
         iv_sign = (ImageView) findViewById(R.id.iv_sign);
 
+        tv_year = (TextView) findViewById(R.id.tv_year);
+        tv_month = (TextView) findViewById(R.id.tv_month);
+        tv_day = (TextView) findViewById(R.id.tv_day);
+
         iv_confirm_check = (ImageView) findViewById(R.id.iv_confirm_check);
 
         connectController.getZMO_1170_RD11(reqNo);
@@ -379,6 +390,12 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
 
     public void setDone(String str) {
 //		bt_done.setText(str);
+    }
+
+    private String currencyFormat(int input) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+
+        return decimalFormat.format(input);
     }
 
     @Override
@@ -397,11 +414,16 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
 
             tv_invnr.setText(ES_HEADER.get("INVNR").toString());
             tv_maktx.setText(ES_HEADER.get("MAKTX").toString());
-            tv_incml.setText(ES_HEADER.get("INCML").toString());
+            tv_incml.setText(currencyFormat(Integer.parseInt(ES_HEADER.get("INCML"))) + "km");
             tv_dlsm1.setText(ES_HEADER.get("KUNNRNM").toString());
-            tv_reg_date.setText("INBDT");
-            tv_repair_reserve_date.setText("REQDT");
-            String completeDate = ES_HEADER.get("GLTRI") + ES_HEADER.get("GEUZI");
+
+            tv_year.setText(ES_HEADER.get("GLTRI").split("-", 0)[0]);
+            tv_month.setText(ES_HEADER.get("GLTRI").split("-", 0)[1]);
+            tv_day.setText(ES_HEADER.get("GLTRI").split("-", 0)[2]);
+
+            tv_reg_date.setText(ES_HEADER.get("INBDT"));
+            tv_repair_reserve_date.setText(ES_HEADER.get("REQDT"));
+            String completeDate = ES_HEADER.get("GLTRI") + "  " + ES_HEADER.get("GEUZI");
             tv_repair_complete_date.setText(completeDate);
             tv_round_car.setText(ES_HEADER.get("MINVNR"));
             tv_repair_engineer.setText(ES_HEADER.get("USR_NM").toString()); // 화면 맨 밑 작성자도 같은 필드 사용하면 됨.
@@ -432,7 +454,7 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
             }
 
 
-            new DownLoadImageTask(iv_sign).execute("http://ext.lotterental.net:8001/ktrerp/" + ES_FOOTER.get("SIGN_T"));
+            new DownLoadImageTask(iv_sign).execute(ES_FOOTER.get("SIGN_T"));
 //			new DownLoadImageTask(iv_sign).execute("http://ext.lotterental.net:8001/ktrerp/upload/20170202/1771/4401702007.jpg");
 //												    http://ext.lotterental.net:8001/ktrerp/p/upload/20170201/1333/4401702250.jpg
 //			new DownLoadImageTask(iv_sign).execute("https://www.google.com/images/srpr/logo11w.png");

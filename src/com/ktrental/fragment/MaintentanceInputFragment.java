@@ -519,6 +519,10 @@ public class MaintentanceInputFragment extends BaseFragment
 
 	}
 
+	/**
+	 * Engine oil set 가 모두 추가되어 있는지 확인하는 함수. (For IoT)
+	 * @return true : engine oil set 모두 추가. false : engine oil set 완성되지 않음.
+	 */
 	private boolean checkEngineOilSet() {
 		List<String> engineOilSet = new ArrayList<>();
 		engineOilSet.add("401");
@@ -547,10 +551,11 @@ public class MaintentanceInputFragment extends BaseFragment
 						break;
 				}
 			}
-		}
-
-		if (isContainEngineOilSet < 3) {
-			return false;
+			if (isContainEngineOilSet < 3) {
+				return false;
+			} else {
+				return true;
+			}
 		} else {
 			return true;
 		}
