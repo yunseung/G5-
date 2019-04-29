@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -95,7 +96,12 @@ public class Unimplementation_Reason_Dialog extends DialogC implements
 		bt_group = (Button) findViewById(R.id.unimplementation_reason_group_id);
 		bt_group.setOnClickListener(this);
 		bt_group1 = (Button) findViewById(R.id.unimplementation_reason_group1_id);
-		bt_group1.setOnClickListener(this);
+		if (mGubun.equals("A")) {
+		    bt_group1.setText("IoT미실시");
+		    bt_group1.setTag("PM314"); // IoT 미실시에 의한 태그를 하드코딩. (IoT 일 경우 미실시 사유의 대분류를 IoT미실시로 고정해달라는 임현중대리의 요청사항.
+        } else {
+            bt_group1.setOnClickListener(this);
+        }
 		bt_group2 = (Button) findViewById(R.id.unimplementation_reason_group2_id);
 		bt_group2.setOnClickListener(this);
 
@@ -193,6 +199,7 @@ public class Unimplementation_Reason_Dialog extends DialogC implements
 				epc.show("선택해주세요");
 				return;
 			} else {
+				Log.e("yunseung ++", "tag : " + bt_group1.getTag());
 				pwm.show(bt_group1.getTag().toString(), bt_group2, true);
 			}
 			break;
