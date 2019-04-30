@@ -223,6 +223,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
         mLvMaintenace = (ListView) root.findViewById(R.id.lv_maintenance);
         // setDummyData();
         maintenanceAdapter = new MaintenanceAdapter(mContext, this);
+        setIotLocationTop();
         maintenanceAdapter.setDataArr(mBaseMaintenanceModels);
 
         mLvMaintenace.setAdapter(maintenanceAdapter);
@@ -278,6 +279,39 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
         mEmptyView = (ImageView) root.findViewById(R.id.iv_empty);
 
         return root;
+    }
+
+    private void setIotLocationTop() {
+        ArrayList<BaseMaintenanceModel> tempArray = new ArrayList<>();
+        for (int i = 0; i < mBaseMaintenanceModels.size(); i++) {
+            if (mBaseMaintenanceModels.get(i).getProgress_status().equals("E0001")) {
+                tempArray.add(mBaseMaintenanceModels.get(i));
+//                mBaseMaintenanceModels.remove(i);
+            }
+        }
+
+        for (BaseMaintenanceModel model : tempArray) {
+            mBaseMaintenanceModels.remove(model);
+        }
+
+        ArrayList<BaseMaintenanceModel> tempArray2 = new ArrayList<>();
+        for (int i = 0; i < tempArray.size(); i++) {
+            if (tempArray.get(i).get_gubun().equals("A")) {
+                tempArray2.add(tempArray.get(i));
+            }
+        }
+
+        for (BaseMaintenanceModel model : tempArray2) {
+            tempArray.remove(model);
+        }
+
+        for (int i = 0; i < tempArray2.size(); i++) {
+            tempArray.add(i, tempArray2.get(i));
+        }
+
+        for (int i = 0; i < tempArray.size(); i++) {
+            mBaseMaintenanceModels.add(i, tempArray.get(i));
+        }
     }
 
     private void initCalendar() {
@@ -963,8 +997,9 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
         DbQueryModel dbQueryModel = new DbQueryModel(ConnectController.REPAIR_TABLE_NAME, _whereCause, _whereArgs,
                 colums);
 
-        dbQueryModel.setOrderBy(
-                "gubun DESC, GSUZS ASC, case CCMSTS   when 'E0001' then '1' when 'E0002' then '' when 'E0003' then '3' when 'E0004' then '4' else '9' end ");
+        dbQueryModel.setOrderBy("case CCMSTS   when 'E0001' then '1' when 'E0002' then '2' when 'E0003' then '3' when 'E0004' then '4' else '9' end," +
+                " GSTRS asc, GSUZS ASC");
+
 
         DbAsyncTask dbAsyncTask = new DbAsyncTask(currentDay, mContext, this, dbQueryModel);
         mAsyncMap.put(currentDay, dbAsyncTask);
