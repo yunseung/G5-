@@ -1060,6 +1060,12 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 				epc.show("고객 조회를 먼저 실행해 주세요.");
 				return;
 			}
+
+			if (o_struct3.get("MATMA").equals("F") || o_struct3.get("MATMA").equals("G")) {
+				EventPopupC epc = new EventPopupC(context);
+				epc.show("IoT 건은 긴급정비를 실행할 수 없습니다.");
+				return;
+			}
 			kog.e("Jonathan", "과연 고객명일까요?  " + rd04_arr.get(0).get("NAME1"));
 			// myung 20131230 UPDATE
 			// queryMaintenace(rd04_arr.get(0).get("NAME1"),
@@ -1717,14 +1723,21 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 
 		String DELAY = o_struct1.get("DELAY"); // hjt 지연일수 추가
 
-		String apm = o_struct1.get("APM");
-		String vbeln = o_struct1.get("VBELN");
-		String gubun = o_struct1.get("GUBUN");
-		String reqNo = o_struct1.get("REQNO");
-		String atvyn = o_struct1.get("ATVYN");
-		String prerq = o_struct1.get("PRERQ");
-		String ccmrq = o_struct1.get("CCMRQ");
-		String minvnr = o_struct1.get("MINVNR");
+		// yunseung ... 19년 IoT 추가건
+		// 아래 주석된 필드들은 이번 IoT 건 추가 하면서 추가된 필드들인데... 차량 정보를 꾸릴 때 다른 곳에서는 아래 항목들이 필요하지만 여기서는 필요도 없고 가져올 수도 없다고 한다. (SAP 쪽 얘기)
+		// 여기서도 정비등록 화면으로 진입할 수 있는데 그때 gubun 값이 필요하므로 gubun 값만 하드코딩으로 A (IoT) 가 아닌 다른 값을 넣어주면 된다.
+		// 이 화면에서 정비등록 버튼을 눌렀을 때 정비시작을 하게되는데 IoT 건은 정비가 불가능 하다는 팝업을 띄우면 되는데
+		// o_struct3 의 값 중 MATMA 값이 G 또는 F 이므로 두 가지 케이스에서 정비등록 버튼을 막으면 된다.
+		// 결론 : 아래 필드들 이곳에서 안쓰임. 지우지 않고 주석처리해놓은 이유는 다른 화면들에서는 저 필드들이 다 들어가있는데 여기서는 carInfo 생성자를 만들 때 다 null 이면 다음 개발자가 헷갈릴까봐..
+
+//		String apm = o_struct1.get("APM");
+//		String vbeln = o_struct1.get("VBELN");
+		String gubun = " ";
+//		String reqNo = o_struct1.get("REQNO");
+//		String atvyn = o_struct1.get("ATVYN");
+//		String prerq = o_struct1.get("PRERQ");
+//		String ccmrq = o_struct1.get("CCMRQ");
+//		String minvnr = o_struct1.get("MINVNR");
 
 		Set<String> set1 = o_struct1.keySet();
 		Set<String> set2 = o_struct2.keySet();
@@ -1765,7 +1778,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 		BaseMaintenanceModel model = new BaseMaintenanceModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, _EQUNR, _CTRTY, postCode, city,
-				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null, apm, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr);
+				street, _drv_mob, GUEEN2, TXT30, mdlcd, VOCNUM, kunnr, DELAY, null, null, null, gubun, null, null, null, null, null);
 
 		CarInfoModel carInfoModel = new CarInfoModel(customer_name,
 				driver_name, _carNum, _address, _tel, _time, _carname,
@@ -1778,7 +1791,7 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 				tireFunk, emergencyResponseCount, snowTire, mdlcd, oilType,
 				AUFNR, _trustTerm2, _OILTYPNM, _EQUNR, "", _CEMER, CHNGBN,
 				OWNER, postCode, city, street, _drv_mob, _drv_tel, GUEEN2,
-				TXT30, VOCNUM, kunnr, DELAY, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr);
+				TXT30, VOCNUM, kunnr, DELAY, null, gubun, null, null, null, null, null);
 
 		carInfoModel.setGUBUN(GUBUN);
 		showResultFragment(model, carInfoModel);
