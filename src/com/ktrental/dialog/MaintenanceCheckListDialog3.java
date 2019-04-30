@@ -454,6 +454,8 @@ public class MaintenanceCheckListDialog3 extends DialogC implements ConnectInter
             }
 
 
+//            String signUrl = ES_FOOTER.get("SIGN_T").toString().substring(39);
+//            new DownLoadImageTask(iv_sign).execute("http://erp.lotterental.net:8002/ktrerp/upload" + signUrl);
             new DownLoadImageTask(iv_sign).execute(ES_FOOTER.get("SIGN_T"));
 //			new DownLoadImageTask(iv_sign).execute("http://ext.lotterental.net:8001/ktrerp/upload/20170202/1771/4401702007.jpg");
 //												    http://ext.lotterental.net:8001/ktrerp/p/upload/20170201/1333/4401702250.jpg
