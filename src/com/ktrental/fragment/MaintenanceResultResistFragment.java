@@ -915,7 +915,7 @@ public class MaintenanceResultResistFragment extends BaseFragment implements OnC
 		InventoryPopup inventoryPopup = new InventoryPopup(mContext, QuickAction.HORIZONTAL, R.layout.inventory_popup,
 				InventoryPopup.TYPE_MONEY);
 
-		inventoryPopup.show(mTvLastMileage, mInventoryLocation);
+		inventoryPopup.show(mRootView, mInventoryLocation);
 		inventoryPopup.setOnDismissListener(new OnDismissListener() {
 
 			@Override

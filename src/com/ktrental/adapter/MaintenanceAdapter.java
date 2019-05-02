@@ -164,6 +164,16 @@ public class MaintenanceAdapter extends BaseMaintenceAdapter
         return reStr;
     }
 
+    @Override
+    public void selectAllModel(boolean checked) {
+        super.selectAllModel(checked);
+    }
+
+    @Override
+    public void setOnCheckChangedListener(OnCheckedChangeListener listener) {
+        super.setOnCheckChangedListener(listener);
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     protected void filtering()

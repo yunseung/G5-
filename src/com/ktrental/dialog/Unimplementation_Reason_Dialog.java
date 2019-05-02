@@ -199,7 +199,6 @@ public class Unimplementation_Reason_Dialog extends DialogC implements
 				epc.show("선택해주세요");
 				return;
 			} else {
-				Log.e("yunseung ++", "tag : " + bt_group1.getTag());
 				pwm.show(bt_group1.getTag().toString(), bt_group2, true);
 			}
 			break;

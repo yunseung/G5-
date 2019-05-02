@@ -1,6 +1,7 @@
 package com.ktrental.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
@@ -36,6 +37,7 @@ import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.ktrental.R;
+import com.ktrental.adapter.BaseMaintenceAdapter;
 import com.ktrental.adapter.MonthProgressAdapter;
 import com.ktrental.calendar.CalendarController;
 import com.ktrental.calendar.DayInfoModel;
@@ -72,6 +74,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 월간 진행상태 화면
@@ -84,7 +87,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         OnClickListener, OnSelectedPopupItem, OnDismissDialogFragment, OnCalendarListener {
 
     private ListView mLvProgressStatus;
-    private TextView mTvHeaderTitle;
     private CalendarFragment mCalendarFragment;
     private MonthProgressAdapter monthProgressAdapter;
     private EditText mEtSearch;
@@ -164,6 +166,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
     private BarChart mBarChart = null;
 
+    private ImageView mIvCheckAll = null;
+    private String mCurrentStatus = "전체";
+    private Map<String, Boolean> mIvCheckStatusMap = new HashMap<>();
+
 
     // public MonthProgressFragment(String className,
     // OnChangeFragmentListener changeFragmentListener) {
@@ -221,8 +227,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     public void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
-        // Log.e("onStart()", "onStart()");
-        setMonthTitle();
 
         // myung 20131202 ADD 당월정비 처리/계획 클릭 시 월간 정비현황의 완료건만 보여져야 함.
         if (AllButtonChangeFlag) {
@@ -253,10 +257,48 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         mLvProgressStatus = (ListView) root.findViewById(R.id.lv_progress_status);
 
+        mIvCheckAll = (ImageView) root.findViewById(R.id.iv_check);
         // mLvProgressStatus.addHeaderView(mHeaderView);
-        mTvHeaderTitle = (TextView) root.findViewById(R.id.tv_month_title);
+        mIvCheckAll.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = false;
+                if (mCurrentStatus.equals("전체") || mCurrentStatus.equals("취소")) {
+                    Toast.makeText(mContext, "전체 또는 취소 상태에서는 전체 선택을 할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (v.getTag() == null) {
+                    mIvCheckAll.setImageResource(R.drawable.check_on);
+                    mIvCheckAll.setTag(R.drawable.check_on);
+                    monthProgressAdapter.selectAllModel(true);
+                    isChecked = true;
+                } else {
+                    if ((Integer)v.getTag() == R.drawable.check_off) {
+                        mIvCheckAll.setImageResource(R.drawable.check_on);
+                        mIvCheckAll.setTag(R.drawable.check_on);
+                        monthProgressAdapter.selectAllModel(true);
+                        isChecked = true;
+                    } else {
+                        mIvCheckAll.setImageResource(R.drawable.check_off);
+                        mIvCheckAll.setTag(R.drawable.check_off);
+                        monthProgressAdapter.selectAllModel(false);
+                        isChecked = false;
+                    }
+                }
+
+                mIvCheckStatusMap.put(mCurrentStatus, isChecked);
+            }
+        });
 
         monthProgressAdapter = new MonthProgressAdapter(mContext, this);
+        monthProgressAdapter.setOnCheckChangedListener(new BaseMaintenceAdapter.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChange(boolean isChecked) {
+                mIvCheckStatusMap.put(mCurrentStatus, isChecked);
+                mIvCheckAll.setImageResource(isChecked ? R.drawable.check_on : R.drawable.check_off);
+            }
+        });
 
         setIotLocationTop();
         monthProgressAdapter.setDataArr(mBaseMaintenanceModels);
@@ -289,10 +331,23 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
             @Override
             public void afterTextChanged(Editable s) {
-                // Log.e("afterTextChanged", ""+mAllButton.getText()+"/"+s);
-                // TODO Auto-generated method stub
+                mCurrentStatus = s.toString();
+                if (s.toString().equals("전체") || s.toString().equals("취소")) {
+
+                } else {
+
+                }
+
                 if (!AllBtnBuffer.equals(s)) {
                     clickSearch2();
+                }
+
+                if (mIvCheckStatusMap.size() > 0) {
+                    if (mIvCheckStatusMap.get(mCurrentStatus) != null) {
+                        mIvCheckAll.setImageResource(mIvCheckStatusMap.get(mCurrentStatus) ? R.drawable.check_on : R.drawable.check_off);
+                    } else {
+                        mIvCheckAll.setImageResource(R.drawable.check_off);
+                    }
                 }
             }
         });
@@ -448,16 +503,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         mBarChart.invalidate();
     }
 
-    private void setMonthTitle() {
-        if (mTvHeaderTitle != null && mCalendarFragment != null) {
-            String month = mCalendarFragment.getCurrentMonthString();
-            month = month + " 정비계획 리스트";
-
-            mTvHeaderTitle.setText(getString(R.string.repair_plan));
-
-        }
-    }
-
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
 
@@ -479,12 +524,16 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
     public void onDestroy() {
         // mCalendarFragment.onDestroy();
         super.onDestroy();
 
         mLvProgressStatus = null;
-        mTvHeaderTitle = null;
 
         mCalendarFragment = null;
 
@@ -681,7 +730,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
                                     @Override
                                     public void run() {
-                                        // TODO Auto-generated method stub
                                         setIotLocationTop();
                                         monthProgressAdapter.setDataArr(mBaseMaintenanceModels);
                                         hideProgress();
@@ -805,9 +853,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     private void setIotLocationTop() {
         ArrayList<BaseMaintenanceModel> tempArray = new ArrayList<>();
         for (int i = 0; i < mBaseMaintenanceModels.size(); i++) {
-            if (mBaseMaintenanceModels.get(i).getProgress_status().equals("E0001")) {
-                tempArray.add(mBaseMaintenanceModels.get(i));
-//                mBaseMaintenanceModels.remove(i);
+            if (!mBaseMaintenanceModels.get(i).getProgress_status().isEmpty()) {
+                if (mBaseMaintenanceModels.get(i).getProgress_status().equals("E0001")) {
+                    tempArray.add(mBaseMaintenanceModels.get(i));
+                }
             }
         }
 
@@ -1441,8 +1490,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
     @Override
     public void onDismissDialogFragment() {
-        // TODO Auto-generated method stub
-        // TODO Auto-generated method stub
         monthProgressAdapter.initSelectedMaintenanceArray();
     }
 
@@ -1508,8 +1555,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
     private void initMonthProgress() {
         queryMaintenace("");
-
-        setMonthTitle();
 
         mTvComplate.setText(getComplate());
         mTvComplate2.setText(getComplate2());

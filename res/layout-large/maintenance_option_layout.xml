@@ -79,7 +79,7 @@
                         android:layout_width="@dimen/pop_txt_width3"
                         android:layout_height="match_parent"
                         android:gravity="right|center_vertical"
-                        android:text="순회정보비주기"
+                        android:text="순회정비주기"
                         android:textColor="#555555"
                         android:textSize="16sp" />
 

@@ -8,14 +8,21 @@
 
     <TextView
         android:id="@+id/tv_month_title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="14dp"
-        android:layout_weight="110"
-        android:text="진행상태"
+        android:layout_marginLeft="5dp"
+        android:text="전체선택"
         android:textColor="#555555"
-        android:textSize="20dp" />
+        android:textSize="14dp" />
+
+    <ImageView
+        android:id="@+id/iv_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="2dp"
+        android:src="@drawable/check_off" />
 
     <Button
         android:id="@+id/btn_all"

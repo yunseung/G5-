@@ -111,11 +111,6 @@ public class TroubleHistoryItemDialog extends BaseTouchDialog implements Connect
     @Override
     public void connectResponse(String FuntionName, String resultText, String MTYPE, int resulCode, TableModel tableModel) {
         hideProgress();
-        Log.e("yunseung", FuntionName);
-        Log.e("yunseung", resultText);
-        Log.e("yunseung", MTYPE);
-        Log.e("yunseung", resulCode + "");
-        Log.e("yunseung", FuntionName);
         ArrayList<HashMap<String, String>> array_hash = new ArrayList<>();
         array_hash = tableModel.getTableArray();
 

@@ -89,20 +89,16 @@ public class MonthProgressAdapter extends BaseMaintenceAdapter {
 		kog.e("KDH", "aProgressType = "+aProgressType);
 		this.mProgressType = aProgressType;
 		mFilteringFlag = true;
-		// filtering();
 	}
 
 	public void setInfoType(String aProgressType) {
 		this.mInfoType = aProgressType;
 		mFilteringFlag = true;
-		// filtering();
 	}
 
 	public void setInfoText(String aInfoText) {
-		kog.e("KDH", "aInfoText = "+aInfoText);
 		this.mInfoText = aInfoText;
 		mFilteringFlag = true;
-		// filtering();
 	}
 
 	public void setFilteringFlag(boolean bFlag) {
@@ -115,14 +111,19 @@ public class MonthProgressAdapter extends BaseMaintenceAdapter {
 		mFilteringFlag = true;
 		filtering();
 	}
-	
 
 	@Override
+    public void selectAllModel(boolean checked) {
+		super.selectAllModel(checked);
+	}
+
+    @Override
+    public void setOnCheckChangedListener(OnCheckedChangeListener listener) {
+        super.setOnCheckChangedListener(listener);
+    }
+
+    @Override
 	public void filtering() {
-		// TODO Auto-generated method stub
-//		Log.i("mInfoType", mInfoType);
-//		Log.i("mInfoText", mInfoText);
-		
 		//2014-02-24 뭐같지만 여기서 할수있는게없다.결국엔 내가 변경.
 		kog.e("KDH", "mMaintenanceType = "+mMaintenanceType);
 		kog.e("KDH", "mProgressType = "+mProgressType);

@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ktrental.R;
+import com.ktrental.adapter.BaseMaintenceAdapter;
 import com.ktrental.adapter.MaintenanceAdapter;
 import com.ktrental.adapter.Maintenance_Date_Adapter;
 import com.ktrental.calendar.CalendarController;
@@ -56,6 +59,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 일간정비현황 화면이다. <br>
@@ -156,6 +160,10 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
     private ImageView mEmptyView;
     private String mProgressType = "";
 
+    private ImageView mIvCheckAll = null;
+    private String mCurrentStatus = "전체";
+    private Map<String, Boolean> mIvCheckStatusMap = new HashMap<>();
+
     public MaintenanceStatusFragment() {
     }
 
@@ -185,6 +193,39 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
         btn_filiter1 = (CheckBox) root.findViewById(R.id.maintenance_filter1_id);
         btn_filiter1.setOnClickListener(this);
+        btn_filiter1.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // TODO Auto-generated method stub
+                // Log.e("onTextChanged", ""+s+"/"+start+"/"+count);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+                // Log.e("onTextChanged", ""+s+"/"+start+"/"+count+"/"+after);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mCurrentStatus = s.toString();
+                if (s.toString().equals("전체") || s.toString().equals("취소")) {
+
+                } else {
+
+                }
+
+                if (mIvCheckStatusMap.size() > 0) {
+                    if (mIvCheckStatusMap.get(mCurrentStatus) != null) {
+                        mIvCheckAll.setImageResource(mIvCheckStatusMap.get(mCurrentStatus) ? R.drawable.check_on : R.drawable.check_off);
+                    } else {
+                        mIvCheckAll.setImageResource(R.drawable.check_off);
+                    }
+                }
+            }
+        });
 
         btn_filiter1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -223,6 +264,14 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
         mLvMaintenace = (ListView) root.findViewById(R.id.lv_maintenance);
         // setDummyData();
         maintenanceAdapter = new MaintenanceAdapter(mContext, this);
+
+        maintenanceAdapter.setOnCheckChangedListener(new BaseMaintenceAdapter.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChange(boolean isChecked) {
+                mIvCheckStatusMap.put(mCurrentStatus, isChecked);
+                mIvCheckAll.setImageResource(isChecked ? R.drawable.check_on : R.drawable.check_off);
+            }
+        });
         setIotLocationTop();
         maintenanceAdapter.setDataArr(mBaseMaintenanceModels);
 
@@ -277,6 +326,40 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
                 mContext);
 
         mEmptyView = (ImageView) root.findViewById(R.id.iv_empty);
+
+        mIvCheckAll = (ImageView) root.findViewById(R.id.iv_check);
+        // mLvProgressStatus.addHeaderView(mHeaderView);
+        mIvCheckAll.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = false;
+                if (mCurrentStatus.equals("전체") || mCurrentStatus.equals("취소")) {
+                    Toast.makeText(mContext, "전체 또는 취소 상태에서는 전체 선택을 할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (v.getTag() == null) {
+                    mIvCheckAll.setImageResource(R.drawable.check_on);
+                    mIvCheckAll.setTag(R.drawable.check_on);
+                    maintenanceAdapter.selectAllModel(true);
+                    isChecked = true;
+                } else {
+                    if ((Integer)v.getTag() == R.drawable.check_off) {
+                        mIvCheckAll.setImageResource(R.drawable.check_on);
+                        mIvCheckAll.setTag(R.drawable.check_on);
+                        maintenanceAdapter.selectAllModel(true);
+                        isChecked = true;
+                    } else {
+                        mIvCheckAll.setImageResource(R.drawable.check_off);
+                        mIvCheckAll.setTag(R.drawable.check_off);
+                        maintenanceAdapter.selectAllModel(false);
+                        isChecked = false;
+                    }
+                }
+
+                mIvCheckStatusMap.put(mCurrentStatus, isChecked);
+            }
+        });
 
         return root;
     }

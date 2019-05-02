@@ -96,6 +96,16 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         public void onClickRoot(BaseMaintenanceModel model);
     }
 
+    public interface OnCheckedChangeListener {
+        void onCheckedChange(boolean isChecked);
+    }
+
+    private OnCheckedChangeListener mOnCheckedChangeListener = null;
+
+    protected void setOnCheckChangedListener(OnCheckedChangeListener listener) {
+        mOnCheckedChangeListener = listener;
+    }
+
     public BaseMaintenceAdapter(Context context, OnClickRootView onClickRootView)
     {
         super(context);
@@ -759,7 +769,6 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
     {
         int position = (Integer) v.getTag();
         checkItem(position);
-
     }
 
     private void clickRoot(View v)
@@ -785,8 +794,10 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         {
             if (model.isCheck())
             {
-                if (selectedMaintenanceModels.remove(model))
+                if (selectedMaintenanceModels.remove(model)) {
                     model.setCheck(false);
+                    mOnCheckedChangeListener.onCheckedChange(false);
+                }
             }
             else
             {
@@ -803,6 +814,10 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 {
                     selectedMaintenanceModels.add(model);
                     model.setCheck(true);
+
+                    if (selectedMaintenanceModels.size() == mFilterMaintenanceModelArray.size()) {
+                        mOnCheckedChangeListener.onCheckedChange(true);
+                    }
                 }
 
             }
@@ -815,7 +830,6 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         String aufnr = model.getAUFNR();
         // Log.i("checkAUFNR", "aufnr : "+aufnr);
 
-        //TODO 윤승
         if (model.getATVYN().equals("A")) { // IOT
             return true;
         }
@@ -854,6 +868,22 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             }
         }
         selectedMaintenanceModels = new ArrayList<BaseMaintenanceModel>();
+        notifyDataSetChanged();
+    }
+
+    protected void selectAllModel(boolean checked) {
+        if (checked) {
+            for (BaseMaintenanceModel model : mFilterMaintenanceModelArray) {
+                model.setCheck(true);
+                selectedMaintenanceModels.add(model);
+            }
+        } else {
+            for (BaseMaintenanceModel model : mFilterMaintenanceModelArray) {
+                model.setCheck(false);
+                selectedMaintenanceModels.remove(model);
+            }
+        }
+
         notifyDataSetChanged();
     }
 

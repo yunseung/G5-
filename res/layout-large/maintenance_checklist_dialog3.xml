@@ -1164,7 +1164,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
+                                android:layout_height="25dp"
                                 android:orientation="horizontal"
                                 android:paddingTop="2dp">
 
@@ -1212,7 +1212,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="330dp"
-                                    android:layout_marginTop="15dp"
+                                    android:layout_marginTop="42dp"
                                     android:text="김윤승"
                                     android:textColor="@android:color/black"
                                     android:textSize="17sp"
