@@ -578,7 +578,6 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 
 				str = o_struct3.get("INPDT").toString();
 				tv_inpdt.setText(getDateFormat(str));
-
 				// myung 20131202 UPDATE 타이어펑크 값 변경(Y -> 가입, N-> 미가입)
 				tempYN = o_struct3.get("TIRFLAT");
 				if (tempYN.equals("Y"))
@@ -670,20 +669,9 @@ public class CustomerSearchFragment extends BaseResultFragment implements
 			ArrayList<HashMap<String, String>> arrayVocNum;
 			arrayVocNum = tableModel.getTableArray();
 
-			kog.e("Jonathan",
-					"Hello Jonathan 123: "
-							+ arrayVocNum.get(mPosition).get("VOCNUM"));
-
 			cc.getZMO_1060_RD03(rd04_arr.get(mPosition).get("INVNR"), rd04_arr
 					.get(mPosition).get("EQUNR"));
 		}
-		
-		
-		
-		
-		
-		
-
 	}
 
 	private void repairPlanWork() {

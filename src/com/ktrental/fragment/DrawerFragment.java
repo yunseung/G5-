@@ -122,7 +122,7 @@ public class DrawerFragment extends Fragment implements OnItemClickListener, OnC
 		
 		mMaintenanceCheckListFragment = new MaintenanceCheckListFragment(MaintenanceCheckListFragment.class.getName(), this);
 		
-		
+
 		
 		LoginModel model = KtRentalApplication.getLoginModel();
 		mMovementFragment = new MovementFragment(model.getEqunr(), model.getPernr(), " ", model.getInvnr(),
@@ -135,8 +135,7 @@ public class DrawerFragment extends Fragment implements OnItemClickListener, OnC
 
 		FragmentManager fragmentManager = getChildFragmentManager();
 
-		mFragmentController = new FragmentController(mHomeFragment, fragmentManager, FragmentController.TYPE_HOME,
-				R.id.ll_content);
+		mFragmentController = new FragmentController(mHomeFragment, fragmentManager, FragmentController.TYPE_HOME, R.id.ll_content);
 
 		mPartsTransferCarsDialogFragment = new PartsTransferCarsDialogFragment();
 

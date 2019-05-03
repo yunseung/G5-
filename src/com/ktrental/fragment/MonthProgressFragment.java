@@ -964,8 +964,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
         ArrayList<BaseMaintenanceModel> selArrayList = monthProgressAdapter.getSelectedMaintenanceModels();
         for (BaseMaintenanceModel baseMaintenanceModel : selArrayList) {
-            if (baseMaintenanceModel.getProgress_status().equals("E0001")) {
-                isE0001 = true;
+            if (!baseMaintenanceModel.getProgress_status().isEmpty()) {
+                if (baseMaintenanceModel.getProgress_status().equals("E0001")) {
+                    isE0001 = true;
+                }
             }
         }
 
@@ -1007,14 +1009,16 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             showEventPopup2(null, "예정일 변경은 정비대상 차량을 선택후 가능합니다. 정비대상 차량을 선택해주세요.");
         } else {
             for (BaseMaintenanceModel baseMaintenanceModel : arr) {
-                if (baseMaintenanceModel.getProgress_status().equals("E0004")
-                        || baseMaintenanceModel.getProgress_status().equals("E0005")) {
+                if (!baseMaintenanceModel.getProgress_status().isEmpty()) {
+                    if (baseMaintenanceModel.getProgress_status().equals("E0004")
+                            || baseMaintenanceModel.getProgress_status().equals("E0005")) {
 
-                    showEventPopup2(null, "예정일을 변경 할 수 없는 차량이 선택되었습니다. 다시 확인하여 주십시요.");
+                        showEventPopup2(null, "예정일을 변경 할 수 없는 차량이 선택되었습니다. 다시 확인하여 주십시요.");
 
-                    // showEventPopup2(null,
-                    // "완료된 정비차량이 선택 되었습니다. 정비 완료된 차량은 예정일을 변경 할 수 없습니다.");
-                    return;
+                        // showEventPopup2(null,
+                        // "완료된 정비차량이 선택 되었습니다. 정비 완료된 차량은 예정일을 변경 할 수 없습니다.");
+                        return;
+                    }
                 }
             }
             movePlan(arr);
@@ -1201,9 +1205,11 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             return;
         }
 
-        if (!arr.get(0).getProgress_status().equals("E0001")) {
-            showEventPopup2(null, "IoT 정비취소는 예약 대기 상태에서만 가능합니다.");
-            return;
+        if (!arr.get(0).getProgress_status().isEmpty()) {
+            if (!arr.get(0).getProgress_status().equals("E0001")) {
+                showEventPopup2(null, "IoT 정비취소는 예약 대기 상태에서만 가능합니다.");
+                return;
+            }
         }
 
 
