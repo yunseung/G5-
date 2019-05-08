@@ -1,19 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@drawable/mul_menu_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="300"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -77,31 +77,31 @@
                 android:layout_marginTop="25dp"
                 android:onClick="onFinish"
                 android:src="@drawable/menu06_selector" />
-            
-             <ImageView
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:onClick="onAutoCare"
                 android:src="@drawable/lotte_selector" />
-             
+
         </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/menu_layout_id"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:background="@drawable/title_bg" >
+                android:background="@drawable/title_bg">
 
                 <TextView
                     android:id="@+id/maintenance_return_title_id"
@@ -137,19 +137,19 @@
                 android:layout_height="115dp"
                 android:background="#F6F2E6"
                 android:gravity="center_vertical"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
-                    android:paddingEnd="@dimen/search_padding"
-                    android:paddingStart="@dimen/search_padding" >
+                    android:paddingStart="@dimen/search_padding"
+                    android:paddingEnd="@dimen/search_padding">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="90dp"
@@ -175,7 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="90dp"
@@ -202,7 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:layout_alignParentEnd="true"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="90dp"
@@ -229,8 +229,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp" >
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
 
                     <Button
                         android:id="@+id/menu3_top_bt_search_id"
@@ -247,7 +247,8 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp" >
+                        android:layout_height="36dp"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/TextView01"
@@ -284,6 +285,36 @@
                             android:background="@drawable/dropdown_selector"
                             android:gravity="left|center_vertical"
                             android:textSize="16sp" />
+
+                        <LinearLayout
+                            android:id="@+id/menu_gubun_area"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:visibility="visible"
+                            android:layout_marginLeft="55dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right|center_vertical"
+                                android:text="대상구분"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textColor="#555555"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/menu_gubun"
+                                android:layout_width="@dimen/search_btn_width"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="전체"
+                                android:background="@drawable/dropdown_selector"
+                                android:gravity="left|center_vertical"
+                                android:textSize="16sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
@@ -291,20 +322,19 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#cccccc" >
-            </RelativeLayout>
+                android:background="#cccccc"></RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:id="@+id/lay_menu2_btm"
                     android:layout_width="match_parent"
-                    android:layout_alignParentBottom="true"
                     android:layout_height="48dp"
+                    android:layout_alignParentBottom="true"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/menu2_done_id"
@@ -339,19 +369,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_above="@id/lay_menu2_btm"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp" >
+                    android:layout_marginBottom="10dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent" >
+                            android:layout_height="match_parent">
 
                             <ListView
                                 android:id="@+id/menu3_list_id"
@@ -360,9 +390,8 @@
                                 android:background="@drawable/table_bg"
                                 android:divider="@null"
                                 android:listSelector="@null"
-                                android:paddingBottom="4dp"
-                                android:paddingTop="31dp" >
-                            </ListView>
+                                android:paddingTop="31dp"
+                                android:paddingBottom="4dp"/>
 
                             <LinearLayout
                                 android:id="@+id/inventory_search_list_title_id"
@@ -370,44 +399,13 @@
                                 android:layout_height="31dp"
                                 android:background="@drawable/table_top"
                                 android:gravity="center_vertical"
-                                android:orientation="horizontal" >
+                                android:orientation="horizontal">
 
-                                <!--
-                                     <TextView
+                                <TextView
                                     android:layout_width="70dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="순번"
-                                    android:textColor="#555555"
-                                    android:textSize="15sp" />
-
-                                <TextView
-                                    android:layout_width="190dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="고객명"
-                                    android:textColor="#555555"
-                                    android:textSize="15sp" />
-
-                                <TextView
-                                    android:layout_width="110dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:paddingLeft="25dp"
-                                    android:paddingRight="25dp"
-                                    android:text="차량번호"
-                                    android:textColor="#555555"
-                                    android:textSize="15sp" />
-
-                                <TextView
-                                    android:layout_width="220dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:paddingLeft="25dp"
-                                    android:paddingRight="25dp"
-                                    android:text="차종"
                                     android:textColor="#555555"
                                     android:textSize="15sp" />
 
@@ -415,46 +413,7 @@
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="정비유형"
-                                    android:textColor="#555555"
-                                    android:textSize="15sp" />
-
-                                <TextView
-                                    android:layout_width="180dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:paddingLeft="25dp"
-                                    android:paddingRight="25dp"
-                                    android:text="고객요청사항"
-                                    android:textColor="#555555"
-                                    android:textSize="15sp" />
-
-                                <TextView
-                                    android:layout_width="150dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:paddingLeft="25dp"
-                                    android:paddingRight="25dp"
-                                    android:text="고객연락처"
-                                    android:textColor="#555555"
-                                    android:textSize="15sp" />
-
-                                <TextView
-                                    android:layout_width="190dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:paddingLeft="25dp"
-                                    android:paddingRight="25dp"
-                                    android:text="진행상태"
-                                    android:textColor="#555555"
-                                    android:textSize="15sp" />
-                                -->
-
-                                <TextView
-                                    android:layout_width="70dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="순번"
+                                    android:text="IoT정비"
                                     android:textColor="#555555"
                                     android:textSize="15sp" />
 
@@ -483,7 +442,7 @@
                                     android:text="VIP"
                                     android:textColor="#555555"
                                     android:textSize="15sp" />
-                                
+
                                 <TextView
                                     android:layout_width="110dp"
                                     android:layout_height="wrap_content"

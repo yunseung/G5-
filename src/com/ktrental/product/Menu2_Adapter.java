@@ -75,6 +75,10 @@ public class Menu2_Adapter extends ArrayAdapter<HashMap<String, String>> {
 
 		TextView row13 = (TextView) v.findViewById(R.id.row_id13);
 
+		// yunseung 2019.05.07 IoT정비 추가.
+		TextView rowIot = (TextView) v.findViewById(R.id.row_iot);
+		rowIot.setText(item.get("ATVYN").equals("A") ? "IoT정비" : "");
+
 		// 7 요청 // 8 운전자 // 9번 전화번호
 		row7.setText("");
 		row8.setText("");

@@ -332,11 +332,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             @Override
             public void afterTextChanged(Editable s) {
                 mCurrentStatus = s.toString();
-                if (s.toString().equals("전체") || s.toString().equals("취소")) {
-
-                } else {
-
-                }
 
                 if (!AllBtnBuffer.equals(s)) {
                     clickSearch2();

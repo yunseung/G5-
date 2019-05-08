@@ -284,6 +284,36 @@
                             android:background="@drawable/dropdown_selector"
                             android:gravity="left|center_vertical"
                             android:textSize="16sp" />
+
+                        <LinearLayout
+                            android:id="@+id/menu_gubun_area"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:visibility="visible"
+                            android:layout_marginLeft="55dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right|center_vertical"
+                                android:text="대상구분"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textColor="#555555"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/menu_gubun"
+                                android:layout_width="@dimen/search_btn_width"
+                                android:layout_height="wrap_content"
+                                android:text="전체"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/dropdown_selector"
+                                android:gravity="left|center_vertical"
+                                android:textSize="16sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
@@ -455,6 +485,14 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="순번"
+                                    android:textColor="#555555"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="IoT정비"
                                     android:textColor="#555555"
                                     android:textSize="15sp" />
 

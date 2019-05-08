@@ -522,7 +522,7 @@ public class ConnectController2 {
 
 	// 2013.11.18 YPKIM
 	// 정비유형 추가.
-	public void getZMO_1100_RD03(String carnum, String type, String I_SNDCUS, String date1, String date2) {
+	public void getZMO_1100_RD03(String carnum, String type, String I_SNDCUS, String date1, String date2, String gubun) {
 		HashMap<String, String> map = getCommonConnectData();
 		connector.setStructure("IS_LOGIN", map);
 		LoginModel lm = KtRentalApplication.getLoginModel();
@@ -549,6 +549,7 @@ public class ConnectController2 {
 		// 2014-02-21 KDH 인자값 변경. I_SNDCUS
 		connector.setParameter("I_RECDTFR", date1); // 시작일
 		connector.setParameter("I_RECDTTO", date2); // 종료일
+		connector.setParameter("I_ATVYN", gubun); // 대상구분
 
 		try {
 			connector.executeRFCAsyncTask(ZMO_1100_RD03, ZMO_1100_RD03 + "_table");

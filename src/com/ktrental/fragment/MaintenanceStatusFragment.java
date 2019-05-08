@@ -211,11 +211,6 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
             @Override
             public void afterTextChanged(Editable s) {
                 mCurrentStatus = s.toString();
-                if (s.toString().equals("전체") || s.toString().equals("취소")) {
-
-                } else {
-
-                }
 
                 if (mIvCheckStatusMap.size() > 0) {
                     if (mIvCheckStatusMap.get(mCurrentStatus) != null) {

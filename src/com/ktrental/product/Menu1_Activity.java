@@ -329,7 +329,7 @@ public class Menu1_Activity extends BaseActivity implements ConnectInterface,
 			// ZMO_1100_RD03 펑션 하나로 사용 함.
 			// 2014-02-21 KDH 인자값 변경. I_SNDCUS
 			// M040?<-컬럼명
-			cc.getZMO_1100_RD03(" ", "A", "N", getDate(), getDate());
+			cc.getZMO_1100_RD03(" ", "A", "N", getDate(), getDate(), "A");
 			// cc.getZMO_1100_RD03(carnum, type, status, date1, date2)
 		} else if (FuntionName.equals(ZMO_1100_RD03)) {
 
