@@ -145,16 +145,13 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             viewHolder.tvAgreement.setText(RepairPlanModel.getProgressStatus(model.getProgress_status()));
 
 
-
             // 2017-06-02. hjt 지연일수 추가
             // 2017-06-08. 지연일수 0이면 안보이도록
-            if(model != null) {
-                if(model.getDelay() != null && !model.getDelay().equals("0")) {
-                    viewHolder.tvDelay.setText("지연일수 : " + model.getDelay());
-                    viewHolder.tvDelay.setVisibility(View.VISIBLE);
-                } else {
-                    viewHolder.tvDelay.setVisibility(View.GONE);
-                }
+            if (model.getDelay().trim().equals("0") || model.getDelay().trim().isEmpty()) {
+                viewHolder.tvDelay.setVisibility(View.GONE);
+            } else {
+                viewHolder.tvDelay.setText("지연일수 : " + model.getDelay());
+                viewHolder.tvDelay.setVisibility(View.VISIBLE);
             }
 
             if("0".equals(model.getVocNum()))
@@ -182,7 +179,6 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             if (model.get_gubun().trim().isEmpty()) {
                 viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
-                viewHolder.tvDelay.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
                 viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
             } else if (model.get_gubun().equals("A")) {
@@ -195,7 +191,6 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             } else if (model.get_gubun().equals("O")) {
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
-                viewHolder.tvDelay.setVisibility(View.VISIBLE);
                 viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
             }
@@ -293,6 +288,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             viewHolder.btnReqIot.setTag(position);
             viewHolder.btnReq1.setTag(position);
             viewHolder.btnReq2.setTag(position);
+            viewHolder.tvDelay.setTag(position);
         }
 
     }

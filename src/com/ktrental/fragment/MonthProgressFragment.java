@@ -450,7 +450,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         BtnDate = (Button) root.findViewById(R.id.btn_date); // 예정일변경 버튼
         BtnDate.setOnClickListener(this);
         mEmptyView = (ImageView) root.findViewById(R.id.iv_empty);
-
     }
 
     private void drawBarGraph(int va1, int val2, int val3) {

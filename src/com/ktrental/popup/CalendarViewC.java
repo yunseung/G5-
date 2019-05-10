@@ -37,11 +37,11 @@ public class CalendarViewC extends LinearLayout
     Button bt_next;
     String current_today;
     
-    public CalendarViewC(Context context, AttributeSet attrs) 
+    public CalendarViewC(Context context, AttributeSet attrs)
         {
         super(context, attrs);
         this.context = context;
-        
+
         LayoutInflater inflate=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflate.inflate(R.layout.calendar_layout,null);
 

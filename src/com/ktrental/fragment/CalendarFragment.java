@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -29,282 +30,301 @@ import java.util.ArrayList;
 /**
  * 렌탈에서 사용되는 달력 Fragment. <br/>
  * DayInfoModel이라는 데이터 클래스를 가지고 달력정보를 보여주고 해당 날짜와 클릭 이벤트등을 통해 수정이 가능하다.
- * 
- * 
+ *
  * @author Hong
  * @since 2013.07.12
  */
 
 public class CalendarFragment extends BaseFragment implements OnItemClickListener, View.OnClickListener {
 
-	private GridView mGvCalendar;
-	private TextView mTvCalendarTitle;
+    private GridView mGvCalendar;
+    private TextView mTvCalendarTitle;
 
-	private ArrayList<RepairDayInfoModel> mDayList;
-	private CalendarAdapter mCalendarAdapter;
+    private ArrayList<RepairDayInfoModel> mDayList;
+    private CalendarAdapter mCalendarAdapter;
 
-	private CalendarController mCalendarManager;
+    private CalendarController mCalendarManager;
 
-	private Context mContext;
+    private Context mContext;
 
-	private OnCalendarListener mOnCalendarListener;
-	private boolean mSelectedFlag = true;
+    private OnCalendarListener mOnCalendarListener;
+    private boolean mSelectedFlag = true;
 
-	public void setOnCalendarListener(OnCalendarListener aOnCalendarListener) {
-		mOnCalendarListener = aOnCalendarListener;
-	}
+    // yunseung 2019.05.09 익월 데이터 보는거 추가 요청
+    private Button mBtnNext, mBtnPrev;
 
-	public interface OnCalendarListener {
-		void onClickCalendarTitle();
+    public void setOnCalendarListener(OnCalendarListener aOnCalendarListener) {
+        mOnCalendarListener = aOnCalendarListener;
+    }
 
-		void onClickSync();
-	}
-	public CalendarFragment(){}
+    public interface OnCalendarListener {
+        void onClickCalendarTitle();
 
-	public CalendarFragment(String className, OnChangeFragmentListener changeFragmentListener, boolean selectedFlag) {
-		super(className, changeFragmentListener);
-		// TODO Auto-generated constructor stub
-		mSelectedFlag = selectedFlag;
-	}
+        void onClickSync();
+    }
 
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onActivityCreated(savedInstanceState);
+    public CalendarFragment() {
+    }
 
-		handler.sendEmptyMessageDelayed(0, 1000);
-	}
+    public CalendarFragment(String className, OnChangeFragmentListener changeFragmentListener, boolean selectedFlag) {
+        super(className, changeFragmentListener);
+        // TODO Auto-generated constructor stub
+        mSelectedFlag = selectedFlag;
+    }
 
-	Handler handler = new Handler() {
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onActivityCreated(savedInstanceState);
 
-		@Override
-		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
-			super.handleMessage(msg);
+        handler.sendEmptyMessageDelayed(0, 1000);
+    }
 
-			if (getView() == null)
-				return;
+    Handler handler = new Handler() {
 
-			if (getView().getHeight() == 0) {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
 
-				handler.sendEmptyMessageDelayed(0, 1000);
-			} else {
-				initCalendarAdapter();
-			}
-		}
-	};
+            if (getView() == null)
+                return;
 
-	@Override
-	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
-		super.onAttach(activity);
-		mContext = activity;
-		mCalendarAdapter = new CalendarAdapter(mContext, mSelectedFlag);
-	}
+            if (getView().getHeight() == 0) {
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+                handler.sendEmptyMessageDelayed(0, 1000);
+            } else {
+                initCalendarAdapter();
+            }
+        }
+    };
 
-		View root = (View) inflater.inflate(R.layout.calendar_fragment_layout, container, false);
-		mRootView = root;
-		mGvCalendar = (GridView) root.findViewById(R.id.gv_calendar_activity_gv_calendar);
+    @Override
+    public void onAttach(Activity activity) {
+        // TODO Auto-generated method stub
+        super.onAttach(activity);
+        mContext = activity;
+        mCalendarAdapter = new CalendarAdapter(mContext, mSelectedFlag);
+    }
 
-		mGvCalendar.setOverScrollMode(View.OVER_SCROLL_NEVER);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
 
-		mTvCalendarTitle = (TextView) root.findViewById(R.id.gv_calendar_activity_tv_title);
-		mTvCalendarTitle.setOnClickListener(this);
+        View root = (View) inflater.inflate(R.layout.calendar_fragment_layout, container, false);
+        mRootView = root;
+        mGvCalendar = (GridView) root.findViewById(R.id.gv_calendar_activity_gv_calendar);
 
-		// Button bLastMonth = (Button) root
-		// .findViewById(R.id.gv_calendar_activity_b_last);
-		// Button bNextMonth = (Button) root
-		// .findViewById(R.id.gv_calendar_activity_b_next);
-		//
-		// bLastMonth.setOnClickListener(this);
-		// bNextMonth.setOnClickListener(this);
+        mGvCalendar.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
-		mGvCalendar.setOnItemClickListener(this);
-		mRootView.findViewById(R.id.btn_sync).setOnClickListener(this);
+        mTvCalendarTitle = (TextView) root.findViewById(R.id.gv_calendar_activity_tv_title);
+        mTvCalendarTitle.setOnClickListener(this);
 
-		initCalendarDataSetting();
-		// initCalendarAdapter();
+        // Button bLastMonth = (Button) root
+        // .findViewById(R.id.gv_calendar_activity_b_last);
+        // Button bNextMonth = (Button) root
+        // .findViewById(R.id.gv_calendar_activity_b_next);
+        //
+        // bLastMonth.setOnClickListener(this);
+        // bNextMonth.setOnClickListener(this);
 
-		ArrayList<RepairDayInfoModel> repairDayInfoModels = KtRentalApplication.getInstance().getDayList();
+        mGvCalendar.setOnItemClickListener(this);
+        mRootView.findViewById(R.id.btn_sync).setOnClickListener(this);
 
-		return root;
-	}
+        mBtnNext = (Button) mRootView.findViewById(R.id.next);
+        mBtnPrev = (Button) mRootView.findViewById(R.id.pre);
+        setMoveButton();
 
-	@Override
-	public void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
-		initCalendarDataSetting();
-		initCalendarAdapter();
-		//
-		setCalendarTitle();
-	}
+        initCalendarDataSetting();
+        // initCalendarAdapter();
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-	}
+        ArrayList<RepairDayInfoModel> repairDayInfoModels = KtRentalApplication.getInstance().getDayList();
 
-	@Override
-	public void onDestroyView() {
-		CommonUtil.unbindDrawables(getView());
+        return root;
+    }
 
-		mCalendarAdapter.releaseResouces();
-		System.gc();
-		super.onDestroy();
-	};
+    @Override
+    public void onStart() {
+        // TODO Auto-generated method stub
+        super.onStart();
+        initCalendarDataSetting();
+        initCalendarAdapter();
+        //
+        setCalendarTitle();
+    }
 
-	@Override
-	public void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+    }
 
-		mGvCalendar = null;
-		mTvCalendarTitle = null;
+    @Override
+    public void onDestroyView() {
+        CommonUtil.unbindDrawables(getView());
 
-		mDayList = null;
-		mCalendarAdapter = null;
+        mCalendarAdapter.releaseResouces();
+        System.gc();
+        super.onDestroy();
+    }
 
-		mCalendarManager = null;
+    ;
 
-		mContext = null;
+    @Override
+    public void onDestroy() {
+        // TODO Auto-generated method stub
+        super.onDestroy();
 
-	}
+        mGvCalendar = null;
+        mTvCalendarTitle = null;
 
-	/**
-	 * 달력 정 초기화 및 세팅.
-	 * 
-	 */
-	private void initCalendarDataSetting() {
+        mDayList = null;
+        mCalendarAdapter = null;
 
-		mDayList = new ArrayList<RepairDayInfoModel>();
+        mCalendarManager = null;
 
-		mCalendarManager = new CalendarController(CalendarController.TYPE_SHOW_OTHERMONTH);
-		// mDayList = mCalendarManager.getDayInfoArrayList();
+        mContext = null;
 
-	}
+    }
 
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
+    /**
+     * 달력 정 초기화 및 세팅.
+     */
+    private void initCalendarDataSetting() {
 
-	}
+        mDayList = new ArrayList<RepairDayInfoModel>();
 
-	private void initCalendarAdapter() {
+        mCalendarManager = new CalendarController(CalendarController.TYPE_SHOW_OTHERMONTH);
+        // mDayList = mCalendarManager.getDayInfoArrayList();
 
-		// mCalendarAdapter.addAllDayInfoList(mDayList);
-		// 2014-01-20 KDH 이게뭐지?서로가 서로를 set해줘?
-		mGvCalendar.setAdapter(mCalendarAdapter);
-		mCalendarAdapter.setGridview(mGvCalendar);
+    }
 
-		ArrayList<RepairDayInfoModel> repairDayInfoModels = KtRentalApplication.getInstance().getDayList();
-		if (repairDayInfoModels != null) {
-			updateDayList(repairDayInfoModels);
-		}
+    @Override
+    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+    }
 
-	}
+    private void initCalendarAdapter() {
 
-	private void setCalendarTitle() {
-		String title = mCalendarManager.getCalendarTitle();
-		mTvCalendarTitle.setText(title);
-		if (DEFINE.DISPLAY.equals("2560")) {
-			mTvCalendarTitle.setTextSize(28);
-		}
-	}
+        // mCalendarAdapter.addAllDayInfoList(mDayList);
+        // 2014-01-20 KDH 이게뭐지?서로가 서로를 set해줘?
+        mGvCalendar.setAdapter(mCalendarAdapter);
+        mCalendarAdapter.setGridview(mGvCalendar);
 
-	@Override
-	public void onClick(View v) {
+        ArrayList<RepairDayInfoModel> repairDayInfoModels = KtRentalApplication.getInstance().getDayList();
+        if (repairDayInfoModels != null) {
+            updateDayList(repairDayInfoModels);
+        }
 
-		switch (v.getId()) {
+    }
 
-		// case R.id.gv_calendar_activity_b_last:
-		// changePrevMonth();
-		// break;
-		//
-		// case R.id.gv_calendar_activity_b_next:
-		// changeNextMonth();
-		// break;
-		case R.id.gv_calendar_activity_tv_title:
-			if (mOnCalendarListener != null)
-				mOnCalendarListener.onClickCalendarTitle();
-			break;
-		case R.id.btn_sync:
-			if (mOnCalendarListener != null)
-				mOnCalendarListener.onClickSync();
-			break;
+    private void setCalendarTitle() {
+        String title = mCalendarManager.getCalendarTitle();
+        mTvCalendarTitle.setText(title);
+        if (DEFINE.DISPLAY.equals("2560")) {
+            mTvCalendarTitle.setTextSize(28);
+        }
+    }
 
-		}
-	}
+    private void setMoveButton() {
+        mBtnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-	/**
-	 * 달력을 이전달로 변경해준다.
-	 * 
-	 */
-	private void changePrevMonth() {
-		// mDayList = mCalendarManager.getPrevDayInfoList();
-		// changeDayInfo();
-	}
+            }
+        });
 
-	/**
-	 * 달력을 다을달로 변경해준다.
-	 * 
-	 */
-	private void changeNextMonth() {
-		// mDayList = mCalendarManager.getNextDayInfoList();
-		// changeDayInfo();
-	}
+        mBtnPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-	/**
-	 * 달력을 선택된 달로 변경해준다.
-	 * 
-	 */
-	private void changeDayInfo() {
-		// mCalendarAdapter.setChangeDayInfoList(mDayList);
-		setCalendarTitle();
-	}
+            }
+        });
+    }
 
-	/**
-	 * 현재 보여지는 달에 text를 보내준
-	 * 
-	 */
-	public String getCurrentMonthString() {
-		String title = null;
-		if (mCalendarManager != null)
-			title = mCalendarManager.getCalendarTitle();
+    @Override
+    public void onClick(View v) {
 
-		return title;
-	}
+        switch (v.getId()) {
 
-	public void updateDayList(ArrayList<RepairDayInfoModel> array) {
-		if (mCalendarAdapter != null) {
+            // case R.id.gv_calendar_activity_b_last:
+            // changePrevMonth();
+            // break;
+            //
+            // case R.id.gv_calendar_activity_b_next:
+            // changeNextMonth();
+            // break;
+            case R.id.gv_calendar_activity_tv_title:
+                if (mOnCalendarListener != null)
+                    mOnCalendarListener.onClickCalendarTitle();
+                break;
+            case R.id.btn_sync:
+                if (mOnCalendarListener != null)
+                    mOnCalendarListener.onClickSync();
+                break;
 
-			mCalendarAdapter.setChangeDayInfoList(array);
-			mCalendarAdapter.notifyDataSetChanged();
-		}
-	}
+        }
+    }
 
-	public void setOnSelectedItem(OnSelectedItem aOnSelectedItem) {
-		if (mCalendarAdapter != null)
-			mCalendarAdapter.setOnSelectedItem(aOnSelectedItem);
-	}
+    /**
+     * 달력을 이전달로 변경해준다.
+     */
+    private void changePrevMonth() {
+        // mDayList = mCalendarManager.getPrevDayInfoList();
+        // changeDayInfo();
+    }
 
-	public void initSelectedPosition() {
-		mCalendarAdapter.initSelectedPosition();
-	}
+    /**
+     * 달력을 다을달로 변경해준다.
+     */
+    private void changeNextMonth() {
+        // mDayList = mCalendarManager.getNextDayInfoList();
+        // changeDayInfo();
+    }
 
-	public RepairPlanModel getTodayPlanModel() {
-		if (mCalendarAdapter == null)
-			return null;
-		return mCalendarAdapter.getTodayPlanModel();
-	}
+    /**
+     * 달력을 선택된 달로 변경해준다.
+     */
+    private void changeDayInfo() {
+        // mCalendarAdapter.setChangeDayInfoList(mDayList);
+        setCalendarTitle();
+    }
 
-	public void invisibleSyncButton() {
-		if (mRootView != null)
-			mRootView.findViewById(R.id.btn_sync).setVisibility(View.GONE);
-	}
+    /**
+     * 현재 보여지는 달에 text를 보내준
+     */
+    public String getCurrentMonthString() {
+        String title = null;
+        if (mCalendarManager != null)
+            title = mCalendarManager.getCalendarTitle();
+
+        return title;
+    }
+
+    public void updateDayList(ArrayList<RepairDayInfoModel> array) {
+        if (mCalendarAdapter != null) {
+
+            mCalendarAdapter.setChangeDayInfoList(array);
+            mCalendarAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void setOnSelectedItem(OnSelectedItem aOnSelectedItem) {
+        if (mCalendarAdapter != null)
+            mCalendarAdapter.setOnSelectedItem(aOnSelectedItem);
+    }
+
+    public void initSelectedPosition() {
+        mCalendarAdapter.initSelectedPosition();
+    }
+
+    public RepairPlanModel getTodayPlanModel() {
+        if (mCalendarAdapter == null)
+            return null;
+        return mCalendarAdapter.getTodayPlanModel();
+    }
+
+    public void invisibleSyncButton() {
+        if (mRootView != null)
+            mRootView.findViewById(R.id.btn_sync).setVisibility(View.GONE);
+    }
 }

@@ -11,6 +11,7 @@
         android:layout_weight="93" >
 
         <LinearLayout
+            android:id="@+id/yyyymmdd"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -37,6 +38,30 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="120dp"
+            android:layout_toRightOf="@id/yyyymmdd"
+            android:layout_marginRight="12dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cal_back_selector" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/cal_next_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sync_area"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
