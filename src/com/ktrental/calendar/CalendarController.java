@@ -1,5 +1,7 @@
 package com.ktrental.calendar;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -52,14 +54,12 @@ public class CalendarController {
 
 		// 이번달 시작일의 요일을 구한다. 시작일이 일요일인 경우 인덱스를 1(일요일)에서 8(다음주 일요일)로 바꾼다.)
 		dayOfMonth = mThisMonthCalendar.get(Calendar.DAY_OF_WEEK);
-		thisMonthLastDay = mThisMonthCalendar
-				.getActualMaximum(Calendar.DAY_OF_MONTH);
+		thisMonthLastDay = mThisMonthCalendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
 		mThisMonthCalendar.add(Calendar.MONTH, -1);
 
 		// 지난달의 마지막 일자를 구한다.
-		lastMonthStartDay = mThisMonthCalendar
-				.getActualMaximum(Calendar.DAY_OF_MONTH);
+		lastMonthStartDay = mThisMonthCalendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
 		mThisMonthCalendar.add(Calendar.MONTH, 1);
 
@@ -69,8 +69,9 @@ public class CalendarController {
 
 		lastMonthStartDay -= (dayOfMonth - 1) - 1;
 
-		reDayInfoList = getShowCurrenCalendarList(dayOfMonth,
-				lastMonthStartDay, thisMonthLastDay);
+
+		reDayInfoList = getShowCurrentCalendarList(dayOfMonth, lastMonthStartDay, thisMonthLastDay);
+
 
 		return reDayInfoList;
 	}
@@ -80,22 +81,25 @@ public class CalendarController {
 	 * 
 	 * @return ArrayList<DayInfo> 현재 선택되서 보여줄 달에 DayInfo 리스트
 	 * 
-	 * @param int:dayOfMonth 현재 날짜
-	 * @param int:lastMonthStartDay 이전 달에 마지막 날짜
-	 * @param int:thisMonthLastDay 현재 달에 마지막 날짜
+	 * @param dayOfMonth 현재 날짜
+	 * @param lastMonthStartDay 이전 달에 마지막 날짜
+	 * @param thisMonthLastDay 현재 달에 마지막 날짜
 	 */
 
-	private ArrayList<DayInfoModel> getShowCurrenCalendarList(int dayOfMonth,
-			int lastMonthStartDay, int thisMonthLastDay) {
-
+	private ArrayList<DayInfoModel> getShowCurrentCalendarList(int dayOfMonth, int lastMonthStartDay, int thisMonthLastDay) {
 		ArrayList<DayInfoModel> reDayInfoList = new ArrayList<DayInfoModel>();
 
 		// // 일월화수목금토일을 표시하기 위해 리스트를 얻어온다.
 		// reDayInfoList = repeatMonthDay(1, 8, 0, reDayInfoList, 0, true);
 
 		// 이전달에 남은 날짜들을 리스트에 담아온다.
+		Calendar thumb = mThisMonthCalendar;
+
+		Calendar mThisMonthCalendar2 = Calendar.getInstance();
 		reDayInfoList = repeatMonthDay(0, dayOfMonth - 1, lastMonthStartDay,
 				reDayInfoList, DayInfoModel.PREV_MONTH, false);
+
+		mThisMonthCalendar = thumb;
 
 		// 현재달에 남은 날짜들을 리스트에 담아온다.
 		reDayInfoList = repeatMonthDay(1, thisMonthLastDay + 1, 0,
@@ -108,16 +112,16 @@ public class CalendarController {
 			// 다음달에 남은 날짜들을 리스트에 담아온다.
 			reDayInfoList = repeatMonthDay(1, nextMonthLoopSize, 0,
 					reDayInfoList, DayInfoModel.NEXT_MONTH, false);
+
 		}
+
 		return reDayInfoList;
 
 	}
 
-	private ArrayList<DayInfoModel> repeatMonthDay(int increaseNum,
-			int loopSize, int lastMonthStartDay,
-			ArrayList<DayInfoModel> dayInfoList, int inMonth,
-			boolean isHeaderText) {
+	private ArrayList<DayInfoModel> repeatMonthDay(int increaseNum, int loopSize, int lastMonthStartDay, ArrayList<DayInfoModel> dayInfoList, int inMonth, boolean isHeaderText) {
 
+		Calendar mThisMonthCalendar2 = Calendar.getInstance();
 		DayInfoModel day = null;
 
 		// 실제 현재 달과 같은 달인지 판별
@@ -132,20 +136,22 @@ public class CalendarController {
 			day.setInMonth(inMonth);
 			day.setDayOfWeek(dayInfoList.size());
 			if (isCurrentMonth) {
-				day.setToDay(date, mToday);
-				day.setCurrentDay(String.valueOf(mCurrentYear)
-						+ addZero(mCurrentMonth + 1) + addZero(date));
+				day.setToDay(date, mThisMonthCalendar2.get(Calendar.DATE));
+				day.setCurrentDay(String.valueOf(mThisMonthCalendar2.get(Calendar.YEAR))
+						+ addZero(mThisMonthCalendar2.get(Calendar.MONTH) + 1) + addZero(date));
 			} else {
 
 				String year = null;
 				String month = null;
 				Calendar calendar = null;
 
+
 				if (inMonth == DayInfoModel.NEXT_MONTH) {
-					calendar = getMonth(mThisMonthCalendar, +1);
+					calendar = getMonth(mThisMonthCalendar2, +1);
 
 				} else {
-					calendar = getMonth(mThisMonthCalendar, -1);
+					calendar = getMonth(mThisMonthCalendar2, -1);
+
 				}
 				year = String.valueOf(calendar.get(Calendar.YEAR));
 				month = addZero(calendar.get(Calendar.MONTH) + 1);
@@ -254,8 +260,7 @@ public class CalendarController {
 	 * @return LastMonthCalendar
 	 */
 	private Calendar getMonth(Calendar calendar, int addCount) {
-		calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-				1);
+		calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), 1);
 		calendar.add(Calendar.MONTH, addCount);
 		return calendar;
 	}

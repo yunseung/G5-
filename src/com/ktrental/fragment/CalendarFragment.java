@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.ktrental.R;
 import com.ktrental.calendar.CalendarAdapter;
 import com.ktrental.calendar.CalendarController;
+import com.ktrental.calendar.DayInfoModel;
 import com.ktrental.common.DEFINE;
 import com.ktrental.common.KtRentalApplication;
 import com.ktrental.model.RepairDayInfoModel;
@@ -229,14 +230,28 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         mBtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//				mDayList.clear();
+//
+//                for (DayInfoModel dayInfoModel : mCalendarManager.getNextDayInfoList()) {
+//                    mDayList.add(new RepairDayInfoModel(dayInfoModel));
+//                }
+//
+//                updateDayList(mDayList);
+                changeNextMonth();
             }
         });
 
         mBtnPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                mDayList.clear();
+//
+//                for (DayInfoModel dayInfoModel : mCalendarManager.getPrevDayInfoList()) {
+//                    mDayList.add(new RepairDayInfoModel(dayInfoModel));
+//                }
+//
+//                updateDayList(mDayList);
+                changePrevMonth();
             }
         });
     }
@@ -269,23 +284,29 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
      * 달력을 이전달로 변경해준다.
      */
     private void changePrevMonth() {
-        // mDayList = mCalendarManager.getPrevDayInfoList();
-        // changeDayInfo();
+        mDayList.clear();
+        for (DayInfoModel model : mCalendarManager.getPrevDayInfoList()) {
+            mDayList.add(new RepairDayInfoModel(model));
+        }
+        changeDayInfo();
     }
 
     /**
      * 달력을 다을달로 변경해준다.
      */
     private void changeNextMonth() {
-        // mDayList = mCalendarManager.getNextDayInfoList();
-        // changeDayInfo();
+        mDayList.clear();
+        for (DayInfoModel model : mCalendarManager.getNextDayInfoList()) {
+            mDayList.add(new RepairDayInfoModel(model));
+        }
+        changeDayInfo();
     }
 
     /**
      * 달력을 선택된 달로 변경해준다.
      */
     private void changeDayInfo() {
-        // mCalendarAdapter.setChangeDayInfoList(mDayList);
+        mCalendarAdapter.setChangeDayInfoList(mDayList);
         setCalendarTitle();
     }
 
