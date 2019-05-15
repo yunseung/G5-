@@ -150,8 +150,12 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         super.onStart();
         initCalendarDataSetting();
         initCalendarAdapter();
-        //
         setCalendarTitle();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -336,6 +340,9 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
 
     public void initSelectedPosition() {
         mCalendarAdapter.initSelectedPosition();
+        initCalendarDataSetting();
+        initCalendarAdapter();
+        setCalendarTitle();
     }
 
     public RepairPlanModel getTodayPlanModel() {

@@ -283,7 +283,7 @@ public class KtRentalApplication extends Application implements
                         if (cemer.equals(" "))
                             planFlag = false;
 
-                    repairPlanModel.addWork(work, planFlag, gubun);
+                    repairPlanModel.addWork(work, planFlag, gubun, 0);
                     mRepairPlanModelArray.add(repairPlanModel);
 
                     for (int i = backIndex; i < mDayList.size(); i++) {
@@ -308,7 +308,7 @@ public class KtRentalApplication extends Application implements
                     if (cemer != null)
                         if (cemer.equals(" "))
                             planFlag = false;
-                    repairPlanModel.addWork(work, planFlag, gubun);
+                    repairPlanModel.addWork(work, planFlag, gubun, 0);
                     mRepairPlanModelArray.set(mRepairPlanModelArray.size() - 1,
                             repairPlanModel);
 

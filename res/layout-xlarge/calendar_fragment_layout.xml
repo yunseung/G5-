@@ -45,7 +45,8 @@
             android:layout_marginLeft="120dp"
             android:layout_toRightOf="@id/yyyymmdd"
             android:layout_marginRight="12dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <Button
                 android:id="@+id/pre"

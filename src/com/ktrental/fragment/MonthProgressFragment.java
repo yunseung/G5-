@@ -745,10 +745,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             initScroll();
             hideProgress();
         } else if (funName.equals("queryMaintenacePlan")) {
-            // TODO Auto-generated method stub
-
-            // TODO Auto-generated method stub
-
             if (cursor == null)
                 return;
 
@@ -780,7 +776,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                         if (cemer.equals(" "))
                             planFlag = false;
 
-                    repairPlanModel.addWork(work, planFlag, gubun);
+                    repairPlanModel.addWork(work, planFlag, gubun, workDay);
                     mRepairPlanModelArray.add(repairPlanModel);
 
                     for (int i = backIndex; i < mDayList.size(); i++) {
@@ -804,7 +800,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                     if (cemer != null)
                         if (cemer.equals(" "))
                             planFlag = false;
-                    repairPlanModel.addWork(work, planFlag, gubun);
+                    repairPlanModel.addWork(work, planFlag, gubun, workDay);
                     mRepairPlanModelArray.set(mRepairPlanModelArray.size() - 1, repairPlanModel);
 
                     //

@@ -29,6 +29,8 @@ public class RepairPlanModel {
 
 	private String mGubun;
 
+	private int mWorkDay;
+
 	public int getEmergency() {
 		return emergency;
 	}
@@ -46,7 +48,11 @@ public class RepairPlanModel {
 		// plan = subscription + subscriptionWaitting + transfer + complate;
 	}
 
-	public void addWork(String workName, boolean planFlag, String gubun) {
+	public void addWork(String workName, boolean planFlag, String gubun, int workDay) {
+		if (workDay > 0) {
+			mWorkDay = workDay;
+		}
+
 		mGubun = gubun;
 		for (int i = 0; i < workArr.length; i++) {
 			if (workArr[i].equals(workName)) {
@@ -291,6 +297,10 @@ public class RepairPlanModel {
 		}
 
 		return rePreiod;
+	}
+
+	public int getWorkDay() {
+		return mWorkDay;
 	}
 
 }

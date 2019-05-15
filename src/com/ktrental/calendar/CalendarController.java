@@ -2,8 +2,10 @@ package com.ktrental.calendar;
 
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CalendarController {
 
@@ -92,14 +94,11 @@ public class CalendarController {
 		// // 일월화수목금토일을 표시하기 위해 리스트를 얻어온다.
 		// reDayInfoList = repeatMonthDay(1, 8, 0, reDayInfoList, 0, true);
 
-		// 이전달에 남은 날짜들을 리스트에 담아온다.
-		Calendar thumb = mThisMonthCalendar;
 
-		Calendar mThisMonthCalendar2 = Calendar.getInstance();
+		// 이전달에 남은 날짜들을 리스트에 담아온다.
 		reDayInfoList = repeatMonthDay(0, dayOfMonth - 1, lastMonthStartDay,
 				reDayInfoList, DayInfoModel.PREV_MONTH, false);
 
-		mThisMonthCalendar = thumb;
 
 		// 현재달에 남은 날짜들을 리스트에 담아온다.
 		reDayInfoList = repeatMonthDay(1, thisMonthLastDay + 1, 0,
@@ -115,6 +114,8 @@ public class CalendarController {
 
 		}
 
+		mThisMonthCalendar = getMonth(mThisMonthCalendar, -1);
+
 		return reDayInfoList;
 
 	}
@@ -122,6 +123,7 @@ public class CalendarController {
 	private ArrayList<DayInfoModel> repeatMonthDay(int increaseNum, int loopSize, int lastMonthStartDay, ArrayList<DayInfoModel> dayInfoList, int inMonth, boolean isHeaderText) {
 
 		Calendar mThisMonthCalendar2 = Calendar.getInstance();
+
 		DayInfoModel day = null;
 
 		// 실제 현재 달과 같은 달인지 판별
@@ -129,35 +131,39 @@ public class CalendarController {
 
 		ArrayList<DayInfoModel> currentArrayList = new ArrayList<DayInfoModel>();
 
+
+		Calendar calendar = null;
+
+		if (inMonth == DayInfoModel.NEXT_MONTH) {
+			Log.e("++++", "3333 : " + mThisMonthCalendar.get(Calendar.MONTH));
+			calendar = getMonth(mThisMonthCalendar, 1);
+			Log.e("++++", "3333 : " + mThisMonthCalendar.get(Calendar.MONTH));
+
+		} else if (inMonth == DayInfoModel.PREV_MONTH){
+			Log.e("++++", "1111 : " + mThisMonthCalendar.get(Calendar.MONTH));
+			calendar = getMonth(mThisMonthCalendar, -1);
+
+		} else if (inMonth == DayInfoModel.CURRENT_MONTH) {
+			Log.e("++++", "2222 : " + mThisMonthCalendar.get(Calendar.MONTH));
+			calendar = getMonth(mThisMonthCalendar, 1);
+
+		}
+
 		for (int i = increaseNum; i < loopSize; i++) {
 			int date = lastMonthStartDay + i;
 			day = new DayInfoModel();
 			day.setDay(String.valueOf(date), isHeaderText);
 			day.setInMonth(inMonth);
 			day.setDayOfWeek(dayInfoList.size());
-			if (isCurrentMonth) {
-				day.setToDay(date, mThisMonthCalendar2.get(Calendar.DATE));
-				day.setCurrentDay(String.valueOf(mThisMonthCalendar2.get(Calendar.YEAR))
-						+ addZero(mThisMonthCalendar2.get(Calendar.MONTH) + 1) + addZero(date));
-			} else {
-
-				String year = null;
-				String month = null;
-				Calendar calendar = null;
-
-
-				if (inMonth == DayInfoModel.NEXT_MONTH) {
-					calendar = getMonth(mThisMonthCalendar2, +1);
-
-				} else {
-					calendar = getMonth(mThisMonthCalendar2, -1);
-
-				}
-				year = String.valueOf(calendar.get(Calendar.YEAR));
-				month = addZero(calendar.get(Calendar.MONTH) + 1);
-
-				day.setCurrentDay(year + month + String.valueOf(addZero(date)));
+			if (inMonth == DayInfoModel.CURRENT_MONTH) {
+				day.setToDay(date, mToday);
 			}
+			String year = null;
+			String month = null;
+			year = String.valueOf(calendar.get(Calendar.YEAR));
+			month = addZero(calendar.get(Calendar.MONTH) + 1);
+
+			day.setCurrentDay(year + month + String.valueOf(addZero(date)));
 			dayInfoList.add(day);
 			if (mType == TYPE_SHOW_DEFAULT)
 				currentArrayList.add(day);

@@ -202,7 +202,7 @@
             <!-- etc area -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="2000dp"
+                android:layout_height="1100dp"
                 android:orientation="vertical">
 
                 <TextView
