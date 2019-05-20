@@ -765,6 +765,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                 int workDay = Integer.valueOf(cursor.getString(1));
                 String cemer = cursor.getString(2);
                 String gubun = cursor.getString(cursor.getColumnIndex(month_colums[25]));
+
                 if ("E0004".equals(work)) {
                     mComplateVal++;
                 }
@@ -831,8 +832,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             // mDayList.clear();
 
             ArrayList<RepairDayInfoModel> repairDayInfoModels = mDayList;
-            if (mCalendarFragment != null)
+            if (mCalendarFragment != null) {
+                mCalendarFragment.setRepairPlanModelArray(mRepairPlanModelArray);
                 mCalendarFragment.updateDayList(repairDayInfoModels);
+            }
 
             queryMaintenace(mCurrentDay);
 
@@ -1276,7 +1279,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         // new OnCalendarComplate() {
         //
         // @Override
-        // public void onCalendarComplate() {
+        // public void onCalendarComplate() {updateRepairPlan()
         // // TODO Auto-generated method stub
         // ArrayList<RepairDayInfoModel> repairDayInfoModels =
         // KtRentalApplication

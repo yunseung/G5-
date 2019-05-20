@@ -135,16 +135,12 @@ public class CalendarController {
 		Calendar calendar = null;
 
 		if (inMonth == DayInfoModel.NEXT_MONTH) {
-			Log.e("++++", "3333 : " + mThisMonthCalendar.get(Calendar.MONTH));
 			calendar = getMonth(mThisMonthCalendar, 1);
-			Log.e("++++", "3333 : " + mThisMonthCalendar.get(Calendar.MONTH));
 
 		} else if (inMonth == DayInfoModel.PREV_MONTH){
-			Log.e("++++", "1111 : " + mThisMonthCalendar.get(Calendar.MONTH));
 			calendar = getMonth(mThisMonthCalendar, -1);
 
 		} else if (inMonth == DayInfoModel.CURRENT_MONTH) {
-			Log.e("++++", "2222 : " + mThisMonthCalendar.get(Calendar.MONTH));
 			calendar = getMonth(mThisMonthCalendar, 1);
 
 		}

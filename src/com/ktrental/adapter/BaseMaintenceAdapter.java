@@ -184,7 +184,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             } else if (model.get_gubun().equals("A")) {
                 viewHolder.tvIoT.setVisibility(View.VISIBLE);
                 viewHolder.tvIoT.setText("IoT");
-                viewHolder.tvDelay.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setBackgroundColor(mContext.getResources().getColor(R.color.cal_sunday));
                 viewHolder.btnReqIot.setVisibility(View.VISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.VISIBLE);
                 viewHolder.item_back.setBackgroundColor(Color.parseColor("#A9E2F3"));

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,7 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
     private TextView mTvCalendarTitle;
 
     private ArrayList<RepairDayInfoModel> mDayList;
+    private ArrayList<RepairPlanModel> mRepairPlanModelArray = new ArrayList<RepairPlanModel>();
     private CalendarAdapter mCalendarAdapter;
 
     private CalendarController mCalendarManager;
@@ -292,6 +294,15 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         for (DayInfoModel model : mCalendarManager.getPrevDayInfoList()) {
             mDayList.add(new RepairDayInfoModel(model));
         }
+
+        for (int i = 0; i < mDayList.size(); i++) {
+            for (int j = 0; j < mRepairPlanModelArray.size(); j++) {
+                if (mDayList.get(i).getDayInfoModel().getCurrentDay().equals(Integer.toString(mRepairPlanModelArray.get(j).getWorkDay())) &&
+                        mDayList.get(i).getDayInfoModel().isInMonth()) {
+                    mDayList.get(i).setRepairPlanModel(mRepairPlanModelArray.get(j));
+                }
+            }
+        }
         changeDayInfo();
     }
 
@@ -303,6 +314,15 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         for (DayInfoModel model : mCalendarManager.getNextDayInfoList()) {
             mDayList.add(new RepairDayInfoModel(model));
         }
+
+        for (int i = 0; i < mDayList.size(); i++) {
+            for (int j = 0; j < mRepairPlanModelArray.size(); j++) {
+                if (mDayList.get(i).getDayInfoModel().getCurrentDay().equals(Integer.toString(mRepairPlanModelArray.get(j).getWorkDay())) &&
+                        mDayList.get(i).getDayInfoModel().isInMonth()) {
+                    mDayList.get(i).setRepairPlanModel(mRepairPlanModelArray.get(j));
+                }
+            }
+        }
         changeDayInfo();
     }
 
@@ -311,6 +331,7 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
      */
     private void changeDayInfo() {
         mCalendarAdapter.setChangeDayInfoList(mDayList);
+        mCalendarAdapter.notifyDataSetChanged();
         setCalendarTitle();
     }
 
@@ -325,9 +346,12 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         return title;
     }
 
+    public void setRepairPlanModelArray(ArrayList<RepairPlanModel> array) {
+        mRepairPlanModelArray = array;
+    }
+
     public void updateDayList(ArrayList<RepairDayInfoModel> array) {
         if (mCalendarAdapter != null) {
-
             mCalendarAdapter.setChangeDayInfoList(array);
             mCalendarAdapter.notifyDataSetChanged();
         }
