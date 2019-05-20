@@ -865,6 +865,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
         } else {
             selectedMaintenanceModels = new ArrayList<BaseMaintenanceModel>();
         }
+        selectedMaintenanceModels.clear();
         notifyDataSetChanged();
     }
 
