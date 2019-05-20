@@ -151,8 +151,12 @@ public class CalendarController {
 			day.setDay(String.valueOf(date), isHeaderText);
 			day.setInMonth(inMonth);
 			day.setDayOfWeek(dayInfoList.size());
+
 			if (inMonth == DayInfoModel.CURRENT_MONTH) {
-				day.setToDay(date, mToday);
+			    String currentDay = Integer.toString(mCurrentYear) + addZero(mCurrentMonth +1) + addZero(mToday);
+			    if (getCurrentDay().equals(currentDay)) {
+                   day.setToDay(date, mToday);
+                }
 			}
 			String year = null;
 			String month = null;

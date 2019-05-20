@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -110,7 +111,7 @@ public class CalendarAdapter extends BaseCommonAdapter<RepairDayInfoModel> imple
 
 		super.setData(dayList);
 
-		// mSelectedPosition = getTodayPosition();
+		mSelectedPosition = -1;
 		mBackPosition = mSelectedPosition;
 
 		notifyDataSetChanged();
@@ -134,6 +135,7 @@ public class CalendarAdapter extends BaseCommonAdapter<RepairDayInfoModel> imple
 		DayInfoModel day = model.getDayInfoModel();
 		day.setPosition(position);
 		DayViewHolde dayViewHolder = (DayViewHolde) rootView.getTag();
+
 
 		if (day != null) {
 			dayViewHolder.tvDay.setText(String.valueOf(day.getDay()));
@@ -174,8 +176,13 @@ public class CalendarAdapter extends BaseCommonAdapter<RepairDayInfoModel> imple
 			}
 
 			if (planModel != null) {
-				dayViewHolder.tvHandle.setText("" + planModel.getTotalComplateForDayInfo());
-				dayViewHolder.tvPlan.setText("/" + planModel.getTotalPlanCountForDayInfo());
+				if (day.isInMonth()) {
+					dayViewHolder.tvHandle.setText("" + planModel.getTotalComplateForDayInfo());
+					dayViewHolder.tvPlan.setText("/" + planModel.getTotalPlanCountForDayInfo());
+				} else {
+					dayViewHolder.tvHandle.setText("");
+					dayViewHolder.tvPlan.setText("");
+				}
 			} else {
 				if (day.isInMonth()) {
 					dayViewHolder.tvHandle.setText("" + 0);

@@ -1,23 +1,20 @@
 package com.ktrental.custom;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.ktrental.R;
-import com.ktrental.common.DEFINE;
 import com.ktrental.dialog.Duedate_Dialog;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Cal_Custom extends LinearLayout {
 
@@ -31,6 +28,11 @@ public class Cal_Custom extends LinearLayout {
 
 	LayoutInflater inflater;
 
+	private View title;
+	private TextView tv;
+	private LinearLayout row;
+	private View v;
+
 	public Cal_Custom(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setOrientation(LinearLayout.VERTICAL);
@@ -38,99 +40,107 @@ public class Cal_Custom extends LinearLayout {
 		setPadding(10, 10, 10, 10);
 		this.context = context;
 
-		inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        hhmmdd = Calendar.getInstance();
+
+		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		initView();
 	}
 
 	public void initView() {
 		removeAllViews();
+        mDayList = new ArrayList<DayInfo>();
 
-		hhmmdd = Calendar.getInstance();
 
-		View title = (View) inflater.inflate(R.layout.title4_row, null);
 
-		// LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(135,
-		// 82);
-		TextView tv = (TextView) title.findViewById(R.id.title1_id);
-		
-		// myung 20131119
-//		if (DEFINE.DISPLAY.equals("2560")) {
-			tv.setPadding(50, 38, 0, 0);
-//		}
-		// tv.setLayoutParams(lp);
-		// tv.setPadding(23, 12, 0, 0);
-		// tv.setTextSize(28);
-		// tv.setTypeface(null, Typeface.BOLD);
-		tv.setText(hhmmdd.get(Calendar.YEAR) + "."
-				+ String.format("%02d", (hhmmdd.get(Calendar.MONTH) + 1)));
-		tv.setTextColor(Color.parseColor("#555555"));
-		addView(title);
+        TODAY = "" + hhmmdd.get(Calendar.YEAR)
+                + String.format("%02d", (hhmmdd.get(Calendar.MONTH) + 1))
+                + String.format("%02d", hhmmdd.get(Calendar.DAY_OF_MONTH));
+        TODAY2 = "" + hhmmdd.get(Calendar.YEAR) + "."
+                + String.format("%02d", (hhmmdd.get(Calendar.MONTH) + 1)) + "."
+                + String.format("%02d", hhmmdd.get(Calendar.DAY_OF_MONTH));
 
-		mDayList = new ArrayList<DayInfo>();
+        hhmmdd.set(Calendar.DAY_OF_MONTH, 1);
 
-		TODAY = "" + hhmmdd.get(Calendar.YEAR)
-				+ String.format("%02d", (hhmmdd.get(Calendar.MONTH) + 1))
-				+ String.format("%02d", hhmmdd.get(Calendar.DAY_OF_MONTH));
-		TODAY2 = "" + hhmmdd.get(Calendar.YEAR) + "."
-				+ String.format("%02d", (hhmmdd.get(Calendar.MONTH) + 1)) + "."
-				+ String.format("%02d", hhmmdd.get(Calendar.DAY_OF_MONTH));
-		// Log.i("#","#### 오늘 "+TODAY);
-		hhmmdd.set(Calendar.DAY_OF_MONTH, 1);
-		getCalendar(hhmmdd);
+        title = (View) inflater.inflate(R.layout.title4_row, null);
+        tv = (TextView) title.findViewById(R.id.title1_id);
 
-		LayoutInflater inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		LinearLayout row = null;
-		
-		for (int i = 0; i < mDayList.size(); i++) {
-			DayInfo dayinfo = mDayList.get(i);
-			if (i == 0 || i % 7 == 0) {
-				row = new LinearLayout(context);
-				// myung 20131119 달력의 현재 날짜 표시 박스, 선택날짜 표시 박스 위치 수정
-//				if (DEFINE.DISPLAY.equals("2560")) {
-					// myung 20131121 ADD 달력의 현재 날짜 표시 박스, 선택날짜 표시 박스 위치 수정
-					int tempY = 0;
-					if(i / 7 == 0)
-						tempY = 9;
-					row.setPadding(18, tempY, 0, 0);
-//				} else {
-//					row.setPadding(4, 0, 0, 0);
-//				}
-			}
-			View v = (View) inflater.inflate(R.layout.daydayday, null);
-			String day = dayinfo.getYear() + dayinfo.getMonth()
-					+ dayinfo.getDay();
-			if (TODAY.equals(day)) {
-				v.setBackgroundResource(R.drawable.cal_today);
-			} else {
-				v.setBackgroundColor(Color.TRANSPARENT);
-			}
-			if (SELECTED == i) {
-				v.setBackgroundResource(R.drawable.cal_s);
-			}
+        title.findViewById(R.id.pre).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SELECTED = -1;
+                hhmmdd.add(Calendar.MONTH, -1);
+                hhmmdd.set(Calendar.DAY_OF_MONTH, 1);
+                drawCalendar();
+            }
+        });
 
-			TextView one_day = (TextView) v.findViewById(R.id.day_id);
-			if (!dayinfo.isInMonth())
-				one_day.setTextColor(Color.parseColor("#cccccc"));
-			else {
-				if (i == 0 || i % 7 == 0)
-					one_day.setTextColor(Color.parseColor("#fd2727"));
-				else if ((i + 1) % 7 == 0)
-					one_day.setTextColor(Color.parseColor("#1d84a5"));
-				else
-					one_day.setTextColor(Color.parseColor("#333333"));
-			}
-			one_day.setText(dayinfo.getDay());
-			if (dayinfo.isInMonth() && Duedate_Dialog.dd != null)
-				Duedate_Dialog.dd.setDay(one_day, i, mDayList);
+        title.findViewById(R.id.next).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SELECTED = -1;
+                hhmmdd.add(Calendar.MONTH, 1);
+                hhmmdd.set(Calendar.DAY_OF_MONTH, 1);
+                drawCalendar();
+            }
+        });
 
-			row.addView(v);
-			if (i % 7 == 0)
-				addView(row);
-		}
+        drawCalendar();
 	}
+
+	private void drawCalendar() {
+        removeAllViews();
+        mDayList.clear();
+
+        tv.setText(hhmmdd.get(Calendar.YEAR) + "." + String.format("%02d", (hhmmdd.get(Calendar.MONTH) + 1)));
+        tv.setTextColor(Color.parseColor("#555555"));
+        addView(title);
+
+        Log.e("yunseung+++", " : " + hhmmdd.getTime());
+        getCalendar(hhmmdd);
+
+        for (int i = 0; i < mDayList.size(); i++) {
+            DayInfo dayinfo = mDayList.get(i);
+            if (i == 0 || i % 7 == 0) {
+                row = new LinearLayout(context);
+                int tempY = 0;
+                if(i / 7 == 0)
+                    tempY = 9;
+                row.setPadding(18, tempY, 0, 0);
+            }
+
+            v = (View) inflater.inflate(R.layout.daydayday, null);
+            String day = dayinfo.getYear() + dayinfo.getMonth()
+                    + dayinfo.getDay();
+            if (TODAY.equals(day)) {
+                v.setBackgroundResource(R.drawable.cal_today);
+            } else {
+                v.setBackgroundColor(Color.TRANSPARENT);
+            }
+            if (SELECTED == i) {
+                v.setBackgroundResource(R.drawable.cal_s);
+            }
+
+            TextView one_day = (TextView) v.findViewById(R.id.day_id);
+            if (!dayinfo.isInMonth())
+                one_day.setTextColor(Color.parseColor("#cccccc"));
+            else {
+                if (i == 0 || i % 7 == 0)
+                    one_day.setTextColor(Color.parseColor("#fd2727"));
+                else if ((i + 1) % 7 == 0)
+                    one_day.setTextColor(Color.parseColor("#1d84a5"));
+                else
+                    one_day.setTextColor(Color.parseColor("#333333"));
+            }
+            one_day.setText(dayinfo.getDay());
+            if (dayinfo.isInMonth() && Duedate_Dialog.dd != null)
+                Duedate_Dialog.dd.setDay(one_day, i, mDayList);
+
+            row.addView(v);
+            if (i % 7 == 0)
+                addView(row);
+        }
+    }
 
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -197,5 +207,7 @@ public class Cal_Custom extends LinearLayout {
 			day.setMonth(next_month);
 			mDayList.add(day);
 		}
+
+        calendar.add(Calendar.MONTH, -1);
 	}
 }
