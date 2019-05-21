@@ -199,6 +199,7 @@ public class DEFINE {
 	public static final String ATVYN = "ATVYN";
 	public static final String PRERQ = "PRERQ";
 	public static final String MINVNR = "MINVNR";
+	public static final String REQDT = "REQDT";
 
 	public static String SESSION = "";
 	

@@ -181,6 +181,8 @@ public class CarInfoModel extends BaseMaintenanceModel {
 
 	private String INVNR = "";
 
+	private String REQDT = "";
+
 	public CarInfoModel(String customer_name, String driver_name, String _carNum, String _address,
 			String _tel, String _time, String _carname,
 			String _progress_status, String _day, String customerName,
@@ -198,10 +200,10 @@ public class CarInfoModel extends BaseMaintenanceModel {
 			String EQUNR, String CTRTY, String _CEMER, String CHNGBN,
 			String OWNER, String postCode, String city, String street, 
 			String drv_mob, String drv_tel, String gueen2 , String txt30, String vocNum,
-			String kunnr, String delay, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq, String minvnr) {
+			String kunnr, String delay, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq, String minvnr, String reqDt) {
 		super(customer_name ,driver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr);
+				street, _tel, gueen2, txt30, mdlcd, vocNum, kunnr, delay, null, null, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr, reqDt);
 		LogUtil.d("hjt", "hjt delay = " + delay);
 
 		this.customerName = customerName;
@@ -244,6 +246,7 @@ public class CarInfoModel extends BaseMaintenanceModel {
 		this.MINVNR = minvnr;
 		this._gubun = gubun;
 		this.INVNR = _carNum;
+		this.REQDT = reqDt;
 		
 		d_name = driver_name;
 		c_name = customer_name;
@@ -706,5 +709,9 @@ public class CarInfoModel extends BaseMaintenanceModel {
 	}
 	public String getTIRE_SIZE(){
 		return TIRE_SIZE;
+	}
+
+	public String getReqDt() {
+		return REQDT;
 	}
 }

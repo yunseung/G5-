@@ -13,10 +13,10 @@ public class MonthProgressModel extends BaseMaintenanceModel {
 			String CTRTY, String postCode, String city, String street,
 			String drv_mob, String _cermr, String green2, String txt30, String _mdlcd, String _vocNum,
 			String _kunnr, String delay, String cycmn_tx, String apm, String vbeln, String gubun,
-			String reqNo, String ccmrq, String atvyn, String prerq, String minvnr) {
+			String reqNo, String ccmrq, String atvyn, String prerq, String minvnr, String reqDt) {
 		super(customer_name, dirver_name, _carNum, _address, _tel, _time, _carname,
 				_progress_status, _day, AUFNR, EQUNR, CTRTY, postCode, city,
-				street, drv_mob, green2, txt30, _mdlcd, _vocNum, _kunnr, delay, cycmn_tx, apm, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr);
+				street, drv_mob, green2, txt30, _mdlcd, _vocNum, _kunnr, delay, cycmn_tx, apm, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr, reqDt);
 		cermr = _cermr;
 		this.ccmrq = ccmrq;
 		this.prerq = prerq;

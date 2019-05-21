@@ -114,7 +114,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
             DEFINE.CCMRQ, DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS,
             DEFINE.AUFNR, DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30, // 18
             DEFINE.MDLCD, DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO,
-            DEFINE.ATVYN, DEFINE.PRERQ, DEFINE.CCMRQ, DEFINE.MINVNR};
+            DEFINE.ATVYN, DEFINE.PRERQ, DEFINE.CCMRQ, DEFINE.MINVNR, DEFINE.REQDT};
 
     private String[] maintenace_plan_colums = {DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.CEMER, DEFINE.GUBUN};
 
@@ -1162,6 +1162,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
                     String prerq = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[29]));
                     String ccmrq = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[30]));
                     String minvnr = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[31]));
+                    String reqDt = asyncCursor.getString(asyncCursor.getColumnIndex(maintenace_colums[32]));
 
                     // kog.e("Jonathan", "Hello Jonathan
                     // MaintenanceStatusFragment:: " + VOCNUM);
@@ -1190,7 +1191,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
                             decrypt(maintenace_colums[13], equnr), decrypt(maintenace_colums[14], ctrty), postCode,
                             city, street, decrypt(maintenace_colums[15], drv_mob),
                             decrypt(maintenace_colums[16], cermr), gueen2, txt30, MDLCD, VOCNUM, KUNNR, DELAY, CYCMN_TX,
-                            apm, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr);
+                            apm, vbeln, gubun, reqNo, atvyn, prerq, ccmrq, minvnr, reqDt);
 
                     System.out.println("요기는 모니 -__.... " + "MainenanceStateMnetn   ");// +
                     // VOCINFO);

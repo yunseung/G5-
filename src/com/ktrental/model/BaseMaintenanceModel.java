@@ -57,6 +57,8 @@ public class BaseMaintenanceModel
     private String CCMRQ = "";
     private String MINVNR = "";
     private String _gubun = ""; // 기존에 쓰던 대문자 GUBUN 과 다른 구분 ㅡㅡ... 아..... 이건 iot/일반/고급 구분하는 구분
+    private String REQDT = "";
+
     public BaseMaintenanceModel(String aUFNR)
     {
         super();
@@ -76,7 +78,7 @@ public class BaseMaintenanceModel
     public BaseMaintenanceModel(String customer_name, String driver_name, String _carNum, String _address, String _tel, String _time,
             String _carname, String _progress_status, String _day, String AUFNR, String _EQUNR, String _CTRTY, String postCode, String city,
             String street, String _drv_mob, String _gueen2, String _txt30, String _mdlcd, String _vocNum, String _kunnr, String delay, String cycmn_tx,
-            String apm, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq, String minvnr)
+            String apm, String vbeln, String gubun, String reqNo, String atvyn, String prerq, String ccmrq, String minvnr, String reqDt)
     {
 
         CUSTOMER_NAME = customer_name;
@@ -129,6 +131,8 @@ public class BaseMaintenanceModel
         CCMRQ = ccmrq;
 
         MINVNR = minvnr;
+
+        REQDT = reqDt;
     }
 
     public String get_gubun() {
@@ -418,5 +422,9 @@ public class BaseMaintenanceModel
 
     public String getCCMRQ() {
         return CCMRQ;
+    }
+
+    public String getReqDt() {
+        return REQDT;
     }
 }

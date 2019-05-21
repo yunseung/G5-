@@ -119,7 +119,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             DEFINE.POST_CODE, DEFINE.CITY, DEFINE.STREET, DEFINE.DRV_TEL, DEFINE.CCMSTS, DEFINE.GSTRS, DEFINE.AUFNR, //11
             DEFINE.EQUNR, DEFINE.CTRTY, DEFINE.DRV_MOB, DEFINE.CEMER, DEFINE.GUEEN2, DEFINE.TXT30, DEFINE.MDLCD, //18
             DEFINE.VOCNUM, DEFINE.KUNNR, DEFINE.DELAY, DEFINE.CYCMN_TX, DEFINE.APM, DEFINE.VBELN, DEFINE.GUBUN, DEFINE.REQNO, //26
-            DEFINE.CCMRQ, DEFINE.ATVYN, DEFINE.PRERQ, DEFINE.MINVNR};
+            DEFINE.CCMRQ, DEFINE.ATVYN, DEFINE.PRERQ, DEFINE.MINVNR, DEFINE.REQDT}; // 31
 
     private HashMap<String, DbAsyncTask> mAsyncMap = new HashMap<String, DbAsyncTask>();
 
@@ -661,6 +661,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                                 String atvyn = cursor.getString(cursor.getColumnIndex(month_colums[28]));
                                 String prerq = cursor.getString(cursor.getColumnIndex(month_colums[29]));
                                 String minvnr = cursor.getString(cursor.getColumnIndex(month_colums[30]));
+                                String reqDt = cursor.getString(cursor.getColumnIndex(month_colums[31]));
 
 //							LogUtil.d("hjt", "hjt delay = " + delay);
 //
@@ -702,7 +703,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                                         decrypt(month_colums[11], aufnr), decrypt(month_colums[12], equnr),
                                         decrypt(month_colums[13], ctrty), postCode, city, street,
                                         decrypt(month_colums[14], drv_mob), decrypt(month_colums[15], cermr), gueen2, txt30,
-                                        mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm, vbeln, gubun, reqno, ccmrq, atvyn, prerq, minvnr);
+                                        mdlcd, vocNum, kunnr, delay, CYCMN_TX, apm, vbeln, gubun, reqno, ccmrq, atvyn, prerq, minvnr, reqDt);
 
                                 // MaintenanceModel md = new MaintenanceModel(time,
                                 // name, invnr,

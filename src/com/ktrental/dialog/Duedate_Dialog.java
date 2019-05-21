@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
@@ -16,6 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ktrental.R;
 import com.ktrental.adapter.Duedate_Dialog_Left_Adapter;
@@ -32,8 +34,11 @@ import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.TableModel;
 import com.ktrental.popup.EventPopupC;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Duedate_Dialog extends DialogC implements ConnectInterface,
@@ -383,6 +388,37 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 					return;
 				}
 
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+				for (BaseMaintenanceModel model : bmm_arr) {
+					if (model.get_gubun().equals("A")) { // IoT 건은 당월과 익월로 변경 가능
+						try {
+							Date selDate = sdf.parse(SELECTED_DAY);
+							Date modelDate = sdf.parse(model.getReqDt().replace("/", ""));
+							Toast.makeText(mContext, "reqDt : " + modelDate.toString(), Toast.LENGTH_SHORT).show();
+							if (getMonthsDifference(dateToCalendar(selDate), dateToCalendar(modelDate)) == 1 ||
+									getMonthsDifference(dateToCalendar(selDate), dateToCalendar(modelDate)) == 0) {
+								EventPopupC epc = new EventPopupC(context);
+								epc.show("IoT 건은 당월, 익월 이외의 예정일 변경이 불가능합니다.");
+								return;
+							}
+						} catch (ParseException e) {
+							e.printStackTrace();
+						}
+					} else { // 일반 건은 당월로만 변경 가능
+						try {
+							Date selDate = sdf.parse(SELECTED_DAY);
+							Date modelDate = sdf.parse(model.getDay());
+							if (getMonthsDifference(dateToCalendar(selDate), dateToCalendar(modelDate)) > 0) {
+								EventPopupC epc = new EventPopupC(context);
+								epc.show("예약신청 월과 다른 월로 변경 불가능합니다.");
+								return;
+							}
+						} catch (ParseException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+
 				showProgress("저장중 입니다.");
 				SENDED_DATE = SELECTED_DAY;
 
@@ -420,5 +456,27 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 		KtRentalApplication.changeRepair();
 		KtRentalApplication.getInstance().queryMaintenacePlan();
 		super.dismiss();
+	}
+
+	/**
+	 * 두 날짜간의 월 차이 구하기
+	 * */
+	private int getMonthsDifference(Calendar date1, Calendar date2){
+
+		/* 해당년도에 12를 곱해서 총 개월수를 구하고 해당 월을 더 한다. */
+		int month1 = date1.get(Calendar.YEAR) * 12 + date1.get(Calendar.MONTH);
+		int month2 = date2.get(Calendar.YEAR) * 12 + date2.get(Calendar.MONTH);
+
+		Log.e("++++", "차이 : " + (month1 - month2));
+		return month1 - month2;
+	}
+
+	//Convert Date to Calendar
+	private Calendar dateToCalendar(Date date) {
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar;
+
 	}
 }
