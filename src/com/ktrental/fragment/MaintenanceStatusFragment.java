@@ -1065,8 +1065,6 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
         // CommonUtil.showCallStack();
         showProgress("순회 정비계획을 조회 중입니다.");
 
-        Log.e("HomeFragment", "순회 윤승3");
-
         String[] _whereArgs = {currentDay};
         String[] _whereCause = {"GSTRS"};
 

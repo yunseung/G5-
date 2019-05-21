@@ -170,6 +170,9 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     private String mCurrentStatus = "전체";
     private Map<String, Boolean> mIvCheckStatusMap = new HashMap<>();
 
+    private String mText1 = "";
+    private String mText2 = "전체";
+
 
     // public MonthProgressFragment(String className,
     // OnChangeFragmentListener changeFragmentListener) {
@@ -1128,15 +1131,15 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         int textLength = mEtSearch.getText().toString().length();
         if (standardLength <= textLength) {
 
-            String text = mEtSearch.getText().toString();
-            String text1 = "";
+            mText1 = mEtSearch.getText().toString();
+            mText2 = "";
             for (int i = 0; i < tempBtnAll.size(); i++) {
                 if (mAllButton.getText().toString().equals(tempBtnAll.get(i).get(0))) {
-                    text1 = tempBtnAll.get(i).get(1);
+                    mText2 = tempBtnAll.get(i).get(1);
                 }
             }
-            monthProgressAdapter.setInfoText(text);
-            monthProgressAdapter.setProgressType(text1);
+            monthProgressAdapter.setInfoText(mText1);
+            monthProgressAdapter.setProgressType(mText2);
             monthProgressAdapter.setInfoType(strInfoType);
             monthProgressAdapter.filtering();
             monthProgressAdapter.setMaintenanceType("");
@@ -1150,16 +1153,16 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     }
 
     private void clickSearch2() {
-        String text = mEtSearch.getText().toString();
+        mText1 = mEtSearch.getText().toString();
         // String text1 = mAllButton.getTag().toString();
-        String text1 = "";
+        mText2 = "";
         for (int i = 0; i < tempBtnAll.size(); i++) {
             if (mAllButton.getText().toString().equals(tempBtnAll.get(i).get(0))) {
-                text1 = tempBtnAll.get(i).get(1);
+                mText2 = tempBtnAll.get(i).get(1);
             }
         }
-        monthProgressAdapter.setInfoText(text);
-        monthProgressAdapter.setProgressType(text1);
+        monthProgressAdapter.setInfoText(mText1);
+        monthProgressAdapter.setProgressType(mText2);
         monthProgressAdapter.setInfoType("carnum");
         monthProgressAdapter.filtering();
         monthProgressAdapter.setMaintenanceType("");
@@ -1327,6 +1330,12 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     protected void initSelectedMaintenanceArray(String currentDay) {
         // TODO Auto-generated method stub
         monthProgressAdapter.initSelectedMaintenanceArray();
+        monthProgressAdapter.setInfoText(mText1);
+        monthProgressAdapter.setProgressType(mText2);
+        monthProgressAdapter.setInfoType("carnum");
+        monthProgressAdapter.filtering();
+        monthProgressAdapter.setMaintenanceType("");
+        initMaintenanceEmpty(monthProgressAdapter.getCount());
     }
 
     @Override
