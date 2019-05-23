@@ -115,6 +115,8 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     private Button BtnIotCancel; //IoT 정비 취소
     private ArrayList<BaseMaintenanceModel> mFilterMaintenanceModelArray = new ArrayList<BaseMaintenanceModel>();
 
+    private boolean flag = false;
+
 //	private Mam mWorkProgress;
 
     private String[] month_colums = {DEFINE.GSUZS, DEFINE.INVNR, DEFINE.KUNNR_NM, DEFINE.DRIVN, DEFINE.MAKTX, //4
@@ -729,19 +731,32 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
                                     @Override
                                     public void run() {
-                                        Log.e("++++", "this day : " + mCalendarFragment.getCurrentMonthString());
+                                        String curMon = mCalendarFragment.getCurrentMonthString().replace(".", "");
                                         mFilterMaintenanceModelArray.clear();
-                                        for (BaseMaintenanceModel model : mBaseMaintenanceModels) {
-                                            if (model.getProgress_status().equals("E0001") && model.get_gubun().equals("A")) {
-                                                mFilterMaintenanceModelArray.add(model);
+                                        for (int i = 0; i < mBaseMaintenanceModels.size(); i++) {
+                                            if (mBaseMaintenanceModels.get(i).getProgress_status().equals("E0001") && mBaseMaintenanceModels.get(i).get_gubun().equals("A")) {
+                                                mFilterMaintenanceModelArray.add(mBaseMaintenanceModels.get(i));
                                             }
 
-                                            if (model.getDay().substring(0, 6).equals(mCalendarFragment.getCurrentMonthString().replace(".", ""))) {
-                                                mFilterMaintenanceModelArray.add(model);
+                                            if (mBaseMaintenanceModels.get(i).getDay().substring(0, 6).equals(curMon)) {
+                                                mFilterMaintenanceModelArray.add(mBaseMaintenanceModels.get(i));
                                             }
                                         }
+//                                        for (BaseMaintenanceModel model : mBaseMaintenanceModels) {
+//                                            if (model.getProgress_status().equals("E0001") && model.get_gubun().equals("A")) {
+//                                                mFilterMaintenanceModelArray.add(model);
+//                                            }
+//
+//                                            if (model.getDay().substring(0, 6).equals(curMon)) {
+//                                                mFilterMaintenanceModelArray.add(model);
+//                                            }
+//                                        }
 
                                         monthProgressAdapter.setDataArr(setIotLocationTop(mFilterMaintenanceModelArray));
+
+
+
+//                                        monthProgressAdapter.setDataArr(setIotLocationTop(mBaseMaintenanceModels));
                                         hideProgress();
                                         initMaintenanceEmpty(monthProgressAdapter.getCount());
                                     }
