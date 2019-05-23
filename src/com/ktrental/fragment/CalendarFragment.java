@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ktrental.R;
@@ -133,6 +134,10 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
 
         mGvCalendar.setOnItemClickListener(this);
         mRootView.findViewById(R.id.btn_sync).setOnClickListener(this);
+
+        if (!mSelectedFlag) {
+            (mRootView.findViewById(R.id.m_change_area)).setVisibility(View.GONE);
+        }
 
         mBtnNext = (Button) mRootView.findViewById(R.id.next);
         mBtnPrev = (Button) mRootView.findViewById(R.id.pre);
