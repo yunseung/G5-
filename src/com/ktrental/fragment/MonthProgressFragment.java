@@ -1505,7 +1505,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         monthProgressAdapter.initSelectedMaintenanceArray();
-                        refreshState();
                     }
                 });
                 dd.show();
@@ -1519,7 +1518,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
                 @Override
                 public void onDismiss(DialogInterface dialog) {
                     monthProgressAdapter.initSelectedMaintenanceArray();
-                    refreshState();
                 }
             });
             dd.show();
