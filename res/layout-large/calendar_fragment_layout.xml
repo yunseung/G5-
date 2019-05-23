@@ -38,6 +38,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/m_change_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

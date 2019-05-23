@@ -674,6 +674,11 @@ public class HomeFragment extends BaseRepairFragment implements OnClickListener,
             repairPlanWork();
     }
 
+    @Override
+    public void onClickChangeMonth(String yyyyMM) {
+
+    }
+
     private void repairPlanWork()
     {
         showProgress("순회정비 일정을 동기화 중입니다.");

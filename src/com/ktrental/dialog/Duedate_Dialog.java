@@ -32,7 +32,10 @@ import com.ktrental.custom.Cal_Custom;
 import com.ktrental.custom.DayInfo;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.TableModel;
+import com.ktrental.popup.EventPopup1;
 import com.ktrental.popup.EventPopupC;
+import com.ktrental.util.OnEventCancelListener;
+import com.ktrental.util.OnEventOkListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -390,19 +393,36 @@ public class Duedate_Dialog extends DialogC implements ConnectInterface,
 
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 				for (BaseMaintenanceModel model : bmm_arr) {
-					if (model.get_gubun().equals("A")) { // IoT 건은 당월과 익월로 변경 가능
-						try {
-							Date selDate = sdf.parse(SELECTED_DAY);
-							Date modelDate = sdf.parse(model.getReqDt().replace("/", ""));
-							Toast.makeText(mContext, "reqDt : " + modelDate.toString(), Toast.LENGTH_SHORT).show();
-							if (getMonthsDifference(dateToCalendar(selDate), dateToCalendar(modelDate)) == 1 ||
-									getMonthsDifference(dateToCalendar(selDate), dateToCalendar(modelDate)) == 0) {
-								EventPopupC epc = new EventPopupC(context);
-								epc.show("IoT 건은 당월, 익월 이외의 예정일 변경이 불가능합니다.");
-								return;
+					if (model.get_gubun().equals("A")) {
+						if (!model.getProgress_status().equals("E0001")) {
+							try {
+								Date selDate = sdf.parse(SELECTED_DAY);
+								Date modelDate = sdf.parse(model.getDay());
+								if (getMonthsDifference(dateToCalendar(selDate), dateToCalendar(modelDate)) > 0) {
+									EventPopupC epc = new EventPopupC(context);
+									epc.show("IoT정비 차량은 계획 생선된 '월' 변경이 불가합니다.");
+									return;
+								}
+							} catch (ParseException e) {
+								e.printStackTrace();
 							}
-						} catch (ParseException e) {
-							e.printStackTrace();
+						}
+
+						if (model.getProgress_status().equals("E0001")) {
+							EventPopup1 ep1 = new EventPopup1(mContext,
+									"IoT정비 차량은 최초 스케쥴 확정 시\n계획 생성된 '월' 변경이 불가 합니다.\n해당월에 스케쥴을 확정 하시겠습니까?",
+									new OnEventOkListener() {
+										@Override
+										public void onOk() {
+										}
+									});
+							ep1.setOnCancelListener(new OnEventCancelListener() {
+								@Override
+								public void onCancel() {
+									return;
+								}
+							});
+							ep1.show();
 						}
 					} else { // 일반 건은 당월로만 변경 가능
 						try {

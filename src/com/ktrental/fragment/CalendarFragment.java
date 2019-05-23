@@ -65,6 +65,8 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         void onClickCalendarTitle();
 
         void onClickSync();
+
+        void onClickChangeMonth(String yyyyMM);
     }
 
     public CalendarFragment() {
@@ -241,13 +243,6 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         mBtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//				mDayList.clear();
-//
-//                for (DayInfoModel dayInfoModel : mCalendarManager.getNextDayInfoList()) {
-//                    mDayList.add(new RepairDayInfoModel(dayInfoModel));
-//                }
-//
-//                updateDayList(mDayList);
                 changeNextMonth();
             }
         });
@@ -255,13 +250,6 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         mBtnPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                mDayList.clear();
-//
-//                for (DayInfoModel dayInfoModel : mCalendarManager.getPrevDayInfoList()) {
-//                    mDayList.add(new RepairDayInfoModel(dayInfoModel));
-//                }
-//
-//                updateDayList(mDayList);
                 changePrevMonth();
             }
         });
@@ -338,6 +326,7 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         mCalendarAdapter.setChangeDayInfoList(mDayList);
         mCalendarAdapter.notifyDataSetChanged();
         setCalendarTitle();
+//        mOnCalendarListener.onClickChangeMonth(mDayList.get(15).getDayInfoModel().getCurrentDay().substring(0, 6));
     }
 
     /**

@@ -998,9 +998,7 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
             if (today < 10)
                 todayStr = "0" + todayStr;
 
-            mMonth = mMonth + "." + todayStr + " [" + week + "]";
-
-            mTvRightTitle.setText(mMonth);
+            mTvRightTitle.setText(mMonth + "." + todayStr + " [" + week + "]");
 
         }
     }

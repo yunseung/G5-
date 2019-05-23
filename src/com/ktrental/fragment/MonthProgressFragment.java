@@ -52,6 +52,7 @@ import com.ktrental.fragment.CalendarFragment.OnCalendarListener;
 import com.ktrental.fragment.TransferManageFragment.OnDismissDialogFragment;
 import com.ktrental.model.BaseMaintenanceModel;
 import com.ktrental.model.DbQueryModel;
+import com.ktrental.model.MaintenanceItemModel;
 import com.ktrental.model.MonthProgressModel;
 import com.ktrental.model.RepairDayInfoModel;
 import com.ktrental.model.RepairPlanModel;
@@ -112,6 +113,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     private Button BtnNotImplemented; // 미실시사유등록 버튼
     private Button BtnMonthVocInfo; // VOC 내역 조회
     private Button BtnIotCancel; //IoT 정비 취소
+    private ArrayList<BaseMaintenanceModel> mFilterMaintenanceModelArray = new ArrayList<BaseMaintenanceModel>();
 
 //	private Mam mWorkProgress;
 
@@ -303,8 +305,7 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             }
         });
 
-        setIotLocationTop();
-        monthProgressAdapter.setDataArr(mBaseMaintenanceModels);
+        monthProgressAdapter.setDataArr(setIotLocationTop(mBaseMaintenanceModels));
         mLvProgressStatus.setAdapter(monthProgressAdapter);
 
         mLvProgressStatus.setOnItemClickListener(this);
@@ -728,8 +729,19 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
                                     @Override
                                     public void run() {
-                                        setIotLocationTop();
-                                        monthProgressAdapter.setDataArr(mBaseMaintenanceModels);
+                                        Log.e("++++", "this day : " + mCalendarFragment.getCurrentMonthString());
+                                        mFilterMaintenanceModelArray.clear();
+                                        for (BaseMaintenanceModel model : mBaseMaintenanceModels) {
+                                            if (model.getProgress_status().equals("E0001") && model.get_gubun().equals("A")) {
+                                                mFilterMaintenanceModelArray.add(model);
+                                            }
+
+                                            if (model.getDay().substring(0, 6).equals(mCalendarFragment.getCurrentMonthString().replace(".", ""))) {
+                                                mFilterMaintenanceModelArray.add(model);
+                                            }
+                                        }
+
+                                        monthProgressAdapter.setDataArr(setIotLocationTop(mFilterMaintenanceModelArray));
                                         hideProgress();
                                         initMaintenanceEmpty(monthProgressAdapter.getCount());
                                     }
@@ -847,18 +859,18 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
     }
 
-    private void setIotLocationTop() {
+    private ArrayList<BaseMaintenanceModel> setIotLocationTop(ArrayList<BaseMaintenanceModel> arrayList) {
         ArrayList<BaseMaintenanceModel> tempArray = new ArrayList<>();
-        for (int i = 0; i < mBaseMaintenanceModels.size(); i++) {
-            if (!mBaseMaintenanceModels.get(i).getProgress_status().isEmpty()) {
-                if (mBaseMaintenanceModels.get(i).getProgress_status().equals("E0001")) {
-                    tempArray.add(mBaseMaintenanceModels.get(i));
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (!arrayList.get(i).getProgress_status().isEmpty()) {
+                if (arrayList.get(i).getProgress_status().equals("E0001")) {
+                    tempArray.add(arrayList.get(i));
                 }
             }
         }
 
         for (BaseMaintenanceModel model : tempArray) {
-            mBaseMaintenanceModels.remove(model);
+            arrayList.remove(model);
         }
 
         ArrayList<BaseMaintenanceModel> tempArray2 = new ArrayList<>();
@@ -877,8 +889,10 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
         }
 
         for (int i = 0; i < tempArray.size(); i++) {
-            mBaseMaintenanceModels.add(i, tempArray.get(i));
+            arrayList.add(i, tempArray.get(i));
         }
+
+        return arrayList;
     }
 
     private void setStringArray(Cursor cursor, ArrayList<String> array) {
@@ -1540,6 +1554,30 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
     public void onClickSync() {
         // TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public void onClickChangeMonth(String yyyyMM) {
+//        mFilterMaintenanceModelArray.clear();
+//        for (BaseMaintenanceModel model : mBaseMaintenanceModels) {
+//            if (model.getProgress_status().equals("E0001") && model.get_gubun().equals("A")) {
+//                mFilterMaintenanceModelArray.add(model);
+//            }
+//
+//            if (model.getDay().substring(0, 6).equals(yyyyMM)) {
+//                mFilterMaintenanceModelArray.add(model);
+//            }
+//        }
+//
+//        monthProgressAdapter.setDataArr(setIotLocationTop(mFilterMaintenanceModelArray));
+//
+//        monthProgressAdapter.initSelectedMaintenanceArray();
+//        monthProgressAdapter.setInfoText(mText1);
+//        monthProgressAdapter.setProgressType(mText2);
+//        monthProgressAdapter.setInfoType("carnum");
+//        monthProgressAdapter.filtering();
+//        monthProgressAdapter.setMaintenanceType("");
+//        initMaintenanceEmpty(monthProgressAdapter.getCount());
     }
 
     @Override

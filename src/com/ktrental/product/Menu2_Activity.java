@@ -653,7 +653,7 @@ public class Menu2_Activity extends BaseActivity implements ConnectInterface, On
             case "일반" :
                 atvyn = " ";
                 break;
-            case "IoT정비" :
+            case "IOT정비" :
                 atvyn = "I";
                 break;
             default:

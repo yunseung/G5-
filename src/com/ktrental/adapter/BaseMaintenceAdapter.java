@@ -73,6 +73,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
     private ArrayList<BaseMaintenanceModel>   selectedMaintenanceModels    = new ArrayList<BaseMaintenanceModel>();
 
     protected ArrayList<BaseMaintenanceModel> mFilterMaintenanceModelArray = new ArrayList<BaseMaintenanceModel>();
+    protected ArrayList<BaseMaintenanceModel> mChangeMaintenanceModelArray = new ArrayList<BaseMaintenanceModel>();
 
     private OnClickRootView                   mOnClickRootView;
 
@@ -180,6 +181,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
                 viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setBackgroundColor(mContext.getResources().getColor(R.color.black_color));
                 viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
             } else if (model.get_gubun().equals("A")) {
                 viewHolder.tvIoT.setVisibility(View.VISIBLE);
@@ -191,6 +193,7 @@ public abstract class BaseMaintenceAdapter extends BaseCommonAdapter<BaseMainten
             } else if (model.get_gubun().equals("O")) {
                 viewHolder.btnReqIot.setVisibility(View.INVISIBLE);
                 viewHolder.btnTroubleHistory.setVisibility(View.INVISIBLE);
+                viewHolder.tvDelay.setBackgroundColor(mContext.getResources().getColor(R.color.black_color));
                 viewHolder.tvIoT.setVisibility(View.GONE);
                 viewHolder.item_back.setBackgroundColor(Color.TRANSPARENT);
             }

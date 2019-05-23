@@ -207,7 +207,7 @@ public class MaintentanceInputFragment extends BaseFragment
 
 				mFirstItems.add(maintenanceItemModel.clone());
 
-				if (!maintenanceItemModel.getNETPR().replace(",", "").trim().isEmpty()) {
+				if (!maintenanceItemModel.getNETPR().replace(",", "").trim().isEmpty() || !maintenanceItemModel.getNETPR().equals("")) {
 					mLastTotalPrice += (Integer.parseInt(maintenanceItemModel.getNETPR().replace(",", "")) * maintenanceItemModel.getConsumption());
 				}
 

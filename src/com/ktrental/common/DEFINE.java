@@ -56,24 +56,24 @@ public class DEFINE {
 	 * 신규 테스트 서버
 	 */
 
-	public final static String SAP_SERVER_IP = "10.106.7.13";
-	public final static String MW_HOST_IP = "124.243.70.42";
-	public final static String PAPER_DOWN_URL = "https://edi.ktrental.com/smarteInterface_erp/android/KTRPWdev.apk";
-	public final static String DOWNLOAD_URL = "http://124.243.70.42:8090/app/Android/cm/";
-	public final static String PIC_UPLOAD_URL = "http://10.106.7.11:8004";
-	public final static String DOWNLOAD_APK = "KTRental_Test.apk";
+//	public final static String SAP_SERVER_IP = "10.106.7.13";
+//	public final static String MW_HOST_IP = "124.243.70.42";
+//	public final static String PAPER_DOWN_URL = "https://edi.ktrental.com/smarteInterface_erp/android/KTRPWdev.apk";
+//	public final static String DOWNLOAD_URL = "http://124.243.70.42:8090/app/Android/cm/";
+//	public final static String PIC_UPLOAD_URL = "http://10.106.7.11:8004";
+//	public final static String DOWNLOAD_APK = "KTRental_Test.apk";
 
 	/**
 	 * 신규 운영 서버.
 	 * 2017.05.29.
 	 * 운영서버로 완전 변경 전에 테스트 서버로 활용한다
 	 */
-//	final public static String SAP_SERVER_IP = "rerpci"; //"10.106.2.21"
-//	final public static String MW_HOST_IP = "merp.lotterental.net"; //"124.243.70.84,85"
-//	final public static String PAPER_DOWN_URL = "http://app.lotterental.net";
-//	public final static String DOWNLOAD_URL = "http://app.lotterental.net/Android/cm/";
-//	public final static String PIC_UPLOAD_URL = "http://ext.lotterental.net:8001";	//"http://14.49.24.100:8001";
-//	public final static String DOWNLOAD_APK = "KTRental_Real.apk";
+	final public static String SAP_SERVER_IP = "rerpci"; //"10.106.2.21"
+	final public static String MW_HOST_IP = "merp.lotterental.net"; //"124.243.70.84,85"
+	final public static String PAPER_DOWN_URL = "http://app.lotterental.net";
+	public final static String DOWNLOAD_URL = "http://app.lotterental.net/Android/cm/";
+	public final static String PIC_UPLOAD_URL = "http://ext.lotterental.net:8001";	//"http://14.49.24.100:8001";
+	public final static String DOWNLOAD_APK = "KTRental_Real.apk";
 
 	final public static int MW_HOST_PORT = 9192;
 	final public static int MW_CONNECTION_TIMEOUT = 10;
