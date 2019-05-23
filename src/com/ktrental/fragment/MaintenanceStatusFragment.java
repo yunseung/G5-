@@ -53,9 +53,11 @@ import com.ktrental.util.OnChangeFragmentListener;
 import com.ktrental.util.OnEventOkListener;
 import com.ktrental.util.kog;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -163,6 +165,8 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
     private ImageView mIvCheckAll = null;
     private String mCurrentStatus = "전체";
     private Map<String, Boolean> mIvCheckStatusMap = new HashMap<>();
+
+    private String mMonth = null;
 
     public MaintenanceStatusFragment() {
     }
@@ -964,17 +968,28 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
 
     private void setMonthTitle() {
         if (mTvHeaderTitle != null && mCalendarManager != null) {
-            String month = mCalendarManager.getCalendarTitle();
-            month = month + " 정비현황";
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM");
+            mMonth = mCalendarManager.getCalendarTitle();
 
-            mTvHeaderTitle.setText(month);
+            try {
+                Date date = sdf.parse(mMonth);
+                calendar.setTime(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), 1);
+            calendar.add(Calendar.MONTH, 1);
+
+            mMonth = calendar.get(Calendar.YEAR) + "." + (calendar.get(Calendar.MONTH) + 1);
+
+            mTvHeaderTitle.setText(mMonth + " 정비현황");
 
         }
     }
 
     private void setDateTitle() {
         if (mTvRightTitle != null && mCalendarManager != null) {
-            String month = mCalendarManager.getCalendarTitle();
             String todayStr = maintenance_Date_Adapter.getTodayModel().getDay();
             String week = maintenance_Date_Adapter.getTodayModel()
                     .getHeaderText(maintenance_Date_Adapter.getTodayModel().getDayOfWeek());
@@ -983,9 +998,9 @@ public class MaintenanceStatusFragment extends BaseRepairFragment
             if (today < 10)
                 todayStr = "0" + todayStr;
 
-            month = month + "." + todayStr + " [" + week + "]";
+            mMonth = mMonth + "." + todayStr + " [" + week + "]";
 
-            mTvRightTitle.setText(month);
+            mTvRightTitle.setText(mMonth);
 
         }
     }
