@@ -3298,6 +3298,15 @@ HashMap<String, String> setData = new HashMap<String, String>();
 		pp.setMessage("SMS 전송중입니다.");
 		pp.show();
 
+		if(content_spPhone == null || content_spPhone.equals("") || content_spPhone.equals(" ")){
+			if(telf1 != null && !telf1.equals("")) {
+				content_spPhone = telf1;
+			}
+		}
+		kog.e("SMS", "SMS content_spPhone telf1  = " + telf1);
+		kog.e("SMS", "SMS content_spPhone        = " + content_spPhone);
+		kog.e("SMS", "SMS content_customer_phone = " + content_customer_phone);
+
 		if(DEFINE.getDEBUG_MODE()){
 			content_customer_phone = "01099458330";
 			content_spPhone = "01099458330";
