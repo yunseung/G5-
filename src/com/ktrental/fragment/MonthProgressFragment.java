@@ -1511,7 +1511,6 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
             }
         } else {
             // iot 이든 일반이든 무조건 1건이다.
-            // iot 와 일반의 예정일 변경 RFC 가 상이하기 때문에 생성자 파라미터에 구분자를 추가함, // yunseung
             Duedate_Dialog dd = new Duedate_Dialog(mContext, models, models.get(0).getATVYN(), models.get(0).getREQNO());
             // myung 20131230 ADD 체크초기화
             dd.setOnDismissListener(new OnDismissListener() {
@@ -1571,26 +1570,26 @@ public class MonthProgressFragment extends BaseRepairFragment implements OnItemC
 
     @Override
     public void onClickChangeMonth(String yyyyMM) {
-//        mFilterMaintenanceModelArray.clear();
-//        for (BaseMaintenanceModel model : mBaseMaintenanceModels) {
-//            if (model.getProgress_status().equals("E0001") && model.get_gubun().equals("A")) {
-//                mFilterMaintenanceModelArray.add(model);
-//            }
-//
-//            if (model.getDay().substring(0, 6).equals(yyyyMM)) {
-//                mFilterMaintenanceModelArray.add(model);
-//            }
-//        }
-//
-//        monthProgressAdapter.setDataArr(setIotLocationTop(mFilterMaintenanceModelArray));
-//
-//        monthProgressAdapter.initSelectedMaintenanceArray();
-//        monthProgressAdapter.setInfoText(mText1);
-//        monthProgressAdapter.setProgressType(mText2);
-//        monthProgressAdapter.setInfoType("carnum");
-//        monthProgressAdapter.filtering();
-//        monthProgressAdapter.setMaintenanceType("");
-//        initMaintenanceEmpty(monthProgressAdapter.getCount());
+        mFilterMaintenanceModelArray.clear();
+        for (BaseMaintenanceModel model : mBaseMaintenanceModels) {
+            if (model.getProgress_status().equals("E0001") && model.get_gubun().equals("A")) {
+                mFilterMaintenanceModelArray.add(model);
+            }
+
+            if (model.getDay().substring(0, 6).equals(yyyyMM)) {
+                mFilterMaintenanceModelArray.add(model);
+            }
+        }
+
+        monthProgressAdapter.setDataArr(setIotLocationTop(mFilterMaintenanceModelArray));
+
+        monthProgressAdapter.initSelectedMaintenanceArray();
+        monthProgressAdapter.setInfoText(mText1);
+        monthProgressAdapter.setProgressType(mText2);
+        monthProgressAdapter.setInfoType("carnum");
+        monthProgressAdapter.filtering();
+        monthProgressAdapter.setMaintenanceType("");
+        initMaintenanceEmpty(monthProgressAdapter.getCount());
     }
 
     @Override

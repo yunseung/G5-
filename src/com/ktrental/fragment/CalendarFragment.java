@@ -326,7 +326,7 @@ public class CalendarFragment extends BaseFragment implements OnItemClickListene
         mCalendarAdapter.setChangeDayInfoList(mDayList);
         mCalendarAdapter.notifyDataSetChanged();
         setCalendarTitle();
-//        mOnCalendarListener.onClickChangeMonth(mDayList.get(15).getDayInfoModel().getCurrentDay().substring(0, 6));
+        mOnCalendarListener.onClickChangeMonth(mDayList.get(15).getDayInfoModel().getCurrentDay().substring(0, 6));
     }
 
     /**
